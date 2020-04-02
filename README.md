@@ -85,7 +85,7 @@ In terms of source of inspiration, the following vizualisations played a major r
 - [Animation Of Surface Winds - earth.nullschool.net](https://earth.nullschool.net/)
 - [100 Years Of Rock - ConcertHotels.com](https://www.concerthotels.com/100-years-of-rock/)
 
-The three listed visualizations combine user interaction, information summarization, and temporal evolution, and composed the basis of our project motivations.
+The three listed visualizations combine user interaction, world map information, and temporal evolution, which composed the basis of our project motivations.
 
 
 ## Milestone 2 (Friday 1st May, 5pm)
