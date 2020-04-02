@@ -57,7 +57,7 @@ instead of looking through tens of websites if the information is scattered a lo
 
 You can find basic statistics and insight we provided on the dataset in the notebook *Exploratory Analysis.ipynb* that comes up with our submission in the repository.
 Please, follow this link to visualize our notebook for the exploratory data analysis : 
-- [Exploratory Data Analysis Jupyter Notebook](https://nbviewer.jupyter.org/github/com-480-data-visualization/com-480-project-le-kfc/blob/master/Exploratory%20Analysis.ipynb)
+- [Exploratory Data Analysis Jupyter Notebook](https://nbviewer.jupyter.org/github/com-480-data-visualization/com-480-project-le-kfc/blob/master/Exploratory%20Data%20Analysis.ipynb)
 
 ### Related Work
 
