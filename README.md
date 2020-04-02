@@ -29,7 +29,7 @@ the name of the concerned tournament, the city and country where the match took 
 from the name actually used today), and a boolean value if the match was played in a neutral stadium (TRUE) or if the home team was playing in its own country (FALSE).
 
 The dataset at hand is pretty straight-forward, and it seems to have no missing data nor corrupted information. That being said, some irrelevant information can be 
-observed, like teams representing cities and regions, that are not affiliated with FIFA, and does not participate in major tounaments like the official World Cup or 
+observed, like teams representing cities or regions, that are not affiliated with FIFA, and does not participate in major tounaments like the official World Cup or 
 Continental Cups. Concerning preprocessing, since we want to only consider teams that are eligible for the World Cup to have accurate statistics on teams and perform 
 efficient comparisons between them, we simply need to get rid of any team that is not affiliated with FIFA.
 
