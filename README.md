@@ -12,7 +12,7 @@
 
 **10% of the final grade**
 
-# Dataset
+### Dataset
 
 The dataset we use has been taken from Kaggle and is the following : 
 - [International football results from 1872 to 2020](https://www.kaggle.com/martj42/international-football-results-from-1872-to-2017)
@@ -33,7 +33,7 @@ observed, like teams representing cities and regions, that are not affiliated wi
 Continental Cups. Concerning preprocessing, since we want to only consider teams that are eligible for the World Cup to have accurate statistics on teams and perform 
 efficient comparisons between them, we simply need to get rid of any team that is not affiliated with FIFA.
 
-# Problematic
+### Problematic
 
 Our visualization is aiming to present an historical view of every men’s official international football matches between nations at the professional level since the 
 beginning of football history. We want the user to be able to select a particular period between two given years in the interval 1872-2020, in order to display the 
@@ -53,20 +53,22 @@ in a given period, all the answers will be gathered into our project. Many users
 concerning football international teams since their creation, would be happy to access a single database containing what they need to complete successfully their research, 
 instead of looking through tens of websites if the information is scattered a lot.
 
-# Exploratory Data Analysis
+### Exploratory Data Analysis
 
 You can find basic statistics and insight we provided on the dataset in the notebook *Exploratory Analysis.ipynb* that comes up with our submission in the repository.
 Please, follow this link to visualize our notebook for the exploratory data analysis : 
 - [Exploratory Data Analysis Jupyter Notebook](https://nbviewer.jupyter.org/github/com-480-data-visualization/com-480-project-le-kfc/blob/master/Exploratory%20Analysis.ipynb)
 
-# Related Work
+### Related Work
 
 Concerning the use that has already be done by others with the data, we found a few studies that performed exploratory data analysis, like us, on this same dataset, 
 but without getting too much in-depth :
 - [Simple Football Data-set Exploration with Pandas](https://towardsdatascience.com/simple-football-data-set-exploration-with-pandas-60a2bc56bd5a)
 - [Exploration on World Football Data](https://www.kaggle.com/microtang/exploration-on-world-football-data)
+
 Concerning visualization work, the following provides an historical overview of the results of any football nation with the help of an interactive map :
 - [All International Football Results](https://public.tableau.com/profile/kakuna#!/vizhome/AllFootballResults/Overview)
+
 This last study is much closer to what we are striving for. This project makes possible to visualize the number of games won, drawn or lost by a given team against all other 
 opponents between 1872 and 2017. The only possible variable, in addition to the choice of the team to be visualized, is the choice of the competition on which we want to
 display the statistics. However, these are the only criteria that this site provides, and there is no option to directly compare two countries, to get statistics on the number
@@ -82,6 +84,7 @@ In terms of source of inspiration, the following vizualisations played a major r
 - [Histography - Matan Stauber](https://histography.io/)
 - [Animation Of Surface Winds - earth.nullschool.net](https://earth.nullschool.net/)
 - [100 Years Of Rock - ConcertHotels.com](https://www.concerthotels.com/100-years-of-rock/)
+
 The three listed visualizations combine user interaction, information summarization, and temporal evolution, and composed the basis of our project motivations.
 
 
