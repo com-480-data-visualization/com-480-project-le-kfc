@@ -18,7 +18,7 @@ The dataset we use has been taken from Kaggle and is the following :
 - [International football results from 1872 to 2020](https://www.kaggle.com/martj42/international-football-results-from-1872-to-2017)
 
 The dataset is a list of 41,586 international football matches results (ranged from World Cup to friendly matches) ordered in chronological order, 
-starting from the very first official international football match between England and Scotland on November 30, 1872, and ending on February, 1 2020 with 
+starting from the very first official international football match between England and Scotland on November 30, 1872 and ending on February, 1 2020 with 
 the friendly match between USA and Costa Rica. The data has been gathered from several sources like Wikipedia, fifa.com, rsssf.com and individual football 
 associations' websites. The dataset only consists of men's football matches between nations. It does not include women's international football matches, 
 Olympic Games, or matches involving a nation's B-team, U-23, or a football club from a national league. For each sample, we have the date of the match, 
@@ -35,21 +35,21 @@ efficient comparisons between them, we simply need to get rid of any team that i
 
 ### Problematic
 
-Our visualization is aiming to present an historical view of every men’s official international football matches between nations at the professional level since the 
+Our visualization is aiming to present an historical view of every football matches between nations at the professional level since the 
 beginning of football history. We want the user to be able to select a particular period between two given years in the interval 1872-2020, in order to display the 
 statistics from every football match that we can retrieve from the dataset during the selected period. This can include the number of goal scored by a team, the different 
 championships it won, the number of official competitions a country hosted, and many more. This can give the user, given a specific period, the statistical distribution 
 of the total goals scored, or a comparison of each team's strength and performance. This visualization could also let us make assumptions on the pet peeve of each team, 
 or how much the fact of playing at home, or hosting a tournament, affects a country performances.
 
-We thought that the visualization could consist mainly of a world map with a slider placed along a side of the screen. The map would itself be a first layer of visualisation, displaying high-level comparative information between the national teams. Clicking on a country on the interactive map would 
+We thought that the visualization could consist mainly of a world map with a slider placed along a side of the screen. The map would itself be a first layer of visualization, displaying high-level comparative information between the national teams. Clicking on a country on the interactive map would 
 display some statistics of the nation's team between two specific years that are chosen by the user with the help of the slider. It would be also possible to compare two 
 or more teams' statistics with a specific option that would be available at use after selecting the first team. We can also provide other views than a map to select a nation, 
 like a grid, or a search bar. The user will also be able to select specifically the comparison criteria in order to filter the desired statistics.
 
 Our motivation comes from the fact that it is difficult to find such up-to-date and complete historical data at a single place on the web related to football, which is 
-however the most popular sport in the world. If a user wants to know how many matches a specific football nation won through history, or which country was the most successful 
-in a given period, all the answers will be gathered into our project. Many users like football fans and journalists, that are looking for information 
+however the most popular sport in the world. If a user, for example, wants to know which country had the most successful team
+during a given period, our project will provide the answer. Many users like football fans and journalists, that are looking for information 
 concerning football international teams since their creation, would be happy to access a single interactive database containing what they need to complete successfully their research, 
 instead of looking through tens of websites if the information is scattered a lot.
 
