@@ -42,15 +42,15 @@ championships it won, the number of official competitions a country hosted, and 
 of the total goals scored, or a comparison of each team's strength and performance. This visualization could also let us make assumptions on the pet peeve of each team, 
 or how much the fact of playing at home, or hosting a tournament, affects a country performances.
 
-We thought that the visualization could consist mainly of a world map with a slider placed along a side of the screen. Clicking on a country on the interactive map would 
+We thought that the visualization could consist mainly of a world map with a slider placed along a side of the screen. The map would itself be a first layer of visualisation, displaying high-level comparative information between the national teams. Clicking on a country on the interactive map would 
 display some statistics of the nation's team between two specific years that are chosen by the user with the help of the slider. It would be also possible to compare two 
 or more teams' statistics with a specific option that would be available at use after selecting the first team. We can also provide other views than a map to select a nation, 
 like a grid, or a search bar. The user will also be able to select specifically the comparison criteria in order to filter the desired statistics.
 
 Our motivation comes from the fact that it is difficult to find such up-to-date and complete historical data at a single place on the web related to football, which is 
 however the most popular sport in the world. If a user wants to know how many matches a specific football nation won through history, or which country was the most successful 
-in a given period, all the answers will be gathered into our project. Many users like football fans but also especially sports data analysts, that are looking for information 
-concerning football international teams since their creation, would be happy to access a single database containing what they need to complete successfully their research, 
+in a given period, all the answers will be gathered into our project. Many users like football fans, that are looking for information 
+concerning football international teams since their creation, would be happy to access a single interactive database containing what they need to complete successfully their research, 
 instead of looking through tens of websites if the information is scattered a lot.
 
 ### Exploratory Data Analysis
@@ -73,12 +73,10 @@ This last study is much closer to what we are striving for. This project makes p
 opponents between 1872 and 2017. The only possible variable, in addition to the choice of the team to be visualized, is the choice of the competition on which we want to
 display the statistics. However, these are the only criteria that this site provides, and there is no option to directly compare two countries, to get statistics on the number
 of matches a city/country hosted, or statistics on team playing at home or away. This visualization can then be greatly extended, and updated with more recent results, since 
-that the dataset is in accordance with today's trends.
+the dataset has been kept up to date.
 
-The originality of our approach comes from the fact that the visualization will allow the user to move through the whole football historical period, thanks to a slider, and 
-easily discover many useful and interesting historical statistics that are often complicated to spot at a single place on the web in the football data visualization context. 
-In addition, using a map will make our visualization much more interactive, user-friendly, easily understandable, and very advanced. We then decided to combine temporal 
-visualization and interactive statistical display in order to provide clear and complete statistics for football addicts and data analysts.
+The originality of our approach comes from the fact that the visualization will allow the user to move through the whole football historical period, thanks to a slider, discovering many useful and interesting historical statistics that can rarely be found in one place. 
+In addition, using a map will make our visualization much more interactive and user-friendly than other sources.
 
 In terms of source of inspiration, the following vizualisations played a major role in taking our final decision :
 - [Histography - Matan Stauber](https://histography.io/)
