@@ -28,26 +28,16 @@ Our motivation comes from the fact that it is difficult to find complete and up-
 
 ### Exploratory Data Analysis
 
-You can find basic statistics and insight we provided on the dataset in the notebook *Exploratory Data Analysis.ipynb*. Here is the link to visualize our notebook :
-- [Exploratory Data Analysis Jupyter Notebook](https://nbviewer.jupyter.org/github/com-480-data-visualization/com-480-project-le-kfc/blob/master/Exploratory%20Data%20Analysis.ipynb)
+You can find basic statistics and insight we provided on the dataset in the notebook *Exploratory Data Analysis.ipynb*. Here is the link to visualize the full notebook :
+- [Exploratory Data Analysis Notebook](https://nbviewer.jupyter.org/github/com-480-data-visualization/com-480-project-le-kfc/blob/master/Exploratory%20Data%20Analysis.ipynb)
 
-In summary, after performing preprocessing, 39654 samples of football matches are at our disposal, with 219 different teams and 104 different competitions. 
-
-The exploratory data analysis showed us that the number of games has increased exponentially in the last decades, going from 2000 matches in the 1950s to more than 8000 matches in the 2010s. 
-
-We obtained a mean of 362 matches played per team, but a large standard deviation of 245 for this statistic. 
+In summary, after performing preprocessing, 39654 samples of football matches are at our disposal, with 219 different teams and 104 different competitions. The exploratory data analysis showed us that the number of games has increased exponentially in the last decades, going from 2000 matches in the 1950s to more than 8000 matches in the 2010s. We obtained a mean of 362 matches played per team, but a large standard deviation of 245 for this statistic.
 
 Concerning the number of goals scored by a team during a match, we obtain a mean of 1.44 goals per match, and a standard deviation of 1.56. In addition, 75% of the teams score 2 or less goals per match. The mean of the total number of goals scored in a single match is 2.89 with a standard deviation of 2.03.
 
-The proportion of friendly (non-competitive) matches reaches 41.33%, and a huge majority of competitive matches are FIFA World Cup Qualification fixtures (more than 7000 games).
+The proportion of friendly (non-competitive) matches reaches 41.33%, and a huge majority of competitive matches are FIFA World Cup Qualification fixtures (more than 7000 games). The number of participants in the World Cup was not higher than 16 between 1930 and 1978. It went up to 24 in 1982 and reached 32 in 1998.
 
-The number of participants in the World Cup was not higher than 16 between 1930 and 1978. It went up to 24 in 1982 and reached 32 in 1998.
-
-The USA hosted the highest number of football matches so far (more than 1000 games), and most of them are neutral (65.63% vs 34.37%) and friendly matches (representing more than 50% of the proportion of hosted matches in the USA).
-
-Concerning the cities, Kuala Lumpur organized the highest number of football games (between 550 and 600 matches).
-
-Most of the matches have been played on non-neutral fields (76.61% vs 23.39%), and the winner of those games is mostly the home team (65.70% vs 34.30%).
+The USA hosted the highest number of football matches so far (more than 1000 games), and most of them are neutral (65.63% vs 34.37%) and friendly matches (representing more than 50% of the proportion of hosted matches in the USA). Concerning the cities, Kuala Lumpur organized the highest number of football games (between 550 and 600 matches). Most of the matches have been played on non-neutral fields (76.61% vs 23.39%), and the winner of those games is mostly the home team (65.70% vs 34.30%).
 
 Finally, 9 teams are not affiliated to FIFA anymore in 2020, which are **Burma**, **Cook Islands**, **Czechoslovakia**, **East Timor**, **German DR**, **Saarland**, **Vietnam Republic**, **Yemen DPR**, **Yugoslavia**.
 
