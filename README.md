@@ -28,10 +28,10 @@ Our motivation comes from the fact that it is difficult to find complete and up-
 
 ### Exploratory Data Analysis
 
-You can find basic statistics and insight we provided on the dataset in the notebook *Exploratory Data Analysis.ipynb*. Here is the link to visualize the full notebook :
-- [Exploratory Data Analysis Notebook](https://nbviewer.jupyter.org/github/com-480-data-visualization/com-480-project-le-kfc/blob/master/Exploratory%20Data%20Analysis.ipynb)
+You can find basic statistics and insight we provided on the dataset in the notebook *Exploratory Data Analysis.ipynb*. Here is the link to visualize the full notebook with interactive plots:
+- [Full Exploratory Data Analysis](https://nbviewer.jupyter.org/github/com-480-data-visualization/com-480-project-le-kfc/blob/master/Exploratory%20Data%20Analysis.ipynb)
 
-In summary, after performing preprocessing, 39654 samples of football matches are at our disposal, with 219 different teams and 104 different competitions. The exploratory data analysis showed us that the number of games has increased exponentially in the last decades, going from 2000 matches in the 1950s to more than 8000 matches in the 2010s. We obtained a mean of 362 matches played per team, but a large standard deviation of 245 for this statistic.
+In summary, after performing preprocessing, 39654 samples of football matches are at our disposal, with 219 different teams and 104 different competitions. The exploratory data analysis showed us that the number of games has increased exponentially in the last decades, going from 2000 matches in the 1950s to more than 8000 matches in the 2010s. We obtained a mean of 362.13 matches played per team, but a large standard deviation of 245.58 for this statistic.
 
 Concerning the number of goals scored by a team during a match, we obtain a mean of 1.44 goals per match, and a standard deviation of 1.56. In addition, 75% of the teams score 2 or less goals per match. The mean of the total number of goals scored in a single match is 2.89 with a standard deviation of 2.03.
 
