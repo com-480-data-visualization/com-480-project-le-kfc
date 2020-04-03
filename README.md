@@ -49,7 +49,7 @@ like a grid, or a search bar. The user will also be able to select specifically 
 
 Our motivation comes from the fact that it is difficult to find such up-to-date and complete historical data at a single place on the web related to football, which is 
 however the most popular sport in the world. If a user wants to know how many matches a specific football nation won through history, or which country was the most successful 
-in a given period, all the answers will be gathered into our project. Many users like football fans, that are looking for information 
+in a given period, all the answers will be gathered into our project. Many users like football fans and journalists, that are looking for information 
 concerning football international teams since their creation, would be happy to access a single interactive database containing what they need to complete successfully their research, 
 instead of looking through tens of websites if the information is scattered a lot.
 
