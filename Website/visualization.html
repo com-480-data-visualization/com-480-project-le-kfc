@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+	<!--Standard meta parameters-->
+	<meta charset="utf-8">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!--Standard script imports-->
+	<script src="lib/d3.min.js"></script>
+	<script src="script.js"></script>
+
+	<!--Page title and authors-->
+	<title>International Football</title>
+	<meta name="author" content="Alexandre Reynaud, Léo Bouraux, Vincent Rinaldi">
+
+	<!--Slider imports-->
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<!--Slider script-->
+	<script>
+		$( function() {
+			$( "#slider-range" ).slider({
+				range: true,
+				min: 1880,
+				max: 2020,
+				values: [ 1880, 2020 ],
+				slide: function( event, ui ) {
+					$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+					$( "#slider_text" ).html(ui.values[ 0 ]+"-"+ui.values[ 1 ]);
+				}
+			});
+			$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+				" - $" + $( "#slider-range" ).slider( "values", 1 ) );
+		} );
+	</script>
+
+	<style>
+		.container {
+		position: relative;
+		top: 0px;
+		left: -20px;
+	  width: 97%;
+	 	height:97%;
+		}
+		.container svg {
+			position: absolute;
+		  top: 0px;
+		  left: 0px;
+			width:100%;
+			height:80%;
+			background-image: url('map.png');
+			background-size:110% 100%;
+			background-color: white;
+			border:solid 6px
+		}
+		.container .btns {
+		  position: absolute;
+		  top: 5%;
+		  left: 90%;
+			width: 8%;
+			height:30%;
+		  text-align: center;
+		}
+
+		.container .criterion {
+		  position: absolute;
+		  top: 5%;
+		  left: 2%;
+			width: 15%;
+			height:30%;
+		}
+
+		.container #title {
+		  position: absolute;
+		  top: 5%;
+		  left: 45%;
+			width: 15%;
+			height:30%;
+			text-align: center;
+		}
+		.container #flags {
+		  position: absolute;
+		  top: 80%;
+		  left: 0%;
+			width: 100%;
+			height: 20%;
+			margin: 30px 30px;
+		}
+		.container .slider_container {
+			  position: absolute;
+			  top: 70%;
+			  left: 35%;
+				width: 30%;
+				height: 5%;
+				float: left;
+				text-align: center;
+		}
+
+	</style>
+
+</head>
+<body>
+<!--General container-->
+<div class="container">
+	<!--Shared background of the visualizations-->
+	<svg id="background"></svg>
+	<!--Visualization switching buttons-->
+	<div class="btns">
+		<button type="button" onclick="change_tab('MAP')" style="width:100%;height:25%">Map</button>
+		<br></br>
+		<button type="button" onclick="change_tab('VS')" style="width:100%;height:25%">VS</button>
+		<br></br>
+		<button type="button" onclick="change_tab('DETAILS')" style="width:100%;height:25%">Details</button>
+		<br></br>
+		<button type="button" onclick="change_tab('GLOBAL INFORMATIONS')" style="width:100%;height:25%">Global Informations</button>
+	</div>
+
+	<!--Comparison criterion radio boxes-->
+	<form class="criterion">
+		<b>CRITERION:</b>
+		<br></br>
+		<input type="radio" name="choice" value="Scripting"> Matches Hosted
+		<br></br>
+		<input type="radio" name="choice" value="Programming"> Goals
+		<br></br>
+		<input type="radio" name="choice" value="Application"> Victories
+		<br></br>
+		<input type="radio" name="choice" value="None of These"> World Cups
+	</form>
+
+	<!--Visualization title (map excluded)-->
+	<div id="title"></div>
+
+	<!--Flag container-->
+	<div id='flags'> </div>
+
+	<!--Timer slider-->
+	<div class="slider_container">
+		<div id="slider-range"></div>
+		<div id="slider_text">1880-2020</div>
+	</div>
+
+</div>
+
+</body>
+</html>
