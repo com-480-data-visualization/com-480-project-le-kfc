@@ -13,13 +13,13 @@ function whenDocumentLoaded(action) {
 const change_tab= function(name){
 
 	//Making the backgrounds and titles visible or not depending on the tab
-	if(name=='MAP'){
-		document.getElementById("background").style.backgroundImage = "url('map.png')";
+	if(name==='MAP'){
+		document.getElementById("background").style.backgroundImage = "url('map.jpg')";
 		document.getElementById("title").innerHTML='';
 		document.getElementById("background").style.height="";
 		document.getElementById("btns").style.top= "5%";
 
- 	} else if (name=="HISTORY") {
+ 	} else if (name==="HISTORY") {
 		document.getElementById("background").style.backgroundImage = "url('history.jpg')";
 		document.getElementById("title").innerHTML=name;
 		document.getElementById("background").style.height="1200%";
@@ -32,7 +32,7 @@ const change_tab= function(name){
  }
 
 	//Making the sliders and criterions visible or not depending on the tab
-	if(name=='HISTORY'){
+	if(name==='HISTORY'){
 		document.getElementById("flag_slider").style.visibility = "hidden";
 		document.getElementById("slider_container").style.visibility = "hidden";
 		document.getElementById("competition_container").style.visibility = "hidden";
@@ -45,7 +45,7 @@ const change_tab= function(name){
 	}
 
 	//Switching the measure criterion between one choice to multiple choice depending on the tab
-	if(name=="MAP"){
+	if(name==="MAP"){
 		Array.from(document.getElementById("measure_container").getElementsByTagName('div')).forEach((item, i) => {
 			item.getElementsByTagName('input')[0].type="radio";
 		});
@@ -54,7 +54,7 @@ const change_tab= function(name){
 			item.getElementsByTagName('input')[0].type="checkbox";
 		});
 	}
-}
+};
 //Flag database
 let flags;
 
@@ -67,11 +67,11 @@ const flag_display_count=40;
 //Flag image assignment myFunction
 const assign_flags= function(){
 	//Applying to each row of flags
-	flags_refs=Array.from(document.getElementById("flags").getElementsByTagName("div")).forEach((item, i) => {
+	let flags_refs=Array.from(document.getElementById("flags").getElementsByTagName("div")).forEach((item, i) => {
 		//Removing the current buttons
 		item.innerHTML = '';
 		//Generating the buttons corresponding to the new index
-		for (var j = flag_index+i*Math.ceil(flags.length/3); j < Math.min(flag_display_count+flag_index+i*Math.ceil(flags.length/3),flags.length); j++) {
+		for (let j = flag_index+i*Math.ceil(flags.length/3); j < Math.min(flag_display_count+flag_index+i*Math.ceil(flags.length/3),flags.length); j++) {
 			const flag = document.createElement("button");
 			item.appendChild(flag);
 			flag.style.background= "white";
@@ -84,7 +84,7 @@ const assign_flags= function(){
 			flag.style.borderRadius="50%";
 		}
 	});
-}
+};
 
 //Flag loading function
 const flag_loader= function(path){
@@ -94,15 +94,15 @@ const flag_loader= function(path){
 		//Filling the first flags
 		assign_flags();
 	});
-}
+};
 
 //Flag sliding function
 const flag_slide= function(amount){
-	if((amount+flag_index)>=0 & (amount+flag_index)<flags.length/3+1-flag_display_count){
+	if((amount+flag_index)>=0 && (amount+flag_index)<flags.length/3+1-flag_display_count){
 		flag_index=flag_index+amount;
 		assign_flags();
 	}
-}
+};
 
 //List of criterions
 measures=["Matches Hosted","Goals","Victories","Tournaments Won"];
@@ -112,8 +112,8 @@ competitions=["Euro","Friendly","World Cups","African Cup Of Nations"];
 const criterion_loader= function(){
 
 	//Reference to the criterion containers
-	measure_ref=document.getElementById("measure_container");
-	competition_ref=document.getElementById("competition_container");
+	const measure_ref=document.getElementById("measure_container");
+	const competition_ref=document.getElementById("competition_container");
 
 	//Loading all measure criterions
 	measures.forEach((item, i) => {
@@ -145,7 +145,7 @@ const criterion_loader= function(){
 		text.innerHTML=competitions[i];
 		competition_ref.appendChild(container);
 	});
-}
+};
 
 //Launch-time runner
 whenDocumentLoaded(() => {
