@@ -33,12 +33,22 @@ const change_tab= function(name){
 
 	//Making the sliders and criterions visible or not depending on the tab
 	if(name==='HISTORY'){
-		document.getElementById("flag_slider").style.visibility = "hidden";
+
+		$("#js_flag_scroll").children().hide();
+		document.getElementById("js_flag_scroll").style.visibility = "hidden";
+		document.getElementById("search_bar").style.visibility = "hidden";
+		//document.getElementById("flag_slider").style.visibility = "hidden";
+
 		document.getElementById("slider_container").style.visibility = "hidden";
 		document.getElementById("competition_container").style.visibility = "hidden";
 		document.getElementById("measure_container").style.visibility = "hidden";
 	}	else {
-		document.getElementById("flag_slider").style.visibility = "visible";
+
+		$("#js_flag_scroll").children().show();
+		document.getElementById("js_flag_scroll").style.visibility = "visible";
+		document.getElementById("search_bar").style.visibility = "visible";
+		//document.getElementById("flag_slider").style.visibility = "visible";
+		
 		document.getElementById("slider_container").style.visibility = "visible";
 		document.getElementById("competition_container").style.visibility = "visible";
 		document.getElementById("measure_container").style.visibility = "visible";
@@ -55,9 +65,57 @@ const change_tab= function(name){
 		});
 	}
 };
+
 //Flag database
 let flags;
 
+const flag_number = 217;
+
+//Flag loading function
+const flag_loader= function(path){
+	d3.csv(path).then(function(data) {
+		//Assigning the loaded data to the local database
+		flags=data;
+		//Filling the first flags
+		assign_flags();
+	});
+};
+
+const assign_flags= function(){
+    //Reference to the flag container
+    let scrollmenu = document.getElementById("js_flag_scroll");
+    scrollmenu.classList.add("flag-slider");
+    let cnt = 0;
+    while(cnt<flag_number){
+        const wrapper = document.createElement("div");
+        wrapper.classList.add('wrapper');
+
+        // top flag
+        const square = document.createElement("div");
+        square.classList.add('square');
+        square.innerHTML = "<img src=\""+flags[cnt]['ImageURL']+"\">";
+        const button_style = document.createElement("div");
+        button_style.classList.add('button-style');
+        button_style.innerHTML = flags[cnt]['Country'].substring(0, 3).toUpperCase();
+        cnt++;
+        // bottom flag
+        const square2 = document.createElement("div");
+        square2.classList.add('square');
+        if(cnt<flag_number) square2.innerHTML = "<img src=\""+flags[cnt]['ImageURL']+"\">";
+        const button_style2 = document.createElement("div");
+        button_style2.classList.add('button-style');
+        if(cnt<flag_number) button_style2.innerHTML = flags[cnt]['Country'].substring(0, 3).toUpperCase();
+        cnt++;
+
+        square.appendChild(button_style);
+        if(cnt<flag_number) square2.appendChild(button_style2);
+        wrapper.appendChild(square);
+        wrapper.appendChild(square2);
+        scrollmenu.appendChild(wrapper);
+    }
+};
+
+/*
 //Flag slider index
 let flag_index=0;
 
@@ -86,16 +144,6 @@ const assign_flags= function(){
 	});
 };
 
-//Flag loading function
-const flag_loader= function(path){
-	d3.csv(path).then(function(data) {
-		//Assigning the loaded data to the local database
-		flags=data;
-		//Filling the first flags
-		assign_flags();
-	});
-};
-
 //Flag sliding function
 const flag_slide= function(amount){
 	if((amount+flag_index)>=0 && (amount+flag_index)<flags.length/3+1-flag_display_count){
@@ -103,6 +151,7 @@ const flag_slide= function(amount){
 		assign_flags();
 	}
 };
+*/
 
 //List of criterions
 measures=["Matches Hosted","Goals","Victories","Tournaments Won"];
@@ -118,12 +167,22 @@ const criterion_loader= function(){
 	//Loading all measure criterions
 	measures.forEach((item, i) => {
 		const container=document.createElement("div");
+
+		container.style.width="20vw";
+		container.style.height="2vh";
+
 		const button=document.createElement("input");
 		const text=document.createElement("label");
 		button.id= measures[i]+" button";
 		button.type="radio";
 		button.name="radio";
-		text.style.fontSize="1vw";
+
+		button.style.width="1.5vw";
+		button.style.height="1.5vh";
+
+		text.style.fontSize="1.5vw"; //1vw
+		text.style.fontSize="1.5vh";
+
 		text.for=measures[i]+" button";
 		text.innerHTML=measures[i];
 		container.appendChild(button);
@@ -134,13 +193,23 @@ const criterion_loader= function(){
 	//Loading all competition criterions
 	competitions.forEach((item, i) => {
 		const container=document.createElement("div");
+
+		container.style.width="20vw";
+		container.style.height="2vh";
+
 		const button=document.createElement("input");
 		const text=document.createElement("label");
 		container.appendChild(button);
 		container.appendChild(text);
 		button.id= competitions[i]+" button";
 		button.type="checkbox";
-		text.style.fontSize="1vw";
+
+		button.style.width="1.5vw";
+		button.style.height="1.5vh";
+
+		text.style.fontSize="1.5vw"; //1vw
+		text.style.fontSize="1.5vh";
+
 		text.for=competitions[i]+" button";
 		text.innerHTML=competitions[i];
 		competition_ref.appendChild(container);
