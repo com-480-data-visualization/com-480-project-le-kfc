@@ -36,201 +36,10 @@
 				}
 			});
 			$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-				" - $" + $( "#slider-range" ).slider( "values", 1 ) );
+					" - $" + $( "#slider-range" ).slider( "values", 1 ) );
 		} );
 	</script>
 
-	<!--CSS formatting-->
-	<style>
-
-		svg {
-			position: absolute;
-			width:100%;
-			height:80%;
-			background-size: 100% 100%;
-			background-color: white;
-		}
-
-		#btns {
-		  position: absolute;
-		  top: 30%;
-		  left: 90%;
-			width: 8%;
-			height: 30%;
-		  text-align: center;
-		}
-
-		#title {
-		  position: absolute;
-			font-size: 5vw;
-		  top: 5%;
-			vertical-align: middle;
-			color:blue;
-		}
-
-		#slider_container {
-			  position: absolute;
-			  top: 78.5%;
-			  left: 35%;
-				width: 30%;
-				height: 5%;
-				float: left;
-				text-align: center;
-				visibility: hidden;
-		}
-
-		/* FLAG SLIDER STYLE */
-
-		/*shadow effect on flags*/
-		.button-style {
-		    transition: all 1s ease-out;
-		    background: rgba(88, 88, 88, 0.5);
-		    border-radius:50%;
-		    vertical-align:middle;
-		    color: #FFF;
-		    position:absolute;
-		    font-weight: 700;
-		    text-align: center;
-		    font-size: 5px;
-		    font-family: 'Source Sans Pro', serif;
-		    top: 0;
-		    left:0;
-		    right:0;
-		    bottom:0;
-		    width:100%;
-		    display:inline-block;
-		    text-decoration: none;
-		    text-transform:uppercase;
-		}
-
-		.button-style:before{
-		    content: '';
-		    display: inline-block;
-		    height: 56%;
-		    horiz-align:center;
-		}
-
-		.button-style:hover {
-		    background: none;
-		    border: none;
-		    opacity:0;
-		}
-
-		/*one flag*/
-		.square {
-		    width: 3vw;
-		    height: 3vw;
-		    position: relative;
-		    margin-top: 10%;
-		}
-
-		.square img {
-		    object-fit: cover;
-		    width: 3vw;
-		    border-radius:50%;
-		    height:3vw;
-		}
-
-		/*two flags*/
-		.wrapper{
-		    width: 3vw;
-		    height: 7vw;
-		    display: inline-block;
-		    position: relative;
-		    overflow:hidden;
-		    margin-top: 1%;
-		    margin-left: 1%;
-		}
-
-		/*flag slider*/
-		.flag-slider {
-				overflow: auto;
-		    white-space: nowrap;
-		    padding-bottom: 3px;
-
-				position: absolute;
-			  top: 79.5%;
-			  left: 3.75%;
-				width: 89.6%;
-				/*height: 18%;*/
-				margin: 1vw 1vw;
-				visibility: hidden;
-		}
-
-		#search_bar {
-		  position: absolute;
-			top: 78.5%;
-		  left: 5.65%;
-			width: 13%;
-			/*height: 3%;*/
-			background-image: url('https://www.w3schools.com/css/searchicon.png');
-			background-position: 1% 50%;
-			background-size: 1vw 1vw;
-  		background-repeat: no-repeat;
-			padding: 0.1vw 1.5vw;
-			font-size: 1vw;
-			visibility: hidden;
-		}
-
-		/*
-		#flag_slider {
-		  position: absolute;
-		  top: 80%;
-		  left: 8%;
-			width: 80%;
-			height: 15%;
-			margin: 1vw 1vw;
-			visibility: hidden;
-		}
-		#flags {
-		  position: absolute;
-		  top: 30%;
-		  left: 10%;
-			width: 80%;
-			height: 80%;
-		}
-		#flag_right {
-		  position: absolute;
-			top: 30%;
-		  left: 95%;
-			width: 5%;
-			height: 70%;
-			font-size:1vw;
-		}
-		#flag_left {
-		  position: absolute;
-			top: 30%;
-		  left: 0%;
-			width: 5%;
-			height: 70%;
-			font-size:1vw;
-		}
-		*/
-
-		#measure_container {
-		  position: absolute;
-		  top: 40%;
-		  left: 1%;
-			width: 15%;
-			height:30%;
-			visibility: hidden;
-		}
-
-		#competition_container {
-		  position: absolute;
-		  top: 60%;
-		  left: 1%;
-			width: 15%;
-			height:30%;
-			visibility: hidden;
-		}
-
-		#background {
-			background-image: url('history.jpg');
-			background-repeat: no-repeat;
-		}
-
-	</style>
 
 </head>
 <body>
@@ -241,9 +50,9 @@
 	<!--Visualization switching buttons-->
 	<div id="btns">
 		<button type="button" onclick="change_tab('HISTORY')" style="width:100%;height:25%;font-size:1vw;">History</button>
-		<br></br>
+		<br/>
 		<button type="button" onclick="change_tab('MAP')" style="width:100%;height:25%;font-size:1vw;">Map</button>
-		<br></br>
+		<br/>
 		<button type="button" onclick="change_tab('DETAILS')" style="width:100%;height:25%;font-size:1vw;">Details</button>
 	</div>
 
@@ -271,24 +80,6 @@
 	<!--Flag slider-->
 	<div class="flag-slider" id="js_flag_scroll"></div>
 	<input type="text" id="search_bar" placeholder="Search for country...">
-
-	<!--
-	<div id="flag_slider">
-		<!Search bar>
-		<input type="text" id="search_bar" placeholder="Search for country...">
-
-		<!Left slide button>
-		<button id="flag_left" onclick="flag_slide(-1)"><=</button>
-		<!Flag container>
-		<div id='flags'>
-			<div style="height:33%;"></div>
-			<div style="height:33%;"></div>
-			<div style="height:33%;"></div>
-		</div>
-		<!Right slide button>
-		<button id="flag_right" onclick="flag_slide(1)">=></button>
-	</div>
-	-->
 
 </body>
 </html>

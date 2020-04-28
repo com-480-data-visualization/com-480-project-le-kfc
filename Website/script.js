@@ -9,6 +9,9 @@ function whenDocumentLoaded(action) {
 	}
 }
 
+
+
+
 //Tab change function
 const change_tab= function(name){
 
@@ -66,10 +69,21 @@ const change_tab= function(name){
 	}
 };
 
+
+
+
+
+
+
+
+
+
+
 //Flag database
 let flags;
 
-const flag_number = 217;
+//todo: modify it in function of the matched number of country in the Search bar
+let flag_number = 217;
 
 //Flag loading function
 const flag_loader= function(path){
@@ -115,43 +129,6 @@ const assign_flags= function(){
     }
 };
 
-/*
-//Flag slider index
-let flag_index=0;
-
-//Number of visible flags in the slider
-const flag_display_count=40;
-
-//Flag image assignment myFunction
-const assign_flags= function(){
-	//Applying to each row of flags
-	let flags_refs=Array.from(document.getElementById("flags").getElementsByTagName("div")).forEach((item, i) => {
-		//Removing the current buttons
-		item.innerHTML = '';
-		//Generating the buttons corresponding to the new index
-		for (let j = flag_index+i*Math.ceil(flags.length/3); j < Math.min(flag_display_count+flag_index+i*Math.ceil(flags.length/3),flags.length); j++) {
-			const flag = document.createElement("button");
-			item.appendChild(flag);
-			flag.style.background= "white";
-			flag.style.backgroundImage = "url("+flags[j]['ImageURL']+")";
-			flag.style.backgroundSize = "100% 100%";
-			flag.style.backgroundPosition="center";
-			flag.id= "data[i]['Country']";
-			flag.style.width=(100/flag_display_count)+"%";
-			flag.style.height="100%";
-			flag.style.borderRadius="50%";
-		}
-	});
-};
-
-//Flag sliding function
-const flag_slide= function(amount){
-	if((amount+flag_index)>=0 && (amount+flag_index)<flags.length/3+1-flag_display_count){
-		flag_index=flag_index+amount;
-		assign_flags();
-	}
-};
-*/
 
 //List of criterions
 measures=["Matches Hosted","Goals","Victories","Tournaments Won"];
