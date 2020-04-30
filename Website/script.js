@@ -19,19 +19,19 @@ const change_tab= function(name){
 	if(name==='MAP'){
 		document.getElementById("background").style.backgroundImage = "url('map.jpg')";
 		document.getElementById("title").innerHTML='';
-		document.getElementById("background").style.height="";
-		document.getElementById("btns").style.top= "5%";
+		document.getElementById("background").style.height="80vh";
+		document.getElementById("btns").style.top= "5vh";
 
  	} else if (name==="HISTORY") {
 		document.getElementById("background").style.backgroundImage = "url('history.jpg')";
 		document.getElementById("title").innerHTML=name;
-		document.getElementById("background").style.height="1540%";
-		document.getElementById("btns").style.top= "35%";
+		document.getElementById("background").style.height="1540vh";
+		document.getElementById("btns").style.top= "35vh";
  } else {
 	  document.getElementById("background").style.backgroundImage = "url('details.png')";
 		document.getElementById("title").innerHTML=name;
-		document.getElementById("background").style.height="100%";
-		document.getElementById("btns").style.top= "35%";
+		document.getElementById("background").style.height="100vh";
+		document.getElementById("btns").style.top= "35vh";
  }
 
 	//Making elements visible or not depending on the tab
@@ -200,5 +200,5 @@ const criterion_loader= function(){
 whenDocumentLoaded(() => {
 	flag_loader("../data/final_flags.csv");
 	criterion_loader();
-	document.getElementById("background").style.height="1540%";
+	document.getElementById("background").style.height="1540vh";
 });
