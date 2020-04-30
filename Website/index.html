@@ -32,7 +32,7 @@
 				values: [ 1872, 2020 ],
 				slide: function( event, ui ) {
 					$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-					$( "#slider_text" ).html(ui.values[ 0 ]+"-"+ui.values[ 1 ]);
+					$( "#slider_text" ).html(ui.values[ 0 ]+" - "+ui.values[ 1 ]);
 				}
 			});
 			$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
@@ -49,11 +49,11 @@
 
 	<!--Visualization switching buttons-->
 	<div id="btns">
-		<button type="button" onclick="change_tab('HISTORY')" style="width:100%;height:25%;font-size:1vw;">History</button>
-		<br/>
-		<button type="button" onclick="change_tab('MAP')" style="width:100%;height:25%;font-size:1vw;">Map</button>
-		<br/>
-		<button type="button" onclick="change_tab('DETAILS')" style="width:100%;height:25%;font-size:1vw;">Details</button>
+		<button type="button" id="history-button" onclick="change_tab('HISTORY')" style="width:100%;height:25%;font-size:1vw;">History</button>
+		<br> </br>
+		<button type="button" id="map-button" onclick="change_tab('MAP')" style="width:100%;height:25%;font-size:1vw;">Map</button>
+		<br> </br>
+		<button type="button" id="details-button" onclick="change_tab('DETAILS')" style="width:100%;height:25%;font-size:1vw;">Details</button>
 	</div>
 
 	<!--Comparison criterion radio boxes-->
@@ -73,8 +73,8 @@
 
 	<!--Time slider-->
 	<div id="slider_container">
-		<div id="slider-range"></div>
-		<div style="font-size:1vw;" id="slider_text">1872-2020</div>
+		<div id="slider-range" style="height:35%;width:100%;"></div>
+		<div style="font-size:1vw;" id="slider_text">1872 - 2020</div>
 	</div>
 
 	<!--Flag slider-->

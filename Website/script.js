@@ -15,26 +15,26 @@ function whenDocumentLoaded(action) {
 //Tab change function
 const change_tab= function(name){
 
-	//Making the backgrounds and titles visible or not depending on the tab
+	//Changing the backgrounds and titles depending on the tab
 	if(name==='MAP'){
 		document.getElementById("background").style.backgroundImage = "url('map.jpg')";
 		document.getElementById("title").innerHTML='';
-		document.getElementById("background").style.height="";
-		document.getElementById("btns").style.top= "5%";
+		document.getElementById("background").style.height="80vh";
+		document.getElementById("btns").style.top= "5vh";
 
  	} else if (name==="HISTORY") {
 		document.getElementById("background").style.backgroundImage = "url('history.jpg')";
 		document.getElementById("title").innerHTML=name;
-		document.getElementById("background").style.height="1200%";
-		document.getElementById("btns").style.top= "30%";
+		document.getElementById("background").style.height="1540vh";
+		document.getElementById("btns").style.top= "35vh";
  } else {
-	  document.getElementById("background").style.backgroundImage = 'none';
+	  document.getElementById("background").style.backgroundImage = "url('details.png')";
 		document.getElementById("title").innerHTML=name;
-		document.getElementById("background").style.height="";
-		document.getElementById("btns").style.top= "5%";
+		document.getElementById("background").style.height="100vh";
+		document.getElementById("btns").style.top= "35vh";
  }
 
-	//Making the sliders and criterions visible or not depending on the tab
+	//Making elements visible or not depending on the tab
 	if(name==='HISTORY'){
 
 		$("#js_flag_scroll").children().hide();
@@ -51,7 +51,7 @@ const change_tab= function(name){
 		document.getElementById("js_flag_scroll").style.visibility = "visible";
 		document.getElementById("search_bar").style.visibility = "visible";
 		//document.getElementById("flag_slider").style.visibility = "visible";
-		
+
 		document.getElementById("slider_container").style.visibility = "visible";
 		document.getElementById("competition_container").style.visibility = "visible";
 		document.getElementById("measure_container").style.visibility = "visible";
@@ -143,25 +143,27 @@ const criterion_loader= function(){
 
 	//Loading all measure criterions
 	measures.forEach((item, i) => {
+
+		//Instanciating the radio button + text container
 		const container=document.createElement("div");
-
 		container.style.width="20vw";
-		container.style.height="2vh";
+		container.style.height="3vh";
 
+		//Instanciating the radio button
 		const button=document.createElement("input");
-		const text=document.createElement("label");
 		button.id= measures[i]+" button";
 		button.type="radio";
 		button.name="radio";
-
 		button.style.width="1.5vw";
 		button.style.height="1.5vh";
 
-		text.style.fontSize="1.5vw"; //1vw
+		//Instanciating the label
+		const text=document.createElement("label");
 		text.style.fontSize="1.5vh";
-
 		text.for=measures[i]+" button";
 		text.innerHTML=measures[i];
+
+		//Linking all components together
 		container.appendChild(button);
 		container.appendChild(text);
 		measure_ref.appendChild(container);
@@ -169,26 +171,27 @@ const criterion_loader= function(){
 
 	//Loading all competition criterions
 	competitions.forEach((item, i) => {
+		//Instanciating the checkbox+text container
 		const container=document.createElement("div");
-
 		container.style.width="20vw";
-		container.style.height="2vh";
+		container.style.height="3vh";
 
+		//Instanciating the checkbox
 		const button=document.createElement("input");
-		const text=document.createElement("label");
-		container.appendChild(button);
-		container.appendChild(text);
-		button.id= competitions[i]+" button";
+		button.id= competitions[i]+"button";
 		button.type="checkbox";
-
 		button.style.width="1.5vw";
 		button.style.height="1.5vh";
 
-		text.style.fontSize="1.5vw"; //1vw
+		//Instanciating the label
+		const text=document.createElement("label");
 		text.style.fontSize="1.5vh";
-
 		text.for=competitions[i]+" button";
 		text.innerHTML=competitions[i];
+
+		//Linking all components together
+		container.appendChild(button);
+		container.appendChild(text);
 		competition_ref.appendChild(container);
 	});
 };
@@ -197,5 +200,5 @@ const criterion_loader= function(){
 whenDocumentLoaded(() => {
 	flag_loader("../data/final_flags.csv");
 	criterion_loader();
-	document.getElementById("background").style.height="1200%";
+	document.getElementById("background").style.height="1540vh";
 });
