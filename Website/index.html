@@ -32,7 +32,7 @@
 				values: [ 1872, 2020 ],
 				slide: function( event, ui ) {
 					$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-					$( "#slider_text" ).html(ui.values[ 0 ]+"-"+ui.values[ 1 ]);
+					$( "#slider_text" ).html(ui.values[ 0 ]+" - "+ui.values[ 1 ]);
 				}
 			});
 			$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
