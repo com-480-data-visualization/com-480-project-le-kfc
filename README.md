@@ -66,9 +66,7 @@ The three listed visualizations combine **user interaction**, **world map inform
 ## Milestone 2 (Friday 1st May, 5pm)
 
 **10% of the final grade**
-
-
-
+You can read our report [here](https://github.com/com-480-data-visualization/com-480-project-le-kfc/blob/master/Milestone%202%20Report.pdf)!
 
 ## Milestone 3 (Thursday 28th May, 5pm)
 
