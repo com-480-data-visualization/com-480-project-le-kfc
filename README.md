@@ -68,9 +68,9 @@ The three listed visualizations combine **user interaction**, **world map inform
 **10% of the final grade**
 
 Link:
-	-Two page report: [Milestone 2 Report](https://github.com/com-480-data-visualization/com-480-project-le-kfc/blob/master/Milestone%202%20Report.pdf)!
-	-Website: [International Football Website](https://skullservant.github.io/international.football.io/)
-	-Flag database: [External Country Flag Dataset](https://data.world/pbi/country-flag-database-from-wikipedia)
+-Two page report: [Milestone 2 Report](https://github.com/com-480-data-visualization/com-480-project-le-kfc/blob/master/Milestone%202%20Report.pdf)!
+-Website: [International Football Website](https://skullservant.github.io/international.football.io/)
+-Flag database: [External Country Flag Dataset](https://data.world/pbi/country-flag-database-from-wikipedia)
 
 ## Milestone 3 (Thursday 28th May, 5pm)
 
