@@ -68,7 +68,7 @@ The three listed visualizations combine **user interaction**, **world map inform
 **10% of the final grade**
 
 Link:
-- [Milestone 2 Report](https://github.com/com-480-data-visualization/com-480-project-le-kfc/blob/master/Milestone%202%20Report.pdf)!
+- [Milestone 2 Report](https://github.com/com-480-data-visualization/com-480-project-le-kfc/blob/master/Milestone%202%20Report.pdf)
 - [International Football Website](https://skullservant.github.io/international.football.io/)
 - [External Country Flag Dataset](https://data.world/pbi/country-flag-database-from-wikipedia)
 
