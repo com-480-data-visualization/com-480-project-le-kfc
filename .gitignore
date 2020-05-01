@@ -1,8 +1,14 @@
+# general files
+.idea
+.ipynb_checkpoints
+.DS_Store
+
+# personal files
 initial_data.zip
 previous_projects.txt
 sketches/pages_files
 sketches/images
 test_*
 to_add*
-.idea
 TEST
+
