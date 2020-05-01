@@ -62,26 +62,18 @@ In terms of source of inspiration, the following visualizations played a major r
 
 The three listed visualizations combine **user interaction**, **world map information** and **temporal evolution**, which composed the basis of our project motivations.
 
-
 ## Milestone 2 (Friday 1st May, 5pm)
 
 **10% of the final grade**
 
-Link:
+You can access to our report via the following link:
 - [Milestone 2 Report](https://github.com/com-480-data-visualization/com-480-project-le-kfc/blob/master/Milestone%202%20Report.pdf)
+
+Even though the main features of our website are not yet functional, it is structurally well developed: the pages of the three main tabs are set and the buttons to access them are working, the time period and flag sliders are fully built and in place as well as the country search bar but are not usable at the moment, and a basic and incomplete criterions menu with checkboxes and radio buttons is available and still need to be reworked. You can visualize the current state of our website here:
 - [International Football Website](https://skullservant.github.io/international.football.io/)
+
+We are now using in addition this external dataset to load the country flag pictures:
 - [External Country Flag Dataset](https://data.world/pbi/country-flag-database-from-wikipedia)
-
-Even though our website is incomplete it's structurally well developed.The main tab pages are set.
-- A History tab with a prototype of our story in background.
-- A Map tab with a stand-in background map.
-- A Details tab with, in background, a stand-in comparative structure.
-- A time slider which is not operational yet (it remains slidable and is only visible in the appropriate tabs).
-- A flag research bar which is not operational yet (it remains filable and is only visible in the appropriate tabs).
-- A flag slider which is not operational yet (it remains slidable, reacts visually to hovering and is only visible in the appropriate tabs)
-- Criterion checkboxes and radio buttons which are not operational yet (they remain clickable and are only visible in the appropriate tabs).
-- Map, Details and History button which allow the user to change tab correspondingly and change position to avoid getting in the way of the user experience.
-
 
 ## Milestone 3 (Thursday 28th May, 5pm)
 
