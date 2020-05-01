@@ -69,7 +69,7 @@ The three listed visualizations combine **user interaction**, **world map inform
 You can access our report via the following link:
 - [Milestone 2 Report](https://github.com/com-480-data-visualization/com-480-project-le-kfc/blob/master/Milestone%202%20Report.pdf)
 
-Even though the main features of our website are not yet functional, it is structurally well developed: the pages of the three main tabs are set and the buttons to access them are working, the time period and flag sliders are fully built and in place as well as the country search bar but are not usable at the moment, and a basic and incomplete criterions menu with checkboxes and radio buttons is available and still need to be reworked. You can visualize the current state of our website here:
+Even though the main features of our website are not yet functional, it is structurally well developed: the architecture of the three main tabs is set and the buttons to access said tabs are working, the time period and flag sliders are fully built and in place as well as the country search bar but are not usable at the moment, and a basic and incomplete criterions menu with checkboxes and radio buttons is available but needs to be reworked. You can visualize the current state of our website here:
 - [International Football Data Website](https://skullservant.github.io/international.football.io/)
 
 We are now using in addition this external dataset to load the country flag pictures:
