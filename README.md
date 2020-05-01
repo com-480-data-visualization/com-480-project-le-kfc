@@ -72,6 +72,17 @@ Link:
 - [International Football Website](https://skullservant.github.io/international.football.io/)
 - [External Country Flag Dataset](https://data.world/pbi/country-flag-database-from-wikipedia)
 
+The website is complete in structure: It has:
+- A History tab with a prototype of our story in background.
+- A Map tab with a stand-in background map.
+- A Details tab with, in background, a stand-in comparative structure.
+- A time slider which is not operational yet (it remains slidable and is only visible in the appropriate tabs).
+- A flag research bar which is not operational yet (it remains filable and is only visible in the appropriate tabs).
+- A flag slider which is not operational yet (it remains slidable, reacts visually to hovering and is only visible in the appropriate tabs)
+- Criterion checkboxes and radio buttons which are not operational yet (they remain clickable and are only visible in the appropriate tabs).
+- Map, Details and History button which allow the user to change tab correspondingly and change position to avoid getting in the way of the user experience.
+
+
 ## Milestone 3 (Thursday 28th May, 5pm)
 
 **80% of the final grade**
