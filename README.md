@@ -72,7 +72,7 @@ Link:
 - [International Football Website](https://skullservant.github.io/international.football.io/)
 - [External Country Flag Dataset](https://data.world/pbi/country-flag-database-from-wikipedia)
 
-The website is complete in structure: It has:
+Even though our website is incomplete it's structurally well developed.The main tab pages are set.
 - A History tab with a prototype of our story in background.
 - A Map tab with a stand-in background map.
 - A Details tab with, in background, a stand-in comparative structure.
