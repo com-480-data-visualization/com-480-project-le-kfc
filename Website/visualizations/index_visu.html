@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+	<!--Standard meta parameters-->
+	<meta charset="utf-8">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!--Standard script imports-->
+	<script src="../lib/d3.min.js"></script>
+	<script src="script_visu.js"></script>
+
+	<!--Page title and authors-->
+	<title>International Football</title>
+	<meta name="author" content="Alexandre Reynaud, Léo Bouraux, Vincent Rinaldi">
+
+	<!--Slider imports-->
+	<link rel="stylesheet" href="style_visu.css">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<!--Slider script-->
+	<script>
+		$( function() {
+			$( "#slider-range" ).slider({
+				range: true,
+				min: 1872,
+				max: 2020,
+				values: [ 1872, 2020 ],
+				slide: function( event, ui ) {
+					$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+					$( "#slider_text" ).html(ui.values[ 0 ]+" - "+ui.values[ 1 ]);
+				}
+			});
+			$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+					" - $" + $( "#slider-range" ).slider( "values", 1 ) );
+		} );
+	</script>
+
+
+</head>
+<body>
+
+	<!--Shared background of the visualizations-->
+	<svg id="background"></svg>
+
+	<!--Visualization switching buttons-->
+	<div id="btns">
+		<button type="button" id="history-button" onclick="change_tab('HISTORY')" style="width:100%;height:25%;font-size:1vw;">History</button>
+		<br> </br>
+		<button type="button" id="map-button" onclick="change_tab('MAP')" style="width:100%;height:25%;font-size:1vw;">Map</button>
+		<br> </br>
+		<button type="button" id="details-button" onclick="change_tab('DETAILS')" style="width:100%;height:25%;font-size:1vw;">Details</button>
+	</div>
+
+	<!--Comparison criterion radio boxes-->
+	<form id="measure_container">
+		<b style="font-size:1vw;">MEASURE:</b>
+		<!--<br></br>-->
+	</form>
+
+	<!--Comparison criterion radio boxes-->
+	<form id="competition_container">
+		<b style="font-size:1vw;">COMPETITION:</b>
+		<!--<br></br>-->
+	</form>
+
+	<!--Visualization title (map excluded)-->
+	<div id="title">HISTORY</div>
+
+	<!--Time slider-->
+	<div id="slider_container">
+		<div id="slider-range" style="height:35%;width:100%;"></div>
+		<div style="font-size:1vw;" id="slider_text">1872 - 2020</div>
+	</div>
+
+	<!--Flag slider-->
+	<div class="flag-slider" id="js_flag_scroll"></div>
+	<input type="text" id="search_bar" placeholder="Search for country...">
+
+</body>
+</html>
