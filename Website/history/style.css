@@ -1,0 +1,50 @@
+/*--------------------------------------------------------------
+2. Magic Scroll
+--------------------------------------------------------------*/
+html,
+body {
+    height: 100%; }
+
+.site-header {
+    background: #000; }
+.site-header a {
+    color: #999; }
+
+.main {
+    text-align: left;
+    background: url("../images/main.jpg") no-repeat center center;
+    background-attachment: fixed;
+    color: #fff; }
+.main h1 {
+    font-size: 70px;
+    text-transform: uppercase; }
+.main p {
+    font-size: 25px;
+    display: inline-block; }
+.main a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 10px 40px;
+    border: 1px solid #fff; }
+
+.main-caption {
+    padding: 80px 0;
+    text-align: center;
+    background-color: #000; }
+.main-caption h1 {
+    font-size: 60px; }
+.main-caption p {
+    font-size: 25px;
+    display: inline-block;
+    padding: 10px 0; }
+.main-caption a {
+    text-decoration: none;
+    color: #000;
+    font-size: 25px;
+    font-weight: bold;
+    display: inline-block;
+}
