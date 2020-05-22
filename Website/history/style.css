@@ -349,8 +349,8 @@ footer {
 }
 
 .animated-parallax-bgd-1{background: url('images/1930.jpeg') no-repeat;}
-.animated-parallax-bgd-2{background: url('images/1950:4.png') no-repeat;}
-.animated-parallax-bgd-3{background: url('images/2006.png') no-repeat;}
+.animated-parallax-bgd-2{background: url('images/1950-4.jpg') no-repeat;}
+.animated-parallax-bgd-3{background: url('images/2006.jpg') no-repeat;}
 
 .animated-parallax-bgd-1, .animated-parallax-bgd-2, .animated-parallax-bgd-3 {
     background-size: cover;
