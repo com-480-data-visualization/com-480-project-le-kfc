@@ -58,7 +58,8 @@ $(function() {
     var animated_text = new ScrollScene({
         triggerElement: '#at1',
         triggerHook: "0",
-        duration: "2000"
+        duration: "2000",
+        offset:100
     })
         .setTween(new TimelineMax().add([
             TweenMax.from("#heading", 8, { y: 100, }),
@@ -83,7 +84,8 @@ $(function() {
     var animated_text2 = new ScrollScene({
         triggerElement: '#at2',
         triggerHook: "0",
-        duration:'2000'
+        duration:'2000',
+        offset:100
     })
         .setTween(new TimelineMax().add([
             TweenMax.from("#heading2", 1, { y: 100, }),
@@ -107,7 +109,8 @@ $(function() {
     var animated_text3 = new ScrollScene({
         triggerElement: '#at3',
         triggerHook: "0",
-        duration:'2000'
+        duration:'2000',
+        offset:100
     })
         .setTween(new TimelineMax().add([
             TweenMax.from("#caption07", 1, { y: 100, }),
@@ -129,7 +132,8 @@ $(function() {
     var animated_text4 = new ScrollScene({
         triggerElement: '#at4',
         triggerHook: "0",
-        duration:'1500'
+        duration:'1500',
+        offset:100
     })
         .setTween(new TimelineMax().add([
             TweenMax.from("#heading3", 1, { y: 100, }),
@@ -143,7 +147,8 @@ $(function() {
     var animated_text5 = new ScrollScene({
         triggerElement: '#at5',
         triggerHook: "0",
-        duration:'700'
+        duration:'700',
+        offset:100
     })
         .setTween(new TimelineMax().add([
             TweenMax.from("#heading4", 1, { y: 0, }),
@@ -181,7 +186,8 @@ $(function() {
     var animated_text6 = new ScrollScene({
         triggerElement: '#at6',
         triggerHook: "0",
-        duration:'2000'
+        duration:'2000',
+        offset:100
     })
         .setTween(new TimelineMax().add([
             TweenMax.from("#heading5", 1, { y: 100, }),
@@ -205,7 +211,8 @@ $(function() {
     var animated_text7 = new ScrollScene({
         triggerElement: '#at7',
         triggerHook: "0",
-        duration:'700'
+        duration:'700',
+        offset:100
     })
         .setTween(new TimelineMax().add([
             TweenMax.from("#heading6", 1, { y: 0, }),
