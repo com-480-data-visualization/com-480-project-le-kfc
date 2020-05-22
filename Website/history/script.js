@@ -9,18 +9,9 @@ function whenDocumentLoaded(action) {
 }
 
 //Launch-time runner
-whenDocumentLoaded(() => {
-    var clipboard = new ClipboardJS('.btn');
-});
+//whenDocumentLoaded(() => {
+//});
 
-//Copy link for image sources
-const copy_link= function(selector) {
-    var copyText = document.getElementById('s1');
-    copyText.select();
-    copyText.setSelectionRange(0, 99999)
-    document.execCommand("copy");
-    alert("Copied the text: " + copyText.value);
-}
 
 //Tab change function
 const change_tab= function(name) {
