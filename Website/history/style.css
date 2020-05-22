@@ -208,8 +208,8 @@ h5, .h5 {
     margin-bottom: 5vw;
     display: block;
     font-size: 2vw;
-    margin-left: 42vw;
-    margin-right: 42vw;
+    margin-left: 41.5vw;
+    /*margin-right: 42vw;*/
     background-color: #b2b2b2;
     border: none;
     color: white;
@@ -228,15 +228,16 @@ h5, .h5 {
     font-size: 1.5vw;
     position: absolute;
     text-align: center;
-    width: 100%;
+	margin-left: 41.95vw;
+    /*width: 100%;*/
     bottom: 5vh;
 }
 
 .imageEnd{
     position: absolute;
     text-align: center;
-    margin-left: 49.5vw;
-    margin-right: 49.5vw;
+    margin-left: 49vw;
+    /*margin-right: 49.5vw;*/
     width: 1%;
     bottom: 2vh;
 }
