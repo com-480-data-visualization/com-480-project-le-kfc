@@ -1,6 +1,19 @@
 /* GENERAL STUFFS */
 
 :root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #ff7800;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --primary: #ffdf91;
+    --gradient1: #218c74;
+    --gradient2: #b8e994;
     --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
@@ -8,6 +21,7 @@
 *, *::before, *::after {
     box-sizing: border-box;
 }
+
 
 html{
     height: 100%;
@@ -30,7 +44,7 @@ footer {
     background-color: #000;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h5 {
     margin-top: 0;
     margin-bottom: 0.5rem;
 }
@@ -49,11 +63,11 @@ small, a {
     font-size: 13px;
 }
 a:hover {
-    color: darkorange;
+    color: var(--gradient1);
     text-decoration: underline; }
 
-h1, h2, h5,
-.h1, .h2, .h5 {
+h1, h2, h3, h5,
+.h1, .h2, .h3, .h5 {
     margin-bottom: 0.5rem;
     font-weight: 300;
     line-height: 1.2; }
@@ -64,6 +78,13 @@ h1, .h1 {
 h2, .h2 {
     font-weight: 600;
     font-size: 28px;
+    color: #fff;
+}
+
+h3, .h3 {
+    font-size: 45px;
+    font-weight: bold;
+    margin-bottom: 40px;
     color: #fff;
 }
 
@@ -82,12 +103,12 @@ h5, .h5 {
 /* TEXT COLOR STYLE */
 
 .text-gradient {
-    background: -moz-linear-gradient(102deg, #ff7800 0%, #ffdf91 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffdf91), color-stop(100%, #ff7800));
-    background: -webkit-linear-gradient(102deg, #ff7800 0%, #ffdf91 100%);
-    background: -o-linear-gradient(102deg, #ff7800 0%, #ffdf91 100%);
-    background: -ms-linear-gradient(102deg, #ff7800 0%, #ffdf91 100%);
-    background: linear-gradient(348deg, #ff7800 0%, #ffdf91 100%);
+    background: -moz-linear-gradient(102deg, var(--gradient1) 0%, var(--gradient2) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, var(--gradient2)), color-stop(100%, var(--gradient1)));
+    background: -webkit-linear-gradient(102deg, var(--gradient1) 0%, var(--gradient2) 100%);
+    background: -o-linear-gradient(102deg, var(--gradient1) 0%, var(--gradient2) 100%);
+    background: -ms-linear-gradient(102deg, var(--gradient1) 0%, var(--gradient2) 100%);
+    background: linear-gradient(348deg, var(--gradient1) 0%, var(--gradient2) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -196,7 +217,7 @@ h5, .h5 {
     text-align: center;
     opacity: 0.6;
     transition: 0.5s;
-    cursor: cell;
+    cursor: pointer;
     position: absolute;
     width: 16vw;
     bottom: 5vh;
@@ -383,4 +404,24 @@ footer {
     font-size: 18px;
     font-weight: 200;
     line-height: 30px;
+}
+
+/* IMAGE SOURCES*/
+
+.animated-images a.btn {
+     display:inline-block;
+     padding:0.3em 1.2em;
+     margin:0 0.3em 0.3em 0;
+     border-radius:2em;
+     box-sizing: border-box;
+     text-decoration:none;
+     font-weight:300;
+     color:#FFFFFF;
+     background-color:#4eb5f1;
+     text-align:center;
+     transition: all 0.2s;
+}
+
+.animated-images a.btn:hover {
+     background-color: #4095c6;
 }

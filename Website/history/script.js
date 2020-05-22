@@ -9,15 +9,39 @@ function whenDocumentLoaded(action) {
 }
 
 //Launch-time runner
-//whenDocumentLoaded(() => {
-//});
+whenDocumentLoaded(() => {
+    var clipboard = new ClipboardJS('.btn');
+});
 
+//Copy link for image sources
+const copy_link= function(selector) {
+    var copyText = document.getElementById('s1');
+    copyText.select();
+    copyText.setSelectionRange(0, 99999)
+    document.execCommand("copy");
+    alert("Copied the text: " + copyText.value);
+}
 
 //Tab change function
 const change_tab= function(name) {
     //Changing the backgrounds and titles depending on the tab
-    if (name === 'VISUALIZATION') {
+    if (name === 'VISUALIZATION from history') {
         window.open("visualizations/index_visu.html",'_self');
+    }
+    if (name === 'HISTORY from image sources') {
+        window.open("../index.html",'_self');
+    }
+    if (name === 'IMAGE SOURCES from history') {
+        window.open("history/image_sources.html",'_self');
+    }
+    if (name === 'IMAGE SOURCES from team') {
+        window.open("image_sources.html",'_self');
+    }
+    if (name === 'TEAM from image sources') {
+        window.open("team.html",'_self');
+    }
+    if (name === 'TEAM from history') {
+        window.open("history/team.html",'_self');
     }
 }
 

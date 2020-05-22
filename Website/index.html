@@ -39,9 +39,9 @@
     </tr>
     <tr>
         <td valign="bottom">
-            <button type="button" onclick="change_tab('VISUALIZATION')">Go to Data Visualization</button>
+            <button type="button" onclick="change_tab('VISUALIZATION from history')">Go to Data Visualization</button>
             <div class="lineEnd">Scroll down for history</div>
-            <img class="imageEnd" src="history/images/swipe-down-arrow-white.png">
+            <img class="imageEnd" src="history/images/swipe-down-arrow-white.png" alt="">
         </td>
     </tr>
 
@@ -453,12 +453,17 @@
         <div class="col-type-3">
             <h5 class="text-gradient">About</h5>
             <ul class="text-small" style="padding-left: 0;list-style: none;">
-                <li><a class="text-skred" href="#">Team</a></li>
-                <li><a class="text-skred" href="#">Code repository</a></li>
-                <li><a class="text-skred" href="#">Image sources</a></li>
+                <li><a class="text-skred" onclick="change_tab('TEAM from history')">Team</a></li>
+                <li><a class="text-skred"
+                       target="_blank" rel="noopener noreferrer"
+                       href="https://github.com/com-480-data-visualization/com-480-project-le-kfc">
+                    Code repository
+                </a></li>
+                <li><a class="text-skred" onclick="change_tab('IMAGE SOURCES from history')">Image sources</a></li>
             </ul>
         </div>
     </div>
 </footer>
 </body>
 </html>
+
