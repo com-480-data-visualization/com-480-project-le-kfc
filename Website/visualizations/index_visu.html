@@ -77,19 +77,23 @@
 				}
 
 				//Printing the name and value of the country from the hover display box
-				hover=document.getElementById("map_hover")
-				hover.innerHTML=""
 				let p = document.createElement("p");
 				p.style.fontSize="2vh";
 	    	p.appendChild(document.createTextNode(layer.feature.properties.geounit+" --> "+layer.feature.properties.pop_est));
-	    	hover.appendChild(p);
+	    	document.getElementById("map_hover").appendChild(p);
 		}
 
 		//Runs when a country stops being hovered over
 		function onHoverEnd(e) {
+
+			//Deactivates the hovered country's targetting
 			if (!e.target.clicked){
 				geojson.resetStyle(e.target);
 			}
+
+			//Removes the data of the hovered country from the hover display box
+			document.getElementById("map_hover").innerHTML=""
+
 		}
 
 		//Runs when clicking on a country
