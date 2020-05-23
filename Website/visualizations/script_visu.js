@@ -36,14 +36,6 @@ const change_tab= function(name){
 				item.getElementsByTagName('input')[0].type="checkbox";
 			});
 		}
-		$("#js_flag_scroll").children().show();
-		document.getElementById("js_flag_scroll").style.visibility = "visible";
-		document.getElementById("search_bar").style.visibility = "visible";
-		//document.getElementById("flag_slider").style.visibility = "visible";
-
-		document.getElementById("slider_container").style.visibility = "visible";
-		document.getElementById("competition_container").style.visibility = "visible";
-		document.getElementById("measure_container").style.visibility = "visible";
 	}
 };
 
@@ -178,5 +170,7 @@ const criterion_loader= function(){
 whenDocumentLoaded(() => {
 	flag_loader("../../data/final_flags.csv");
 	criterion_loader();
-	document.getElementById("background").style.height="1540vh";
+	Array.from(document.getElementById("measure_container").getElementsByTagName('div')).forEach((item, i) => {
+		item.getElementsByTagName('input')[0].type="radio";
+	});
 });

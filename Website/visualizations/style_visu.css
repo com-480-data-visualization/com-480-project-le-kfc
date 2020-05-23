@@ -61,7 +61,7 @@ svg {
 
 #btns {
 	position: absolute;
-	top: 30vh;
+	top: 5vh;
 	left: 90vw;
 	width: 8vw;
 	height: 30vh;
@@ -84,7 +84,6 @@ svg {
 	height: 5vh;
 	float: left;
 	text-align: center;
-	visibility: hidden;
 }
 
 /* FLAG SLIDER STYLE */
@@ -162,7 +161,6 @@ svg {
 	width: 89.6vw;
 	/*height: 18%;*/
 	margin: 1vw 1vw;
-	visibility: hidden;
 }
 
 #search_bar {
@@ -177,7 +175,6 @@ svg {
 	background-repeat: no-repeat;
 	padding: 0.1vw 1.5vw;
 	font-size: 1vw;
-	visibility: hidden;
 }
 
 #measure_container {
@@ -186,7 +183,6 @@ svg {
 	left: 1vw;
 	width: 15vw;
 	height:30vh;
-	visibility: hidden;
 }
 
 #competition_container {
@@ -195,10 +191,9 @@ svg {
 	left: 1vw;
 	width: 15vw;
 	height:30vh;
-	visibility: hidden;
 }
 
 #background {
-	background-image: url('../history.jpg');
+	background-image: url('map.jpg');
 	background-repeat: no-repeat;
 }
