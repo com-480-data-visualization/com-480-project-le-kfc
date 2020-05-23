@@ -174,7 +174,9 @@ h5, .h5 {
     background-attachment: fixed;
     color: #fff;
     display: flex;
-    height: 100%
+    height: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .container_title {
@@ -196,39 +198,48 @@ h5, .h5 {
 
 .main_title h1 {
     font-size: 4vw;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+}
 .main_title p {
     font-size: 2vw;
     display: inline-block;
+    line-height: 2vw;
 }
 
-.main_title button {
-    align-self: center;
+.btn_go_viz{
+    width: 16vw;
+    bottom: 5vh;
+    position: absolute;
+    text-align: center;
     margin-top: 10vw;
     margin-bottom: 5vw;
-    display: block;
     font-size: 2vw;
-    margin-left: 41.5vw; /*Modif Vincent*/
-    /*margin-right: 42vw;*/ /*Modif Vincent*/
     background-color: #b2b2b2;
     border: none;
     color: white;
     padding: 1% 2%;
-    text-align: center;
     opacity: 0.6;
     transition: 0.5s;
     cursor: pointer;
-    position: absolute;
-    width: 16vw;
-    bottom: 5vh;
 }
-.main_title button:hover {opacity: 0.8}
+
+.btn_go_viz:hover {opacity: 0.8}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+}
 
 .lineEnd{
     font-size: 1.5vw;
     position: absolute;
     text-align: center;
-    margin-left: 41.95vw; /*Modif Vincent*/
+    /*
+    margin-left: 41.95vw; !*Modif Vincent*!
+    */
     /*width: 100%;*/ /*Modif Vincent*/
     bottom: 5vh;
 }
@@ -236,7 +247,9 @@ h5, .h5 {
 .imageEnd{
     position: absolute;
     text-align: center;
-    margin-left: 49vw; /*Modif Vincent*/
+    /*
+    margin-left: 49vw; !*Modif Vincent*!
+    */
     /*margin-right: 49.5vw;*/ /*Modif Vincent*/
     width: 1%;
     bottom: 2vh;
@@ -432,4 +445,19 @@ footer {
 
 .animated-images a.btn:hover {
      background-color: #4095c6;
+}
+
+/* FOOTER FOR TEAMS*/
+.page-wrap {
+    min-height: 100%;
+    /* equal to footer height */
+    margin-bottom: -81px;
+}
+.page-wrap:after {
+    content: "";
+    display: block;
+}
+
+.site-footer, .page-wrap:after {
+    height: 81px;
 }

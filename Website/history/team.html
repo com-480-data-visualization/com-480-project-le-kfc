@@ -23,63 +23,67 @@
 </head>
 <body>
 
-<div style="overflow: auto;padding:10vh">
+<div class="page-wrap">
+    <div style="overflow: auto;padding:10vh;padding-top:5vh;">
     <span class="text-gradient" style="font-size: 45px;font-weight: bold;color: #fff;">
         Team
     </span>
-    <img src="images/back-white.png"
-         alt=""
-         onclick="change_tab('HISTORY from image sources')"
-         style="padding-top:2.7vh;float:right;width: 30px;vertical-align:middle;cursor: pointer;">
+        <img src="images/back-white.png"
+             alt=""
+             onmouseover="this.style.opacity=0.8"
+             onmouseleave="this.style.opacity=1"
+             onclick="change_tab('HISTORY from image sources')"
+             style="padding-top:2.7vh;float:right;width: 30px;vertical-align:middle;cursor: pointer;transition: 0.5s">
+    </div>
+
+
+    <section class="animated-text">
+        <div class="container_animated-text ">
+            <div class="row"> <!--permits to display the whole in a row in a narrow window -->
+                <div class="col-type-4">
+                    <h4 class="text-white">Bouraux Léopold</h4>
+                    <p class="text-gradient">257368</p>
+                </div>
+                <div class="col-type-4">
+                    <h4 class="text-white">Reynaud Alexandre</h4>
+                    <p class="text-gradient">258402</p>
+                </div>
+                <div class="col-type-4">
+                    <h4 class="text-white">Rinaldi Vincent</h4>
+                    <p class="text-gradient">239759</p>
+                </div>
+                <div class="col-type-4">
+                    <h4 class="text-gradient">Le K-FC</h4>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
 
-<section class="animated-text">
-    <div class="container_animated-text ">
-        <div class="row"> <!--permits to display the whole in a row in a narrow window -->
-            <div class="col-type-4">
-                <h4 class="text-white">Bouraux Léopold</h4>
-                <p class="text-gradient">257368</p>
-            </div>
-            <div class="col-type-4">
-                <h4 class="text-white">Reynaud Alexandre</h4>
-                <p class="text-gradient">258402</p>
-            </div>
-            <div class="col-type-4">
-                <h4 class="text-white">Rinaldi Vincent</h4>
-                <p class="text-gradient">239759</p>
-            </div>
-            <div class="col-type-4">
-                <h4 class="text-gradient">Le K-FC</h4>
-            </div>
-        </div>
-    </div>
-</section>
-
-<footer class="container_animated-images">
+<footer class="container_animated-images site-footer" style="padding-top:0">
     <div class="row">
         <div class="col-type-00">
             <embed style="width:2vw" type="image/svg+xml" src="images/ball.svg" />
-            <ul style="padding-left: 0;list-style: none;">
-                <li><small class="text-skred">2020</small></li>
-                <li><small class="text-skred">COM-480</small></li>
-                <li><small class="text-skred">Data Visualization</small></li>
+            <ul style="padding-left: 0; list-style: none; margin-top: 0;cursor:pointer;" onclick="change_tab('VISUALIZATION from other')">
+                <li><small class="text-skred">2020 EPFL COM-480 Data Visualization</small>
             </ul>
         </div>
         <div class="col-type-3">
-            <h5 class="text-gradient">About</h5>
-            <ul class="text-small" style="padding-left: 0;list-style: none;">
+            <h5 class="text-gradient" style="padding-top: 6px">About</h5>
+            <ul id="about_list" class="text-small" style="padding-left: 0; list-style: none; margin-top: 0">
                 <li><a class="text-skred" href="#">Team</a></li>
                 <li><a class="text-skred"
                        target="_blank" rel="noopener noreferrer"
                        href="https://github.com/com-480-data-visualization/com-480-project-le-kfc">
                     Code repository
                 </a></li>
-                <li><a class="text-skred" onclick="change_tab('IMAGE SOURCES from team')">Image sources</a></li>
+                <li><a class="text-skred" onclick="change_tab('IMAGE SOURCES from team')" style="cursor: pointer">Image sources</a></li>
             </ul>
         </div>
     </div>
 </footer>
+
 
 </body>
 </html>
