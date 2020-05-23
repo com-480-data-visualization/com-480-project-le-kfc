@@ -21,6 +21,8 @@ const change_tab= function(name){
 		if(name==='MAP'){
 			document.getElementById("title").innerHTML='';
 			document.getElementById("map").style.visibility= "visible";
+			document.getElementById("map_hover").style.visibility= "visible";
+			document.getElementById("map_select").style.visibility= "visible";
 			Array.from(document.getElementById("measure_container").getElementsByTagName('div')).forEach((item, i) => {
 				item.getElementsByTagName('input')[0].type="radio";
 			});
@@ -28,6 +30,8 @@ const change_tab= function(name){
 		else if(name==='DETAILS'){
 			document.getElementById("title").innerHTML=name;
 			document.getElementById("map").style.visibility= "hidden";
+			document.getElementById("map_hover").style.visibility= "hidden";
+			document.getElementById("map_select").style.visibility= "hidden";
 			Array.from(document.getElementById("measure_container").getElementsByTagName('div')).forEach((item, i) => {
 				item.getElementsByTagName('input')[0].type="checkbox";
 			});
@@ -62,6 +66,7 @@ const flag_loader= function(path){
 };
 
 const assign_flags= function(){
+
     //Reference to the flag container
     let scrollmenu = document.getElementById("js_flag_scroll");
     scrollmenu.classList.add("flag-slider");
@@ -77,7 +82,9 @@ const assign_flags= function(){
         const button_style = document.createElement("div");
         button_style.classList.add('button-style');
         button_style.innerHTML = flags[cnt]['Country'].substring(0, 3).toUpperCase();
+				button_style.id=flags[cnt]['Country'];
         cnt++;
+
         // bottom flag
         const square2 = document.createElement("div");
         square2.classList.add('square');
@@ -85,7 +92,8 @@ const assign_flags= function(){
         const button_style2 = document.createElement("div");
         button_style2.classList.add('button-style');
         if(cnt<flag_number) button_style2.innerHTML = flags[cnt]['Country'].substring(0, 3).toUpperCase();
-        cnt++;
+				if(cnt<flag_number) button_style2.id=flags[cnt]['Country'];
+				cnt++;
 
         square.appendChild(button_style);
         if(cnt<flag_number) square2.appendChild(button_style2);
