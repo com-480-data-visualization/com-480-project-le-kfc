@@ -23,27 +23,29 @@
 <body>
 
 <section class="main_title" id="main_title">
-    <tr>
-        <td valign="top">
-            <div class="container_title">
-                <h1 class="line1">International football data</h1>
-                <p class="line2">Here is a brief chronological history</p>
-                <p> </p>
-                <p class="line3">of international football</p>
-                <p> </p>
-                <p class="line4">from its beginnings</p>
-                <p> </p>
-                <p class="line5">to the present days.</p>
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td valign="bottom">
-            <button type="button" onclick="change_tab('VISUALIZATION from history')">Go to Data Visualization</button>
-            <div class="lineEnd">Scroll down for history</div>
-            <img class="imageEnd" src="history/images/swipe-down-arrow-white.png" alt="">
-        </td>
-    </tr>
+
+    <div class="container_title">
+        <h1 class="line1">International football data</h1>
+        <p class="line2">Here is a brief chronological history</p>
+        <p> </p>
+        <p class="line3">of international football</p>
+        <p> </p>
+        <p class="line4">from its beginnings</p>
+        <p> </p>
+        <p class="line5">to the present days.</p>
+    </div>
+
+<!--
+    <button class="center" onclick="change_tab('VISUALIZATION from history')">Go to Data Visualization</button>
+-->
+    <div class="btn_go_viz center"
+         onclick="change_tab('VISUALIZATION from history')">
+        Go to Data Visualization
+    </div>
+
+    <div class="lineEnd center">Scroll down for history</div>
+    <img class="imageEnd center" src="history/images/swipe-down-arrow-white.png" alt="">
+
 
 </section>
 
@@ -433,34 +435,24 @@
 </section>
 
 
-
-
-
-
-
-
-
 <footer class="container_animated-images">
     <div class="row">
         <div class="col-type-00">
-            <embed style="width:2vw" type="image/svg+xml" src="history/images/ball.svg" />
-            <ul style="padding-left: 0; list-style: none; margin-top: 0"> <!--Ajout Vincent (pour margin)-->
-                <!--<li><small class="text-skred">2020</small></li>--> <!--Modif Vincent-->
-                <!--<li><small class="text-skred">COM-480</small></li>--> <!--Modif Vincent-->
-                <!--<li><small class="text-skred">Data Visualization</small></li>--> <!--Modif Vincent-->
-                <li><small class="text-skred">2020 EPFL COM-480 Data Visualization</small> <!--Ajout Vincent-->
+            <embed style="width:30px" type="image/svg+xml" src="history/images/ball.svg" />
+            <ul style="padding-left: 0; list-style: none; margin-top: 0;cursor:pointer;" onclick="change_tab('VISUALIZATION from history')">
+                <li><small class="text-skred">2020 EPFL COM-480 Data Visualization</small>
             </ul>
         </div>
         <div class="col-type-3">
             <h5 class="text-gradient" style="padding-top: 6px">About</h5>
-            <ul id="about_list" class="text-small" style="padding-left: 0; list-style: none; margin-top: 0"> <!--Ajout Vincent (pour id et margin)-->
-                <li><a class="text-skred" onclick="change_tab('TEAM from history')">Team</a></li>
+            <ul id="about_list" class="text-small" style="padding-left: 0; list-style: none; margin-top: 0">
+                <li><a class="text-skred" onclick="change_tab('TEAM from history')" style="cursor: pointer">Team</a></li>
                 <li><a class="text-skred"
                        target="_blank" rel="noopener noreferrer"
                        href="https://github.com/com-480-data-visualization/com-480-project-le-kfc">
                     Code repository
                 </a></li>
-                <li><a class="text-skred" onclick="change_tab('IMAGE SOURCES from history')">Image sources</a></li>
+                <li><a class="text-skred" onclick="change_tab('IMAGE SOURCES from history')" style="cursor: pointer">Image sources</a></li>
             </ul>
         </div>
     </div>

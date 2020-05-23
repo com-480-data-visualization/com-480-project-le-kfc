@@ -19,6 +19,9 @@ const change_tab= function(name) {
     if (name === 'VISUALIZATION from history') {
         window.open("visualizations/index_visu.html",'_self');
     }
+    if (name === 'VISUALIZATION from other') {
+        window.open("../visualizations/index_visu.html",'_self');
+    }
     if (name === 'HISTORY from image sources') {
         window.open("../index.html",'_self');
     }
