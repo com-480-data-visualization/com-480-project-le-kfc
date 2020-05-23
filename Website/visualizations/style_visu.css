@@ -35,7 +35,7 @@ body {
 	align-content: center;
 
 	/* background behind the plot */
-	background: white;
+	background: #c5e8ff;
 
 	/* default text */
 	font-family: sans-serif;
@@ -49,15 +49,6 @@ We use the class selector ".", so this style will be applied to elements with cl
 The various units of measurement available in CSS:
 	https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Values_and_units
 */
-
-
-svg {
-	position: absolute;
-	width:100%;
-	height:80%;
-	background-size: 100% 100%;
-	background-color: white;
-}
 
 #btns {
 	position: absolute;
@@ -73,7 +64,7 @@ svg {
 	font-size: 5vw;
 	top: 1vw;
 	vertical-align: middle;
-	color:blue;
+	color:white;
 }
 
 #slider_container {
@@ -191,9 +182,4 @@ svg {
 	left: 1vw;
 	width: 15vw;
 	height:30vh;
-}
-
-#background {
-	background-image: url('map.jpg');
-	background-repeat: no-repeat;
 }

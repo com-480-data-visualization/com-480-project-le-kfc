@@ -19,19 +19,15 @@ const change_tab= function(name){
 	}
 	else {
 		if(name==='MAP'){
-			document.getElementById("background").style.backgroundImage = "url('map.jpg')";
 			document.getElementById("title").innerHTML='';
-			document.getElementById("background").style.height="80vh";
-			document.getElementById("btns").style.top= "5vh";
+			document.getElementById("map").style.visibility= "visible";
 			Array.from(document.getElementById("measure_container").getElementsByTagName('div')).forEach((item, i) => {
 				item.getElementsByTagName('input')[0].type="radio";
 			});
 		}
 		else if(name==='DETAILS'){
-			document.getElementById("background").style.backgroundImage = "url('details.png')";
 			document.getElementById("title").innerHTML=name;
-			document.getElementById("background").style.height="100vh";
-			document.getElementById("btns").style.top= "35vh";
+			document.getElementById("map").style.visibility= "hidden";
 			Array.from(document.getElementById("measure_container").getElementsByTagName('div')).forEach((item, i) => {
 				item.getElementsByTagName('input')[0].type="checkbox";
 			});
@@ -137,6 +133,7 @@ const criterion_loader= function(){
 		container.appendChild(button);
 		container.appendChild(text);
 		measure_ref.appendChild(container);
+
 	});
 
 	//Loading all competition criterions
@@ -163,14 +160,17 @@ const criterion_loader= function(){
 		container.appendChild(button);
 		container.appendChild(text);
 		competition_ref.appendChild(container);
+
 	});
 };
 
 //Launch-time runner
 whenDocumentLoaded(() => {
+
+	//Loading the flags
 	flag_loader("../../data/final_flags.csv");
+
+	//Setting-up the criterion selectors
 	criterion_loader();
-	Array.from(document.getElementById("measure_container").getElementsByTagName('div')).forEach((item, i) => {
-		item.getElementsByTagName('input')[0].type="radio";
-	});
+
 });
