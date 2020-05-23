@@ -208,8 +208,8 @@ h5, .h5 {
     margin-bottom: 5vw;
     display: block;
     font-size: 2vw;
-    margin-left: 41.5vw;
-    /*margin-right: 42vw;*/
+    margin-left: 41.5vw; /*Modif Vincent*/
+    /*margin-right: 42vw;*/ /*Modif Vincent*/
     background-color: #b2b2b2;
     border: none;
     color: white;
@@ -228,16 +228,16 @@ h5, .h5 {
     font-size: 1.5vw;
     position: absolute;
     text-align: center;
-	margin-left: 41.95vw;
-    /*width: 100%;*/
+    margin-left: 41.95vw; /*Modif Vincent*/
+    /*width: 100%;*/ /*Modif Vincent*/
     bottom: 5vh;
 }
 
 .imageEnd{
     position: absolute;
     text-align: center;
-    margin-left: 49vw;
-    /*margin-right: 49.5vw;*/
+    margin-left: 49vw; /*Modif Vincent*/
+    /*margin-right: 49.5vw;*/ /*Modif Vincent*/
     width: 1%;
     bottom: 2vh;
 }
@@ -298,10 +298,17 @@ h5, .h5 {
 
 .container_animated-images {
     width: 100%;
+    height: 0%; /*Ajout Vincent*/
+    padding-top: 25px; /*Ajout Vincent*/
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+}
+
+ul#about_list li { /*Ajout Vincent (full block)*/
+  display: inline;
+  padding-right: 15px;
 }
 
 .animated-images .im01 {
