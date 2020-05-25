@@ -1,8 +1,31 @@
-
-/*
-This CSS governs the appearance of our site.
-You can find the basic concepts of CSS here: https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/How_CSS_works
-*/
+:root {
+	--blue: #007bff;
+	--background: #c5e8ff;
+	--backgrounddark: #a5c9e0;
+	--backgrounddark2: #77a0ba;
+	--indigo: #6610f2;
+	--purple: #6f42c1;
+	--pink: #e83e8c;
+	--red: #dc3545;
+	--orange: #ff7800;
+	--yellow: #ffc107;
+	--green: #28a745;
+	--teal: #20c997;
+	--cyan: #17a2b8;
+	--black:#000;
+	--darkdarkgrey: #111;
+	--darkgrey: #3c3c3c;
+	--grey: #6c6c6c;
+	--lightgrey: #9c9c9c;
+	--lightlightgrey: #cccccc;
+	--light3grey: #ddd;
+	--light4grey: #eee;
+	--white:#fff;
+	--gradient1: #218c74;
+	--gradient2: #b8e994;
+	--font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
 
 /*
 This makes the border and padding be counted as part of the element's size.
@@ -35,7 +58,7 @@ body {
 	align-content: center;
 
 	/* background behind the plot */
-	background: #c5e8ff;
+	background: var(--background);
 
 	/* default text */
 	font-family: Helvetica, sans-serif;
@@ -168,7 +191,7 @@ The various units of measurement available in CSS:
 	padding-bottom: 1vh;
 
 	position: absolute;
-	top: 78vh;
+	top: 80%;
 	left: 3.75vw;
 	width: 89.6vw;
 	/*height: 18%;*/
@@ -195,8 +218,7 @@ The various units of measurement available in CSS:
 	overflow: hidden;
 }
 
-/* input style */
-
+/* INPUT */
 input {
 	outline: none;
 	border: none;
@@ -220,13 +242,13 @@ input:-ms-input-placeholder { color: #6c6c6c;}
 .wrap-input100 {
 	width: 13vw;
 	position: absolute;
-	top: 76vh;
+	top: 78vh;
 	left: 5.65vw;
-	border-bottom: 2px solid #6c6c6c;
+	border-bottom: .1vw solid #6c6c6c;
 	padding: 0 1.5vw;
 	background-image: url('https://images.vexels.com/media/users/3/132068/isolated/preview/f9bb81e576c1a361c61a8c08945b2c48-search-icon-by-vexels.png');
 	background-position: 0 60%;
-	background-size: 8% 50%;
+	background-size: 8%;
 	background-repeat: no-repeat;
 }
 
@@ -236,17 +258,17 @@ input:-ms-input-placeholder { color: #6c6c6c;}
 	background: transparent;
 	font-family: "Helvetica Neue", sans-serif;
 	color: #000;
-	font-size: 1.1rem;
+	font-size: .9vw;
 }
 
 .focus-input100::before {
 	content: "";
 	display: block;
 	position: absolute;
-	bottom: -2px;
+	bottom: -10%;
 	left: 0;
 	width: 0;
-	height: 2px;
+	height: 10%;
 	-webkit-transition: all 0.4s;
 	-o-transition: all 0.4s;
 	-moz-transition: all 0.4s;
@@ -255,11 +277,86 @@ input:-ms-input-placeholder { color: #6c6c6c;}
 }
 
 input.input100 {
-	height: 4vh;
+	height: 4%;
 }
 
 .input100:focus + .focus-input100::before {
 	width: 100%;
 }
 
+
+
+/* SLIDER : https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css*/
+.ui-slider {
+	position: relative;
+	text-align: left;
+}
+.ui-slider .ui-slider-handle {
+	position: absolute;
+	z-index: 2;
+	width: 1.2em;
+	height: 1.2em;
+	cursor: default;
+	-ms-touch-action: none;
+	touch-action: none;
+}
+.ui-slider .ui-slider-range {
+	position: absolute;
+	z-index: 1;
+	font-size: .7em;
+	display: block;
+	border: 0;
+	background-position: 0 0;
+}
+
+.ui-slider-horizontal {
+	height: .8em;
+}
+.ui-slider-horizontal .ui-slider-handle {
+	top: -.3em;
+	margin-left: -.6em;
+}
+.ui-slider-horizontal .ui-slider-range {
+	top: 0;
+	height: 100%;
+}
+
+/* Bars colors*/
+.ui-widget-content {
+	background: var(--backgrounddark);
+	color: #333333;
+}
+.ui-widget-content a {
+	color: #333333;
+}
+.ui-widget-header {
+	background: var(--backgrounddark2);
+	font-weight: bold;
+}
+
+/* Cursor colors and shape*/
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default,
+.ui-button,
+
+html .ui-button.ui-state-disabled:active {
+	background: var(--lightlightgrey);
+}
+
+.ui-widget-content .ui-state-hover{
+	background: var(--lightgrey);
+}
+
+.ui-widget-content .ui-state-active{
+	background: var(--grey);
+}
+
+/* Corner radius */
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-left,
+.ui-corner-tl {
+	border-radius:10px;
+}
 
