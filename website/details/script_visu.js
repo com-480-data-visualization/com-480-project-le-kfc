@@ -8,6 +8,16 @@ function whenDocumentLoaded(action) {
 	}
 }
 
+window.addEventListener('load', function() {
+	setTimeout(function(){document.getElementById("buttonHistory").style.opacity = "1"}, 600);
+	setTimeout(function(){document.getElementById("buttonMap").style.opacity = "1"}, 600);
+	setTimeout(function(){assign_flags()}, 1000);
+	setTimeout(function(){document.getElementById("slider_container").style.opacity = "1"}, 3700);
+	setTimeout(function(){document.getElementById("search_bar").style.opacity = "1"}, 3700);
+	setTimeout(function(){document.getElementById("buttonData").style.opacity = "1"}, 3700);
+	setTimeout(function(){document.getElementById("js_flag_scroll").style.opacity = "1"}, 3700);
+});
+
 /*
 //Tab change function
 const change_tab = function(name) {
@@ -366,49 +376,49 @@ const assign_flags = function() {
 };
 
 //List of criterions
-measures=["Matches Played", "Friendly Home Matches Played", "Friendly Away Matches Played",
+measures=["Matches Played", "Wins", "Draws", "Losses", "Goals Scored", "Goals Conceded",
+					"Friendly Home Matches Played", "Friendly Away Matches Played",
 					"Tournament Matches Played", "Tournaments Played", "Tournaments Hosted",
-					"Goals Scored", "Goals Conceded", "Wins", "Draws", "Losses",
 					"Tournaments Won", "Tournaments Lost"];
 
-competitions=['All', 'FIFA World Cup', 'FIFA World Cup qualification', 'Friendly',
-							'ABCS Tournament', 'AFC Asian Cup', 'AFC Asian Cup qualification',
-       				'AFC Challenge Cup', 'AFC Challenge Cup qualification',
+competitions=['All', 'Friendly',
+							'FIFA World Cup', 'FIFA World Cup qualification',
+							'UEFA Euro', 'UEFA Euro qualification',
+							'Copa América', 'Copa América qualification',
+							'African Cup of Nations', 'African Cup of Nations qualification',
+							'Gold Cup', 'Gold Cup qualification',
+							'AFC Asian Cup', 'AFC Asian Cup qualification',
+							'Oceania Nations Cup', 'Oceania Nations Cup qualification',
+							'ABCS Tournament', 'AFC Challenge Cup', 'AFC Challenge Cup qualification',
        				'AFF Championship', 'AFF Championship qualification',
-       				'African Cup of Nations', 'African Cup of Nations qualification',
-       				'African Nations Championship',
-       				'African Nations Championship qualification', 'Amílcar Cabral Cup',
-       				'Atlantic Cup', 'Balkan Cup', 'Baltic Cup',
+       				'African Nations Championship', 'African Nations Championship qualification',
+							'Amílcar Cabral Cup',	'Atlantic Cup', 'Balkan Cup', 'Baltic Cup',
        				'Brazil Independence Cup', 'British Championship',
        				'CCCF Championship', 'CECAFA Cup', 'CFU Caribbean Cup',
        				'CFU Caribbean Cup qualification', 'CONCACAF Championship',
 			        'CONCACAF Championship qualification', 'CONCACAF Nations League',
 			        'CONCACAF Nations League qualification', 'COSAFA Cup',
-			        'Confederations Cup', 'Copa América', 'Copa América qualification',
-			        'Copa Artigas', "Copa Bernardo O'Higgins", 'Copa Carlos Dittborn',
-			        'Copa Chevallier Boutell', 'Copa Félix Bogado',
+			        'Confederations Cup', 'Copa Artigas', "Copa Bernardo O'Higgins",
+							'Copa Carlos Dittborn', 'Copa Chevallier Boutell', 'Copa Félix Bogado',
 			        'Copa Juan Pinto Durán', 'Copa Lipton', 'Copa Newton',
 			        'Copa Oswaldo Cruz', 'Copa Paz del Chaco',
 			        'Copa Premio Honor Argentino', 'Copa Premio Honor Uruguayo',
 			        'Copa Ramón Castilla', 'Copa Rio Branco', 'Copa Roca',
 			        'Copa del Pacífico', 'Cyprus International Tournament',
 			        'Dragon Cup', 'Dunhill Cup', 'Dynasty Cup', 'EAFF Championship',
-			        'GaNEFo', 'Gold Cup', 'Gold Cup qualification', 'Gulf Cup',
-			        'Indonesia Tournament', 'Intercontinental Cup',
+			        'GaNEFo', 'Gulf Cup', 'Indonesia Tournament', 'Intercontinental Cup',
 			        'International Cup', 'Island Games',
 			        'Jordan International Tournament', 'King Hassan II Tournament',
 			        "King's Cup", 'Kirin Cup', 'Korea Cup', 'Lunar New Year Cup',
 			        'Malta International Tournament', 'Merdeka Tournament',
 			        'Merlion Cup', 'Millennium Cup', 'Mundialito', 'NAFU Championship',
 			        'Nations Cup', 'Nehru Cup', 'Nile Basin Tournament',
-			        'Nordic Championship', 'OSN Cup', 'Oceania Nations Cup',
-			        'Oceania Nations Cup qualification', 'Pacific Games',
+			        'Nordic Championship', 'OSN Cup', 'Pacific Games',
 			        'Pan American Championship', "Prime Minister's Cup", 'Rous Cup',
 			        'SAFF Cup', 'SKN Football Festival', 'Simba Tournament',
 			        'South Pacific Games', 'Tournoi de France', 'UAFA Cup',
-			        'UAFA Cup qualification', 'UDEAC Cup', 'UEFA Euro',
-			        'UEFA Euro qualification', 'UEFA Nations League', 'UNCAF Cup',
-			        'UNIFFAC Cup', 'USA Cup',
+			        'UAFA Cup qualification', 'UDEAC Cup', 'UEFA Nations League',
+							'UNCAF Cup', 'UNIFFAC Cup', 'USA Cup',
 			        'United Arab Emirates Friendship Tournament', 'VFF Cup',
 			        'Vietnam Independence Cup', 'WAFF Championship',
 			        'West African Cup', 'Windward Islands Tournament'];
@@ -428,6 +438,13 @@ const criterion_loader= function() {
 		container.style.width="21vw"; /*Modif Vincent*/
 		container.style.height="3vh";
 		container.style.direction="ltr";
+		container.style.marginRight="0.5vw"
+		if (i == 6) {
+			container.style.borderTop="0.2vh dashed black";
+			container.style.height="3.2vh";
+			container.style.width="21vw";
+			container.style.marginRight="0.5vw";
+		}
 
 		//Instanciating the radio button
 		const button=document.createElement("input");
@@ -436,6 +453,7 @@ const criterion_loader= function() {
 		button.name="radio";
 		button.style.width="1.5vw";
 		button.style.height="1.5vh";
+		button.style.verticalAlign="middle"; /*Ajout Vincent*/
 
 		//Instanciating the label
 		const text=document.createElement("label");
@@ -445,6 +463,7 @@ const criterion_loader= function() {
 		text.style.color="white";
 		text.style.fontWeight="bold";
 		text.style.textShadow="0 0 2px black";
+		text.style.verticalAlign="middle"; /*Ajout Vincent*/
 
 		//Linking all components together
 		container.appendChild(button);
@@ -459,6 +478,13 @@ const criterion_loader= function() {
 		container.style.width="21vw";
 		container.style.height="3vh";
 		container.style.direction="ltr";
+		container.style.marginRight="0.5vw"
+		if (i == 16) {
+			container.style.borderTop="0.2vh dashed black";
+			container.style.height="3.2vh";
+			container.style.width="21vw";
+			container.style.marginRight="0.5vw";
+		}
 
 		//Instanciating the checkbox
 		const button=document.createElement("input");
@@ -466,6 +492,7 @@ const criterion_loader= function() {
 		button.type="checkbox";
 		button.style.width="1.5vw";
 		button.style.height="1.5vh";
+		button.style.verticalAlign="middle"; /*Ajout Vincent*/
 
 		//Instanciating the label
 		const text=document.createElement("label");
@@ -475,6 +502,7 @@ const criterion_loader= function() {
 		text.style.color="white";
 		text.style.fontWeight="bold";
 		text.style.textShadow="0 0 2px black";
+		text.style.verticalAlign="middle"; /*Ajout Vincent*/
 
 		//Linking all components together
 		container.appendChild(button);
@@ -492,12 +520,6 @@ whenDocumentLoaded(() => {
 });
 */
 
-var image = new Image();
-image.onload = function () {
-        $("svg").css("background-image", "url('" + image.src + "')");
-}
-image.src = "https://i.pinimg.com/originals/42/50/cf/4250cf3e0be36300f7f2db83c6827ca6.jpg"
-
 whenDocumentLoaded(() => {
 	//document.getElementById("slider_container").style.visibility = "visible"; /*Modif Vincent*/
 	//document.getElementById("search_bar").style.visibility = "visible"; /*Modif Vincent*/
@@ -507,6 +529,7 @@ whenDocumentLoaded(() => {
 
 	//$("#js_flag_scroll").children().show(); /*Modif Vincent*/
 	//document.getElementById("js_flag_scroll").style.visibility = "visible"; /*Modif Vincent*/
+
 	criterion_loader();
 	Array.from(document.getElementById("measure_container").getElementsByTagName('div')).forEach((item, i) => {
 		item.getElementsByTagName('input')[0].type="checkbox";
