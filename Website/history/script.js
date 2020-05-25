@@ -123,8 +123,6 @@ const assign_stats= function(){
             team_to_defeats_ratio[team] = team_to_defeats[team]/team_to_match_played[team];
         });
 
-        console.log(team_to_average_score)
-
         const TEAMS_INVOLVED = unique_teams.size;
         const MOST_INVOLVED_TEAM = max_key_from_value(team_to_match_played, unique_teams, false, team_to_match_played);
         const MOST_INVOLVED_TEAM_b = team_to_match_played[MOST_INVOLVED_TEAM];
