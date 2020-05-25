@@ -38,6 +38,15 @@
 			$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
 					" - $" + $( "#slider-range" ).slider( "values", 1 ) );
 		} );
+
+		$(function(){
+    var bgimage = new Image();
+    bgimage.src="https://i.pinimg.com/originals/42/50/cf/4250cf3e0be36300f7f2db83c6827ca6.jpg";
+		$(".feature").hide();
+		    $(bgimage).load(function(){
+		        $(".feature").css("background-image","url("+$(this).attr("src")+")").fadeIn(1000);
+		    });
+		});
 	</script>
 
 </head>
@@ -45,7 +54,7 @@
 <body>
 
 	<!--Shared background of the visualizations-->
-	<svg id="background"></svg>
+	<svg id="background" class="feature"></svg>
 
 	<!--Visualization switching buttons-->
 	<!--<div id="btns">
@@ -82,9 +91,21 @@
 		<div style="font-size:1vw;" id="slider_text">1872 - 2020</div>
 	</div>
 
+	<!--Search bar-->
+	<input type="text" id="search_bar" placeholder="Search for country...">
+
 	<!--Flag slider-->
 	<div class="flag-slider" id="js_flag_scroll"></div>
-	<input type="text" id="search_bar" placeholder="Search for country...">
+
+	<button type="button" id="buttonHistory" class="buttonTab" onclick="change_tab('HISTORY')"></button>
+	<button type="button" id="buttonMap" class="buttonTab" onclick="change_tab('MAP')"></button>
+
+	<div id="bubbleHistory">Go to History</div>
+	<div id="bubbleMap" class="bubble">Go to Map</div>
+
+	<button type="button" id="buttonData" class="buttonLoad" onclick="load_data()"></button>
+
+	<div id="dataBoard" class="board">Select a competition...</div>
 
 </body>
 
