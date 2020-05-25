@@ -82,7 +82,7 @@ const assign_flags= function(){
         const button_style = document.createElement("div");
         button_style.classList.add('button-style');
         button_style.innerHTML = flags[cnt]['Country'].substring(0, 3).toUpperCase();
-				button_style.id=flags[cnt]['Country'];
+		button_style.id=flags[cnt]['Country'];
         cnt++;
 
         // bottom flag
@@ -92,8 +92,8 @@ const assign_flags= function(){
         const button_style2 = document.createElement("div");
         button_style2.classList.add('button-style');
         if(cnt<flag_number) button_style2.innerHTML = flags[cnt]['Country'].substring(0, 3).toUpperCase();
-				if(cnt<flag_number) button_style2.id=flags[cnt]['Country'];
-				cnt++;
+		if(cnt<flag_number) button_style2.id=flags[cnt]['Country'];
+		cnt++;
 
         square.appendChild(button_style);
         if(cnt<flag_number) square2.appendChild(button_style2);

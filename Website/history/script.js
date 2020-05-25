@@ -9,36 +9,214 @@ function whenDocumentLoaded(action) {
 }
 
 //Launch-time runner
-//whenDocumentLoaded(() => {
-//});
+whenDocumentLoaded(() => {
+    data_loader("../data/final_results.csv");
+});
+
+let results;
+
+/* Load data to local*/
+const data_loader= function(path){
+    d3.csv(path).then(function(data) {
+        //Assigning the loaded data to the local database
+        results=data;
+        //Filling the first flags
+        assign_stats();
+    });
+};
+
+/* Data processing functions*/
+const get_data = function(from, to){
+    let data = [];
+    results.forEach(row => {
+        let year = parseInt(row.date.substring(0,4), 10);
+        if(year>=from && year<to) {
+            data.push(row)
+        }
+    });
+    return data;
+}
+
+const get_teams = function(data_i){
+    let teams = new Set();
+    data_i.forEach(row => {
+        teams.add(row.away_team);
+        teams.add(row.home_team);
+    });
+    return teams;
+}
+
+const init_array = function(unique_teams){
+    let init_dict = [];
+    unique_teams.forEach(team => init_dict[team] = 0);
+    return init_dict;
+}
+
+const max_key_from_value= function(array, teams, at_least_10, team_to_match_played){
+    let key_max = teams.values().next().value;
+    let value_max = parseInt(array[key_max]);
+    teams.forEach(team => {
+        let value = array[team]
+        if(at_least_10) {
+            if(value>value_max && team_to_match_played[team]>=10) {
+                value_max = value;
+                key_max = team;
+            }
+        } else {
+            if(value>value_max) {
+                value_max = value;
+                key_max = team;
+            }
+        }
+    })
+    return key_max;
+}
+
+const assign_stats= function(){
+    const dates = [1872, 1900, 1930, 1950, 1970, 1990, 2000, 2010, 2020];
+    const nameDivs = ["stat1", "stat2", "stat3", "stat4", "stat5", "stat6", "stat7", "stat8"];
+    let paragraphElement = 1;
+    for (let i = 0; i < dates.length-1; i++) {
+        const from = dates[i];
+        const to = dates[i+1];
+        const nameDiv = nameDivs[i];
+
+        const shift = to-from;
+        const data_ = get_data(from, to);
+        const MATCH_PLAYED = data_.length;
+        const MATCH_PLAYED_b = Number((data_.length/shift).toFixed(2));
+
+        let GOALS_SCORED = 0;
+        const unique_teams = get_teams(data_);
+        let team_to_match_played = init_array(unique_teams);
+        let team_to_goal_scored = init_array(unique_teams);
+        let team_to_average_score = init_array(unique_teams);
+        let team_to_wins = init_array(unique_teams);
+        let team_to_wins_ratio = init_array(unique_teams);
+        let team_to_drawns = init_array(unique_teams);
+        let team_to_drawns_ratio = init_array(unique_teams);
+        let team_to_defeats = init_array(unique_teams);
+        let team_to_defeats_ratio = init_array(unique_teams);
 
 
-//Tab change function
+        data_.forEach(row => {
+            GOALS_SCORED+=parseInt(row.away_score);
+            GOALS_SCORED+=parseInt(row.home_score);
+            team_to_match_played[row.away_team]+=1;
+            team_to_match_played[row.home_team]+=1;
+            team_to_goal_scored[row.away_team]+=parseInt(row.away_score);
+            team_to_goal_scored[row.home_team]+=parseInt(row.home_score);
+            if(row.home_score>row.away_score) team_to_wins[row.home_team]+=1;
+            if(row.away_score>row.home_score) team_to_wins[row.away_team]+=1;
+            if(row.home_score===row.away_score){
+                team_to_drawns[row.home_team]+=1;
+                team_to_drawns[row.away_team]+=1;
+            }
+            if(row.home_score<row.away_score) team_to_defeats[row.home_team]+=1;
+            if(row.away_score<row.home_score) team_to_defeats[row.away_team]+=1;
+        });
+
+        unique_teams.forEach(team => {
+            team_to_average_score[team] = team_to_goal_scored[team]/team_to_match_played[team];
+            team_to_wins_ratio[team] = team_to_wins[team]/team_to_match_played[team];
+            team_to_drawns_ratio[team] = team_to_drawns[team]/team_to_match_played[team];
+            team_to_defeats_ratio[team] = team_to_defeats[team]/team_to_match_played[team];
+        });
+
+        console.log(team_to_average_score)
+
+        const TEAMS_INVOLVED = unique_teams.size;
+        const MOST_INVOLVED_TEAM = max_key_from_value(team_to_match_played, unique_teams, false, team_to_match_played);
+        const MOST_INVOLVED_TEAM_b = team_to_match_played[MOST_INVOLVED_TEAM];
+        const MOST_INVOLVED_TEAM_c = Number((MOST_INVOLVED_TEAM_b/shift).toFixed(2));
+        const GOALS_SCORED_b = Number((GOALS_SCORED/shift).toFixed(2));
+        const MOST_SCORING_TEAM = max_key_from_value(team_to_goal_scored, unique_teams, false, team_to_match_played);
+        const MOST_SCORING_TEAM_b = team_to_goal_scored[MOST_SCORING_TEAM];
+        const MOST_SCORING_TEAM_c = Number((MOST_SCORING_TEAM_b/shift).toFixed(2));
+        const HIGHEST_AVERAGE_SCORING_TEAM = max_key_from_value(team_to_average_score, unique_teams, true, team_to_match_played);
+        const HIGHEST_AVERAGE_SCORING_TEAM_b = Number((team_to_average_score[HIGHEST_AVERAGE_SCORING_TEAM]).toFixed(2));
+        const MOST_SUCCESFULL_TEAM = max_key_from_value(team_to_wins, unique_teams, false, team_to_match_played);
+        const MOST_SUCCESFULL_TEAM_b = team_to_wins[MOST_SUCCESFULL_TEAM];
+        const DRAWN_TEAM = max_key_from_value(team_to_drawns, unique_teams, false, team_to_match_played);
+        const DRAWN_TEAM_b = team_to_drawns[DRAWN_TEAM];
+        const WORST_LOSING_TEAM = max_key_from_value(team_to_defeats, unique_teams, false, team_to_match_played);
+        const WORST_LOSING_TEAM_b = team_to_defeats[WORST_LOSING_TEAM];
+        const MOST_SUCCESFULL_TEAM_RATIO = max_key_from_value(team_to_wins_ratio, unique_teams, true, team_to_match_played);
+        const MOST_SUCCESFULL_TEAM_RATIO_b = Number((team_to_wins_ratio[MOST_SUCCESFULL_TEAM_RATIO]*100).toFixed(2));
+        const DRAWN_TEAM_RATIO = max_key_from_value(team_to_drawns_ratio, unique_teams, true, team_to_match_played);
+        const DRAWN_TEAM_RATIO_b = Number((team_to_drawns_ratio[DRAWN_TEAM_RATIO]*100).toFixed());
+        const WORST_LOSING_TEAM_RATIO = max_key_from_value(team_to_defeats_ratio, unique_teams, true, team_to_match_played);
+
+        const WORST_LOSING_TEAM_RATIO_b = Number((team_to_defeats_ratio[WORST_LOSING_TEAM_RATIO]*100).toFixed(2));
+        const stat_section = document.getElementById(nameDiv);
+        stat_section.classList.add("stats");
+        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Teams involved</b>:<em> - - - - - - - - - - - - - - - </em>'+TEAMS_INVOLVED+ ' teams';
+        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Matches played</b>:<em> - - - - - - - - - - - - - - -</em>'+MATCH_PLAYED+' matches  -  '+MATCH_PLAYED_b+' matches/year';
+        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Most involved team:</b><em> - - - - - - - - - - -</em> '+MOST_INVOLVED_TEAM+'  -  '+MOST_INVOLVED_TEAM_b+' matches  -  '+MOST_INVOLVED_TEAM_c+' matches/year';
+        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Goals scored</b>:<em> - - - - - - - - - - - - - - - - - .</em>'+GOALS_SCORED+' goals  -  '+GOALS_SCORED_b+' goals/year';
+        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Most scoring team</b>: <em> - - - - - - - - - - - - </em>'+MOST_SCORING_TEAM+'  -  '+MOST_SCORING_TEAM_b+' goals  -  '+MOST_SCORING_TEAM_c+' goals/year';
+        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Highest average scoring team</b>*: <em>.</em>'+HIGHEST_AVERAGE_SCORING_TEAM+'  -  '+HIGHEST_AVERAGE_SCORING_TEAM_b+' goals/match';
+        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Most successful team</b>: <em> - - - - - - - - - </em>'+MOST_SUCCESFULL_TEAM+'  -  '+MOST_SUCCESFULL_TEAM_b+' wins';
+        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Best win ratio</b>*:  <em> - - - - - - - - - - - - - - - - </em>'+MOST_SUCCESFULL_TEAM_RATIO+'  -  '+MOST_SUCCESFULL_TEAM_RATIO_b+'%';
+        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Drawn team</b>: <em> - - - - - - - - - - - - - - .- - - - </em>'+DRAWN_TEAM+'  -  '+DRAWN_TEAM_b+' drawns';
+        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Best drawn ratio</b>*: <em> - - - - - - - - - .- - - - </em>'+DRAWN_TEAM_RATIO+'  -  '+DRAWN_TEAM_RATIO_b+'%';
+        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Worst losing team</b>: <em> - - - - - - - - - - - -- </em>'+WORST_LOSING_TEAM+'  -  '+WORST_LOSING_TEAM_b+' defeats';
+        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Best defeat ratio</b>*: <em> - - - - - - - - - - - - - </em>'+WORST_LOSING_TEAM_RATIO+'  -  '+WORST_LOSING_TEAM_RATIO_b+'%';
+        const elem = document.createElement("small");
+        elem.innerHTML = '<br>* only teams involved in more than 10 matches are considered';
+        stat_section.appendChild(elem);
+    }
+
+}
+
+/* Tab change function */
 const change_tab= function(name) {
     //Changing the backgrounds and titles depending on the tab
     if (name === 'VISUALIZATION from history') {
         window.open("visualizations/index_visu.html",'_self');
     }
-    if (name === 'VISUALIZATION from other') {
+    else if (name === 'VISUALIZATION from other') {
         window.open("../visualizations/index_visu.html",'_self');
     }
-    if (name === 'HISTORY from image sources') {
+    else if (name === 'HISTORY from image sources') {
         window.open("../index.html",'_self');
     }
-    if (name === 'IMAGE SOURCES from history') {
+    else if (name === 'IMAGE SOURCES from history') {
         window.open("history/image_sources.html",'_self');
     }
-    if (name === 'IMAGE SOURCES from team') {
+    else if (name === 'IMAGE SOURCES from team') {
         window.open("image_sources.html",'_self');
     }
-    if (name === 'TEAM from image sources') {
+    else if (name === 'TEAM from image sources') {
         window.open("team.html",'_self');
     }
-    if (name === 'TEAM from history') {
+    else if (name === 'TEAM from history') {
         window.open("history/team.html",'_self');
     }
 }
 
+/* Section change function */
+const goto = function(url) {
+    document.getElementById(url.substring(1, url.length)).style.opacity="0";
+    window.location=url;
+    document.getElementById(url.substring(1, url.length)).style.webkitTransition="opacity 3s ease";
+    document.getElementById(url.substring(1, url.length)).style.MozTransition="opacity 3s ease";
+    document.getElementById(url.substring(1, url.length)).style.opacity="1";
+}
+
+/* STATS TIMELINE */
+$(function() {
+    $('.history-block').on('click', function(){
+        $('.history-block').css('width', '300px');
+        /*$('.history-block').find('.section-btn').css('width', '260px');*/
+        $('.history-block .stats').hide(0);
+        $(this).css('width', '650px');
+        /*$(this).find('.section-btn').css('width', '600px');*/
+        $(this).find('.stats').show(100);
+    });
+});
+
+/* HISTORY */
 $(function() {
     var scrollMagicController = new ScrollMagic;
     $(window).load(function() {
@@ -57,6 +235,18 @@ $(function() {
         main.addTo(scrollMagicController)
         //main.addIndicators();
     });
+
+    var animated_text0 = new ScrollScene({
+        triggerElement: '#at0',
+        triggerHook: "0",
+        duration: "1200",
+        offset:100
+    })
+        .setTween(new TimelineMax().add([
+            TweenMax.from("#heading0", 8, { y: 50, }),
+        ]))
+        .setPin('#at0');
+    animated_text0.addTo(scrollMagicController);
 
     var animated_text = new ScrollScene({
         triggerElement: '#at1',
