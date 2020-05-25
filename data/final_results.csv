@@ -3000,7 +3000,7 @@
 3078,1950-04-09,Portugal,Spain,2,2,FIFA World Cup qualification,Oeiras,Portugal,False
 3080,1950-04-15,Scotland,England,0,1,FIFA World Cup qualification,Glasgow,Scotland,False
 3081,1950-04-16,Belgium,Netherlands,2,0,Friendly,Antwerp,Belgium,False
-3082,1950-04-16,South Korea,Republic of China,3,1,Friendly,Wan Chai,Hong Kong,True
+3082,1950-04-16,South Korea,Taiwan,3,1,Friendly,Wan Chai,Hong Kong,True
 3083,1950-04-26,Scotland,Switzerland,3,1,Friendly,Glasgow,Scotland,False
 3084,1950-04-30,Hungary,Czechoslovakia,5,0,Friendly,Budapest,Hungary,False
 3085,1950-04-30,Paraguay,Uruguay,3,2,Friendly,Rio de Janeiro,Brazil,True
@@ -3359,7 +3359,7 @@
 3454,1953-03-28,Peru,Uruguay,0,3,Copa América,Lima,Peru,False
 3455,1953-04-01,Brazil,Paraguay,2,3,Copa América,Lima,Peru,True
 3456,1953-04-05,Hong Kong,South Korea,4,0,Friendly,So Kon Po,Hong Kong,False
-3457,1953-04-08,South Korea,Republic of China,2,4,Friendly,So Kon Po,Hong Kong,True
+3457,1953-04-08,South Korea,Taiwan,2,4,Friendly,So Kon Po,Hong Kong,True
 3458,1953-04-11,Singapore,South Korea,2,3,Friendly,Kallang,Singapore,False
 3459,1953-04-15,Northern Ireland,Wales,2,3,British Championship,Belfast,Northern Ireland,False
 3460,1953-04-16,Malaysia,South Korea,2,3,Friendly,Kallang,Singapore,True
@@ -3525,7 +3525,7 @@
 3633,1954-06-01,Djibouti,Ethiopia,0,2,Friendly,Djibouti,French Somaliland,False
 3634,1954-06-01,Ghana,Sierra Leone,2,0,Friendly,Accra,Gold Coast,False
 3635,1954-06-02,Djibouti,Ethiopia,1,2,Friendly,Djibouti,French Somaliland,False
-3636,1954-06-02,Hong Kong,Republic of China,2,2,Friendly,Victoria,Hong Kong,False
+3636,1954-06-02,Hong Kong,Taiwan,2,2,Friendly,Victoria,Hong Kong,False
 3637,1954-06-04,Denmark,Norway,1,2,Friendly,Malmö,Sweden,True
 3638,1954-06-04,Sweden,Finland,6,0,Friendly,Gothenburg,Sweden,False
 3639,1954-06-05,Saarland,Uruguay,1,7,Friendly,Saarbrücken,Saarland,False
@@ -3871,7 +3871,7 @@
 3995,1956-08-15,Paraguay,Argentina,0,1,Copa Chevallier Boutell,Asunción,Paraguay,False
 3996,1956-08-19,Argentina,Czechoslovakia,1,0,Friendly,Buenos Aires,Argentina,False
 3997,1956-08-26,Chile,Czechoslovakia,3,0,Friendly,Santiago,Chile,False
-3998,1956-08-26,South Korea,Republic of China,2,0,AFC Asian Cup qualification,Seoul,South Korea,False
+3998,1956-08-26,South Korea,Taiwan,2,0,AFC Asian Cup qualification,Seoul,South Korea,False
 3999,1956-08-26,Norway,Finland,1,1,Nordic Championship,Oslo,Norway,False
 4000,1956-08-26,Poland,Bulgaria,1,2,Friendly,Wrocław,Poland,False
 4001,1956-09-01,Hong Kong,Israel,2,3,AFC Asian Cup,So Kon Po,Hong Kong,False
@@ -4202,7 +4202,7 @@
 4338,1958-05-13,Trinidad and Tobago,Jamaica,0,1,Friendly,Port of Spain,Trinidad and Tobago,False
 4339,1958-05-14,Austria,Ireland,3,1,Friendly,Vienna,Austria,False
 4340,1958-05-14,Brazil,Bulgaria,4,0,Friendly,Rio de Janeiro,Brazil,False
-4341,1958-05-14,Hong Kong,Republic of China,2,1,Friendly,Victoria,Hong Kong,False
+4341,1958-05-14,Hong Kong,Taiwan,2,1,Friendly,Victoria,Hong Kong,False
 4342,1958-05-14,Malaysia,Pakistan,4,2,Friendly,Kuala Lumpur,Malaya,False
 4343,1958-05-15,Denmark,Curaçao,3,2,Friendly,Århus,Denmark,False
 4344,1958-05-17,Singapore,Pakistan,4,4,Friendly,Kallang,Singapore,False
@@ -4349,7 +4349,7 @@
 4491,1959-03-29,Brazil,Paraguay,4,1,Copa América,Buenos Aires,Argentina,True
 4492,1959-03-29,Philippines,Hong Kong,0,7,AFC Asian Cup qualification,Manila,Philippines,False
 4493,1959-03-30,Argentina,Uruguay,4,1,Copa América,Buenos Aires,Argentina,False
-4494,1959-03-31,Philippines,Republic of China,4,7,AFC Asian Cup qualification,Manila,Philippines,False
+4494,1959-03-31,Philippines,Taiwan,4,7,AFC Asian Cup qualification,Manila,Philippines,False
 4495,1959-04-02,Chile,Uruguay,1,0,Copa América,Buenos Aires,Argentina,True
 4496,1959-04-02,Paraguay,Peru,2,1,Copa América,Buenos Aires,Argentina,True
 4497,1959-04-04,Argentina,Brazil,1,1,Copa América,Buenos Aires,Argentina,False
@@ -4398,7 +4398,7 @@
 4546,1959-07-22,Tahiti,New Caledonia,3,1,Friendly,Papeete,French Polynesia,False
 4547,1959-08-02,Sweden,Finland,3,1,Nordic Championship,Malmö,Sweden,False
 4548,1959-08-12,German Democratic Republic,Czechoslovakia,2,1,Friendly,Leipzig,Germany,True
-4549,1959-08-22,Hong Kong,Republic of China,1,3,Friendly,Victoria,Hong Kong,False
+4549,1959-08-22,Hong Kong,Taiwan,1,3,Friendly,Victoria,Hong Kong,False
 4550,1959-08-30,South Korea,Vietnam,2,3,Merdeka Tournament,Kuala Lumpur,Malaya,True
 4551,1959-08-30,Poland,Romania,2,3,Friendly,Warsaw,Poland,False
 4552,1959-08-31,Hong Kong,Japan,1,1,Merdeka Tournament,Kuala Lumpur,Malaya,True
@@ -4638,12 +4638,12 @@
 4804,1960-10-14,South Korea,Vietnam,5,1,AFC Asian Cup,Seoul,South Korea,False
 4806,1960-10-15,Uganda,Kenya,1,1,Friendly,Kampala,Uganda,False
 4807,1960-10-17,South Korea,Israel,3,0,AFC Asian Cup,Seoul,South Korea,False
-4808,1960-10-17,Republic of China,Vietnam,2,0,AFC Asian Cup,Seoul,South Korea,True
+4808,1960-10-17,Taiwan,Vietnam,2,0,AFC Asian Cup,Seoul,South Korea,True
 4809,1960-10-19,Israel,Vietnam,5,1,AFC Asian Cup,Seoul,South Korea,True
 4810,1960-10-19,Luxembourg,England,0,9,FIFA World Cup qualification,Luxembourg,Luxembourg,False
 4811,1960-10-19,Sweden,Belgium,2,0,FIFA World Cup qualification,Solna,Sweden,False
-4812,1960-10-20,Israel,Republic of China,1,0,AFC Asian Cup,Seoul,South Korea,True
-4813,1960-10-21,South Korea,Republic of China,1,0,AFC Asian Cup,Seoul,South Korea,False
+4812,1960-10-20,Israel,Taiwan,1,0,AFC Asian Cup,Seoul,South Korea,True
+4813,1960-10-21,South Korea,Taiwan,1,0,AFC Asian Cup,Seoul,South Korea,False
 4814,1960-10-22,Wales,Scotland,2,0,British Championship,Cardiff,Wales,False
 4815,1960-10-23,Sweden,Denmark,2,0,Nordic Championship,Gothenburg,Sweden,False
 4816,1960-10-26,England,Spain,4,2,Friendly,London,England,False
@@ -4989,9 +4989,9 @@
 5164,1962-07-11,Jamaica,Curaçao,1,2,Friendly,Kingston,Jamaica,False
 5165,1962-07-12,Singapore,Indonesia,1,2,Friendly,Kallang,Singapore,False
 5166,1962-07-14,Gabon,Republic of Congo,3,1,Friendly,Libreville,Gabon,False
-5167,1962-07-14,Vietnam,Republic of China,1,1,Friendly,Saigon,Vietnam Republic,False
-5168,1962-07-25,Thailand,Republic of China,4,0,Friendly,Bangkok,Thailand,False
-5169,1962-07-27,Singapore,Republic of China,2,2,Friendly,Kallang,Singapore,False
+5167,1962-07-14,Vietnam,Taiwan,1,1,Friendly,Saigon,Vietnam Republic,False
+5168,1962-07-25,Thailand,Taiwan,4,0,Friendly,Bangkok,Thailand,False
+5169,1962-07-27,Singapore,Taiwan,2,2,Friendly,Kallang,Singapore,False
 5170,1962-07-28,Kenya,Tanzania,4,3,Friendly,Nairobi,Kenya,False
 5171,1962-08-10,Bolivia,Paraguay,3,1,Copa Paz del Chaco,Cochabamba,Bolivia,False
 5172,1962-08-12,Bolivia,Paraguay,3,2,Copa Paz del Chaco,La Paz,Bolivia,False
@@ -5245,7 +5245,7 @@
 5434,1963-08-10,Thailand,Japan,1,4,Merdeka Tournament,Kuala Lumpur,Malaya,True
 5435,1963-08-11,South Korea,Thailand,5,1,Merdeka Tournament,Kuala Lumpur,Malaya,True
 5436,1963-08-11,Malaysia,Vietnam,0,5,Merdeka Tournament,Kuala Lumpur,Malaya,True
-5437,1963-08-12,Malaysia,Republic of China,2,3,Merdeka Tournament,Kuala Lumpur,Malaya,True
+5437,1963-08-12,Malaysia,Taiwan,2,3,Merdeka Tournament,Kuala Lumpur,Malaya,True
 5438,1963-08-12,Vietnam,Japan,1,5,Merdeka Tournament,Kuala Lumpur,Malaya,True
 5439,1963-08-13,South Korea,Japan,1,1,Merdeka Tournament,Kuala Lumpur,Malaya,True
 5440,1963-08-14,South Korea,Vietnam,3,1,Merdeka Tournament,Kuala Lumpur,Malaya,True
@@ -5346,7 +5346,7 @@
 5544,1963-12-14,Vietnam,Thailand,3,0,AFC Asian Cup qualification,Saigon,Vietnam Republic,False
 5545,1963-12-15,Senegal,Guinea,1,1,Friendly,Dakar,Senegal,False
 5546,1963-12-15,Tunisia,Algeria,0,0,Friendly,Tunis,Tunisia,False
-5547,1963-12-16,Philippines,Republic of China,0,7,Friendly,Manila,Philippines,False
+5547,1963-12-16,Philippines,Taiwan,0,7,Friendly,Manila,Philippines,False
 5548,1963-12-17,Myanmar,German Democratic Republic,1,5,Friendly,Rangoon,Burma,False
 5549,1963-12-18,Denmark,Luxembourg,1,0,UEFA Euro qualification,Amsterdam,Netherlands,True
 5550,1963-12-25,France,Belgium,1,2,Friendly,Paris,France,False
@@ -5446,22 +5446,22 @@
 5646,1964-08-10,Iceland,Bermuda,4,3,Friendly,Reykjavík,Iceland,False
 5647,1964-08-15,Republic of Congo,Mali,1,0,Friendly,Brazzaville,Congo,False
 5648,1964-08-20,Norway,Finland,2,0,Nordic Championship,Trondheim,Norway,False
-5649,1964-08-23,Cambodia,Republic of China,0,4,Merdeka Tournament,Kuala Lumpur,Malaysia,True
+5649,1964-08-23,Cambodia,Taiwan,0,4,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 5650,1964-08-23,Iceland,Finland,0,2,Friendly,Reykjavík,Iceland,False
 5651,1964-08-27,Cambodia,India,0,4,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 5652,1964-08-28,Malaysia,Myanmar,0,3,Merdeka Tournament,Kuala Lumpur,Malaysia,False
 5653,1964-08-29,India,Thailand,2,1,Merdeka Tournament,Ipoh,Malaysia,True
-5654,1964-08-30,Myanmar,Republic of China,2,4,Merdeka Tournament,Kuala Lumpur,Malaysia,True
+5654,1964-08-30,Myanmar,Taiwan,2,4,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 5655,1964-08-30,Malaysia,Vietnam,1,2,Merdeka Tournament,Kuala Lumpur,Malaysia,False
 5656,1964-09-01,Cambodia,Thailand,0,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 5657,1964-09-02,Myanmar,Vietnam,1,0,Merdeka Tournament,Kuala Lumpur,Malaysia,True
-5658,1964-09-02,Malaysia,Republic of China,5,2,Merdeka Tournament,Kuala Lumpur,Malaysia,False
+5658,1964-09-02,Malaysia,Taiwan,5,2,Merdeka Tournament,Kuala Lumpur,Malaysia,False
 5659,1964-09-04,Guyana,Trinidad and Tobago,1,1,Friendly,Georgetown,British Guyana,False
 5660,1964-09-05,Guyana,Trinidad and Tobago,1,2,Friendly,Georgetown,British Guyana,False
 5661,1964-09-05,Malaysia,Thailand,1,1,Merdeka Tournament,Ipoh,Malaysia,False
 5662,1964-09-06,Myanmar,India,1,0,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 5663,1964-09-06,Finland,Denmark,2,1,Nordic Championship,Helsinki,Finland,False
-5664,1964-09-08,India,Republic of China,6,4,Friendly,Kuala Lumpur,Malaysia,True
+5664,1964-09-08,India,Taiwan,6,4,Friendly,Kuala Lumpur,Malaysia,True
 5666,1964-09-10,Tahiti,New Caledonia,0,2,Friendly,Papeete,French Polynesia,False
 5667,1964-09-13,Poland,Czechoslovakia,2,1,Friendly,Warsaw,Poland,False
 5670,1964-09-20,Norway,Sweden,1,1,Nordic Championship,Oslo,Norway,False
@@ -5725,13 +5725,13 @@
 5939,1965-08-22,Sudan,Uganda,4,1,African Cup of Nations qualification,Khartoum,Sudan,False
 5940,1965-08-22,Sweden,Finland,2,2,Nordic Championship,Luleå,Sweden,False
 5941,1965-08-23,India,South Korea,0,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
-5942,1965-08-24,Myanmar,Republic of China,3,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
+5942,1965-08-24,Myanmar,Taiwan,3,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 5943,1965-08-25,Hong Kong,South Korea,0,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 5944,1965-08-25,India,Vietnam,2,0,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 5945,1965-08-27,Myanmar,India,1,1,Merdeka Tournament,Ipoh,Malaysia,True
 5946,1965-08-27,Hong Kong,Thailand,1,1,Merdeka Tournament,Ipoh,Malaysia,True
 5947,1965-08-28,Gabon,Nigeria,2,2,Friendly,Libreville,Gabon,False
-5948,1965-08-28,South Korea,Republic of China,1,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
+5948,1965-08-28,South Korea,Taiwan,1,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 5949,1965-08-29,Bolivia,Argentina,1,2,FIFA World Cup qualification,La Paz,Bolivia,False
 5950,1965-08-29,Gabon,Nigeria,1,4,Friendly,Libreville,Gabon,False
 5951,1965-08-31,Singapore,India,1,2,Friendly,Kallang,Singapore,False
@@ -5824,7 +5824,7 @@
 6041,1965-11-29,Hong Kong,Australia,1,0,Friendly,So Kon Po,Hong Kong,False
 6042,1965-12-01,Argentina,Russia,1,1,Friendly,Buenos Aires,Argentina,False
 6043,1965-12-01,Wales,Denmark,4,2,FIFA World Cup qualification,Wrexham,Wales,False
-6044,1965-12-03,Australia,Republic of China,3,1,Friendly,So Kon Po,Hong Kong,True
+6044,1965-12-03,Australia,Taiwan,3,1,Friendly,So Kon Po,Hong Kong,True
 6045,1965-12-04,Uruguay,Russia,1,3,Friendly,Montevideo,Uruguay,False
 6046,1965-12-05,Hong Kong,Singapore,0,0,Friendly,So Kon Po,Hong Kong,False
 6047,1965-12-07,Hong Kong,Singapore,1,2,Friendly,So Kon Po,Hong Kong,False
@@ -6293,7 +6293,7 @@
 6532,1967-08-10,Hong Kong,Thailand,1,0,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 6534,1967-08-10,Sweden,Finland,2,0,Nordic Championship,Solna,Sweden,False
 6535,1967-08-11,Indonesia,South Korea,1,3,Merdeka Tournament,Kuala Lumpur,Malaysia,True
-6536,1967-08-11,Singapore,Republic of China,3,3,Merdeka Tournament,Kuala Lumpur,Malaysia,True
+6536,1967-08-11,Singapore,Taiwan,3,3,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 6537,1967-08-12,Hong Kong,Vietnam,0,5,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 6538,1967-08-12,India,Thailand,1,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 6539,1967-08-13,Myanmar,South Korea,0,1,Merdeka Tournament,Ipoh,Malaysia,True
@@ -6301,27 +6301,27 @@
 6542,1967-08-13,Indonesia,Singapore,4,1,Merdeka Tournament,Ipoh,Malaysia,True
 6543,1967-08-15,Myanmar,Singapore,3,0,Merdeka Tournament,Ipoh,Malaysia,True
 6544,1967-08-15,Chile,Argentina,1,0,Friendly,Santiago,Chile,False
-6545,1967-08-15,Indonesia,Republic of China,2,1,Merdeka Tournament,Ipoh,Malaysia,True
+6545,1967-08-15,Indonesia,Taiwan,2,1,Merdeka Tournament,Ipoh,Malaysia,True
 6546,1967-08-15,Malaysia,Vietnam,1,1,Merdeka Tournament,Kuala Lumpur,Malaysia,False
 6548,1967-08-16,Hong Kong,India,0,4,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 6549,1967-08-16,Mauritius,Tanzania,1,1,African Cup of Nations qualification,Curepipe,Mauritius,False
 6550,1967-08-16,Togo,Ivory Coast,0,2,African Cup of Nations qualification,Lomé,Togo,False
-6553,1967-08-18,South Korea,Republic of China,2,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
+6553,1967-08-18,South Korea,Taiwan,2,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 6554,1967-08-19,Myanmar,Indonesia,5,0,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 6555,1967-08-19,Kenya,Democratic Republic of Congo,5,4,Friendly,Nairobi,Kenya,False
 6556,1967-08-19,Malaysia,India,0,0,Merdeka Tournament,Kuala Lumpur,Malaysia,False
 6557,1967-08-19,Thailand,Vietnam,2,5,Merdeka Tournament,Ipoh,Malaysia,True
-6558,1967-08-20,Myanmar,Republic of China,1,2,Merdeka Tournament,Kuala Lumpur,Malaysia,True
+6558,1967-08-20,Myanmar,Taiwan,1,2,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 6559,1967-08-20,India,Vietnam,0,1,Merdeka Tournament,Ipoh,Malaysia,True
 6560,1967-08-20,Kenya,Democratic Republic of Congo,1,1,Friendly,Nairobi,Kenya,False
 6561,1967-08-20,South Korea,Singapore,3,0,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 6562,1967-08-22,Myanmar,Vietnam,3,0,Merdeka Tournament,Kuala Lumpur,Malaysia,True
-6563,1967-08-22,India,Republic of China,1,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
+6563,1967-08-22,India,Taiwan,1,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 6564,1967-08-22,Mexico,Argentina,2,1,Friendly,Mexico City,Mexico,False
 6565,1967-08-23,Denmark,Iceland,14,2,Friendly,Copenhagen,Denmark,False
 6566,1967-08-23,Hong Kong,Indonesia,2,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 6567,1967-08-23,Malaysia,South Korea,1,3,Merdeka Tournament,Kuala Lumpur,Malaysia,False
-6569,1967-08-25,Hong Kong,Republic of China,2,4,Merdeka Tournament,Kuala Lumpur,Malaysia,True
+6569,1967-08-25,Hong Kong,Taiwan,2,4,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 6570,1967-08-25,Malaysia,Vietnam,1,2,Merdeka Tournament,Kuala Lumpur,Malaysia,False
 6571,1967-08-26,Myanmar,South Korea,0,0,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 6572,1967-08-26,India,Indonesia,0,3,Merdeka Tournament,Kuala Lumpur,Malaysia,True
@@ -6509,16 +6509,16 @@
 6764,1968-05-08,Spain,England,1,2,UEFA Euro qualification,Madrid,Spain,False
 6765,1968-05-08,Wales,Germany,1,1,Friendly,Cardiff,Wales,False
 6766,1968-05-10,Iran,Hong Kong,2,0,AFC Asian Cup,Teheran,Iran,False
-6767,1968-05-11,Myanmar,Republic of China,1,1,AFC Asian Cup,Teheran,Iran,True
+6767,1968-05-11,Myanmar,Taiwan,1,1,AFC Asian Cup,Teheran,Iran,True
 6768,1968-05-11,Russia,Hungary,3,0,UEFA Euro qualification,Moscow,Soviet Union,False
 6769,1968-05-12,Hong Kong,Israel,1,6,AFC Asian Cup,Teheran,Iran,True
-6770,1968-05-13,Iran,Republic of China,4,0,AFC Asian Cup,Teheran,Iran,False
+6770,1968-05-13,Iran,Taiwan,4,0,AFC Asian Cup,Teheran,Iran,False
 6771,1968-05-14,Myanmar,Israel,1,0,AFC Asian Cup,Teheran,Iran,True
-6772,1968-05-15,Hong Kong,Republic of China,1,1,AFC Asian Cup,Teheran,Iran,True
+6772,1968-05-15,Hong Kong,Taiwan,1,1,AFC Asian Cup,Teheran,Iran,True
 6773,1968-05-15,Ireland,Poland,2,2,Friendly,Dublin,Republic of Ireland,False
 6774,1968-05-15,Paraguay,Argentina,2,0,Friendly,Asunción,Paraguay,False
 6775,1968-05-16,Iran,Myanmar,3,1,AFC Asian Cup,Teheran,Iran,False
-6776,1968-05-17,Israel,Republic of China,4,1,AFC Asian Cup,Teheran,Iran,True
+6776,1968-05-17,Israel,Taiwan,4,1,AFC Asian Cup,Teheran,Iran,True
 6777,1968-05-18,Myanmar,Hong Kong,2,0,AFC Asian Cup,Teheran,Iran,True
 6778,1968-05-19,Austria,Cyprus,7,1,FIFA World Cup qualification,Vienna,Austria,False
 6779,1968-05-19,Ghana,Ivory Coast,2,1,Friendly,Accra,Ghana,False
@@ -6571,12 +6571,12 @@
 6826,1968-08-10,Myanmar,Vietnam,3,0,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 6828,1968-08-11,Brazil,Argentina,3,2,Friendly,Belo Horizonte,Brazil,False
 6829,1968-08-11,Hong Kong,Thailand,0,0,Merdeka Tournament,Kuala Lumpur,Malaysia,True
-6830,1968-08-11,Singapore,Republic of China,0,2,Merdeka Tournament,Ipoh,Malaysia,True
+6830,1968-08-11,Singapore,Taiwan,0,2,Merdeka Tournament,Ipoh,Malaysia,True
 6831,1968-08-12,Myanmar,Hong Kong,3,0,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 6832,1968-08-12,India,Vietnam,3,2,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 6834,1968-08-12,South Korea,Singapore,3,2,Merdeka Tournament,Ipoh,Malaysia,True
 6835,1968-08-14,Myanmar,Thailand,0,0,Merdeka Tournament,Ipoh,Malaysia,True
-6836,1968-08-14,South Korea,Republic of China,2,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
+6836,1968-08-14,South Korea,Taiwan,2,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 6837,1968-08-14,Malaysia,Vietnam,4,0,Merdeka Tournament,Ipoh,Malaysia,False
 6838,1968-08-15,El Salvador,Guatemala,1,0,Friendly,San Salvador,El Salvador,False
 6839,1968-08-15,Hong Kong,India,1,1,Merdeka Tournament,Ipoh,Malaysia,True
@@ -6589,7 +6589,7 @@
 6846,1968-08-18,Norway,Finland,4,1,Nordic Championship,Oslo,Norway,False
 6847,1968-08-18,Peru,Chile,1,2,Copa del Pacífico,Lima,Peru,False
 6849,1968-08-19,India,Thailand,0,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
-6850,1968-08-19,Indonesia,Republic of China,10,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
+6850,1968-08-19,Indonesia,Taiwan,10,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 6851,1968-08-21,Myanmar,Indonesia,2,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 6852,1968-08-21,South Korea,Thailand,2,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 6853,1968-08-21,Peru,Chile,0,0,Copa del Pacífico,Lima,Peru,False
@@ -7213,7 +7213,7 @@
 7498,1970-07-22,Poland,Iraq,2,0,Friendly,Szczecin,Poland,False
 7499,1970-07-26,German Democratic Republic,Iraq,5,0,Friendly,Jena,German DR,False
 7500,1970-07-26,Ivory Coast,Guinea,3,2,Friendly,Abidjan,Ivory Coast,False
-7501,1970-07-30,India,Republic of China,0,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
+7501,1970-07-30,India,Taiwan,0,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 7502,1970-07-30,Malaysia,Vietnam,0,0,Merdeka Tournament,Kuala Lumpur,Malaysia,False
 7503,1970-07-31,Hong Kong,Japan,2,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 7504,1970-07-31,South Korea,Thailand,0,0,Merdeka Tournament,Kuala Lumpur,Malaysia,True
@@ -7228,7 +7228,7 @@
 7515,1970-08-05,Myanmar,Vietnam,4,2,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 7517,1970-08-06,Hong Kong,Singapore,3,2,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 7518,1970-08-06,Indonesia,South Korea,1,2,Merdeka Tournament,Kuala Lumpur,Malaysia,True
-7519,1970-08-07,Myanmar,Republic of China,1,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
+7519,1970-08-07,Myanmar,Taiwan,1,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 7521,1970-08-08,Indonesia,Japan,3,4,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 7522,1970-08-08,Malawi,Lesotho,1,2,Friendly,Lilongwe,Malawi,False
 7523,1970-08-08,Singapore,Thailand,4,5,Merdeka Tournament,Kuala Lumpur,Malaysia,True
@@ -7243,7 +7243,7 @@
 7533,1970-08-13,Singapore,Vietnam,0,4,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 7534,1970-08-15,Hong Kong,India,2,3,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 7535,1970-08-16,Myanmar,South Korea,0,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
-7536,1970-08-16,Japan,Republic of China,3,2,Merdeka Tournament,Kuala Lumpur,Malaysia,True
+7536,1970-08-16,Japan,Taiwan,3,2,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 7537,1970-08-19,Singapore,India,3,8,Friendly,Kallang,Singapore,False
 7538,1970-08-26,Finland,Sweden,1,2,Nordic Championship,Helsinki,Finland,False
 7539,1970-09-01,Libya,Tunisia,2,2,Friendly,Benghazi,Libya,False
@@ -7419,7 +7419,7 @@
 7715,1971-05-02,Indonesia,Vietnam,9,1,Korea Cup,Seoul,South Korea,True
 7716,1971-05-02,Ivory Coast,Ghana,2,6,Friendly,Abidjan,Ivory Coast,False
 7717,1971-05-02,South Korea,Thailand,1,0,Korea Cup,Seoul,South Korea,False
-7718,1971-05-03,Myanmar,Republic of China,2,0,Korea Cup,Seoul,South Korea,True
+7718,1971-05-03,Myanmar,Taiwan,2,0,Korea Cup,Seoul,South Korea,True
 7719,1971-05-03,Cambodia,Malaysia,1,3,Korea Cup,Seoul,South Korea,True
 7720,1971-05-05,Cambodia,Thailand,3,4,Korea Cup,Seoul,South Korea,True
 7721,1971-05-05,Switzerland,Poland,2,4,Friendly,Lausanne,Switzerland,False
@@ -7571,7 +7571,7 @@
 7871,1971-08-17,Philippines,Thailand,3,1,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 7872,1971-08-18,Chile,Peru,1,0,Copa del Pacífico,Santiago,Chile,False
 7873,1971-08-18,Guinea,Senegal,1,0,African Cup of Nations qualification,Conakry,Guinea,False
-7874,1971-08-18,Indonesia,Republic of China,1,0,Merdeka Tournament,Kuala Lumpur,Malaysia,True
+7874,1971-08-18,Indonesia,Taiwan,1,0,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 7875,1971-08-18,Mexico,German Democratic Republic,0,1,Friendly,Guadalajara,Mexico,False
 7876,1971-08-21,Myanmar,Indonesia,1,0,Merdeka Tournament,Kuala Lumpur,Malaysia,True
 7877,1971-08-21,Hong Kong,Vietnam,1,3,Merdeka Tournament,Kuala Lumpur,Malaysia,True
@@ -7733,21 +7733,21 @@
 8037,1972-01-01,Algeria,Palestine,2,0,Friendly,Baghdad,Iraq,True
 8038,1972-01-01,Iraq,Egypt,0,0,Friendly,Baghdad,Iraq,False
 8039,1972-01-01,Kuwait,Libya,3,2,Friendly,Baghdad,Iraq,True
-8040,1972-01-01,Syria,Yemen DPR,1,0,Friendly,Baghdad,Iraq,True
+8040,1972-01-01,Syria,Yemen,1,0,Friendly,Baghdad,Iraq,True
 8041,1972-01-01,Zambia,China,3,3,Friendly,Lusaka,Zambia,False
 8042,1972-01-04,Algeria,Qatar,3,0,Friendly,Baghdad,Iraq,True
 8043,1972-01-04,Palestine,Syria,1,3,Friendly,Baghdad,Iraq,True
 8044,1972-01-05,Egypt,Kuwait,2,0,Friendly,Baghdad,Iraq,True
 8045,1972-01-05,Iraq,Libya,3,0,Friendly,Baghdad,Iraq,False
-8046,1972-01-06,Palestine,Yemen DPR,1,2,Friendly,Baghdad,Iraq,True
+8046,1972-01-06,Palestine,Yemen,1,2,Friendly,Baghdad,Iraq,True
 8047,1972-01-06,Syria,Qatar,3,2,Friendly,Baghdad,Iraq,True
 8048,1972-01-07,Egypt,Libya,1,1,Friendly,Baghdad,Iraq,True
 8049,1972-01-07,Iraq,Kuwait,3,1,Friendly,Baghdad,Iraq,False
 8050,1972-01-08,Algeria,Syria,0,1,Friendly,Baghdad,Iraq,True
-8051,1972-01-08,Qatar,Yemen DPR,1,2,Friendly,Baghdad,Iraq,True
+8051,1972-01-08,Qatar,Yemen,1,2,Friendly,Baghdad,Iraq,True
 8052,1972-01-09,Burkina Faso,Nigeria,3,3,Friendly,Ouagadougou,Upper Volta,False
 8053,1972-01-09,Senegal,Republic of Congo,0,2,Friendly,Dakar,Senegal,False
-8054,1972-01-10,Algeria,Yemen DPR,4,1,Friendly,Baghdad,Iraq,True
+8054,1972-01-10,Algeria,Yemen,4,1,Friendly,Baghdad,Iraq,True
 8055,1972-01-10,Palestine,Qatar,7,2,Friendly,Baghdad,Iraq,True
 8056,1972-01-12,Guinea,Republic of Congo,0,1,Friendly,Conakry,Guinea,False
 8057,1972-01-12,Iraq,Algeria,3,1,Friendly,Baghdad,Iraq,False
@@ -8380,7 +8380,7 @@
 8690,1973-08-10,United States,Poland,0,4,Friendly,San Francisco,United States,False
 8691,1973-08-11,Libya,United Arab Emirates,2,2,Friendly,Benghazi,Libya,False
 8692,1973-08-12,Bangladesh,Thailand,0,2,Merdeka Tournament,Kuala Lumpur,Malaysia,True
-8693,1973-08-12,Egypt,Yemen DPR,6,1,Friendly,Tripoli,Libya,True
+8693,1973-08-12,Egypt,Yemen,6,1,Friendly,Tripoli,Libya,True
 8694,1973-08-12,Malaysia,Kuwait,3,1,Merdeka Tournament,Kuala Lumpur,Malaysia,False
 8695,1973-08-12,New Zealand,Iran,0,0,Friendly,Auckland,New Zealand,False
 8696,1973-08-12,United States,Poland,1,0,Friendly,New Britain,United States,False
@@ -8394,7 +8394,7 @@
 8704,1973-08-15,Republic of Congo,Uganda,3,2,Friendly,Brazzaville,Congo,False
 8705,1973-08-15,Egypt,Tunisia,0,1,Friendly,Tripoli,Libya,True
 8706,1973-08-15,Singapore,India,4,5,Friendly,Kallang,Singapore,False
-8707,1973-08-16,Syria,Yemen DPR,7,1,Friendly,Tripoli,Libya,True
+8707,1973-08-16,Syria,Yemen,7,1,Friendly,Tripoli,Libya,True
 8708,1973-08-17,Algeria,Yemen,15,1,Friendly,Benghazi,Libya,True
 8709,1973-08-18,Australia,Iran,3,0,FIFA World Cup qualification,Sydney,Australia,False
 8710,1973-08-18,Egypt,Palestine,2,0,Friendly,Tripoli,Libya,True
@@ -8402,7 +8402,7 @@
 8712,1973-08-19,Bulgaria,Poland,0,2,Friendly,Varna,Bulgaria,False
 8713,1973-08-19,Democratic Republic of Congo,Ghana,4,1,FIFA World Cup qualification,Kinshasa,Zaïre,False
 8714,1973-08-19,Kenya,Zambia,2,2,FIFA World Cup qualification,Nairobi,Kenya,False
-8715,1973-08-19,Tunisia,Yemen DPR,2,0,Friendly,Tripoli,Libya,True
+8715,1973-08-19,Tunisia,Yemen,2,0,Friendly,Tripoli,Libya,True
 8716,1973-08-20,Egypt,Syria,0,2,Friendly,Tripoli,Libya,True
 8717,1973-08-20,Iraq,United Arab Emirates,3,1,Friendly,Benghazi,Libya,True
 8718,1973-08-21,Libya,Algeria,0,2,Friendly,Benghazi,Libya,False
@@ -8651,7 +8651,7 @@
 8966,1974-05-01,Brazil,Austria,0,0,Friendly,São Paulo,Brazil,False
 8967,1974-05-01,Germany,Sweden,2,0,Friendly,Hamburg,Germany,False
 8968,1974-05-01,Switzerland,Belgium,0,1,Friendly,Geneva,Switzerland,False
-8969,1974-05-02,Yemen DPR,Iraq,2,0,Friendly,Aden,Yemen DPR,False
+8969,1974-05-02,Yemen,Iraq,2,0,Friendly,Aden,Yemen DPR,False
 8970,1974-05-05,Brazil,Ireland,2,1,Friendly,Rio de Janeiro,Brazil,False
 8971,1974-05-05,China,Sierra Leone,4,1,Friendly,Beijing,China PR,False
 8972,1974-05-08,Bulgaria,Turkey,5,1,Balkan Cup,Sofia,Bulgaria,False
@@ -8739,7 +8739,7 @@
 9054,1974-07-07,Germany,Netherlands,2,1,FIFA World Cup,Munich,Germany,False
 9055,1974-07-07,Malawi,Tanzania,1,0,Friendly,Lilongwe,Malawi,False
 9056,1974-07-08,Malawi,Zambia,0,1,Friendly,Lilongwe,Malawi,False
-9057,1974-07-10,China,Yemen DPR,6,5,Friendly,Beijing,China PR,False
+9057,1974-07-10,China,Yemen,6,5,Friendly,Beijing,China PR,False
 9058,1974-07-14,Nigeria,Ivory Coast,2,0,Friendly,Lagos,Nigeria,False
 9060,1974-07-24,Hong Kong,Indonesia,2,2,Merdeka Tournament,Ipoh,Malaysia,True
 9061,1974-07-24,India,Thailand,4,2,Merdeka Tournament,Ipoh,Malaysia,True
@@ -8825,14 +8825,14 @@
 9142,1974-11-02,Laos,Malaysia,0,0,Vietnam Independence Cup,Saigon,Vietnam Republic,True
 9144,1974-11-03,Cambodia,Thailand,2,2,Vietnam Independence Cup,Saigon,Vietnam Republic,True
 9145,1974-11-03,Kenya,Zambia,2,3,CECAFA Cup,Zanzibar,Tanzania,True
-9146,1974-11-03,Malaysia,Republic of China,0,0,Vietnam Independence Cup,Saigon,Vietnam Republic,True
+9146,1974-11-03,Malaysia,Taiwan,0,0,Vietnam Independence Cup,Saigon,Vietnam Republic,True
 9147,1974-11-03,Singapore,China,1,1,Friendly,Kallang,Singapore,False
 9148,1974-11-04,Somalia,Uganda,1,1,CECAFA Cup,Zanzibar,Tanzania,True
-9149,1974-11-05,Laos,Republic of China,1,2,Vietnam Independence Cup,Saigon,Vietnam Republic,True
+9149,1974-11-05,Laos,Taiwan,1,2,Vietnam Independence Cup,Saigon,Vietnam Republic,True
 9150,1974-11-05,Vietnam,Malaysia,1,0,Vietnam Independence Cup,Saigon,Vietnam Republic,False
 9151,1974-11-06,Chile,Argentina,0,2,Copa Carlos Dittborn,Santiago,Chile,False
 9152,1974-11-07,Tanzania,Uganda,1,1,CECAFA Cup,Zanzibar,Tanzania,False
-9153,1974-11-07,Vietnam,Republic of China,1,1,Vietnam Independence Cup,Saigon,Vietnam Republic,False
+9153,1974-11-07,Vietnam,Taiwan,1,1,Vietnam Independence Cup,Saigon,Vietnam Republic,False
 9154,1974-11-09,Vietnam,Thailand,3,2,Vietnam Independence Cup,Saigon,Vietnam Republic,False
 9155,1974-11-10,Bulgaria,Hungary,0,0,Friendly,Varna,Bulgaria,False
 9156,1974-11-10,Togo,Liberia,1,0,African Cup of Nations qualification,Lomé,Togo,False
@@ -9216,7 +9216,7 @@
 9542,1975-11-29,Romania,Russia,2,2,Friendly,Bucharest,Romania,False
 9543,1975-12-03,Portugal,Cyprus,1,0,UEFA Euro qualification,Setúbal,Portugal,False
 9544,1975-12-17,Scotland,Romania,1,1,UEFA Euro qualification,Glasgow,Scotland,False
-9545,1975-12-19,Egypt,Yemen DPR,5,0,Friendly,Tunis,Tunisia,True
+9545,1975-12-19,Egypt,Yemen,5,0,Friendly,Tunis,Tunisia,True
 9546,1975-12-19,Palestine,Sudan,0,0,Friendly,Tunis,Tunisia,True
 9547,1975-12-19,Tunisia,United Arab Emirates,3,0,Friendly,Tunis,Tunisia,False
 9548,1975-12-20,Malawi,Eswatini,2,0,Friendly,Blantyre,Malawi,False
@@ -9227,7 +9227,7 @@
 9553,1975-12-21,Malaysia,Singapore,0,0,King's Cup,Bangkok,Thailand,True
 9554,1975-12-21,Malta,Bulgaria,0,2,UEFA Euro qualification,Gżira,Malta,False
 9555,1975-12-21,Palestine,Sudan,0,1,Friendly,Tunis,Tunisia,True
-9556,1975-12-21,Saudi Arabia,Yemen DPR,0,1,Friendly,Tunis,Tunisia,True
+9556,1975-12-21,Saudi Arabia,Yemen,0,1,Friendly,Tunis,Tunisia,True
 9557,1975-12-22,Malawi,Eswatini,0,0,Friendly,Blantyre,Malawi,False
 9558,1975-12-23,Egypt,Saudi Arabia,2,1,Friendly,Tunis,Tunisia,True
 9559,1975-12-23,Libya,Syria,1,0,Friendly,Tunis,Tunisia,True
@@ -9403,10 +9403,10 @@
 9731,1976-06-04,Mexico,Brazil,0,3,Friendly,Guadalajara,Mexico,False
 9732,1976-06-05,China,Malaysia,1,1,AFC Asian Cup,Teheran,Iran,True
 9733,1976-06-05,Italy,Romania,4,2,Friendly,Milan,Italy,False
-9734,1976-06-06,Iraq,Yemen DPR,1,0,AFC Asian Cup,Teheran,Iran,True
+9734,1976-06-06,Iraq,Yemen,1,0,AFC Asian Cup,Teheran,Iran,True
 9736,1976-06-07,China,Kuwait,0,1,AFC Asian Cup,Teheran,Iran,True
 9737,1976-06-08,Myanmar,Malaysia,3,1,Indonesia Tournament,Jakarta,Indonesia,True
-9738,1976-06-08,Iran,Yemen DPR,8,0,AFC Asian Cup,Teheran,Iran,False
+9738,1976-06-08,Iran,Yemen,8,0,AFC Asian Cup,Teheran,Iran,False
 9739,1976-06-09,Brazil,Paraguay,3,1,Copa Oswaldo Cruz,Rio de Janeiro,Brazil,False
 9740,1976-06-09,Uruguay,Argentina,0,3,Copa Newton,Montevideo,Uruguay,False
 9741,1976-06-10,Indonesia,Malaysia,1,2,Indonesia Tournament,Jakarta,Indonesia,False
@@ -9717,7 +9717,7 @@
 10055,1977-03-11,Bahrain,Kuwait,0,2,FIFA World Cup qualification,Doha,Qatar,True
 10056,1977-03-12,Peru,Ecuador,4,0,FIFA World Cup qualification,Lima,Peru,False
 10057,1977-03-12,Singapore,Hong Kong,0,1,FIFA World Cup qualification,Kallang,Singapore,False
-10058,1977-03-13,Australia,Republic of China,3,0,FIFA World Cup qualification,Ba,Fiji,True
+10058,1977-03-13,Australia,Taiwan,3,0,FIFA World Cup qualification,Ba,Fiji,True
 10059,1977-03-13,Bolivia,Venezuela,2,0,FIFA World Cup qualification,La Paz,Bolivia,False
 10060,1977-03-13,Paraguay,Brazil,0,1,FIFA World Cup qualification,Asunción,Paraguay,False
 10061,1977-03-13,Qatar,Bahrain,2,0,FIFA World Cup qualification,Doha,Qatar,False
@@ -9731,7 +9731,7 @@
 10069,1977-03-20,Burkina Faso,Ivory Coast,0,1,African Cup of Nations qualification,Ouagadougou,Upper Volta,False
 10070,1977-03-20,Chile,Ecuador,3,0,FIFA World Cup qualification,Santiago,Chile,False
 10071,1977-03-20,South Korea,Israel,3,1,FIFA World Cup qualification,Seoul,South Korea,False
-10072,1977-03-20,New Zealand,Republic of China,6,0,FIFA World Cup qualification,Auckland,New Zealand,False
+10072,1977-03-20,New Zealand,Taiwan,6,0,FIFA World Cup qualification,Auckland,New Zealand,False
 10073,1977-03-20,Tunisia,Russia,0,3,Friendly,Tunis,Tunisia,False
 10074,1977-03-21,Qatar,Kuwait,1,4,FIFA World Cup qualification,Doha,Qatar,False
 10075,1977-03-22,Argentina,Iran,1,1,Friendly,Madrid,Spain,True
@@ -10258,7 +10258,7 @@
 10619,1978-09-20,Finland,Hungary,2,1,UEFA Euro qualification,Helsinki,Finland,False
 10620,1978-09-20,Ireland,Northern Ireland,0,0,UEFA Euro qualification,Dublin,Republic of Ireland,False
 10621,1978-09-20,Italy,Bulgaria,1,0,Friendly,Turin,Italy,False
-10622,1978-09-20,Libya,Yemen DPR,2,0,Friendly,Tripoli,Libya,False
+10622,1978-09-20,Libya,Yemen,2,0,Friendly,Tripoli,Libya,False
 10623,1978-09-20,Netherlands,Iceland,3,0,UEFA Euro qualification,Nijmegen,Netherlands,False
 10624,1978-09-20,Portugal,United States,1,0,Friendly,Setúbal,Portugal,False
 10625,1978-09-20,Russia,Greece,2,0,UEFA Euro qualification,Yerevan,Soviet Union,False
@@ -10695,7 +10695,7 @@
 11082,1979-11-18,Suriname,Haiti,0,1,CFU Caribbean Cup,Paramaribo,Suriname,False
 11083,1979-11-21,Belgium,Scotland,2,0,UEFA Euro qualification,Brussels,Belgium,False
 11084,1979-11-21,German Democratic Republic,Netherlands,2,3,UEFA Euro qualification,Leipzig,German DR,False
-11085,1979-11-21,Malaysia,Republic of China,0,3,Friendly,Bangkok,Thailand,True
+11085,1979-11-21,Malaysia,Taiwan,0,3,Friendly,Bangkok,Thailand,True
 11086,1979-11-21,Northern Ireland,Ireland,1,0,UEFA Euro qualification,Belfast,Northern Ireland,False
 11087,1979-11-21,Portugal,Austria,1,2,UEFA Euro qualification,Lisbon,Portugal,False
 11088,1979-11-21,Russia,Germany,1,3,Friendly,Tbilisi,Soviet Union,False
@@ -11374,7 +11374,7 @@
 11772,1981-05-16,Australia,New Zealand,0,2,FIFA World Cup qualification,Sydney,Australia,False
 11773,1981-05-16,Wales,Scotland,2,0,British Championship,Swansea,Wales,False
 11774,1981-05-17,Ecuador,Paraguay,1,0,FIFA World Cup qualification,Guayaquil,Ecuador,False
-11775,1981-05-17,Ethiopia,Yemen DPR,1,1,Friendly,Addis Abeba,Ethiopia,False
+11775,1981-05-17,Ethiopia,Yemen,1,1,Friendly,Addis Abeba,Ethiopia,False
 11776,1981-05-19,German Democratic Republic,Cuba,5,0,Friendly,Senftenberg,German DR,False
 11777,1981-05-19,Germany,Brazil,1,2,Friendly,Stuttgart,Germany,False
 11778,1981-05-19,Scotland,Northern Ireland,2,0,British Championship,Glasgow,Scotland,False
@@ -11388,7 +11388,7 @@
 11786,1981-05-24,Finland,Germany,0,4,FIFA World Cup qualification,Lahti,Finland,False
 11787,1981-05-27,Czechoslovakia,Iceland,6,1,FIFA World Cup qualification,Bratislava,Czechoslovakia,False
 11788,1981-05-28,Austria,Bulgaria,2,0,FIFA World Cup qualification,Vienna,Austria,False
-11789,1981-05-30,New Zealand,Republic of China,2,0,FIFA World Cup qualification,Auckland,New Zealand,False
+11789,1981-05-30,New Zealand,Taiwan,2,0,FIFA World Cup qualification,Auckland,New Zealand,False
 11790,1981-05-30,Switzerland,England,2,1,FIFA World Cup qualification,Basel,Switzerland,False
 11791,1981-05-30,Wales,Russia,0,0,FIFA World Cup qualification,Wrexham,Wales,False
 11792,1981-05-31,Fiji,Indonesia,0,0,FIFA World Cup qualification,Suva,Fiji,False
@@ -11399,15 +11399,15 @@
 11797,1981-06-03,Denmark,Italy,3,1,FIFA World Cup qualification,Copenhagen,Denmark,False
 11798,1981-06-03,Romania,Norway,1,0,FIFA World Cup qualification,Bucharest,Romania,False
 11799,1981-06-03,Sweden,Northern Ireland,1,0,FIFA World Cup qualification,Solna,Sweden,False
-11800,1981-06-06,Fiji,Republic of China,2,1,FIFA World Cup qualification,Suva,Fiji,False
+11800,1981-06-06,Fiji,Taiwan,2,1,FIFA World Cup qualification,Suva,Fiji,False
 11801,1981-06-06,Hungary,England,1,3,FIFA World Cup qualification,Budapest,Hungary,False
 11802,1981-06-07,Paraguay,Chile,0,1,FIFA World Cup qualification,Asunción,Paraguay,False
-11804,1981-06-10,Australia,Republic of China,3,2,FIFA World Cup qualification,Adelaide,Australia,False
+11804,1981-06-10,Australia,Taiwan,3,2,FIFA World Cup qualification,Adelaide,Australia,False
 11805,1981-06-11,Haiti,El Salvador,0,0,Friendly,Port-au-Prince,Haiti,False
 11806,1981-06-13,Haiti,El Salvador,0,0,Friendly,Port-au-Prince,Haiti,False
 11807,1981-06-14,Chile,Ecuador,2,0,FIFA World Cup qualification,Santiago,Chile,False
 11808,1981-06-14,Liechtenstein,Malta,1,1,Korea Cup,Daejeon,South Korea,True
-11809,1981-06-15,Indonesia,Republic of China,1,0,FIFA World Cup qualification,Jakarta,Indonesia,False
+11809,1981-06-15,Indonesia,Taiwan,1,0,FIFA World Cup qualification,Jakarta,Indonesia,False
 11810,1981-06-16,Liechtenstein,Thailand,0,2,Korea Cup,Jeonju,South Korea,True
 11811,1981-06-17,Austria,Finland,5,1,FIFA World Cup qualification,Linz,Austria,False
 11812,1981-06-17,South Korea,Malaysia,2,0,Korea Cup,Jeonju,South Korea,False
@@ -12135,7 +12135,7 @@
 12563,1983-05-01,Guinea,Guinea-Bissau,3,0,Friendly,Conakry,Guinea,False
 12564,1983-05-03,Ethiopia,Libya,0,1,Friendly,Addis Abeba,Ethiopia,False
 12565,1983-05-03,Guatemala,Honduras,0,2,Friendly,Guatemala,Guatemala,False
-12566,1983-05-06,Indonesia,Republic of China,0,2,Friendly,Jakarta,Indonesia,False
+12566,1983-05-06,Indonesia,Taiwan,0,2,Friendly,Jakarta,Indonesia,False
 12568,1983-05-08,Guyana,Barbados,2,0,CFU Caribbean Cup qualification,Georgetown,Guyana,False
 12569,1983-05-08,Togo,Guinea-Bissau,3,0,Friendly,Lomé,Togo,False
 12570,1983-05-11,Albania,Turkey,1,1,UEFA Euro qualification,Tirana,Albania,False
@@ -13128,7 +13128,7 @@
 13591,1985-03-29,Panama,Guatemala,0,0,Friendly,Panama City,Panama,False
 13592,1985-03-29,Thailand,Indonesia,0,1,FIFA World Cup qualification,Bangkok,Thailand,False
 13593,1985-03-29,Yemen,Syria,0,1,FIFA World Cup qualification,Sana'a,Yemen AR,True
-13594,1985-03-29,Yemen DPR,Bahrain,1,4,FIFA World Cup qualification,Aden,Yemen DPR,False
+13594,1985-03-29,Yemen,Bahrain,1,4,FIFA World Cup qualification,Aden,Yemen DPR,False
 13595,1985-03-30,Bangladesh,India,1,2,FIFA World Cup qualification,Dhaka,Bangladesh,False
 13596,1985-03-31,Angola,Algeria,0,0,FIFA World Cup qualification,Luanda,Angola,False
 13597,1985-03-31,Republic of Congo,Democratic Republic of Congo,2,5,African Cup of Nations qualification,Brazzaville,Congo,False
@@ -13165,7 +13165,7 @@
 13629,1985-04-07,Uruguay,Chile,2,1,FIFA World Cup qualification,Montevideo,Uruguay,False
 13630,1985-04-07,Zambia,Cameroon,4,1,FIFA World Cup qualification,Lusaka,Zambia,False
 13631,1985-04-09,India,Thailand,1,1,FIFA World Cup qualification,Calcutta,India,False
-13632,1985-04-12,Bahrain,Yemen DPR,3,3,FIFA World Cup qualification,Riffa,Bahrain,False
+13632,1985-04-12,Bahrain,Yemen,3,3,FIFA World Cup qualification,Riffa,Bahrain,False
 13633,1985-04-12,India,Bangladesh,2,1,FIFA World Cup qualification,Calcutta,India,False
 13634,1985-04-12,Kuwait,Syria,0,0,FIFA World Cup qualification,Kuwait City,Kuwait,False
 13635,1985-04-12,Qatar,Jordan,2,0,FIFA World Cup qualification,Doha,Qatar,False
@@ -13378,7 +13378,7 @@
 13850,1985-09-01,Costa Rica,Canada,0,0,FIFA World Cup qualification,San José,Costa Rica,False
 13851,1985-09-01,Ghana,Ivory Coast,0,0,African Cup of Nations qualification,Kumasi,Ghana,False
 13852,1985-09-01,Senegal,Zimbabwe,3,0,African Cup of Nations qualification,Dakar,Senegal,False
-13853,1985-09-03,Israel,Republic of China,6,0,FIFA World Cup qualification,Ramat-Gan,Israel,False
+13853,1985-09-03,Israel,Taiwan,6,0,FIFA World Cup qualification,Ramat-Gan,Israel,False
 13854,1985-09-04,Czechoslovakia,Poland,3,1,Friendly,Brno,Czechoslovakia,False
 13855,1985-09-04,Netherlands,Bulgaria,1,0,Friendly,Heerenveen,Netherlands,False
 13856,1985-09-06,Bahrain,Syria,1,1,FIFA World Cup qualification,Riffa,Bahrain,False
@@ -13416,7 +13416,7 @@
 13888,1985-10-04,Malawi,Uganda,1,0,CECAFA Cup,Bulawayo,Zimbabwe,True
 13889,1985-10-04,Saudi Arabia,Cameroon,2,1,Friendly,Ta'if,Saudi Arabia,False
 13890,1985-10-04,Zimbabwe,Tanzania,1,0,CECAFA Cup,Harare,Zimbabwe,False
-13891,1985-10-05,New Zealand,Republic of China,5,1,FIFA World Cup qualification,Auckland,New Zealand,False
+13891,1985-10-05,New Zealand,Taiwan,5,1,FIFA World Cup qualification,Auckland,New Zealand,False
 13892,1985-10-06,Malawi,Zambia,2,2,CECAFA Cup,Bulawayo,Zimbabwe,True
 13893,1985-10-06,Morocco,Libya,3,0,FIFA World Cup qualification,Rabat,Morocco,False
 13894,1985-10-06,Tunisia,Algeria,1,4,FIFA World Cup qualification,Tunis,Tunisia,False
@@ -13453,7 +13453,7 @@
 13925,1985-10-20,Australia,Israel,1,1,FIFA World Cup qualification,Melbourne,Australia,False
 13926,1985-10-20,Egypt,Mexico,2,1,Friendly,Cairo,Egypt,False
 13927,1985-10-20,Singapore,Malaysia,2,0,Merlion Cup,Kallang,Singapore,False
-13928,1985-10-23,Australia,Republic of China,7,0,FIFA World Cup qualification,Adelaide,Australia,False
+13928,1985-10-23,Australia,Taiwan,7,0,FIFA World Cup qualification,Adelaide,Australia,False
 13929,1985-10-23,Singapore,Malaysia,4,0,Merlion Cup,Kallang,Singapore,False
 13930,1985-10-25,Kuwait,Mexico,0,0,Friendly,Kuwait City,Kuwait,False
 13931,1985-10-26,Myanmar,Indonesia,2,1,Friendly,Rangoon,Burma,False
@@ -14316,7 +14316,7 @@
 14809,1988-02-20,Italy,Russia,4,1,Friendly,Bari,Italy,False
 14810,1988-02-23,United Arab Emirates,Egypt,1,2,Friendly,Dubai,United Arab Emirates,False
 14811,1988-02-24,Spain,Czechoslovakia,1,2,Friendly,Málaga,Spain,False
-14812,1988-02-25,Djibouti,Yemen DPR,4,1,Friendly,Djibouti,Djibouti,False
+14812,1988-02-25,Djibouti,Yemen,4,1,Friendly,Djibouti,Djibouti,False
 14813,1988-02-25,Iraq,Tunisia,2,0,Friendly,Baghdad,Iraq,False
 14814,1988-02-26,United Arab Emirates,Egypt,1,1,Friendly,Abu Dhabi,United Arab Emirates,False
 14815,1988-03-02,Costa Rica,Guatemala,2,1,Friendly,San José,Costa Rica,False
@@ -14496,17 +14496,17 @@
 14993,1988-06-17,Canada,Costa Rica,0,1,Friendly,Montréal,Canada,False
 14994,1988-06-17,Germany,Spain,2,0,UEFA Euro,Munich,Germany,False
 14995,1988-06-17,Honduras,Ecuador,0,1,Friendly,Tegucigalpa,Honduras,False
-14996,1988-06-17,Indonesia,Yemen DPR,1,0,AFC Asian Cup qualification,Jakarta,Indonesia,False
+14996,1988-06-17,Indonesia,Yemen,1,0,AFC Asian Cup qualification,Jakarta,Indonesia,False
 14997,1988-06-17,Italy,Denmark,2,0,UEFA Euro,Cologne,Germany,True
 14998,1988-06-18,England,Russia,1,3,UEFA Euro,Frankfurt am Main,Germany,True
 14999,1988-06-18,Ireland,Netherlands,0,1,UEFA Euro,Gelsenkirchen,Germany,True
 15000,1988-06-19,Antigua and Barbuda,Curaçao,0,1,FIFA World Cup qualification,St. John's,Antigua and Barbuda,False
 15001,1988-06-19,Indonesia,Bahrain,0,0,AFC Asian Cup qualification,Jakarta,Indonesia,False
 15002,1988-06-19,South Korea,Zambia,4,0,Korea Cup,Suwon,South Korea,False
-15003,1988-06-19,South Korea,Yemen DPR,1,1,AFC Asian Cup qualification,Jakarta,Indonesia,True
+15003,1988-06-19,South Korea,Yemen,1,1,AFC Asian Cup qualification,Jakarta,Indonesia,True
 15004,1988-06-21,Germany,Netherlands,1,2,UEFA Euro,Hamburg,Germany,False
 15005,1988-06-21,Saudi Arabia,New Zealand,0,2,Friendly,Melbourne,Australia,True
-15006,1988-06-22,Bahrain,Yemen DPR,2,0,AFC Asian Cup qualification,Jakarta,Indonesia,True
+15006,1988-06-22,Bahrain,Yemen,2,0,AFC Asian Cup qualification,Jakarta,Indonesia,True
 15007,1988-06-22,Indonesia,South Korea,0,4,AFC Asian Cup qualification,Jakarta,Indonesia,False
 15008,1988-06-22,Russia,Italy,2,0,UEFA Euro,Stuttgart,Germany,True
 15009,1988-06-23,Saudi Arabia,New Zealand,2,3,Friendly,Melbourne,Australia,True
@@ -14779,7 +14779,7 @@
 15284,1988-12-14,South Korea,China,2,1,AFC Asian Cup,Doha,Qatar,True
 15285,1988-12-14,Uruguay,Peru,3,0,Friendly,Montevideo,Uruguay,False
 15286,1988-12-15,Morocco,Gabon,5,2,Friendly,Rabat,Morocco,False
-15287,1988-12-15,New Zealand,Republic of China,4,1,FIFA World Cup qualification,Auckland,New Zealand,False
+15287,1988-12-15,New Zealand,Taiwan,4,1,FIFA World Cup qualification,Auckland,New Zealand,False
 15288,1988-12-17,China,Iran,0,0,AFC Asian Cup,Doha,Qatar,True
 15289,1988-12-18,Ivory Coast,Tunisia,1,1,Friendly,Abidjan,Ivory Coast,False
 15290,1988-12-18,South Korea,Saudi Arabia,0,0,AFC Asian Cup,Doha,Qatar,True
@@ -15287,18 +15287,18 @@
 15817,1989-10-31,Fiji,New Caledonia,3,0,Friendly,Suva,Fiji,False
 15818,1989-10-31,Guinea,Iraq,1,0,Friendly,Kuwait City,Kuwait,True
 15819,1989-10-31,Papua New Guinea,Vanuatu,3,0,Friendly,Suva,Fiji,True
-15820,1989-11-01,Iran,Yemen DPR,2,0,Friendly,Kuwait City,Kuwait,True
+15820,1989-11-01,Iran,Yemen,2,0,Friendly,Kuwait City,Kuwait,True
 15821,1989-11-01,Tunisia,Algeria,0,0,Friendly,Tunis,Tunisia,False
 15822,1989-11-02,Lebanon,Uganda,0,2,Friendly,Kuwait City,Kuwait,True
 15823,1989-11-03,Guinea,Iran,1,1,Friendly,Kuwait City,Kuwait,True
-15824,1989-11-03,Iraq,Yemen DPR,6,2,Friendly,Kuwait City,Kuwait,True
+15824,1989-11-03,Iraq,Yemen,6,2,Friendly,Kuwait City,Kuwait,True
 15825,1989-11-03,New Caledonia,Vanuatu,5,1,Friendly,Ba,Fiji,True
 15826,1989-11-03,Papua New Guinea,Solomon Islands,0,0,Friendly,Suva,Fiji,True
 15827,1989-11-03,Qatar,Egypt,0,2,Friendly,Doha,Qatar,False
 15828,1989-11-04,Fiji,Solomon Islands,0,0,Friendly,Suva,Fiji,False
 15829,1989-11-04,Kuwait,Uganda,1,1,Friendly,Kuwait City,Kuwait,False
 15830,1989-11-04,New Caledonia,Papua New Guinea,2,1,Friendly,Suva,Fiji,True
-15831,1989-11-05,Guinea,Yemen DPR,0,1,Friendly,Kuwait City,Kuwait,True
+15831,1989-11-05,Guinea,Yemen,0,1,Friendly,Kuwait City,Kuwait,True
 15832,1989-11-05,Iran,Iraq,0,0,Friendly,Kuwait City,Kuwait,True
 15833,1989-11-05,United States,El Salvador,0,0,FIFA World Cup qualification,St. Louis,United States,False
 15834,1989-11-08,Iran,Uganda,2,2,Friendly,Kuwait City,Kuwait,True
@@ -16365,20 +16365,20 @@
 16959,1992-06-03,Faroe Islands,Belgium,0,3,FIFA World Cup qualification,Toftir,Faroe Islands,False
 16960,1992-06-03,Finland,England,1,2,Friendly,Helsinki,Finland,False
 16961,1992-06-03,Hungary,Iceland,1,2,FIFA World Cup qualification,Budapest,Hungary,False
-16962,1992-06-03,North Korea,Republic of China,6,0,AFC Asian Cup qualification,P'yongyang,North Korea,False
+16962,1992-06-03,North Korea,Taiwan,6,0,AFC Asian Cup qualification,P'yongyang,North Korea,False
 16963,1992-06-03,Macau,Hong Kong,2,2,AFC Asian Cup qualification,P'yongyang,North Korea,True
 16964,1992-06-03,Norway,Scotland,0,0,Friendly,Oslo,Norway,False
 16965,1992-06-03,United States,Portugal,1,0,USA Cup,Chicago,United States,False
 16966,1992-06-04,Ireland,Italy,0,2,USA Cup,Foxborough,United States,True
 16967,1992-06-05,France,Netherlands,1,1,Friendly,Lens,France,False
-16968,1992-06-05,Hong Kong,Republic of China,0,0,AFC Asian Cup qualification,P'yongyang,North Korea,True
+16968,1992-06-05,Hong Kong,Taiwan,0,0,AFC Asian Cup qualification,P'yongyang,North Korea,True
 16969,1992-06-05,North Korea,Macau,2,0,AFC Asian Cup qualification,P'yongyang,North Korea,False
 16970,1992-06-06,United States,Italy,1,1,USA Cup,Chicago,United States,False
 16971,1992-06-07,Guatemala,Nicaragua,7,1,Friendly,Guatemala,Guatemala,False
 16972,1992-06-07,Ireland,Portugal,2,0,USA Cup,Foxborough,United States,True
 16973,1992-06-07,Japan,Wales,0,1,Kirin Cup,Matsuyama,Japan,False
 16974,1992-06-07,North Korea,Hong Kong,0,0,AFC Asian Cup qualification,P'yongyang,North Korea,False
-16975,1992-06-07,Macau,Republic of China,2,0,AFC Asian Cup qualification,P'yongyang,North Korea,True
+16975,1992-06-07,Macau,Taiwan,2,0,AFC Asian Cup qualification,P'yongyang,North Korea,True
 16976,1992-06-07,New Zealand,Fiji,3,0,FIFA World Cup qualification,Auckland,New Zealand,False
 16977,1992-06-10,Sweden,France,1,1,UEFA Euro,Solna,Sweden,False
 16978,1992-06-11,Denmark,England,0,0,UEFA Euro,Malmö,Sweden,True
@@ -17203,7 +17203,7 @@
 17821,1993-06-24,Brazil,Paraguay,3,0,Copa América,Cuenca,Ecuador,True
 17822,1993-06-24,Chile,Peru,0,1,Copa América,Cuenca,Ecuador,True
 17823,1993-06-25,Croatia,Ukraine,3,1,Friendly,Zagreb,Croatia,False
-17824,1993-06-25,Iran,Republic of China,6,0,FIFA World Cup qualification,Teheran,Iran,False
+17824,1993-06-25,Iran,Taiwan,6,0,FIFA World Cup qualification,Teheran,Iran,False
 17825,1993-06-25,Oman,Syria,0,0,FIFA World Cup qualification,Teheran,Iran,True
 17826,1993-06-26,Colombia,Uruguay,1,1,Copa América,Guayaquil,Ecuador,True
 17827,1993-06-26,Ecuador,Paraguay,3,0,Copa América,Quito,Ecuador,False
@@ -17211,7 +17211,7 @@
 17829,1993-06-26,South Korea,Czech Republic,1,0,Korea Cup,Seoul,South Korea,False
 17830,1993-06-27,Brazil,Argentina,1,1,Copa América,Guayaquil,Ecuador,True
 17831,1993-06-27,Iran,Syria,1,1,FIFA World Cup qualification,Teheran,Iran,False
-17832,1993-06-27,Oman,Republic of China,2,1,FIFA World Cup qualification,Teheran,Iran,True
+17832,1993-06-27,Oman,Taiwan,2,1,FIFA World Cup qualification,Teheran,Iran,True
 17833,1993-06-27,Peru,Mexico,2,4,Copa América,Quito,Ecuador,True
 17834,1993-06-28,South Korea,Egypt,0,1,Korea Cup,Seoul,South Korea,False
 17835,1993-06-29,Costa Rica,Mexico,0,2,Friendly,San José,Costa Rica,False
@@ -17219,7 +17219,7 @@
 17837,1993-07-01,Colombia,Argentina,0,0,Copa América,Guayaquil,Ecuador,True
 17838,1993-07-02,Estonia,Latvia,0,2,Baltic Cup,Pärnu,Estonia,False
 17839,1993-07-02,Oman,Iran,0,1,FIFA World Cup qualification,Damascus,Syria,True
-17840,1993-07-02,Syria,Republic of China,8,1,FIFA World Cup qualification,Damascus,Syria,False
+17840,1993-07-02,Syria,Taiwan,8,1,FIFA World Cup qualification,Damascus,Syria,False
 17841,1993-07-03,Ecuador,Colombia,0,1,Copa América,Portoviejo,Ecuador,False
 17842,1993-07-03,Latvia,Lithuania,0,0,Baltic Cup,Pärnu,Estonia,True
 17843,1993-07-03,Nigeria,Algeria,4,1,FIFA World Cup qualification,Lagos,Nigeria,False
@@ -19059,13 +19059,13 @@
 19763,1996-07-31,Belarus,Lithuania,2,2,Friendly,Minsk,Belarus,False
 19764,1996-08-04,Costa Rica,Honduras,1,1,Friendly,San José,Costa Rica,False
 19765,1996-08-04,Guatemala,Panama,1,0,Friendly,Guatemala,Guatemala,False
-19766,1996-08-04,Vietnam,Republic of China,4,1,AFC Asian Cup qualification,Ho Chi Minh City,Vietnam,False
+19766,1996-08-04,Vietnam,Taiwan,4,1,AFC Asian Cup qualification,Ho Chi Minh City,Vietnam,False
 19767,1996-08-05,South Korea,Guam,9,0,AFC Asian Cup qualification,Ho Chi Minh City,Vietnam,True
 19768,1996-08-07,Panama,Honduras,2,1,Friendly,Panama City,Panama,False
 19769,1996-08-07,Vietnam,Guam,9,0,AFC Asian Cup qualification,Ho Chi Minh City,Vietnam,False
 19770,1996-08-08,Benin,Mauritania,4,1,African Cup of Nations qualification,Cotonou,Benin,False
 19771,1996-08-08,China,Paraguay,0,2,Friendly,Beijing,China PR,False
-19772,1996-08-08,South Korea,Republic of China,4,0,AFC Asian Cup qualification,Ho Chi Minh City,Vietnam,True
+19772,1996-08-08,South Korea,Taiwan,4,0,AFC Asian Cup qualification,Ho Chi Minh City,Vietnam,True
 19773,1996-08-09,Jordan,Pakistan,4,0,AFC Asian Cup qualification,Amman,Jordan,False
 19774,1996-08-11,Botswana,Namibia,0,0,African Cup of Nations qualification,Gaborone,Botswana,False
 19775,1996-08-11,Republic of Congo,Togo,0,0,African Cup of Nations qualification,Pointe-Noire,Congo,False
@@ -19583,13 +19583,13 @@
 20293,1997-03-16,Namibia,Zimbabwe,2,1,COSAFA Cup,Windhoek,Namibia,False
 20294,1997-03-16,United States,Canada,3,0,FIFA World Cup qualification,Palo Alto,United States,False
 20295,1997-03-18,Austria,Slovenia,0,2,Friendly,Linz,Austria,False
-20296,1997-03-18,Bangladesh,Republic of China,1,3,FIFA World Cup qualification,Kuala Lumpur,Malaysia,True
+20296,1997-03-18,Bangladesh,Taiwan,1,3,FIFA World Cup qualification,Kuala Lumpur,Malaysia,True
 20297,1997-03-18,Kuwait,Bahrain,3,1,Friendly,Kuwait City,Kuwait,False
 20298,1997-03-18,Malaysia,Saudi Arabia,0,0,FIFA World Cup qualification,Kuala Lumpur,Malaysia,False
 20299,1997-03-19,Malta,Hungary,1,4,Friendly,Attard,Malta,False
 20300,1997-03-19,United Arab Emirates,Lebanon,2,1,Friendly,Abu Dhabi,United Arab Emirates,False
 20301,1997-03-20,Bangladesh,Saudi Arabia,1,4,FIFA World Cup qualification,Kuala Lumpur,Malaysia,True
-20302,1997-03-20,Malaysia,Republic of China,2,0,FIFA World Cup qualification,Kuala Lumpur,Malaysia,False
+20302,1997-03-20,Malaysia,Taiwan,2,0,FIFA World Cup qualification,Kuala Lumpur,Malaysia,False
 20303,1997-03-22,Azerbaijan,Turkmenistan,3,0,Friendly,Baku,Azerbaijan,False
 20304,1997-03-23,Bolivia,Jamaica,6,0,Friendly,Oruro,Bolivia,False
 20305,1997-03-23,Costa Rica,United States,3,2,FIFA World Cup qualification,San José,Costa Rica,False
@@ -19624,7 +19624,7 @@
 20334,1997-03-31,Bangladesh,Malaysia,0,1,FIFA World Cup qualification,Jeddah,Saudi Arabia,True
 20335,1997-03-31,Luxembourg,Israel,0,3,FIFA World Cup qualification,Luxembourg,Luxembourg,False
 20336,1997-03-31,Malta,Slovakia,0,2,FIFA World Cup qualification,Attard,Malta,False
-20337,1997-03-31,Saudi Arabia,Republic of China,6,0,FIFA World Cup qualification,Jeddah,Saudi Arabia,False
+20337,1997-03-31,Saudi Arabia,Taiwan,6,0,FIFA World Cup qualification,Jeddah,Saudi Arabia,False
 20338,1997-04-01,India,China,0,0,Nehru Cup,Cochin,India,False
 20339,1997-04-02,Albania,Germany,2,3,FIFA World Cup qualification,Granada,Spain,True
 20340,1997-04-02,Azerbaijan,Finland,1,2,FIFA World Cup qualification,Baku,Azerbaijan,False
@@ -21863,13 +21863,13 @@
 22680,2000-03-22,Cyprus,Iran,0,0,Friendly,Nicosia,Cyprus,False
 22681,2000-03-24,Gambia,Mauritania,0,0,Friendly,Banjul,Gambia,False
 22682,2000-03-25,Bahrain,Jordan,1,1,Friendly,Manama,Bahrain,False
-22683,2000-03-25,Malaysia,Republic of China,3,0,AFC Asian Cup qualification,Kuala Lumpur,Malaysia,False
+22683,2000-03-25,Malaysia,Taiwan,3,0,AFC Asian Cup qualification,Kuala Lumpur,Malaysia,False
 22684,2000-03-25,Tanzania,Malawi,1,1,Friendly,Morogoro,Tanzania,False
 22685,2000-03-25,Thailand,North Korea,0,0,AFC Asian Cup qualification,Kuala Lumpur,Malaysia,True
 22686,2000-03-25,Zambia,Botswana,3,0,COSAFA Cup,Lusaka,Zambia,False
 22687,2000-03-26,Tanzania,Malawi,4,3,Friendly,Dar es Salaam,Tanzania,False
 22688,2000-03-27,Malaysia,North Korea,1,1,AFC Asian Cup qualification,Kuala Lumpur,Malaysia,False
-22689,2000-03-27,Thailand,Republic of China,2,0,AFC Asian Cup qualification,Kuala Lumpur,Malaysia,True
+22689,2000-03-27,Thailand,Taiwan,2,0,AFC Asian Cup qualification,Kuala Lumpur,Malaysia,True
 22690,2000-03-28,Colombia,Brazil,0,0,FIFA World Cup qualification,Bogotá,Colombia,False
 22691,2000-03-28,El Salvador,Haiti,3,1,Friendly,San Salvador,El Salvador,False
 22692,2000-03-28,Malta,Northern Ireland,0,3,Friendly,Attard,Malta,False
@@ -21910,7 +21910,7 @@
 22727,2000-04-02,Syria,Iran,0,1,AFC Asian Cup qualification,Damascus,Syria,False
 22728,2000-04-02,Trinidad and Tobago,Dominican Republic,3,0,FIFA World Cup qualification,Port of Spain,Trinidad and Tobago,False
 22729,2000-04-04,Bahrain,Iran,1,0,AFC Asian Cup qualification,Damascus,Syria,True
-22730,2000-04-04,Malaysia,Republic of China,2,3,AFC Asian Cup qualification,Bangkok,Thailand,True
+22730,2000-04-04,Malaysia,Taiwan,2,3,AFC Asian Cup qualification,Bangkok,Thailand,True
 22731,2000-04-04,Palestine,Jordan,1,5,AFC Asian Cup qualification,Doha,Qatar,True
 22732,2000-04-04,Qatar,Pakistan,5,0,AFC Asian Cup qualification,Doha,Qatar,False
 22733,2000-04-04,Syria,Maldives,2,1,AFC Asian Cup qualification,Damascus,Syria,False
@@ -21920,7 +21920,7 @@
 22737,2000-04-06,Kazakhstan,Palestine,2,0,AFC Asian Cup qualification,Doha,Qatar,True
 22738,2000-04-06,Malaysia,North Korea,1,4,AFC Asian Cup qualification,Bangkok,Thailand,True
 22739,2000-04-06,Pakistan,Jordan,0,5,AFC Asian Cup qualification,Doha,Qatar,True
-22740,2000-04-06,Thailand,Republic of China,1,0,AFC Asian Cup qualification,Bangkok,Thailand,False
+22740,2000-04-06,Thailand,Taiwan,1,0,AFC Asian Cup qualification,Bangkok,Thailand,False
 22741,2000-04-07,Myanmar,Laos,4,0,AFC Asian Cup qualification,Seoul,South Korea,True
 22742,2000-04-07,Djibouti,Democratic Republic of Congo,1,1,FIFA World Cup qualification,Djibouti,Djibouti,False
 22743,2000-04-07,South Korea,Mongolia,6,0,AFC Asian Cup qualification,Seoul,South Korea,False
@@ -22382,9 +22382,9 @@
 23202,2000-08-27,Cayman Islands,Jamaica,0,6,Friendly,George Town,Cayman Islands,False
 23203,2000-08-27,Zimbabwe,Lesotho,3,0,COSAFA Cup,Bulawayo,Zimbabwe,False
 23204,2000-08-28,Indonesia,Myanmar,4,1,Friendly,Jakarta,Indonesia,False
-23205,2000-08-28,Iraq,Republic of China,3,0,Friendly,Jakarta,Indonesia,True
+23205,2000-08-28,Iraq,Taiwan,3,0,Friendly,Jakarta,Indonesia,True
 23206,2000-08-30,Myanmar,Iraq,0,1,Friendly,Jakarta,Indonesia,True
-23207,2000-08-30,Indonesia,Republic of China,1,0,Friendly,Jakarta,Indonesia,False
+23207,2000-08-30,Indonesia,Taiwan,1,0,Friendly,Jakarta,Indonesia,False
 23208,2000-09-01,Austria,Iran,5,1,Friendly,Vienna,Austria,False
 23209,2000-09-01,Indonesia,Iraq,0,0,Friendly,Jakarta,Indonesia,False
 23210,2000-09-02,Andorra,Cyprus,2,3,FIFA World Cup qualification,Sant Julià de Lòria,Andorra,False
@@ -22994,7 +22994,7 @@
 23831,2001-04-23,Iraq,Nepal,4,2,FIFA World Cup qualification,Almaty,Kazakhstan,True
 23832,2001-04-23,Kazakhstan,Macau,5,0,FIFA World Cup qualification,Almaty,Kazakhstan,False
 23833,2001-04-23,Turkmenistan,Jordan,2,0,FIFA World Cup qualification,Tashkent,Uzbekistan,True
-23834,2001-04-23,Uzbekistan,Republic of China,7,0,FIFA World Cup qualification,Tashkent,Uzbekistan,False
+23834,2001-04-23,Uzbekistan,Taiwan,7,0,FIFA World Cup qualification,Tashkent,Uzbekistan,False
 23835,2001-04-24,Belize,Nicaragua,2,0,Friendly,Belize City,Belize,False
 23836,2001-04-24,Chile,Uruguay,0,1,FIFA World Cup qualification,Santiago,Chile,False
 23837,2001-04-24,Ecuador,Paraguay,2,1,FIFA World Cup qualification,Quito,Ecuador,False
@@ -23044,7 +23044,7 @@
 23881,2001-04-29,Mozambique,South Africa,0,3,COSAFA Cup,Maputo,Mozambique,False
 23882,2001-04-30,Oman,Laos,12,0,FIFA World Cup qualification,Muscat,Oman,False
 23883,2001-04-30,Syria,Philippines,12,0,FIFA World Cup qualification,Aleppo,Syria,False
-23884,2001-05-03,Jordan,Republic of China,6,0,FIFA World Cup qualification,Amman,Jordan,False
+23884,2001-05-03,Jordan,Taiwan,6,0,FIFA World Cup qualification,Amman,Jordan,False
 23885,2001-05-03,Turkmenistan,Uzbekistan,2,5,FIFA World Cup qualification,Amman,Jordan,True
 23886,2001-05-04,Algeria,Morocco,1,2,FIFA World Cup qualification,Algiers,Algeria,False
 23887,2001-05-04,Oman,Laos,7,0,FIFA World Cup qualification,Muscat,Oman,False
@@ -23066,7 +23066,7 @@
 23904,2001-05-07,Jordan,Uzbekistan,1,1,FIFA World Cup qualification,Amman,Jordan,False
 23905,2001-05-07,Oman,Philippines,7,0,FIFA World Cup qualification,Muscat,Oman,False
 23906,2001-05-07,Syria,Laos,11,0,FIFA World Cup qualification,Aleppo,Syria,False
-23907,2001-05-07,Turkmenistan,Republic of China,1,0,FIFA World Cup qualification,Amman,Jordan,True
+23907,2001-05-07,Turkmenistan,Taiwan,1,0,FIFA World Cup qualification,Amman,Jordan,True
 23908,2001-05-09,Estonia,Finland,1,1,Friendly,Kuressaare,Estonia,False
 23909,2001-05-09,Georgia,Azerbaijan,1,0,Friendly,Kutaisi,Georgia,False
 23910,2001-05-10,Trinidad and Tobago,Grenada,5,3,Friendly,Macoya,Trinidad and Tobago,False
@@ -24003,7 +24003,7 @@
 24894,2002-07-21,South Africa,Madagascar,0,0,COSAFA Cup,Port Elizabeth,South Africa,False
 24895,2002-07-22,Iraq,Syria,2,1,Friendly,Baghdad,Iraq,False
 24896,2002-07-25,Barbados,Trinidad and Tobago,0,0,SKN Football Festival,Basseterre,Saint Kitts and Nevis,True
-24897,2002-07-25,Saint Kitts and Nevis,Republic of China,3,0,SKN Football Festival,Basseterre,Saint Kitts and Nevis,False
+24897,2002-07-25,Saint Kitts and Nevis,Taiwan,3,0,SKN Football Festival,Basseterre,Saint Kitts and Nevis,False
 24898,2002-07-26,Ethiopia,Uganda,0,0,Friendly,Khartoum,Sudan,True
 24899,2002-07-26,Sudan,Chad,2,0,Friendly,Khartoum,Sudan,False
 24900,2002-07-27,Saint Kitts and Nevis,Barbados,3,0,SKN Football Festival,Basseterre,Saint Kitts and Nevis,False
@@ -24014,7 +24014,7 @@
 24905,2002-07-28,Saint Lucia,British Virgin Islands,8,1,Gold Cup qualification,Vieux Fort,Saint Lucia,False
 24906,2002-07-28,Sudan,Uganda,2,1,Friendly,Khartoum,Sudan,False
 24907,2002-07-30,Chad,Uganda,0,2,Friendly,Khartoum,Sudan,True
-24908,2002-07-30,Grenada,Republic of China,5,2,Friendly,St. George's,Grenada,False
+24908,2002-07-30,Grenada,Taiwan,5,2,Friendly,St. George's,Grenada,False
 24909,2002-07-30,Sudan,Ethiopia,3,0,Friendly,Khartoum,Sudan,False
 24910,2002-08-01,Eswatini,Mauritius,0,1,Friendly,Mbabane,Eswatini,False
 24911,2002-08-02,Grenada,Jamaica,0,1,Friendly,St. George's,Grenada,False
@@ -24424,7 +24424,7 @@
 25339,2003-02-20,North Korea,Qatar,2,2,King's Cup,Bangkok,Thailand,True
 25340,2003-02-20,Thailand,Sweden,1,4,King's Cup,Bangkok,Thailand,False
 25341,2003-02-21,Panama,Nicaragua,0,1,UNCAF Cup,Panama City,Panama,False
-25342,2003-02-22,Hong Kong,Republic of China,2,0,EAFF Championship,So Kon Po,Hong Kong,False
+25342,2003-02-22,Hong Kong,Taiwan,2,0,EAFF Championship,So Kon Po,Hong Kong,False
 25343,2003-02-22,North Korea,Sweden,0,4,King's Cup,Bangkok,Thailand,True
 25344,2003-02-22,Macau,Mongolia,2,0,EAFF Championship,So Kon Po,Hong Kong,True
 25345,2003-02-22,Madagascar,Mauritius,2,1,COSAFA Cup,Antananarivo,Madagascar,False
@@ -24437,10 +24437,10 @@
 25352,2003-02-24,Hong Kong,Macau,3,0,EAFF Championship,So Kon Po,Hong Kong,False
 25353,2003-02-24,Mongolia,Guam,2,0,EAFF Championship,So Kon Po,Hong Kong,True
 25354,2003-02-26,Guam,Macau,0,2,EAFF Championship,So Kon Po,Hong Kong,True
-25355,2003-02-28,Guam,Republic of China,0,7,EAFF Championship,So Kon Po,Hong Kong,True
+25355,2003-02-28,Guam,Taiwan,0,7,EAFF Championship,So Kon Po,Hong Kong,True
 25356,2003-02-28,Hong Kong,Mongolia,10,0,EAFF Championship,So Kon Po,Hong Kong,False
 25357,2003-03-02,Hong Kong,Guam,11,0,EAFF Championship,So Kon Po,Hong Kong,False
-25358,2003-03-02,Macau,Republic of China,1,2,EAFF Championship,So Kon Po,Hong Kong,True
+25358,2003-03-02,Macau,Taiwan,1,2,EAFF Championship,So Kon Po,Hong Kong,True
 25359,2003-03-04,Singapore,Maldives,4,1,Friendly,Singapore,Singapore,False
 25360,2003-03-04,Sudan,Democratic Republic of Congo,1,3,Friendly,Khartoum,Sudan,False
 25361,2003-03-05,Israel,Moldova,0,0,Friendly,Ramat-Gan,Israel,False
@@ -24462,7 +24462,7 @@
 25379,2003-03-20,Nepal,Kyrgyzstan,0,2,AFC Asian Cup qualification,Kathmandu,Nepal,False
 25380,2003-03-21,Macau,Pakistan,0,3,AFC Asian Cup qualification,Singapore,Singapore,True
 25381,2003-03-21,Maldives,Brunei,1,1,AFC Asian Cup qualification,Malé,Maldives,False
-25382,2003-03-21,Sri Lanka,East Timor,3,2,AFC Asian Cup qualification,Colombo,Sri Lanka,False
+25382,2003-03-21,Sri Lanka,Timor-Leste,3,2,AFC Asian Cup qualification,Colombo,Sri Lanka,False
 25383,2003-03-22,Mozambique,Lesotho,0,0,COSAFA Cup,Maputo,Mozambique,False
 25384,2003-03-22,Rwanda,Zambia,1,1,Friendly,Kigali,Rwanda,False
 25385,2003-03-23,Benin,Equatorial Guinea,2,1,Friendly,Cotonou,Benin,False
@@ -24475,7 +24475,7 @@
 25392,2003-03-25,Hong Kong,Laos,5,1,AFC Asian Cup qualification,Kowloon,Hong Kong,False
 25393,2003-03-25,Maldives,Myanmar,0,2,AFC Asian Cup qualification,Malé,Maldives,False
 25394,2003-03-25,Singapore,Pakistan,3,0,AFC Asian Cup qualification,Singapore,Singapore,False
-25395,2003-03-25,Sri Lanka,Republic of China,2,1,AFC Asian Cup qualification,Colombo,Sri Lanka,False
+25395,2003-03-25,Sri Lanka,Taiwan,2,1,AFC Asian Cup qualification,Colombo,Sri Lanka,False
 25396,2003-03-26,Austria,Greece,2,2,Friendly,Graz,Austria,False
 25397,2003-03-26,Burundi,Burkina Faso,0,0,Friendly,Bujumbura,Burundi,False
 25400,2003-03-26,Jamaica,Saint Lucia,5,0,Gold Cup qualification,Kingston,Jamaica,False
@@ -25154,7 +25154,7 @@
 26128,2003-11-28,Iran,Lebanon,1,0,AFC Asian Cup qualification,Teheran,Iran,False
 26129,2003-11-28,Syria,Turkmenistan,1,1,AFC Asian Cup qualification,Aleppo,Syria,False
 26130,2003-11-29,Laos,Sri Lanka,0,0,FIFA World Cup qualification,Vientiane,Laos,False
-26131,2003-11-29,Macau,Republic of China,1,3,FIFA World Cup qualification,Macau,Macau,False
+26131,2003-11-29,Macau,Taiwan,1,3,FIFA World Cup qualification,Macau,Macau,False
 26132,2003-11-29,Mongolia,Maldives,0,1,FIFA World Cup qualification,Ulaanbaatar,Mongolia,False
 26133,2003-11-29,Pakistan,Kyrgyzstan,0,2,FIFA World Cup qualification,Karachi,Pakistan,False
 26134,2003-11-29,Singapore,Qatar,0,2,Friendly,Singapore,Singapore,False
@@ -25323,7 +25323,7 @@
 26304,2004-02-18,Morocco,Switzerland,2,1,Friendly,Rabat,Morocco,False
 26305,2004-02-18,Netherlands,United States,1,0,Friendly,Amsterdam,Netherlands,False
 26306,2004-02-18,Northern Ireland,Norway,1,4,Friendly,Belfast,Northern Ireland,False
-26307,2004-02-18,Palestine,Republic of China,8,0,FIFA World Cup qualification,al-Wakrah,Qatar,True
+26307,2004-02-18,Palestine,Taiwan,8,0,FIFA World Cup qualification,al-Wakrah,Qatar,True
 26308,2004-02-18,Poland,Slovenia,2,0,Friendly,San Fernando,Spain,True
 26309,2004-02-18,Portugal,England,1,1,Friendly,Faro,Portugal,False
 26310,2004-02-18,Romania,Georgia,3,0,Cyprus International Tournament,Larnaca,Cyprus,True
@@ -25630,7 +25630,7 @@
 26614,2004-06-09,China,Malaysia,4,0,FIFA World Cup qualification,Tianjin,China PR,False
 26615,2004-06-09,Indonesia,Sri Lanka,1,0,FIFA World Cup qualification,Jakarta,Indonesia,False
 26616,2004-06-09,Iran,Jordan,0,1,FIFA World Cup qualification,Teheran,Iran,False
-26617,2004-06-09,Iraq,Republic of China,6,1,FIFA World Cup qualification,Amman,Jordan,True
+26617,2004-06-09,Iraq,Taiwan,6,1,FIFA World Cup qualification,Amman,Jordan,True
 26618,2004-06-09,Japan,India,7,0,FIFA World Cup qualification,Saitama,Japan,False
 26619,2004-06-09,South Korea,Vietnam,2,0,FIFA World Cup qualification,Daejeon,South Korea,False
 26620,2004-06-09,Kuwait,Hong Kong,4,0,FIFA World Cup qualification,Kuwait City,Kuwait,False
@@ -26145,7 +26145,7 @@
 27137,2004-11-17,United Arab Emirates,North Korea,1,0,FIFA World Cup qualification,Dubai,United Arab Emirates,False
 27138,2004-11-17,Uruguay,Paraguay,1,0,FIFA World Cup qualification,Montevideo,Uruguay,False
 27139,2004-11-17,United States,Jamaica,1,1,FIFA World Cup qualification,Columbus,United States,False
-27140,2004-11-17,Uzbekistan,Republic of China,6,1,FIFA World Cup qualification,Tashkent,Uzbekistan,False
+27140,2004-11-17,Uzbekistan,Taiwan,6,1,FIFA World Cup qualification,Tashkent,Uzbekistan,False
 27141,2004-11-20,Zambia,Angola,0,0,COSAFA Cup,Lusaka,Zambia,False
 27142,2004-11-22,United Arab Emirates,Belarus,2,3,Friendly,Dubai,United Arab Emirates,False
 27143,2004-11-24,Cayman Islands,Bermuda,1,2,CFU Caribbean Cup qualification,Kingstown,Saint Vincent and the Grenadines,True
@@ -26180,7 +26180,7 @@
 27175,2004-12-06,Kuwait,Tajikistan,3,0,Friendly,Kuwait City,Kuwait,False
 27176,2004-12-07,Laos,Indonesia,0,6,AFF Championship,Ho Chi Minh City,Vietnam,True
 27177,2004-12-07,Vietnam,Singapore,1,1,AFF Championship,Ho Chi Minh City,Vietnam,False
-27178,2004-12-08,Malaysia,East Timor,5,0,AFF Championship,Kuala Lumpur,Malaysia,False
+27178,2004-12-08,Malaysia,Timor-Leste,5,0,AFF Championship,Kuala Lumpur,Malaysia,False
 27179,2004-12-08,Philippines,Myanmar,0,1,AFF Championship,Kuala Lumpur,Malaysia,True
 27180,2004-12-09,Indonesia,Singapore,0,0,AFF Championship,Ho Chi Minh City,Vietnam,True
 27181,2004-12-09,Vietnam,Cambodia,9,1,AFF Championship,Ho Chi Minh City,Vietnam,False
@@ -26194,7 +26194,7 @@
 27190,2004-12-11,Saudi Arabia,Kuwait,1,2,Gulf Cup,Rayyan,Qatar,True
 27191,2004-12-11,Vietnam,Indonesia,0,3,AFF Championship,Hanoi,Vietnam,False
 27192,2004-12-12,British Virgin Islands,Trinidad and Tobago,0,4,CFU Caribbean Cup qualification,Road Town,British Virgin Islands,False
-27194,2004-12-12,East Timor,Thailand,0,8,AFF Championship,Kuala Lumpur,Malaysia,True
+27194,2004-12-12,Timor-Leste,Thailand,0,8,AFF Championship,Kuala Lumpur,Malaysia,True
 27195,2004-12-12,Haiti,Saint Kitts and Nevis,1,0,CFU Caribbean Cup qualification,Fort Lauderdale,United States,True
 27196,2004-12-12,Kenya,Sudan,2,2,CECAFA Cup,Addis Abeba,Ethiopia,True
 27197,2004-12-12,Malaysia,Myanmar,0,1,AFF Championship,Kuala Lumpur,Malaysia,False
@@ -26207,7 +26207,7 @@
 27204,2004-12-13,Singapore,Laos,6,2,AFF Championship,Hanoi,Vietnam,True
 27206,2004-12-14,Kuwait,Bahrain,1,1,Gulf Cup,Rayyan,Qatar,True
 27207,2004-12-14,Malaysia,Thailand,2,1,AFF Championship,Kuala Lumpur,Malaysia,False
-27208,2004-12-14,Philippines,East Timor,2,1,AFF Championship,Kuala Lumpur,Malaysia,True
+27208,2004-12-14,Philippines,Timor-Leste,2,1,AFF Championship,Kuala Lumpur,Malaysia,True
 27209,2004-12-14,Saudi Arabia,Yemen,2,0,Gulf Cup,Rayyan,Qatar,True
 27210,2004-12-14,Somalia,Kenya,0,1,CECAFA Cup,Addis Abeba,Ethiopia,True
 27211,2004-12-14,Sudan,Uganda,2,1,CECAFA Cup,Addis Abeba,Ethiopia,True
@@ -26217,7 +26217,7 @@
 27215,2004-12-15,Saint Kitts and Nevis,Haiti,0,2,CFU Caribbean Cup qualification,Basseterre,Saint Kitts and Nevis,False
 27216,2004-12-15,Tanzania,Burundi,0,2,CECAFA Cup,Addis Abeba,Ethiopia,True
 27217,2004-12-15,Vietnam,Laos,3,0,AFF Championship,Hanoi,Vietnam,False
-27218,2004-12-16,Myanmar,East Timor,3,1,AFF Championship,Kuala Lumpur,Malaysia,True
+27218,2004-12-16,Myanmar,Timor-Leste,3,1,AFF Championship,Kuala Lumpur,Malaysia,True
 27219,2004-12-16,Iraq,United Arab Emirates,1,1,Gulf Cup,Rayyan,Qatar,True
 27220,2004-12-16,Japan,Germany,0,3,Friendly,Yokohama,Japan,False
 27221,2004-12-16,Qatar,Oman,2,1,Gulf Cup,Doha,Qatar,False
@@ -27085,7 +27085,7 @@
 28136,2006-02-22,Bahrain,Australia,1,3,AFC Asian Cup qualification,Riffa,Bahrain,False
 28137,2006-02-22,China,Palestine,2,0,AFC Asian Cup qualification,Guangzhou,China PR,False
 28138,2006-02-22,Hong Kong,Qatar,0,3,AFC Asian Cup qualification,So Kon Po,Hong Kong,False
-28139,2006-02-22,Iran,Republic of China,4,0,AFC Asian Cup qualification,Teheran,Iran,False
+28139,2006-02-22,Iran,Taiwan,4,0,AFC Asian Cup qualification,Teheran,Iran,False
 28140,2006-02-22,Japan,India,6,0,AFC Asian Cup qualification,Yokohama,Japan,False
 28141,2006-02-22,Jordan,Pakistan,3,0,AFC Asian Cup qualification,Amman,Jordan,False
 28142,2006-02-22,Lebanon,Kuwait,1,1,AFC Asian Cup qualification,Beirut,Lebanon,False
@@ -27164,7 +27164,7 @@
 28217,2006-04-02,Nepal,Bhutan,2,0,AFC Challenge Cup,Chittagong,Bangladesh,True
 28218,2006-04-02,Sri Lanka,Brunei,1,0,AFC Challenge Cup,Chittagong,Bangladesh,True
 28219,2006-04-02,Tajikistan,Macau,4,0,AFC Challenge Cup,Dhaka,Bangladesh,True
-28220,2006-04-03,Afghanistan,Republic of China,2,2,AFC Challenge Cup,Chittagong,Bangladesh,True
+28220,2006-04-03,Afghanistan,Taiwan,2,2,AFC Challenge Cup,Chittagong,Bangladesh,True
 28221,2006-04-03,Bangladesh,Guam,3,0,AFC Challenge Cup,Dhaka,Bangladesh,False
 28222,2006-04-03,Cambodia,Palestine,0,4,AFC Challenge Cup,Dhaka,Bangladesh,True
 28223,2006-04-04,Bhutan,Sri Lanka,0,1,AFC Challenge Cup,Chittagong,Bangladesh,True
@@ -27178,7 +27178,7 @@
 28231,2006-04-06,Sri Lanka,Nepal,1,1,AFC Challenge Cup,Chittagong,Bangladesh,True
 28232,2006-04-06,Tajikistan,Kyrgyzstan,0,1,AFC Challenge Cup,Dhaka,Bangladesh,True
 28233,2006-04-07,Macau,Kyrgyzstan,0,2,AFC Challenge Cup,Dhaka,Bangladesh,True
-28234,2006-04-08,Sri Lanka,Republic of China,3,0,AFC Challenge Cup,Chittagong,Bangladesh,True
+28234,2006-04-08,Sri Lanka,Taiwan,3,0,AFC Challenge Cup,Chittagong,Bangladesh,True
 28235,2006-04-09,Palestine,Kyrgyzstan,0,1,AFC Challenge Cup,Dhaka,Bangladesh,True
 28236,2006-04-10,Bangladesh,Tajikistan,1,6,AFC Challenge Cup,Dhaka,Bangladesh,False
 28237,2006-04-11,United States,Jamaica,1,1,Friendly,Cary,United States,False
@@ -27388,7 +27388,7 @@
 28456,2006-08-08,Iran,United Arab Emirates,1,0,Friendly,Teheran,Iran,False
 28457,2006-08-09,Japan,Trinidad and Tobago,2,0,Friendly,Tokyo,Japan,False
 28458,2006-08-09,Jordan,Iraq,0,1,Friendly,Amman,Jordan,False
-28459,2006-08-09,Macau,Republic of China,0,1,Friendly,Macau,Macau,False
+28459,2006-08-09,Macau,Taiwan,0,1,Friendly,Macau,Macau,False
 28460,2006-08-09,Saudi Arabia,Bahrain,1,0,Friendly,Riyadh,Saudi Arabia,False
 28461,2006-08-11,Ethiopia,Kenya,1,0,Friendly,Addis Abeba,Ethiopia,False
 28462,2006-08-12,Hong Kong,Singapore,1,2,Friendly,Victoria,Hong Kong,False
@@ -27523,7 +27523,7 @@
 28592,2006-09-06,Iceland,Denmark,0,2,UEFA Euro qualification,Reykjavík,Iceland,False
 28593,2006-09-06,Iraq,Palestine,2,2,AFC Asian Cup qualification,Al Ain,United Arab Emirates,True
 28594,2006-09-06,Israel,Andorra,4,1,UEFA Euro qualification,Nijmegen,Netherlands,True
-28595,2006-09-06,South Korea,Republic of China,8,0,AFC Asian Cup qualification,Suwon,South Korea,False
+28595,2006-09-06,South Korea,Taiwan,8,0,AFC Asian Cup qualification,Suwon,South Korea,False
 28596,2006-09-06,Kuwait,Australia,2,0,AFC Asian Cup qualification,Kuwait City,Kuwait,False
 28597,2006-09-06,Lithuania,Scotland,1,2,UEFA Euro qualification,Kaunas,Lithuania,False
 28598,2006-09-06,Luxembourg,Latvia,0,0,Friendly,Hesperange,Luxembourg,False
@@ -27676,7 +27676,7 @@
 28753,2006-11-08,Haiti,Cuba,1,2,CFU Caribbean Cup qualification,Fort-de-France,Martinique,True
 28755,2006-11-08,Oman,Bahrain,1,1,Friendly,Muscat,Oman,False
 28756,2006-11-08,Saudi Arabia,Jordan,2,1,Friendly,Riyadh,Saudi Arabia,False
-28757,2006-11-09,Kuwait,Republic of China,10,0,Friendly,Al Ain,United Arab Emirates,True
+28757,2006-11-09,Kuwait,Taiwan,10,0,Friendly,Al Ain,United Arab Emirates,True
 28758,2006-11-10,Cuba,Suriname,3,1,CFU Caribbean Cup qualification,Fort-de-France,Martinique,True
 28760,2006-11-11,Singapore,Indonesia,1,2,Friendly,Singapore,Singapore,False
 28761,2006-11-12,Haiti,Suriname,1,1,CFU Caribbean Cup qualification,Fort-de-France,Martinique,True
@@ -27684,7 +27684,7 @@
 28764,2006-11-14,Australia,Ghana,1,1,Friendly,London,England,True
 28765,2006-11-14,Cambodia,Laos,2,2,AFF Championship,Bacolod,Philippines,True
 28766,2006-11-14,Mali,Republic of Congo,1,0,Friendly,La Courneuve,France,True
-28767,2006-11-14,Philippines,East Timor,7,0,AFF Championship,Bacolod,Philippines,False
+28767,2006-11-14,Philippines,Timor-Leste,7,0,AFF Championship,Bacolod,Philippines,False
 28768,2006-11-14,Wales,Liechtenstein,4,0,Friendly,Wrexham,Wales,False
 28769,2006-11-15,Algeria,Burkina Faso,1,2,Friendly,Aix-en-Provence,France,True
 28770,2006-11-15,Austria,Trinidad and Tobago,4,1,Friendly,Vienna,Austria,False
@@ -27721,19 +27721,19 @@
 28801,2006-11-15,Slovakia,Bulgaria,3,1,Friendly,Žilina,Slovakia,False
 28802,2006-11-15,Spain,Romania,0,1,Friendly,Cádiz,Spain,False
 28803,2006-11-15,Switzerland,Brazil,1,2,Friendly,Basel,Switzerland,False
-28804,2006-11-15,Syria,Republic of China,3,0,AFC Asian Cup qualification,Damascus,Syria,False
+28804,2006-11-15,Syria,Taiwan,3,0,AFC Asian Cup qualification,Damascus,Syria,False
 28805,2006-11-15,Tunisia,Libya,2,0,Friendly,Tunis,Tunisia,False
 28806,2006-11-15,United Arab Emirates,Pakistan,3,2,AFC Asian Cup qualification,Abu Dhabi,United Arab Emirates,False
 28807,2006-11-15,Uzbekistan,Qatar,2,0,AFC Asian Cup qualification,Tashkent,Uzbekistan,False
 28808,2006-11-15,Venezuela,Guatemala,2,1,Friendly,Caracas,Venezuela,False
 28809,2006-11-15,Yemen,India,2,1,AFC Asian Cup qualification,Sana'a,Yemen,False
 28810,2006-11-15,Zimbabwe,Namibia,3,2,Friendly,Harare,Zimbabwe,False
-28811,2006-11-16,Laos,East Timor,3,2,AFF Championship,Bacolod,Philippines,True
+28811,2006-11-16,Laos,Timor-Leste,3,2,AFF Championship,Bacolod,Philippines,True
 28812,2006-11-18,Philippines,Cambodia,1,0,AFF Championship,Bacolod,Philippines,False
 28813,2006-11-18,Tanzania,Angola,1,1,Friendly,Dar es Salaam,Tanzania,False
 28814,2006-11-19,Barbados,Bahamas,2,1,CFU Caribbean Cup qualification,Bridgetown,Barbados,False
 28815,2006-11-19,Panama,Peru,1,2,Friendly,Panama City,Panama,False
-28820,2006-11-20,Cambodia,East Timor,4,1,AFF Championship,Bacolod,Philippines,True
+28820,2006-11-20,Cambodia,Timor-Leste,4,1,AFF Championship,Bacolod,Philippines,True
 28826,2006-11-21,Bahamas,Bermuda,0,4,CFU Caribbean Cup qualification,Bridgetown,Barbados,True
 28832,2006-11-23,Barbados,Bermuda,1,1,CFU Caribbean Cup qualification,Bridgetown,Barbados,False
 28837,2006-11-24,Guyana,Antigua and Barbuda,6,0,CFU Caribbean Cup qualification,Georgetown,Guyana,False
@@ -28156,7 +28156,7 @@
 29290,2007-06-17,Benin,Togo,4,1,African Cup of Nations qualification,Cotonou,Benin,False
 29291,2007-06-17,Cameroon,Rwanda,2,1,African Cup of Nations qualification,Garoua,Cameroon,False
 29292,2007-06-17,Republic of Congo,South Africa,1,1,African Cup of Nations qualification,Pointe-Noire,Congo,False
-29293,2007-06-17,Guam,Republic of China,0,10,EAFF Championship,Macau,Macau,True
+29293,2007-06-17,Guam,Taiwan,0,10,EAFF Championship,Macau,Macau,True
 29295,2007-06-17,Liberia,Equatorial Guinea,0,0,African Cup of Nations qualification,Monrovia,Liberia,False
 29296,2007-06-17,Libya,Ethiopia,3,1,African Cup of Nations qualification,Tripoli,Libya,False
 29297,2007-06-17,Macau,Mongolia,0,0,EAFF Championship,Macau,Macau,False
@@ -28168,7 +28168,7 @@
 29303,2007-06-18,Jordan,Syria,0,1,WAFF Championship,Amman,Jordan,False
 29304,2007-06-18,Malaysia,Cambodia,6,0,Friendly,Shah Alam,Malaysia,False
 29305,2007-06-18,Palestine,Iraq,0,1,WAFF Championship,Amman,Jordan,True
-29306,2007-06-19,Hong Kong,Republic of China,1,1,EAFF Championship,Macau,Macau,True
+29306,2007-06-19,Hong Kong,Taiwan,1,1,EAFF Championship,Macau,Macau,True
 29307,2007-06-19,North Korea,Mongolia,7,0,EAFF Championship,Macau,Macau,True
 29308,2007-06-19,Lesotho,Uganda,0,0,African Cup of Nations qualification,Maseru,Lesotho,False
 29309,2007-06-20,Bolivia,Paraguay,0,0,Friendly,Santa Cruz,Bolivia,False
@@ -28491,7 +28491,7 @@
 29653,2007-10-13,Slovenia,Albania,0,0,UEFA Euro qualification,Celje,Slovenia,False
 29654,2007-10-13,Switzerland,Austria,3,1,Friendly,Zürich,Switzerland,False
 29655,2007-10-13,Uruguay,Bolivia,5,0,FIFA World Cup qualification,Montevideo,Uruguay,False
-29656,2007-10-13,Uzbekistan,Republic of China,9,0,FIFA World Cup qualification,Tashkent,Uzbekistan,False
+29656,2007-10-13,Uzbekistan,Taiwan,9,0,FIFA World Cup qualification,Tashkent,Uzbekistan,False
 29657,2007-10-14,Colombia,Brazil,0,0,FIFA World Cup qualification,Bogotá,Colombia,False
 29658,2007-10-14,Honduras,Panama,1,0,Friendly,Tegucigalpa,Honduras,False
 29659,2007-10-14,Madagascar,Comoros,6,2,FIFA World Cup qualification,Antananarivo,Madagascar,False
@@ -28544,14 +28544,14 @@
 29706,2007-10-18,Kyrgyzstan,Jordan,2,0,FIFA World Cup qualification,Bishkek,Kyrgyzstan,False
 29707,2007-10-21,Bahrain,Malaysia,4,1,FIFA World Cup qualification,Riffa,Bahrain,False
 29708,2007-10-21,China,Myanmar,7,0,FIFA World Cup qualification,Foshan,China PR,False
-29709,2007-10-21,East Timor,Hong Kong,2,3,FIFA World Cup qualification,Gianyar,Indonesia,True
+29709,2007-10-21,Timor-Leste,Hong Kong,2,3,FIFA World Cup qualification,Gianyar,Indonesia,True
 29710,2007-10-21,Mongolia,North Korea,1,4,FIFA World Cup qualification,Ulaanbaatar,Mongolia,False
 29711,2007-10-21,Sri Lanka,Qatar,0,1,FIFA World Cup qualification,Colombo,Sri Lanka,False
 29712,2007-10-22,Pakistan,Iraq,0,7,FIFA World Cup qualification,Lahore,Pakistan,False
 29713,2007-10-24,South Africa,Zambia,0,0,COSAFA Cup,Bloemfontein,South Africa,False
 29714,2007-10-26,Afghanistan,Syria,1,2,FIFA World Cup qualification,Dushanbe,Tajikistan,True
 29715,2007-10-28,Myanmar,China,0,4,FIFA World Cup qualification,Kuala Lumpur,Malaysia,True
-29716,2007-10-28,Hong Kong,East Timor,8,1,FIFA World Cup qualification,So Kon Po,Hong Kong,False
+29716,2007-10-28,Hong Kong,Timor-Leste,8,1,FIFA World Cup qualification,So Kon Po,Hong Kong,False
 29717,2007-10-28,Iraq,Pakistan,0,0,FIFA World Cup qualification,Damascus,Syria,True
 29718,2007-10-28,Jordan,Kyrgyzstan,2,0,FIFA World Cup qualification,Amman,Jordan,False
 29719,2007-10-28,North Korea,Mongolia,5,1,FIFA World Cup qualification,P'yongyang,North Korea,False
@@ -28922,10 +28922,10 @@
 30097,2008-03-30,Cayman Islands,Bermuda,1,3,FIFA World Cup qualification,George Town,Cayman Islands,False
 30098,2008-04-02,Sri Lanka,Guam,5,1,AFC Challenge Cup qualification,Taipei,Chinese Taipei,True
 30099,2008-04-04,Pakistan,Sri Lanka,1,7,AFC Challenge Cup qualification,Taipei,Chinese Taipei,True
-30100,2008-04-04,Republic of China,Guam,4,1,AFC Challenge Cup qualification,Taipei,Chinese Taipei,False
+30100,2008-04-04,Taiwan,Guam,4,1,AFC Challenge Cup qualification,Taipei,Chinese Taipei,False
 30101,2008-04-04,Yemen,Tanzania,2,1,Friendly,Sana'a,Yemen,False
 30102,2008-04-06,Pakistan,Guam,9,2,AFC Challenge Cup qualification,Taipei,Chinese Taipei,True
-30103,2008-04-06,Republic of China,Sri Lanka,2,2,AFC Challenge Cup qualification,Taipei,Chinese Taipei,False
+30103,2008-04-06,Taiwan,Sri Lanka,2,2,AFC Challenge Cup qualification,Taipei,Chinese Taipei,False
 30104,2008-04-09,Lebanon,Maldives,4,0,AFC Asian Cup qualification,Beirut,Lebanon,False
 30105,2008-04-16,Mexico,China,1,0,Friendly,Seattle,United States,True
 30106,2008-04-23,El Salvador,China,2,2,Friendly,Los Angeles,United States,True
@@ -28968,7 +28968,7 @@
 30146,2008-05-24,Burkina Faso,Cape Verde,0,1,Friendly,Alcochete,Portugal,True
 30147,2008-05-24,Croatia,Moldova,1,0,Friendly,Rijeka,Croatia,False
 30148,2008-05-24,Hungary,Greece,3,2,Friendly,Budapest,Hungary,False
-30149,2008-05-24,India,Republic of China,3,0,Friendly,Margao,India,False
+30149,2008-05-24,India,Taiwan,3,0,Friendly,Margao,India,False
 30150,2008-05-24,Ireland,Serbia,1,1,Friendly,Dublin,Republic of Ireland,False
 30151,2008-05-24,Japan,Ivory Coast,1,0,Kirin Cup,Toyota,Japan,False
 30152,2008-05-24,Nepal,Macau,3,2,AFC Challenge Cup qualification,Phnom Penh,Cambodia,True
@@ -28989,7 +28989,7 @@
 30168,2008-05-27,Estonia,Georgia,1,1,Friendly,Tallinn,Estonia,False
 30169,2008-05-27,France,Ecuador,2,0,Friendly,Grenoble,France,False
 30170,2008-05-27,Germany,Belarus,2,2,Friendly,Kaiserslautern,Germany,False
-30171,2008-05-27,India,Republic of China,2,2,Friendly,Chennai,India,False
+30171,2008-05-27,India,Taiwan,2,2,Friendly,Chennai,India,False
 30172,2008-05-27,Japan,Paraguay,0,0,Kirin Cup,Saitama,Japan,False
 30173,2008-05-27,Libya,Liberia,4,2,Friendly,Tripoli,Libya,False
 30174,2008-05-27,Luxembourg,Cape Verde,1,1,Friendly,Luxembourg,Luxembourg,False
@@ -29606,12 +29606,12 @@
 30819,2008-10-15,Venezuela,Ecuador,3,1,FIFA World Cup qualification,Puerto la Cruz,Venezuela,False
 30820,2008-10-17,Cambodia,Laos,3,2,AFF Championship,Phnom Penh,Cambodia,False
 30821,2008-10-17,Nepal,Afghanistan,2,2,Merdeka Tournament,Petaling Jaya,Malaysia,True
-30822,2008-10-17,Philippines,East Timor,1,0,AFF Championship,Phnom Penh,Cambodia,True
+30822,2008-10-17,Philippines,Timor-Leste,1,0,AFF Championship,Phnom Penh,Cambodia,True
 30823,2008-10-18,Bangladesh,Myanmar,0,1,Merdeka Tournament,Shah Alam,Malaysia,True
 30824,2008-10-19,Brunei,Philippines,1,1,AFF Championship,Phnom Penh,Cambodia,True
-30825,2008-10-19,Cambodia,East Timor,2,2,AFF Championship,Phnom Penh,Cambodia,False
+30825,2008-10-19,Cambodia,Timor-Leste,2,2,AFF Championship,Phnom Penh,Cambodia,False
 30826,2008-10-20,Malaysia,Afghanistan,6,0,Merdeka Tournament,Kuala Lumpur,Malaysia,False
-30827,2008-10-21,East Timor,Brunei,1,4,AFF Championship,Phnom Penh,Cambodia,True
+30827,2008-10-21,Timor-Leste,Brunei,1,4,AFF Championship,Phnom Penh,Cambodia,True
 30828,2008-10-21,Philippines,Laos,1,2,AFF Championship,Phnom Penh,Cambodia,True
 30829,2008-10-22,Bolivia,El Salvador,0,2,Friendly,Washington,United States,True
 30830,2008-10-23,Barbados,Suriname,3,2,CFU Caribbean Cup qualification,Havana,Cuba,True
@@ -29621,7 +29621,7 @@
 30834,2008-10-23,Malaysia,Myanmar,4,0,Merdeka Tournament,Kuala Lumpur,Malaysia,False
 30835,2008-10-25,Cambodia,Brunei,2,1,AFF Championship,Phnom Penh,Cambodia,False
 30836,2008-10-25,Cuba,Barbados,1,1,CFU Caribbean Cup qualification,Havana,Cuba,False
-30837,2008-10-25,Laos,East Timor,2,1,AFF Championship,Phnom Penh,Cambodia,True
+30837,2008-10-25,Laos,Timor-Leste,2,1,AFF Championship,Phnom Penh,Cambodia,True
 30838,2008-10-25,Suriname,Curaçao,2,1,CFU Caribbean Cup qualification,Havana,Cuba,True
 30839,2008-10-26,Palestine,Jordan,1,1,Friendly,Ar Ram,Palestine,False
 30840,2008-10-27,Cuba,Suriname,6,0,CFU Caribbean Cup qualification,Havana,Cuba,False
@@ -29978,7 +29978,7 @@
 31206,2009-04-01,United States,Trinidad and Tobago,3,0,FIFA World Cup qualification,Nashville,United States,False
 31207,2009-04-01,Wales,Germany,0,2,FIFA World Cup qualification,Cardiff,Wales,False
 31208,2009-04-04,Angola,Namibia,0,0,Friendly,Dundo,Angola,False
-31209,2009-04-04,Pakistan,Republic of China,1,1,AFC Challenge Cup qualification,Colombo,Sri Lanka,True
+31209,2009-04-04,Pakistan,Taiwan,1,1,AFC Challenge Cup qualification,Colombo,Sri Lanka,True
 31210,2009-04-04,Sri Lanka,Brunei,5,1,AFC Challenge Cup qualification,Colombo,Sri Lanka,False
 31211,2009-04-06,Brunei,Pakistan,0,6,AFC Challenge Cup qualification,Colombo,Sri Lanka,True
 31212,2009-04-07,Macau,Mongolia,2,0,AFC Challenge Cup qualification,Macau,Macau,False
@@ -31198,13 +31198,13 @@
 32534,2010-10-17,Dominican Republic,Dominica,0,1,CFU Caribbean Cup qualification,San Cristóbal,Dominican Republic,False
 32535,2010-10-17,Saint Lucia,Curaçao,2,2,CFU Caribbean Cup qualification,Paramaribo,Suriname,True
 32536,2010-10-17,Suriname,Guyana,0,2,CFU Caribbean Cup qualification,Paramaribo,Suriname,False
-32537,2010-10-22,East Timor,Philippines,0,5,AFF Championship,Vientiane,Laos,True
+32537,2010-10-22,Timor-Leste,Philippines,0,5,AFF Championship,Vientiane,Laos,True
 32538,2010-10-22,Grenada,Puerto Rico,3,1,CFU Caribbean Cup qualification,St. George's,Grenada,False
 32539,2010-10-22,Laos,Cambodia,0,0,AFF Championship,Vientiane,Laos,False
-32541,2010-10-24,Cambodia,East Timor,4,2,AFF Championship,Vientiane,Laos,True
+32541,2010-10-24,Cambodia,Timor-Leste,4,2,AFF Championship,Vientiane,Laos,True
 32542,2010-10-24,Grenada,Saint Kitts and Nevis,2,0,CFU Caribbean Cup qualification,St. George's,Grenada,False
 32544,2010-10-24,Laos,Philippines,2,2,AFF Championship,Vientiane,Laos,False
-32546,2010-10-26,Laos,East Timor,6,1,AFF Championship,Vientiane,Laos,False
+32546,2010-10-26,Laos,Timor-Leste,6,1,AFF Championship,Vientiane,Laos,False
 32547,2010-10-26,Panama,Cuba,0,3,Friendly,Panama City,Panama,False
 32548,2010-10-26,Philippines,Cambodia,0,0,AFF Championship,Vientiane,Laos,True
 32549,2010-10-26,Puerto Rico,Saint Kitts and Nevis,0,1,CFU Caribbean Cup qualification,St. George's,Grenada,True
@@ -31281,13 +31281,13 @@
 32622,2010-11-17,Togo,Chad,0,0,African Cup of Nations qualification,Lomé,Togo,False
 32623,2010-11-18,Qatar,Haiti,0,1,Friendly,Doha,Qatar,False
 32624,2010-11-18,United Arab Emirates,India,5,0,Friendly,Dubai,United Arab Emirates,False
-32625,2010-11-21,Indonesia,East Timor,6,0,Friendly,Palembang,Indonesia,False
+32625,2010-11-21,Indonesia,Timor-Leste,6,0,Friendly,Palembang,Indonesia,False
 32626,2010-11-22,Kuwait,Qatar,1,0,Gulf Cup,Aden,Yemen,True
 32627,2010-11-22,Yemen,Saudi Arabia,0,4,Gulf Cup,Aden,Yemen,False
 32628,2010-11-23,Iraq,United Arab Emirates,0,0,Gulf Cup,Aden,Yemen,True
 32629,2010-11-23,Oman,Bahrain,1,1,Gulf Cup,Aden,Yemen,True
 32630,2010-11-23,Tanzania,Kenya,1,0,Friendly,Dar es Salaam,Tanzania,False
-32631,2010-11-24,Indonesia,Republic of China,2,0,Friendly,Palembang,Indonesia,False
+32631,2010-11-24,Indonesia,Taiwan,2,0,Friendly,Palembang,Indonesia,False
 32632,2010-11-25,Saudi Arabia,Kuwait,0,0,Gulf Cup,Zinjibar,Yemen,True
 32633,2010-11-25,Yemen,Qatar,1,2,Gulf Cup,Zinjibar,Yemen,False
 32634,2010-11-26,Bahrain,Iraq,2,3,Gulf Cup,Aden,Yemen,True
@@ -31480,7 +31480,7 @@
 32834,2011-02-09,Turkey,South Korea,0,0,Friendly,Trabzon,Turkey,False
 32835,2011-02-09,Venezuela,Costa Rica,2,2,Friendly,Puerto la Cruz,Venezuela,False
 32836,2011-02-14,Bahrain,Kuwait,0,0,Friendly,Riffa,Bahrain,False
-32837,2011-02-16,Laos,Republic of China,1,1,AFC Challenge Cup qualification,Vientiane,Laos,False
+32837,2011-02-16,Laos,Taiwan,1,1,AFC Challenge Cup qualification,Vientiane,Laos,False
 32838,2011-02-16,Macau,Cambodia,3,2,AFC Challenge Cup qualification,Macau,Macau,False
 32839,2011-03-11,Gibraltar,Faroe Islands,3,0,Friendly,Gibraltar,Gibraltar,False
 32840,2011-03-15,Mongolia,Philippines,2,1,AFC Challenge Cup qualification,Ulaanbaatar,Mongolia,False
@@ -31489,7 +31489,7 @@
 32843,2011-03-17,Nepal,Bhutan,1,0,Friendly,Pokhara,Nepal,False
 32844,2011-03-19,Nepal,Bhutan,2,1,Friendly,Pokhara,Nepal,False
 32845,2011-03-21,Myanmar,Philippines,1,1,AFC Challenge Cup qualification,Rangoon,Burma,False
-32846,2011-03-21,India,Republic of China,3,0,AFC Challenge Cup qualification,Petaling Jaya,Malaysia,True
+32846,2011-03-21,India,Taiwan,3,0,AFC Challenge Cup qualification,Petaling Jaya,Malaysia,True
 32847,2011-03-21,Maldives,Cambodia,4,0,AFC Challenge Cup qualification,Malé,Maldives,False
 32848,2011-03-21,Palestine,Bangladesh,2,0,AFC Challenge Cup qualification,Rangoon,Burma,True
 32849,2011-03-21,Tajikistan,Kyrgyzstan,1,0,AFC Challenge Cup qualification,Malé,Maldives,True
@@ -31742,15 +31742,15 @@
 33126,2011-06-29,Bangladesh,Pakistan,3,0,FIFA World Cup qualification,Dhaka,Bangladesh,False
 33127,2011-06-29,Cambodia,Laos,4,2,FIFA World Cup qualification,Phnom Penh,Cambodia,False
 33128,2011-06-29,Iraq,Syria,1,2,Friendly,Arbil,Iraq,False
-33129,2011-06-29,Malaysia,Republic of China,2,1,FIFA World Cup qualification,Kuala Lumpur,Malaysia,False
+33129,2011-06-29,Malaysia,Taiwan,2,1,FIFA World Cup qualification,Kuala Lumpur,Malaysia,False
 33130,2011-06-29,Mongolia,Myanmar,1,0,FIFA World Cup qualification,Ulaanbaatar,Mongolia,False
-33131,2011-06-29,Nepal,East Timor,2,1,FIFA World Cup qualification,Kathmandu,Nepal,False
+33131,2011-06-29,Nepal,Timor-Leste,2,1,FIFA World Cup qualification,Kathmandu,Nepal,False
 33132,2011-06-29,Sri Lanka,Philippines,1,1,FIFA World Cup qualification,Colombo,Sri Lanka,False
 33133,2011-06-29,Vietnam,Macau,6,0,FIFA World Cup qualification,Ho Chi Minh City,Vietnam,False
 33141,2011-07-01,Argentina,Bolivia,1,1,Copa América,La Plata,Argentina,False
 33144,2011-07-02,Colombia,Costa Rica,1,0,Copa América,San Salvador de Jujuy,Argentina,True
 33145,2011-07-02,Lebanon,Kuwait,0,6,Friendly,Beirut,Lebanon,False
-33146,2011-07-02,Nepal,East Timor,5,0,FIFA World Cup qualification,Kathmandu,Nepal,False
+33146,2011-07-02,Nepal,Timor-Leste,5,0,FIFA World Cup qualification,Kathmandu,Nepal,False
 33147,2011-07-02,Turks and Caicos Islands,Bahamas,0,4,FIFA World Cup qualification,Providenciales,Turks and Caicos Islands,False
 33148,2011-07-03,Brazil,Venezuela,0,0,Copa América,La Plata,Argentina,True
 33149,2011-07-03,Myanmar,Mongolia,2,0,FIFA World Cup qualification,Rangoon,Burma,False
@@ -31805,7 +31805,7 @@
 33198,2011-07-17,Iran,Madagascar,1,0,Friendly,Teheran,Iran,False
 33199,2011-07-17,Qatar,India,1,2,Friendly,Doha,Qatar,False
 33200,2011-07-17,United Arab Emirates,Lebanon,6,2,Friendly,al-Ain,United Arab Emirates,False
-33201,2011-07-18,Singapore,Republic of China,3,2,Friendly,Singapore,Singapore,False
+33201,2011-07-18,Singapore,Taiwan,3,2,Friendly,Singapore,Singapore,False
 33202,2011-07-19,Peru,Uruguay,0,2,Copa América,La Plata,Argentina,True
 33203,2011-07-20,Paraguay,Venezuela,0,0,Copa América,Mendoza,Argentina,True
 33204,2011-07-23,China,Laos,7,2,FIFA World Cup qualification,Kunming,China PR,False
@@ -32481,7 +32481,7 @@
 33895,2012-02-29,Greece,Belgium,1,1,Friendly,Heraklion,Greece,False
 33896,2012-02-29,Guinea-Bissau,Cameroon,0,1,African Cup of Nations qualification,Bissau,Guinea-Bissau,False
 33897,2012-02-29,Guyana,Guatemala,0,2,Friendly,Providence,Guyana,False
-33898,2012-02-29,Hong Kong,Republic of China,5,1,Friendly,Kowloon,Hong Kong,False
+33898,2012-02-29,Hong Kong,Taiwan,5,1,Friendly,Kowloon,Hong Kong,False
 33899,2012-02-29,Hungary,Bulgaria,1,1,Friendly,Győr,Hungary,False
 33900,2012-02-29,Iran,Qatar,2,2,FIFA World Cup qualification,Teheran,Iran,False
 33901,2012-02-29,Iraq,Singapore,7,1,FIFA World Cup qualification,Doha,Qatar,True
@@ -33024,13 +33024,13 @@
 34486,2012-09-27,Philippines,Macau,5,0,Friendly,Manila,Philippines,False
 34488,2012-09-28,Oman,Yemen,2,1,Friendly,Muscat,Oman,False
 34491,2012-09-29,Macau,Guam,0,3,Friendly,Manila,Philippines,True
-34492,2012-09-29,Philippines,Republic of China,3,1,Friendly,Manila,Philippines,False
+34492,2012-09-29,Philippines,Taiwan,3,1,Friendly,Manila,Philippines,False
 34494,2012-10-05,Myanmar,Brunei,1,0,AFF Championship,Rangoon,Burma,False
-34495,2012-10-05,Cambodia,East Timor,1,5,AFF Championship,Rangoon,Burma,True
-34496,2012-10-07,Myanmar,East Timor,2,1,AFF Championship,Rangoon,Burma,False
+34495,2012-10-05,Cambodia,Timor-Leste,1,5,AFF Championship,Rangoon,Burma,True
+34496,2012-10-07,Myanmar,Timor-Leste,2,1,AFF Championship,Rangoon,Burma,False
 34497,2012-10-07,Laos,Cambodia,1,0,AFF Championship,Rangoon,Burma,True
 34498,2012-10-09,Cambodia,Brunei,2,3,AFF Championship,Rangoon,Burma,True
-34499,2012-10-09,East Timor,Laos,3,1,AFF Championship,Rangoon,Burma,True
+34499,2012-10-09,Timor-Leste,Laos,3,1,AFF Championship,Rangoon,Burma,True
 34501,2012-10-11,Brazil,Iraq,6,0,Friendly,Malmö,Sweden,True
 34502,2012-10-11,Brunei,Laos,1,3,AFF Championship,Rangoon,Burma,True
 34503,2012-10-11,Myanmar,Cambodia,3,0,AFF Championship,Rangoon,Burma,False
@@ -33077,7 +33077,7 @@
 34545,2012-10-12,Turkey,Romania,0,1,FIFA World Cup qualification,Istanbul,Turkey,False
 34546,2012-10-12,United Arab Emirates,Uzbekistan,2,2,Friendly,Dubai,United Arab Emirates,False
 34547,2012-10-12,Wales,Scotland,2,1,FIFA World Cup qualification,Cardiff,Wales,False
-34548,2012-10-13,Brunei,East Timor,2,1,AFF Championship,Rangoon,Burma,True
+34548,2012-10-13,Brunei,Timor-Leste,2,1,AFF Championship,Rangoon,Burma,True
 34549,2012-10-13,Myanmar,Laos,0,0,AFF Championship,Rangoon,Burma,False
 34550,2012-10-13,Namibia,Rwanda,0,0,Friendly,Windhoek,Namibia,False
 34551,2012-10-14,Lesotho,Eswatini,0,1,Friendly,Maseru,Lesotho,False
@@ -33167,7 +33167,7 @@
 34643,2012-11-14,Haiti,Guyana,1,0,CFU Caribbean Cup qualification,St. George's,Grenada,True
 34644,2012-11-14,Honduras,Peru,0,0,Friendly,Houston,United States,True
 34645,2012-11-14,Hungary,Norway,0,2,Friendly,Budapest,Hungary,False
-34646,2012-11-14,Indonesia,East Timor,1,0,Friendly,Jakarta,Indonesia,False
+34646,2012-11-14,Indonesia,Timor-Leste,1,0,Friendly,Jakarta,Indonesia,False
 34647,2012-11-14,Iran,Uzbekistan,0,1,FIFA World Cup qualification,Teheran,Iran,False
 34648,2012-11-14,Iraq,Jordan,1,0,FIFA World Cup qualification,Doha,Qatar,True
 34649,2012-11-14,Ireland,Greece,0,1,Friendly,Dublin,Republic of Ireland,False
@@ -33255,13 +33255,13 @@
 34739,2012-12-07,Antigua and Barbuda,Dominican Republic,1,2,CFU Caribbean Cup,St. John's,Antigua and Barbuda,False
 34740,2012-12-07,Guam,Australia,0,9,EAFF Championship,So Kon Po,Hong Kong,True
 34741,2012-12-07,Haiti,Trinidad and Tobago,0,0,CFU Caribbean Cup,St. John's,Antigua and Barbuda,True
-34742,2012-12-07,Hong Kong,Republic of China,2,0,EAFF Championship,So Kon Po,Hong Kong,False
+34742,2012-12-07,Hong Kong,Taiwan,2,0,EAFF Championship,So Kon Po,Hong Kong,False
 34744,2012-12-08,Kuwait,Palestine,2,1,WAFF Championship,Kuwait City,Kuwait,False
 34746,2012-12-08,Oman,Lebanon,0,1,WAFF Championship,al-Farwaniyah,Kuwait,True
 34747,2012-12-08,Philippines,Singapore,0,0,AFF Championship,Manila,Philippines,False
 34749,2012-12-08,Uganda,Kenya,2,1,CECAFA Cup,Kampala,Uganda,False
 34750,2012-12-09,Antigua and Barbuda,Trinidad and Tobago,2,0,CFU Caribbean Cup,St. John's,Antigua and Barbuda,False
-34751,2012-12-09,Australia,Republic of China,8,0,EAFF Championship,So Kon Po,Hong Kong,True
+34751,2012-12-09,Australia,Taiwan,8,0,EAFF Championship,So Kon Po,Hong Kong,True
 34752,2012-12-09,Bahrain,Yemen,1,0,WAFF Championship,al-Farwaniyah,Kuwait,True
 34753,2012-12-09,Dominican Republic,Haiti,1,2,CFU Caribbean Cup,St. John's,Antigua and Barbuda,True
 34754,2012-12-09,Hong Kong,North Korea,0,4,EAFF Championship,So Kon Po,Hong Kong,False
@@ -33461,7 +33461,7 @@
 34955,2013-03-02,Afghanistan,Sri Lanka,1,0,AFC Challenge Cup qualification,Vientiane,Laos,True
 34956,2013-03-02,Myanmar,Guam,5,0,AFC Challenge Cup qualification,Rangoon,Burma,False
 34957,2013-03-02,Gambia,Mauritania,0,0,Friendly,Bakau,Gambia,False
-34958,2013-03-02,India,Republic of China,2,1,AFC Challenge Cup qualification,Rangoon,Burma,True
+34958,2013-03-02,India,Taiwan,2,1,AFC Challenge Cup qualification,Rangoon,Burma,True
 34959,2013-03-02,Laos,Mongolia,1,1,AFC Challenge Cup qualification,Vientiane,Laos,False
 34961,2013-03-02,Palestine,Bangladesh,1,0,AFC Challenge Cup qualification,Kathmandu,Nepal,True
 34962,2013-03-04,Guam,India,0,4,AFC Challenge Cup qualification,Rangoon,Burma,True
@@ -34055,7 +34055,7 @@
 35566,2013-10-11,Moldova,San Marino,3,0,FIFA World Cup qualification,Chișinău,Moldova,False
 35567,2013-10-11,Morocco,South Africa,1,1,Friendly,Agadir,Morocco,False
 35568,2013-10-11,Netherlands,Hungary,8,1,FIFA World Cup qualification,Amsterdam,Netherlands,False
-35569,2013-10-11,Philippines,Republic of China,1,2,Friendly,Bacolod,Philippines,False
+35569,2013-10-11,Philippines,Taiwan,1,2,Friendly,Bacolod,Philippines,False
 35570,2013-10-11,Portugal,Israel,1,1,FIFA World Cup qualification,Lisbon,Portugal,False
 35571,2013-10-11,Serbia,Japan,2,0,Friendly,Novi Sad,Serbia,False
 35572,2013-10-11,Slovenia,Norway,3,0,FIFA World Cup qualification,Maribor,Slovenia,False
@@ -34649,7 +34649,7 @@
 36212,2014-09-03,Latvia,Armenia,2,0,Friendly,Riga,Latvia,False
 36213,2014-09-03,Lithuania,United Arab Emirates,1,1,Friendly,Matrei in Osttirol,Austria,True
 36214,2014-09-03,Morocco,Qatar,0,0,Friendly,Rabat,Morocco,False
-36215,2014-09-03,Philippines,Republic of China,5,1,Friendly,Manila,Philippines,False
+36215,2014-09-03,Philippines,Taiwan,5,1,Friendly,Manila,Philippines,False
 36216,2014-09-03,Puerto Rico,Curaçao,2,2,CFU Caribbean Cup qualification,Bayamón,Puerto Rico,False
 36217,2014-09-03,Russia,Azerbaijan,4,0,Friendly,Khimki,Russia,False
 36218,2014-09-03,Ukraine,Moldova,1,0,Friendly,Kyïv,Ukraine,False
@@ -34683,7 +34683,7 @@
 36248,2014-09-06,Mexico,Chile,0,0,Friendly,Santa Clara,United States,True
 36249,2014-09-06,Niger,Cape Verde,1,3,African Cup of Nations qualification,Niamey,Niger,False
 36250,2014-09-06,Nigeria,Republic of Congo,2,3,African Cup of Nations qualification,Calabar,Nigeria,False
-36251,2014-09-06,Palestine,Republic of China,7,3,Friendly,Manila,Philippines,True
+36251,2014-09-06,Palestine,Taiwan,7,3,Friendly,Manila,Philippines,True
 36252,2014-09-06,Philippines,Myanmar,2,3,Friendly,Manila,Philippines,False
 36253,2014-09-06,Singapore,Papua New Guinea,2,1,Friendly,Hougang,Singapore,False
 36254,2014-09-06,Tunisia,Botswana,2,1,African Cup of Nations qualification,Monastir,Tunisia,False
@@ -34815,7 +34815,7 @@
 36385,2014-10-11,Uganda,Togo,0,1,African Cup of Nations qualification,Kampala,Uganda,False
 36386,2014-10-12,Austria,Montenegro,1,0,UEFA Euro qualification,Vienna,Austria,False
 36388,2014-10-12,Belarus,Slovakia,1,3,UEFA Euro qualification,Barysaw,Belarus,False
-36389,2014-10-12,East Timor,Brunei,4,2,AFF Championship,Vientiane,Laos,True
+36389,2014-10-12,Timor-Leste,Brunei,4,2,AFF Championship,Vientiane,Laos,True
 36390,2014-10-12,Estonia,England,0,1,UEFA Euro qualification,Tallinn,Estonia,False
 36392,2014-10-12,Haiti,Saint Kitts and Nevis,0,0,CFU Caribbean Cup qualification,Port-au-Prince,Haiti,False
 36393,2014-10-12,Laos,Cambodia,3,2,AFF Championship,Vientiane,Laos,False
@@ -34844,7 +34844,7 @@
 36416,2014-10-13,Wales,Cyprus,2,1,UEFA Euro qualification,Cardiff,Wales,False
 36417,2014-10-14,Armenia,France,0,3,Friendly,Yerevan,Armenia,False
 36418,2014-10-14,Bahrain,Iraq,0,0,Friendly,Riffa,Bahrain,False
-36419,2014-10-14,Myanmar,East Timor,0,0,AFF Championship,Vientiane,Laos,True
+36419,2014-10-14,Myanmar,Timor-Leste,0,0,AFF Championship,Vientiane,Laos,True
 36420,2014-10-14,China,Paraguay,2,1,Friendly,Changsha,China PR,False
 36421,2014-10-14,Denmark,Portugal,0,1,UEFA Euro qualification,Copenhagen,Denmark,False
 36422,2014-10-14,Faroe Islands,Hungary,0,1,UEFA Euro qualification,Tórshavn,Faroe Islands,False
@@ -34880,9 +34880,9 @@
 36452,2014-10-15,Tunisia,Senegal,1,0,African Cup of Nations qualification,Monastir,Tunisia,False
 36453,2014-10-15,Zambia,Niger,3,0,African Cup of Nations qualification,Ndola,Zambia,False
 36454,2014-10-16,Brunei,Myanmar,1,3,AFF Championship,Vientiane,Laos,True
-36455,2014-10-16,East Timor,Cambodia,2,3,AFF Championship,Vientiane,Laos,True
+36455,2014-10-16,Timor-Leste,Cambodia,2,3,AFF Championship,Vientiane,Laos,True
 36456,2014-10-18,Cambodia,Myanmar,0,1,AFF Championship,Vientiane,Laos,True
-36457,2014-10-18,Laos,East Timor,2,0,AFF Championship,Vientiane,Laos,False
+36457,2014-10-18,Laos,Timor-Leste,2,0,AFF Championship,Vientiane,Laos,False
 36458,2014-10-20,Cambodia,Brunei,1,0,AFF Championship,Vientiane,Laos,True
 36459,2014-10-20,Laos,Myanmar,1,2,AFF Championship,Vientiane,Laos,False
 36460,2014-10-24,Bangladesh,Sri Lanka,1,1,Friendly,Jessore,Bangladesh,False
@@ -35147,15 +35147,15 @@
 36727,2015-03-08,Antigua and Barbuda,U.S. Virgin Islands,2,0,Friendly,St. John's,Antigua and Barbuda,False
 36728,2015-03-08,Bermuda,Grenada,2,0,Friendly,Hamilton,Bermuda,False
 36729,2015-03-12,Cambodia,Macau,3,0,FIFA World Cup qualification,Phnom Penh,Cambodia,False
-36730,2015-03-12,East Timor,Mongolia,0,3,FIFA World Cup qualification,Dili,East Timor,False
+36730,2015-03-12,Timor-Leste,Mongolia,0,3,FIFA World Cup qualification,Dili,East Timor,False
 36731,2015-03-12,India,Nepal,2,0,FIFA World Cup qualification,Guwahati,India,False
 36732,2015-03-12,Sri Lanka,Bhutan,0,1,FIFA World Cup qualification,Colombo,Sri Lanka,False
 36733,2015-03-12,Yemen,Pakistan,3,1,FIFA World Cup qualification,Doha,Qatar,True
 36734,2015-03-15,Antigua and Barbuda,Dominica,1,0,Friendly,St. John's,Antigua and Barbuda,False
 36735,2015-03-17,Bhutan,Sri Lanka,2,1,FIFA World Cup qualification,Thimphu,Bhutan,False
-36736,2015-03-17,Brunei,Republic of China,0,2,FIFA World Cup qualification,Bandar Seri Begawan,Brunei,False
+36736,2015-03-17,Brunei,Taiwan,0,2,FIFA World Cup qualification,Bandar Seri Begawan,Brunei,False
 36737,2015-03-17,Macau,Cambodia,1,1,FIFA World Cup qualification,Taipa,Macau,False
-36738,2015-03-17,Mongolia,East Timor,3,0,FIFA World Cup qualification,Ulan Bator,Mongolia,False
+36738,2015-03-17,Mongolia,Timor-Leste,3,0,FIFA World Cup qualification,Ulan Bator,Mongolia,False
 36739,2015-03-17,Nepal,India,0,0,FIFA World Cup qualification,Kathmandu,Nepal,False
 36740,2015-03-22,Antigua and Barbuda,British Virgin Islands,1,0,Friendly,St. John's,Antigua and Barbuda,False
 36741,2015-03-22,Barbados,U.S. Virgin Islands,0,1,FIFA World Cup qualification,Bridgetown,Barbados,False
@@ -35367,7 +35367,7 @@
 36950,2015-06-11,South Korea,United Arab Emirates,3,0,Friendly,Kuala Lumpur,Malaysia,True
 36951,2015-06-11,Laos,Myanmar,2,2,FIFA World Cup qualification,Vientiane,Laos,False
 36952,2015-06-11,Lebanon,Kuwait,0,1,FIFA World Cup qualification,Sidon,Lebanon,False
-36953,2015-06-11,Malaysia,East Timor,3,0,FIFA World Cup qualification,Kuala Lumpur,Malaysia,False
+36953,2015-06-11,Malaysia,Timor-Leste,3,0,FIFA World Cup qualification,Kuala Lumpur,Malaysia,False
 36954,2015-06-11,Maldives,Qatar,0,1,FIFA World Cup qualification,Malé,Maldives,False
 36955,2015-06-11,Philippines,Bahrain,2,1,FIFA World Cup qualification,Bocaue,Philippines,False
 36956,2015-06-11,Saudi Arabia,Palestine,3,2,FIFA World Cup qualification,Dammam,Saudi Arabia,False
@@ -35443,7 +35443,7 @@
 37026,2015-06-16,Bhutan,China,0,6,FIFA World Cup qualification,Thimphu,Bhutan,False
 37027,2015-06-16,Myanmar,South Korea,0,2,FIFA World Cup qualification,Bangkok,Thailand,True
 37028,2015-06-16,Cambodia,Afghanistan,0,1,FIFA World Cup qualification,Phnom Penh,Cambodia,False
-37029,2015-06-16,East Timor,United Arab Emirates,0,3,FIFA World Cup qualification,Shah Alam,Malaysia,True
+37029,2015-06-16,Timor-Leste,United Arab Emirates,0,3,FIFA World Cup qualification,Shah Alam,Malaysia,True
 37030,2015-06-16,Grenada,Puerto Rico,2,0,FIFA World Cup qualification,St. George's,Grenada,False
 37031,2015-06-16,Guam,India,2,1,FIFA World Cup qualification,Dededo,Guam,False
 37032,2015-06-16,Hong Kong,Maldives,2,0,FIFA World Cup qualification,Kowloon,Hong Kong,False
@@ -35554,7 +35554,7 @@
 37182,2015-09-03,Cyprus,Wales,0,1,UEFA Euro qualification,Nicosia,Cyprus,False
 37183,2015-09-03,Czech Republic,Kazakhstan,2,1,UEFA Euro qualification,Plzeň,Czech Republic,False
 37184,2015-09-03,Iran,Guam,6,0,FIFA World Cup qualification,Teheran,Iran,False
-37185,2015-09-03,Iraq,Republic of China,5,1,FIFA World Cup qualification,Teheran,Iran,True
+37185,2015-09-03,Iraq,Taiwan,5,1,FIFA World Cup qualification,Teheran,Iran,True
 37186,2015-09-03,Israel,Andorra,4,0,UEFA Euro qualification,Haifa,Israel,False
 37187,2015-09-03,Italy,Malta,1,0,UEFA Euro qualification,Florence,Italy,False
 37188,2015-09-03,Japan,Cambodia,3,0,FIFA World Cup qualification,Saitama,Japan,False
@@ -35565,7 +35565,7 @@
 37193,2015-09-03,Oman,Turkmenistan,3,1,FIFA World Cup qualification,Seeb,Oman,False
 37194,2015-09-03,Philippines,Maldives,2,0,Friendly,Manila,Philippines,False
 37195,2015-09-03,Qatar,Bhutan,15,0,FIFA World Cup qualification,Doha,Qatar,False
-37196,2015-09-03,Saudi Arabia,East Timor,7,0,FIFA World Cup qualification,Jeddah,Saudi Arabia,False
+37196,2015-09-03,Saudi Arabia,Timor-Leste,7,0,FIFA World Cup qualification,Jeddah,Saudi Arabia,False
 37197,2015-09-03,Syria,Singapore,1,0,FIFA World Cup qualification,Muscat,Oman,True
 37198,2015-09-03,Thailand,Afghanistan,2,0,Friendly,Bangkok,Thailand,False
 37199,2015-09-03,Turkey,Latvia,1,1,UEFA Euro qualification,Konya,Turkey,False
@@ -35684,7 +35684,7 @@
 37312,2015-10-08,Myanmar,Lebanon,0,2,FIFA World Cup qualification,Bangkok,Thailand,True
 37313,2015-10-08,Chile,Brazil,2,0,FIFA World Cup qualification,Santiago,Chile,False
 37314,2015-10-08,Colombia,Peru,2,0,FIFA World Cup qualification,Barranquilla,Colombia,False
-37315,2015-10-08,East Timor,Palestine,0,3,FIFA World Cup qualification,Dili,East Timor,False
+37315,2015-10-08,Timor-Leste,Palestine,0,3,FIFA World Cup qualification,Dili,East Timor,False
 37316,2015-10-08,France,Armenia,4,0,Friendly,Nice,France,False
 37317,2015-10-08,Georgia,Gibraltar,4,0,UEFA Euro qualification,Tbilisi,Georgia,False
 37318,2015-10-08,Hungary,Faroe Islands,2,1,UEFA Euro qualification,Budapest,Hungary,False
@@ -35776,7 +35776,7 @@
 37404,2015-10-13,Burundi,Seychelles,2,0,FIFA World Cup qualification,Bujumbura,Burundi,False
 37405,2015-10-13,Republic of Congo,Benin,2,1,Friendly,Brazzaville,Congo,False
 37406,2015-10-13,Cyprus,Bosnia and Herzegovina,2,3,UEFA Euro qualification,Nicosia,Cyprus,False
-37407,2015-10-13,East Timor,Malaysia,0,3,FIFA World Cup qualification,Dili,East Timor,False
+37407,2015-10-13,Timor-Leste,Malaysia,0,3,FIFA World Cup qualification,Dili,East Timor,False
 37408,2015-10-13,Ecuador,Bolivia,2,0,FIFA World Cup qualification,Quito,Ecuador,False
 37409,2015-10-13,El Salvador,Guatemala,1,1,Friendly,Carson,United States,True
 37410,2015-10-13,Guinea-Bissau,Liberia,1,3,FIFA World Cup qualification,Bissau,Guinea-Bissau,False
@@ -35869,9 +35869,9 @@
 37497,2015-11-12,Philippines,Yemen,0,1,FIFA World Cup qualification,Manila,Philippines,False
 37498,2015-11-12,Singapore,Japan,0,3,FIFA World Cup qualification,Kallang,Singapore,False
 37499,2015-11-12,Tajikistan,Bangladesh,5,0,FIFA World Cup qualification,Dushanbe,Tajikistan,False
-37500,2015-11-12,Thailand,Republic of China,4,2,FIFA World Cup qualification,Bangkok,Thailand,False
+37500,2015-11-12,Thailand,Taiwan,4,2,FIFA World Cup qualification,Bangkok,Thailand,False
 37501,2015-11-12,Togo,Uganda,0,1,FIFA World Cup qualification,Lomé,Togo,False
-37502,2015-11-12,United Arab Emirates,East Timor,8,0,FIFA World Cup qualification,Abu Dhabi,United Arab Emirates,False
+37502,2015-11-12,United Arab Emirates,Timor-Leste,8,0,FIFA World Cup qualification,Abu Dhabi,United Arab Emirates,False
 37503,2015-11-12,Uzbekistan,North Korea,3,1,FIFA World Cup qualification,Tashkent,Uzbekistan,False
 37504,2015-11-13,Angola,South Africa,1,3,FIFA World Cup qualification,Benguela,Angola,False
 37505,2015-11-13,Argentina,Brazil,1,1,FIFA World Cup qualification,Buenos Aires,Argentina,False
@@ -35928,7 +35928,7 @@
 37556,2015-11-17,Colombia,Argentina,0,1,FIFA World Cup qualification,Barranquilla,Colombia,False
 37557,2015-11-17,Republic of Congo,Ethiopia,2,1,FIFA World Cup qualification,Brazzaville,Congo,False
 37558,2015-11-17,Denmark,Sweden,2,2,UEFA Euro qualification,Copenhagen,Denmark,False
-37559,2015-11-17,East Timor,Saudi Arabia,0,10,FIFA World Cup qualification,Dili,East Timor,False
+37559,2015-11-17,Timor-Leste,Saudi Arabia,0,10,FIFA World Cup qualification,Dili,East Timor,False
 37560,2015-11-17,Egypt,Chad,4,0,FIFA World Cup qualification,Alexandria,Egypt,False
 37561,2015-11-17,England,France,2,0,Friendly,London,England,False
 37562,2015-11-17,Estonia,Saint Kitts and Nevis,3,0,Friendly,Tallinn,Estonia,False
@@ -36100,7 +36100,7 @@
 37738,2016-03-24,Ukraine,Cyprus,1,0,Friendly,Odesa,Ukraine,False
 37739,2016-03-24,United Arab Emirates,Palestine,2,0,FIFA World Cup qualification,Abu Dhabi,United Arab Emirates,False
 37740,2016-03-24,Uzbekistan,Philippines,1,0,FIFA World Cup qualification,Tashkent,Uzbekistan,False
-37741,2016-03-24,Vietnam,Republic of China,4,1,FIFA World Cup qualification,Hanoi,Vietnam,False
+37741,2016-03-24,Vietnam,Taiwan,4,1,FIFA World Cup qualification,Hanoi,Vietnam,False
 37742,2016-03-24,Wales,Northern Ireland,1,1,Friendly,Cardiff,Wales,False
 37743,2016-03-25,Algeria,Ethiopia,7,1,African Cup of Nations qualification,Blida,Algeria,False
 37744,2016-03-25,Armenia,Belarus,0,0,Friendly,Yerevan,Armenia,False
@@ -36195,7 +36195,7 @@
 37837,2016-03-29,Namibia,Burundi,1,3,African Cup of Nations qualification,Windhoek,Namibia,False
 37838,2016-03-29,Niger,Senegal,1,2,African Cup of Nations qualification,Niamey,Niger,False
 37839,2016-03-29,Norway,Finland,2,0,Friendly,Oslo,Norway,False
-37840,2016-03-29,Palestine,East Timor,7,0,FIFA World Cup qualification,Hebron,Palestine,False
+37840,2016-03-29,Palestine,Timor-Leste,7,0,FIFA World Cup qualification,Hebron,Palestine,False
 37841,2016-03-29,Panama,Haiti,1,0,FIFA World Cup qualification,Panama City,Panama,False
 37842,2016-03-29,Paraguay,Brazil,2,2,FIFA World Cup qualification,Asunción,Paraguay,False
 37843,2016-03-29,Philippines,North Korea,3,2,FIFA World Cup qualification,Manila,Philippines,False
@@ -36245,7 +36245,7 @@
 37891,2016-05-29,Albania,Qatar,3,1,Friendly,Hartberg,Austria,True
 37892,2016-05-29,Azerbaijan,North Macedonia,1,3,Friendly,Bad Erlach,Austria,True
 37893,2016-05-29,Bosnia and Herzegovina,Spain,1,3,Friendly,St. Gallen,Switzerland,True
-37894,2016-05-29,Cambodia,East Timor,2,0,Friendly,Phnom Penh,Cambodia,False
+37894,2016-05-29,Cambodia,Timor-Leste,2,0,Friendly,Phnom Penh,Cambodia,False
 37895,2016-05-29,Germany,Slovakia,1,3,Friendly,Augsburg,Germany,False
 37896,2016-05-29,Italy,Scotland,1,0,Friendly,Attard,Malta,True
 37897,2016-05-29,Kenya,Tanzania,1,1,Friendly,Nairobi,Kenya,False
@@ -36284,7 +36284,7 @@
 37945,2016-06-02,England,Portugal,1,0,Friendly,London,England,False
 37946,2016-06-02,Laos,India,0,1,AFC Asian Cup qualification,Vientiane,Laos,False
 37947,2016-06-02,North Macedonia,Iran,1,3,Friendly,Skopje,North Macedonia,False
-37948,2016-06-02,Malaysia,East Timor,3,0,AFC Asian Cup qualification,Johor Bahru,Malaysia,False
+37948,2016-06-02,Malaysia,Timor-Leste,3,0,AFC Asian Cup qualification,Johor Bahru,Malaysia,False
 37949,2016-06-02,Maldives,Yemen,0,2,AFC Asian Cup qualification,Malé,Maldives,False
 37950,2016-06-02,Seychelles,Algeria,0,2,African Cup of Nations qualification,Victoria,Seychelles,False
 37951,2016-06-02,Tajikistan,Bangladesh,5,0,AFC Asian Cup qualification,Dushanbe,Tajikistan,False
@@ -36348,14 +36348,14 @@
 38024,2016-06-06,Myanmar,Hong Kong,3,0,Friendly,Rangoon,Burma,False
 38025,2016-06-06,Iceland,Liechtenstein,4,0,Friendly,Reykjavík,Iceland,False
 38026,2016-06-06,Italy,Finland,2,0,Friendly,Verona,Italy,False
-38027,2016-06-06,Malaysia,East Timor,3,0,AFC Asian Cup qualification,Johor Bahru,Malaysia,False
+38027,2016-06-06,Malaysia,Timor-Leste,3,0,AFC Asian Cup qualification,Johor Bahru,Malaysia,False
 38028,2016-06-06,Panama,Bolivia,2,1,Copa América,Orlando,United States,True
 38029,2016-06-06,Poland,Lithuania,0,0,Friendly,Cracow,Poland,False
 38030,2016-06-06,Singapore,Vietnam,0,3,Friendly,Rangoon,Burma,True
 38031,2016-06-07,Australia,Greece,1,2,Friendly,Melbourne,Australia,False
 38032,2016-06-07,Bangladesh,Tajikistan,0,1,AFC Asian Cup qualification,Dhaka,Bangladesh,False
 38033,2016-06-07,Bulgaria,Denmark,0,4,Kirin Cup,Suita,Japan,True
-38034,2016-06-07,Cambodia,Republic of China,2,0,AFC Asian Cup qualification,Phnom Penh,Cambodia,False
+38034,2016-06-07,Cambodia,Taiwan,2,0,AFC Asian Cup qualification,Phnom Penh,Cambodia,False
 38035,2016-06-07,Canada,Uzbekistan,2,1,Friendly,Bad Waltersdorf,Austria,True
 38036,2016-06-07,China,Kazakhstan,0,1,Friendly,Dalian,China PR,False
 38037,2016-06-07,Colombia,Paraguay,2,1,Copa América,Pasadena,United States,True
@@ -36467,7 +36467,7 @@
 38145,2016-06-30,Poland,Portugal,1,1,UEFA Euro,Marseille,France,True
 38146,2016-07-01,Wales,Belgium,3,1,UEFA Euro,Villeneuve-d'Ascq,France,True
 38147,2016-07-02,Germany,Italy,1,1,UEFA Euro,Bordeaux,France,True
-38148,2016-07-02,Mongolia,Republic of China,0,2,EAFF Championship,Dededo,Guam,True
+38148,2016-07-02,Mongolia,Taiwan,0,2,EAFF Championship,Dededo,Guam,True
 38150,2016-07-03,France,Iceland,5,2,UEFA Euro,Saint-Denis,France,False
 38152,2016-07-06,Portugal,Wales,2,0,UEFA Euro,Lyon,France,True
 38153,2016-07-07,France,Germany,2,0,UEFA Euro,Marseille,France,False
@@ -36660,7 +36660,7 @@
 38346,2016-10-08,Slovenia,Slovakia,1,0,FIFA World Cup qualification,Ljubljana,Slovenia,False
 38347,2016-10-08,Solomon Islands,New Caledonia,0,1,Friendly,Honiara,Solomon Islands,False
 38348,2016-10-08,Suriname,Guyana,3,2,CFU Caribbean Cup qualification,Paramaribo,Suriname,False
-38349,2016-10-08,Republic of China,East Timor,2,1,AFC Asian Cup qualification,Kaohsiung,Chinese Taipei,False
+38349,2016-10-08,Taiwan,Timor-Leste,2,1,AFC Asian Cup qualification,Kaohsiung,Chinese Taipei,False
 38350,2016-10-09,Albania,Spain,0,2,FIFA World Cup qualification,Shkodër,Albania,False
 38351,2016-10-09,Algeria,Cameroon,1,1,FIFA World Cup qualification,Blida,Algeria,False
 38352,2016-10-09,Cambodia,Sri Lanka,4,0,Friendly,Phnom Penh,Cambodia,False
@@ -36719,21 +36719,21 @@
 38405,2016-10-11,South Africa,Ghana,1,1,Friendly,Durban,South Africa,False
 38406,2016-10-11,Uzbekistan,China,2,0,FIFA World Cup qualification,Tashkent,Uzbekistan,False
 38407,2016-10-11,Venezuela,Brazil,0,2,FIFA World Cup qualification,Mérida,Venezuela,False
-38408,2016-10-15,Brunei,East Timor,2,1,AFF Championship,Phnom Penh,Cambodia,True
+38408,2016-10-15,Brunei,Timor-Leste,2,1,AFF Championship,Phnom Penh,Cambodia,True
 38409,2016-10-15,Cambodia,Laos,2,1,AFF Championship,Phnom Penh,Cambodia,False
 38410,2016-10-18,Cambodia,Brunei,3,0,AFF Championship,Phnom Penh,Cambodia,False
-38411,2016-10-18,East Timor,Laos,1,2,AFF Championship,Phnom Penh,Cambodia,True
-38412,2016-10-21,Cambodia,East Timor,3,2,AFF Championship,Phnom Penh,Cambodia,False
+38411,2016-10-18,Timor-Leste,Laos,1,2,AFF Championship,Phnom Penh,Cambodia,True
+38412,2016-10-21,Cambodia,Timor-Leste,3,2,AFF Championship,Phnom Penh,Cambodia,False
 38413,2016-10-21,Laos,Brunei,4,3,AFF Championship,Phnom Penh,Cambodia,True
-38414,2016-11-02,Brunei,East Timor,4,0,AFC Challenge Cup,Kuching,Malaysia,True
+38414,2016-11-02,Brunei,Timor-Leste,4,0,AFC Challenge Cup,Kuching,Malaysia,True
 38415,2016-11-03,Macau,Mongolia,2,1,AFC Challenge Cup,Kuching,Malaysia,True
 38416,2016-11-03,Sri Lanka,Laos,1,2,AFC Challenge Cup,Kuching,Malaysia,True
 38417,2016-11-04,Myanmar,Indonesia,0,0,Friendly,Rangoon,Burma,False
-38418,2016-11-05,East Timor,Nepal,0,0,AFC Challenge Cup,Kuching,Malaysia,True
+38418,2016-11-05,Timor-Leste,Nepal,0,0,AFC Challenge Cup,Kuching,Malaysia,True
 38419,2016-11-05,Zimbabwe,Zambia,1,0,Friendly,Harare,Zimbabwe,False
 38420,2016-11-06,Hong Kong,Guam,3,2,EAFF Championship,Kowloon,Hong Kong,False
 38421,2016-11-06,Jordan,Iraq,0,0,Friendly,Amman,Jordan,False
-38422,2016-11-06,North Korea,Republic of China,2,0,EAFF Championship,Kowloon,Hong Kong,True
+38422,2016-11-06,North Korea,Taiwan,2,0,EAFF Championship,Kowloon,Hong Kong,True
 38423,2016-11-06,Laos,Macau,1,4,AFC Challenge Cup,Kuching,Malaysia,True
 38424,2016-11-06,Mongolia,Sri Lanka,2,0,AFC Challenge Cup,Kuching,Malaysia,True
 38425,2016-11-07,Tahiti,Solomon Islands,3,0,FIFA World Cup qualification,Pirae,French Polynesia,True
@@ -36742,7 +36742,7 @@
 38428,2016-11-08,Vietnam,Indonesia,3,2,Friendly,Hanoi,Vietnam,False
 38429,2016-11-09,Greece,Belarus,0,1,Friendly,Piraeus,Greece,False
 38430,2016-11-09,Guam,North Korea,0,2,EAFF Championship,Kowloon,Hong Kong,True
-38432,2016-11-09,Hong Kong,Republic of China,4,2,EAFF Championship,Kowloon,Hong Kong,False
+38432,2016-11-09,Hong Kong,Taiwan,4,2,EAFF Championship,Kowloon,Hong Kong,False
 38433,2016-11-09,Mongolia,Laos,0,3,AFC Challenge Cup,Kuching,Malaysia,True
 38434,2016-11-09,Netherlands,Belgium,1,1,Friendly,Amsterdam,Netherlands,False
 38435,2016-11-09,Philippines,Kyrgyzstan,1,0,Friendly,Manila,Philippines,False
@@ -36954,7 +36954,7 @@
 38643,2017-03-22,Philippines,Malaysia,0,0,Friendly,Manila,Philippines,False
 38644,2017-03-22,São Tomé and Príncipe,Madagascar,0,1,African Cup of Nations qualification,São Tomé,São Tomé and Príncipe,False
 38645,2017-03-22,Scotland,Canada,1,1,Friendly,Edinburgh,Scotland,False
-38646,2017-03-22,Vietnam,Republic of China,1,1,Friendly,Hanoi,Vietnam,False
+38646,2017-03-22,Vietnam,Taiwan,1,1,Friendly,Hanoi,Vietnam,False
 38647,2017-03-22,Yemen,Palestine,0,1,Friendly,al-Wakrah,Qatar,True
 38648,2017-03-23,Afghanistan,Singapore,2,1,Friendly,al-Wakrah,Qatar,True
 38649,2017-03-23,Argentina,Chile,1,0,FIFA World Cup qualification,Buenos Aires,Argentina,False
@@ -37172,7 +37172,7 @@
 38883,2017-06-10,Scotland,England,2,2,FIFA World Cup qualification,Glasgow,Scotland,False
 38884,2017-06-10,Senegal,Equatorial Guinea,3,0,African Cup of Nations qualification,Dakar,Senegal,False
 38885,2017-06-10,Sierra Leone,Kenya,2,1,African Cup of Nations qualification,Freetown,Sierra Leone,False
-38886,2017-06-10,Singapore,Republic of China,1,2,AFC Asian Cup qualification,Kallang,Singapore,False
+38886,2017-06-10,Singapore,Taiwan,1,2,AFC Asian Cup qualification,Kallang,Singapore,False
 38887,2017-06-10,Slovenia,Malta,2,0,FIFA World Cup qualification,Ljubljana,Slovenia,False
 38888,2017-06-10,Tanzania,Lesotho,1,1,African Cup of Nations qualification,Dar es Salaam,Tanzania,False
 38889,2017-06-10,Zambia,Mozambique,0,1,African Cup of Nations qualification,Ndola,Zambia,False
@@ -37438,7 +37438,7 @@
 39195,2017-09-05,Argentina,Venezuela,1,1,FIFA World Cup qualification,Buenos Aires,Argentina,False
 39196,2017-09-05,Australia,Thailand,2,1,FIFA World Cup qualification,Melbourne,Australia,False
 39197,2017-09-05,Austria,Georgia,1,1,FIFA World Cup qualification,Vienna,Austria,False
-39198,2017-09-05,Bahrain,Republic of China,5,0,AFC Asian Cup qualification,Riffa,Bahrain,False
+39198,2017-09-05,Bahrain,Taiwan,5,0,AFC Asian Cup qualification,Riffa,Bahrain,False
 39199,2017-09-05,Bhutan,Palestine,0,2,AFC Asian Cup qualification,Thimphu,Bhutan,False
 39200,2017-09-05,Bolivia,Chile,1,0,FIFA World Cup qualification,La Paz,Bolivia,False
 39201,2017-09-05,Burkina Faso,Senegal,2,2,FIFA World Cup qualification,Ouagadougou,Burkina Faso,False
@@ -37498,7 +37498,7 @@
 39255,2017-10-05,San Marino,Norway,0,8,FIFA World Cup qualification,Serravalle,San Marino,False
 39256,2017-10-05,Scotland,Slovakia,1,0,FIFA World Cup qualification,Glasgow,Scotland,False
 39257,2017-10-05,Syria,Australia,1,1,FIFA World Cup qualification,Paya Rumput,Malaysia,True
-39258,2017-10-05,Republic of China,Mongolia,4,2,Friendly,Taipei,Chinese Taipei,False
+39258,2017-10-05,Taiwan,Mongolia,4,2,Friendly,Taipei,Chinese Taipei,False
 39259,2017-10-05,Venezuela,Uruguay,0,0,FIFA World Cup qualification,San Cristóbal,Venezuela,False
 39260,2017-10-06,Austria,Serbia,3,2,FIFA World Cup qualification,Vienna,Austria,False
 39261,2017-10-06,Croatia,Finland,1,1,FIFA World Cup qualification,Rijeka,Croatia,False
@@ -37586,7 +37586,7 @@
 39343,2017-10-10,Qatar,Curaçao,1,2,Friendly,Doha,Qatar,False
 39344,2017-10-10,Russia,Iran,1,1,Friendly,Kazan,Russia,False
 39345,2017-10-10,Saudi Arabia,Ghana,0,3,Friendly,Jeddah,Saudi Arabia,False
-39346,2017-10-10,Republic of China,Bahrain,2,1,AFC Asian Cup qualification,Taipei,Chinese Taipei,False
+39346,2017-10-10,Taiwan,Bahrain,2,1,AFC Asian Cup qualification,Taipei,Chinese Taipei,False
 39347,2017-10-10,Tajikistan,Nepal,3,0,AFC Asian Cup qualification,Hisor,Tajikistan,False
 39348,2017-10-10,Trinidad and Tobago,United States,2,1,FIFA World Cup qualification,Couva,Trinidad and Tobago,False
 39349,2017-10-10,Turkmenistan,Singapore,2,1,AFC Asian Cup qualification,Ashgabat,Turkmenistan,False
@@ -37686,7 +37686,7 @@
 39443,2017-11-14,Slovakia,Norway,1,0,Friendly,Trnava,Slovakia,False
 39444,2017-11-14,Tajikistan,Yemen,0,0,AFC Asian Cup qualification,Hisor,Tajikistan,False
 39445,2017-11-14,Trinidad and Tobago,Guyana,1,1,Friendly,Couva,Trinidad and Tobago,False
-39446,2017-11-14,Turkmenistan,Republic of China,2,1,AFC Asian Cup qualification,Balkanabat,Turkmenistan,False
+39446,2017-11-14,Turkmenistan,Taiwan,2,1,AFC Asian Cup qualification,Balkanabat,Turkmenistan,False
 39447,2017-11-14,United Arab Emirates,Uzbekistan,1,0,Friendly,al-Ain,United Arab Emirates,False
 39448,2017-11-14,Vietnam,Afghanistan,0,0,AFC Asian Cup qualification,Hanoi,Vietnam,False
 39449,2017-11-14,Wales,Panama,1,1,Friendly,Cardiff,Wales,False
@@ -37701,18 +37701,18 @@
 39459,2017-12-02,Kyrgyzstan,Mongolia,3,0,Friendly,Banda Aceh,Indonesia,True
 39460,2017-12-02,Tonga,Solomon Islands,0,8,Friendly,Port Vila,Vanuatu,True
 39461,2017-12-03,Kenya,Rwanda,2,0,CECAFA Cup,Kakamega,Kenya,False
-39462,2017-12-03,Laos,East Timor,2,1,Friendly,Taipei,Chinese Taipei,True
+39462,2017-12-03,Laos,Timor-Leste,2,1,Friendly,Taipei,Chinese Taipei,True
 39463,2017-12-03,Libya,Tanzania,0,0,CECAFA Cup,Machakos,Kenya,True
 39464,2017-12-03,Saint Kitts and Nevis,Grenada,1,0,Friendly,Basseterre,Saint Kitts and Nevis,False
-39465,2017-12-03,Republic of China,Philippines,3,0,Friendly,Taipei,Chinese Taipei,False
+39465,2017-12-03,Taiwan,Philippines,3,0,Friendly,Taipei,Chinese Taipei,False
 39466,2017-12-04,Brunei,Kyrgyzstan,0,4,Friendly,Banda Aceh,Indonesia,True
 39467,2017-12-04,Indonesia,Mongolia,3,2,Friendly,Banda Aceh,Indonesia,False
-39468,2017-12-04,Republic of China,East Timor,3,1,Friendly,Taipei,Chinese Taipei,False
+39468,2017-12-04,Taiwan,Timor-Leste,3,1,Friendly,Taipei,Chinese Taipei,False
 39469,2017-12-04,Uganda,Burundi,0,0,CECAFA Cup,Kakamega,Kenya,True
-39470,2017-12-05,East Timor,Philippines,1,0,Friendly,Taipei,Chinese Taipei,True
+39470,2017-12-05,Timor-Leste,Philippines,1,0,Friendly,Taipei,Chinese Taipei,True
 39471,2017-12-05,Kenya,Libya,0,0,CECAFA Cup,Machakos,Kenya,False
 39472,2017-12-05,South Sudan,Ethiopia,0,3,CECAFA Cup,Kakamega,Kenya,True
-39473,2017-12-05,Republic of China,Laos,2,0,Friendly,Taipei,Chinese Taipei,False
+39473,2017-12-05,Taiwan,Laos,2,0,Friendly,Taipei,Chinese Taipei,False
 39475,2017-12-06,Indonesia,Kyrgyzstan,0,1,Friendly,Banda Aceh,Indonesia,False
 39476,2017-12-06,Solomon Islands,Fiji,0,0,Friendly,Port Vila,Vanuatu,True
 39477,2017-12-06,Vanuatu,Tonga,5,0,Friendly,Port Vila,Vanuatu,False
@@ -37924,7 +37924,7 @@
 39695,2018-03-27,Slovenia,Belarus,0,2,Friendly,Ljubljana,Slovenia,False
 39696,2018-03-27,Spain,Argentina,6,1,Friendly,Madrid,Spain,False
 39697,2018-03-27,Switzerland,Panama,6,0,Friendly,Lucerne,Switzerland,False
-39698,2018-03-27,Republic of China,Singapore,1,0,AFC Asian Cup qualification,Taipei,Chinese Taipei,False
+39698,2018-03-27,Taiwan,Singapore,1,0,AFC Asian Cup qualification,Taipei,Chinese Taipei,False
 39699,2018-03-27,Tanzania,Democratic Republic of Congo,2,0,Friendly,Dar es Salaam,Tanzania,False
 39700,2018-03-27,Tunisia,Costa Rica,1,0,Friendly,Nice,France,True
 39701,2018-03-27,Uganda,Malawi,0,0,Friendly,Kampala,Uganda,False
@@ -37990,7 +37990,7 @@
 39772,2018-06-01,Malta,Georgia,0,1,Friendly,Schwaz,Austria,True
 39773,2018-06-01,Botswana,Mauritius,6,0,COSAFA Cup,Polokwane,South Africa,True
 39774,2018-06-01,Angola,Malawi,0,0,COSAFA Cup,Polokwane,South Africa,True
-39775,2018-06-01,India,Republic of China,5,0,Intercontinental Cup,Mumbai,India,False
+39775,2018-06-01,India,Taiwan,5,0,Intercontinental Cup,Mumbai,India,False
 39776,2018-06-02,El Salvador,Honduras,1,0,Friendly,Houston,United States,True
 39777,2018-06-02,Thailand,China,0,2,Friendly,Bangkok,Thailand,False
 39778,2018-06-02,England,Nigeria,2,1,Friendly,London,England,False
@@ -38025,7 +38025,7 @@
 39823,2018-06-05,Luxembourg,Georgia,1,0,Friendly,Luxembourg,Luxembourg,False
 39824,2018-06-05,Kazakhstan,Azerbaijan,3,0,Friendly,Astana,Kazakhstan,False
 39826,2018-06-05,Lithuania,Latvia,1,1,Friendly,Vilnius,Lithuania,False
-39827,2018-06-05,Republic of China,New Zealand,0,1,Intercontinental Cup,Mumbai,India,True
+39827,2018-06-05,Taiwan,New Zealand,0,1,Intercontinental Cup,Mumbai,India,True
 39828,2018-06-05,South Africa,Namibia,4,1,COSAFA Cup,Polokwane,South Africa,False
 39829,2018-06-05,Eswatini,Botswana,0,2,COSAFA Cup,Polokwane,South Africa,True
 39837,2018-06-06,Norway,Panama,1,0,Friendly,Oslo,Norway,False
@@ -38045,7 +38045,7 @@
 39859,2018-06-08,Switzerland,Japan,2,0,Friendly,Lugano,Switzerland,False
 39860,2018-06-08,Lithuania,Iran,0,1,Friendly,Moscow,Russia,True
 39861,2018-06-08,Poland,Chile,2,2,Friendly,Poznań,Poland,False
-39862,2018-06-08,Republic of China,Kenya,0,4,Intercontinental Cup,Mumbai,India,True
+39862,2018-06-08,Taiwan,Kenya,0,4,Intercontinental Cup,Mumbai,India,True
 39863,2018-06-09,Serbia,Bolivia,5,1,Friendly,Graz,Austria,True
 39864,2018-06-09,Denmark,Mexico,2,0,Friendly,Brøndby,Denmark,False
 39865,2018-06-09,Sweden,Peru,0,0,Friendly,Gothenburg,Sweden,False
@@ -38177,7 +38177,7 @@
 40003,2018-09-07,Faroe Islands,Malta,3,1,UEFA Nations League,Tórshavn,Faroe Islands,False
 40004,2018-09-07,Azerbaijan,Kosovo,0,0,UEFA Nations League,Baku,Azerbaijan,False
 40005,2018-09-07,Argentina,Guatemala,3,0,Friendly,Los Angeles,United States,True
-40006,2018-09-07,Republic of China,Malaysia,2,0,Friendly,Taipei,Chinese Taipei,False
+40006,2018-09-07,Taiwan,Malaysia,2,0,Friendly,Taipei,Chinese Taipei,False
 40007,2018-09-07,Ecuador,Jamaica,2,0,Friendly,Harrison,United States,True
 40008,2018-09-07,South Korea,Costa Rica,2,0,Friendly,Goyang,South Korea,False
 40009,2018-09-07,Mexico,Uruguay,1,4,Friendly,Houston,United States,True
@@ -38409,12 +38409,12 @@
 40248,2018-11-09,Timor-Leste,Thailand,0,7,AFF Championship,Bangkok,Thailand,True
 40249,2018-11-09,Singapore,Indonesia,1,0,AFF Championship,Kallang,Singapore,False
 40250,2018-11-11,North Korea,Mongolia,4,1,EAFF Championship,Taipei,Chinese Taipei,True
-40251,2018-11-11,Republic of China,Hong Kong,1,2,EAFF Championship,Taipei,Chinese Taipei,False
+40251,2018-11-11,Taiwan,Hong Kong,1,2,EAFF Championship,Taipei,Chinese Taipei,False
 40252,2018-11-12,Myanmar,Cambodia,4,1,AFF Championship,Mandalay,Myanmar,False
 40253,2018-11-12,Malaysia,Laos,3,1,AFF Championship,Kuala Lumpur,Malaysia,False
 40254,2018-11-13,Indonesia,Timor-Leste,3,1,AFF Championship,Jakarta,Indonesia,False
 40255,2018-11-13,Philippines,Singapore,1,0,AFF Championship,Bacolod,Philippines,False
-40256,2018-11-13,Republic of China,Mongolia,2,1,EAFF Championship,Taipei,Chinese Taipei,False
+40256,2018-11-13,Taiwan,Mongolia,2,1,EAFF Championship,Taipei,Chinese Taipei,False
 40257,2018-11-13,Hong Kong,North Korea,0,0,EAFF Championship,Taipei,Chinese Taipei,True
 40258,2018-11-14,Switzerland,Qatar,0,1,Friendly,Lugano,Switzerland,False
 40259,2018-11-14,Vanuatu,New Caledonia,0,1,Friendly,Port Vila,Vanuatu,False
@@ -38456,7 +38456,7 @@
 40295,2018-11-16,Morocco,Cameroon,2,0,African Cup of Nations qualification,Casablanca,Morocco,False
 40296,2018-11-16,South Sudan,Burundi,2,5,African Cup of Nations qualification,Juba,South Sudan,False
 40297,2018-11-16,Egypt,Tunisia,3,2,African Cup of Nations qualification,Alexandria,Egypt,False
-40298,2018-11-16,Republic of China,North Korea,0,2,EAFF Championship,Taipei,Chinese Taipei,False
+40298,2018-11-16,Taiwan,North Korea,0,2,EAFF Championship,Taipei,Chinese Taipei,False
 40299,2018-11-16,Mongolia,Hong Kong,1,5,EAFF Championship,Taipei,Chinese Taipei,True
 40301,2018-11-16,Bermuda,El Salvador,1,0,CONCACAF Nations League qualification,Hamilton,Bermuda,False
 40302,2018-11-16,Aruba,Montserrat,0,2,CONCACAF Nations League qualification,Willemstad,Netherlands Antilles,True
@@ -38643,7 +38643,7 @@
 40488,2019-03-16,Bahamas,Turks and Caicos Islands,6,1,Friendly,Nassau,Bahamas,False
 40489,2019-03-18,Fiji,New Caledonia,3,0,Friendly,Suva,Fiji,False
 40490,2019-03-18,Solomon Islands,Vanuatu,3,1,Friendly,Honiara,Solomon Islands,False
-40491,2019-03-19,Myanmar,Republic of China,0,0,Friendly,Mandalay,Myanmar,False
+40491,2019-03-19,Myanmar,Taiwan,0,0,Friendly,Mandalay,Myanmar,False
 40492,2019-03-20,Germany,Serbia,1,1,Friendly,Wolfsburg,Germany,False
 40493,2019-03-20,Wales,Trinidad and Tobago,1,0,Friendly,Wrexham,Wales,False
 40494,2019-03-21,Kosovo,Denmark,2,2,Friendly,Pristina,Kosovo,False
@@ -38700,7 +38700,7 @@
 40547,2019-03-23,Antigua and Barbuda,Curaçao,2,1,CONCACAF Nations League qualification,North Sound,Antigua and Barbuda,False
 40548,2019-03-23,Guyana,Belize,2,1,CONCACAF Nations League qualification,Leonora,Guyana,False
 40549,2019-03-23,Suriname,Saint Kitts and Nevis,2,0,CONCACAF Nations League qualification,Paramaribo,Suriname,False
-40551,2019-03-24,Republic of China,Solomon Islands,0,1,Friendly,Taipei,Chinese Taipei,False
+40551,2019-03-24,Taiwan,Solomon Islands,0,1,Friendly,Taipei,Chinese Taipei,False
 40552,2019-03-24,Fiji,Mauritius,1,0,Friendly,Lautoka,Fiji,False
 40553,2019-03-24,Northern Ireland,Belarus,2,1,UEFA Euro qualification,Belfast,Northern Ireland,False
 40554,2019-03-24,Netherlands,Germany,2,3,UEFA Euro qualification,Amsterdam,Netherlands,False
@@ -38798,7 +38798,7 @@
 40666,2019-06-05,Portugal,Switzerland,3,1,UEFA Nations League,Porto,Portugal,False
 40667,2019-06-06,Bermuda,Guyana,1,0,Friendly,Hamilton,Bermuda,False
 40668,2019-06-06,Chile,Haiti,2,1,Friendly,Coquimbo,Chile,False
-40669,2019-06-06,Republic of China,Nepal,1,1,Friendly,Kaohsiung,Chinese Taipei,False
+40669,2019-06-06,Taiwan,Nepal,1,1,Friendly,Kaohsiung,Chinese Taipei,False
 40670,2019-06-06,Iran,Syria,5,0,Friendly,Tehran,Iran,False
 40671,2019-06-06,Slovakia,Jordan,5,1,Friendly,Trnava,Slovakia,False
 40672,2019-06-06,Tajikistan,Afghanistan,1,1,Friendly,Dushanbe,Tajikistan,False
@@ -38889,7 +38889,7 @@
 40765,2019-06-11,Benin,Guinea,1,0,Friendly,Marrakech,Morocco,True
 40766,2019-06-11,China,Tajikistan,1,0,Friendly,Guangzhou,China PR,False
 40767,2019-06-11,Croatia,Tunisia,1,2,Friendly,Varaždin,Croatia,False
-40768,2019-06-11,Hong Kong,Republic of China,0,2,Friendly,Hong Kong,Hong Kong,False
+40768,2019-06-11,Hong Kong,Taiwan,0,2,Friendly,Hong Kong,Hong Kong,False
 40769,2019-06-11,Jordan,Indonesia,4,1,Friendly,Amman,Jordan,False
 40770,2019-06-11,South Korea,Iran,1,1,Friendly,Seoul,South Korea,False
 40771,2019-06-11,Kyrgyzstan,Palestine,2,2,Friendly,Bishkek,Kyrgyzstan,False
@@ -39082,7 +39082,7 @@
 40986,2019-08-14,Dominican Republic,Guatemala,0,0,Friendly,Santiago de los Caballeros,Dominican Republic,False
 40987,2019-08-27,Saint Kitts and Nevis,Antigua and Barbuda,4,3,Friendly,Basseterre,Saint Kitts and Nevis,True
 40988,2019-08-28,Belize,Saint Vincent and the Grenadines,1,1,Friendly,Belmopan,Belize,False
-40989,2019-08-28,Republic of China,Guam,3,0,Friendly,Kaohsiung,Chinese Taipei,False
+40989,2019-08-28,Taiwan,Guam,3,0,Friendly,Kaohsiung,Chinese Taipei,False
 40990,2019-08-29,United Arab Emirates,Dominican Republic,4,0,Friendly,Riffa,Bahrain,True
 40991,2019-08-30,Belize,Saint Vincent and the Grenadines,1,0,Friendly,Belmopan,Belize,False
 40992,2019-08-30,China,Myanmar,4,1,Friendly,Xianghe,Egypt,True
@@ -39120,7 +39120,7 @@
 41026,2019-09-05,Guatemala,Anguilla,10,0,CONCACAF Nations League,Guatemala City,Guatemala,False
 41027,2019-09-05,Guam,Maldives,0,1,FIFA World Cup qualification,Dededo,Guam,False
 41028,2019-09-05,Philippines,Syria,2,5,FIFA World Cup qualification,Bacolod,Philippines,False
-41029,2019-09-05,Republic of China,Jordan,1,2,FIFA World Cup qualification,Taipei,Chinese Taipei,False
+41029,2019-09-05,Taiwan,Jordan,1,2,FIFA World Cup qualification,Taipei,Chinese Taipei,False
 41030,2019-09-05,Kuwait,Nepal,7,0,FIFA World Cup qualification,Kuwait City,Kuwait,False
 41031,2019-09-05,Cambodia,Hong Kong,1,1,FIFA World Cup qualification,Phnom Penh,Cambodia,False
 41032,2019-09-05,Bahrain,Iraq,1,1,FIFA World Cup qualification,Riffa,Bahrain,False
@@ -39230,7 +39230,7 @@
 41144,2019-09-10,Guam,Philippines,1,4,FIFA World Cup qualification,Dededo,Guam,False
 41145,2019-09-10,Maldives,China,0,5,FIFA World Cup qualification,Malé,Maldives,False
 41146,2019-09-10,Kuwait,Australia,0,3,FIFA World Cup qualification,Kuwait City,Kuwait,False
-41147,2019-09-10,Republic of China,Nepal,0,2,FIFA World Cup qualification,Taipei,Chinese Taipei,False
+41147,2019-09-10,Taiwan,Nepal,0,2,FIFA World Cup qualification,Taipei,Chinese Taipei,False
 41148,2019-09-10,Cambodia,Bahrain,0,1,FIFA World Cup qualification,Phnom Penh,Cambodia,False
 41149,2019-09-10,Hong Kong,Iran,0,2,FIFA World Cup qualification,Hong Kong,Hong Kong,False
 41150,2019-09-10,Yemen,Saudi Arabia,2,2,FIFA World Cup qualification,Riffa,Bahrain,True
@@ -39418,7 +39418,7 @@
 41340,2019-10-15,Syria,Guam,4,0,FIFA World Cup qualification,Dubai,United Arab Emirates,True
 41341,2019-10-15,Philippines,China,0,0,FIFA World Cup qualification,Bacolod,Philippines,False
 41342,2019-10-15,Jordan,Nepal,3,0,FIFA World Cup qualification,Amman,Jordan,False
-41343,2019-10-15,Republic of China,Australia,1,7,FIFA World Cup qualification,Kaohsiung,Chinese Taipei,False
+41343,2019-10-15,Taiwan,Australia,1,7,FIFA World Cup qualification,Kaohsiung,Chinese Taipei,False
 41344,2019-10-15,Cambodia,Iraq,0,4,FIFA World Cup qualification,Phnom Penh,Cambodia,False
 41345,2019-10-15,Bahrain,Iran,1,0,FIFA World Cup qualification,Riffa,Bahrain,False
 41346,2019-10-15,Palestine,Saudi Arabia,0,0,FIFA World Cup qualification,Al Ram,Palestine,False
@@ -39490,7 +39490,7 @@
 41415,2019-11-14,Maldives,Philippines,1,2,FIFA World Cup qualification,Malé,Maldives,False
 41416,2019-11-14,Syria,China,2,1,FIFA World Cup qualification,Dubai,United Arab Emirates,True
 41417,2019-11-14,Jordan,Australia,0,1,FIFA World Cup qualification,Amman,Jordan,False
-41418,2019-11-14,Kuwait,Republic of China,9,0,FIFA World Cup qualification,Kuwait City,Kuwait,False
+41418,2019-11-14,Kuwait,Taiwan,9,0,FIFA World Cup qualification,Kuwait City,Kuwait,False
 41419,2019-11-14,Iraq,Iran,2,1,FIFA World Cup qualification,Amman,Jordan,True
 41420,2019-11-14,Hong Kong,Bahrain,0,0,FIFA World Cup qualification,Hong Kong,Hong Kong,False
 41421,2019-11-14,Uzbekistan,Saudi Arabia,2,3,FIFA World Cup qualification,Tashkent,Uzbekistan,False
@@ -39611,7 +39611,7 @@
 41541,2019-11-19,Maldives,Guam,3,1,FIFA World Cup qualification,Malé,Maldives,False
 41542,2019-11-19,Syria,Philippines,1,0,FIFA World Cup qualification,Dubai,United Arab Emirates,True
 41543,2019-11-19,Nepal,Kuwait,0,1,FIFA World Cup qualification,Thimphu,Bhutan,True
-41544,2019-11-19,Jordan,Republic of China,5,0,FIFA World Cup qualification,Amman,Jordan,False
+41544,2019-11-19,Jordan,Taiwan,5,0,FIFA World Cup qualification,Amman,Jordan,False
 41545,2019-11-19,Iraq,Bahrain,0,0,FIFA World Cup qualification,Amman,Jordan,True
 41546,2019-11-19,Hong Kong,Cambodia,2,0,FIFA World Cup qualification,Hong Kong,Hong Kong,False
 41547,2019-11-19,Uzbekistan,Palestine,2,0,FIFA World Cup qualification,Tashkent,Uzbekistan,False
