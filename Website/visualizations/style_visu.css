@@ -38,7 +38,7 @@ body {
 	background: #c5e8ff;
 
 	/* default text */
-	font-family: sans-serif;
+	font-family: Helvetica, sans-serif;
 	font-size: 1.1rem;
 }
 
@@ -175,20 +175,6 @@ The various units of measurement available in CSS:
 	margin: 1vw 1vw;
 }
 
-#search_bar {
-	position: absolute;
-	top: 77vh;
-	left: 5.65vw;
-	width: 13vw;
-	/*height: 3%;*/
-	background-image: url('https://www.w3schools.com/css/searchicon.png');
-	background-position: 1% 50%;
-	background-size: 10% 100%;
-	background-repeat: no-repeat;
-	padding: 0.1vw 1.5vw;
-	font-size: 1vw;
-}
-
 #measure_container {
 	position: absolute;
 	top: 40vh;
@@ -208,3 +194,72 @@ The various units of measurement available in CSS:
 	border-style: dotted;
 	overflow: hidden;
 }
+
+/* input style */
+
+input {
+	outline: none;
+	border: none;
+}
+
+input:focus {
+	border-color: transparent !important;
+}
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; }
+input:focus::-moz-placeholder { color:transparent; }
+input:focus:-ms-input-placeholder { color:transparent; }
+
+input::-webkit-input-placeholder { color: #6c6c6c;}
+input:-moz-placeholder { color: #6c6c6c;}
+input::-moz-placeholder { color: #6c6c6c;}
+input:-ms-input-placeholder { color: #6c6c6c;}
+
+
+.wrap-input100 {
+	width: 13vw;
+	position: absolute;
+	top: 76vh;
+	left: 5.65vw;
+	border-bottom: 2px solid #6c6c6c;
+	padding: 0 1.5vw;
+	background-image: url('https://images.vexels.com/media/users/3/132068/isolated/preview/f9bb81e576c1a361c61a8c08945b2c48-search-icon-by-vexels.png');
+	background-position: 0 60%;
+	background-size: 8% 50%;
+	background-repeat: no-repeat;
+}
+
+.input100 {
+	display: block;
+	width: 100%;
+	background: transparent;
+	font-family: "Helvetica Neue", sans-serif;
+	color: #000;
+	font-size: 1.1rem;
+}
+
+.focus-input100::before {
+	content: "";
+	display: block;
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 0;
+	height: 2px;
+	-webkit-transition: all 0.4s;
+	-o-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	transition: all 0.4s;
+	background: #000;
+}
+
+input.input100 {
+	height: 4vh;
+}
+
+.input100:focus + .focus-input100::before {
+	width: 100%;
+}
+
+

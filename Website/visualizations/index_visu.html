@@ -14,8 +14,10 @@
 	<title>International Football</title>
 	<meta name="author" content="Alexandre Reynaud, Léo Bouraux, Vincent Rinaldi">
 
-	<!--Slider imports-->
+	<!--Standard style imports-->
 	<link rel="stylesheet" href="style_visu.css">
+
+	<!--Slider imports-->
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -66,7 +68,7 @@
 
 				//Putting the tile in evidence
 				layer.setStyle({
-						weight: 5,
+						weight: 2,
 						color: '#666',
 						dashArray: '',
 						fillOpacity: 0.7
@@ -205,7 +207,11 @@
 
 	<!--Flag slider-->
 	<div class="flag-slider" id="js_flag_scroll"></div>
-	<input type="text" id="search_bar" oninput="input_listener()" placeholder="Search for country...">
+	<div class="wrap-input100">
+		<input class="input100" type="text" id="search_bar" oninput="input_listener()" placeholder="Search for country...">
+		<span class="focus-input100"></span>
+	</div>
+
 
 </body>
 </html>
