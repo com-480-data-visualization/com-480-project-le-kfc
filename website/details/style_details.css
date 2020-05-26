@@ -79,7 +79,7 @@ The various units of measurement available in CSS:
 .board {
 	position: absolute;
 	width: 74vw;
-	height: 69vh;
+	height: 70.25vh;
 	left: 25.5vw;
 	top: 3vh;
 	background: rgba(0, 0, 0, 0.5);
@@ -93,16 +93,17 @@ The various units of measurement available in CSS:
 	margin-top: 3vh;
 }
 
-/* bar plot class */
+/* empty bar plot class for creation of horizontal bars */
 .bar {
-    fill: #5f89ad;
+
 }
 
-/* bar plot class */
+/* bar plot class for left labels */
 .axis {
     font-size: 13px;
 		color: white;
 		font-weight: bold;
+		animation: 3000ms ease-out 0s 1 fadeInFromNone;
 }
 
 /* bar plot class */
@@ -112,7 +113,7 @@ The various units of measurement available in CSS:
     display: none;
 }
 
-/* bar plot class */
+/* bar plot class for right labels */
 .label {
     font-size: 13px;
 }
@@ -426,7 +427,7 @@ The various units of measurement available in CSS:
 	border-top-left-radius: 25px;
 	border-top-right-radius: 25px;
 	left: 1vw;
-	top: 39vh;
+	top: 40.25vh;
 	background: rgba(255, 255, 0, 0.6);
 	animation: 500ms ease-out 0s 1 slideInFromLeft;
 }
@@ -447,7 +448,7 @@ The various units of measurement available in CSS:
 /* competition container */
 #competition_container {
 	position: absolute;
-	top: 42vh;
+	top: 43.25vh;
 	left: 1vw;
 	width: 23vw;
 	height: 30vh;
