@@ -154,8 +154,9 @@
 			}
 		});
 
+		//$.getJSON("map.json",function(data){
 		$.getJSON("choropleth.json",function(data){
-				let map = L.map('map',{minZoom:1}).setView([50, 0], 3);
+			let map = L.map('map',{minZoom:1}).setView([50, 0], 3);
 				geojson=L.geoJson(data, {
 					style: style,
 					onEachFeature: onEachFeature
