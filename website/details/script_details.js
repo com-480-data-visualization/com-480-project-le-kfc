@@ -11,7 +11,7 @@ function whenDocumentLoaded(action) {
 window.addEventListener('load', function() {
 	setTimeout(function(){document.getElementById("buttonHistory").style.opacity = "1"}, 600);
 	setTimeout(function(){document.getElementById("buttonMap").style.opacity = "1"}, 600);
-	setTimeout(function(){flag_loader("../../data/new_final_flags.csv")}, 1000);
+	setTimeout(function(){flag_loader("../../data/final_flags.csv")}, 1000);
 	setTimeout(function(){document.getElementById("slider_container").style.opacity = "1"}, 3700);
 	setTimeout(function(){document.getElementById("search_bar").style.opacity = "1"}, 3700);
 	setTimeout(function(){document.getElementById("buttonData").style.opacity = "1"}, 3700);
@@ -464,7 +464,7 @@ const change_tab = function(name) {
 let flags;
 
 //todo: modify it in function of the matched number of country in the Search bar
-let flag_number = 216;
+let flag_number = 215;
 
 //Flag loading function
 const flag_loader = function(path) {
@@ -663,7 +663,7 @@ const criterion_loader = function() {
 
 
 whenDocumentLoaded(() => {
-	data_loader("../../data/new_final_results.csv"); /* Ajout Vincent */
+	data_loader("../../data/final_results.csv"); /* Ajout Vincent */
 
 	criterion_loader();
 
