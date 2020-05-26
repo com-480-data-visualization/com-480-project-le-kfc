@@ -326,7 +326,7 @@ const load_data = function() {
 	data = get_world_data(games);
 
 	if (data.length == 0) {
-		alert("Please select a competition");
+		alert("Please select a criterion and a competition");
 		return;
 	}
 
@@ -370,7 +370,7 @@ const load_data = function() {
 
 	var y = d3.scaleBand()
 	  .rangeRound([height, 0])
-		.padding(0.1)
+		.padding(0.2)
 	  .domain(data.map(function (d) {
 	      return d.name;
 	  }));
@@ -389,6 +389,25 @@ const load_data = function() {
 	  .enter()
 	  .append("g")
 
+	var gradient = svg
+    .append("linearGradient")
+    .attr("x1", 0)
+    .attr("x2", 1850)
+    .attr("y1", "0")
+    .attr("y2", "0")
+    .attr("id", "gradient")
+    .attr("gradientUnits", "userSpaceOnUse")
+
+	gradient
+	    .append("stop")
+	    .attr("offset", "0")
+	    .attr("stop-color", "#ff0")
+
+	gradient
+	    .append("stop")
+	    .attr("offset", "0.5")
+	    .attr("stop-color", "#f00")
+
 	//append rects
 	bars.append("rect")
 	  .attr("class", "bar")
@@ -398,14 +417,16 @@ const load_data = function() {
 	  .attr("height", y.bandwidth())
 	  .attr("x", 0)
 	  .attr("width", function (d) {
-	      return x(d.value);
-	  });
+				return 0;
+	  })
+		.attr("fill", "url(#gradient)");
 
 	//add a value label to the right of each bar
 	bars.append("text")
 	  .attr("class", "label")
 		.attr("fill", "white")
 		.attr("font-weight", "bold")
+		.attr("opacity", "0")
 	  //y position of the label is halfway down the bar
 	  .attr("y", function (d) {
 	      return y(d.name) + y.bandwidth() / 2 + 4;
@@ -417,6 +438,32 @@ const load_data = function() {
 	  .text(function (d) {
 	      return d.value;
 	  });
+
+	// Animation
+	svg.selectAll("rect")
+	  .transition()
+	  .duration(2500)
+	  .attr("x", function(d) { return x(d.Value); })
+	  .attr("width", function(d) { return x(d.value); })
+	  .delay(function(d,i) {
+			return(0);
+		});
+
+	svg.selectAll("text")
+	  .transition()
+	  .duration(1000)
+	  .attr("opacity", function(d) { return 1; })
+	  .delay(function(d,i) {
+			return(0);
+		});
+
+	bars.selectAll("text")
+	  .transition()
+	  .duration(3500)
+	  .attr("opacity", function(d) { return 1; })
+	  .delay(function(d,i) {
+			return(0);
+		});
 }
 
 
