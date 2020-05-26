@@ -233,10 +233,10 @@ input:focus:-moz-placeholder { color:transparent; }
 input:focus::-moz-placeholder { color:transparent; }
 input:focus:-ms-input-placeholder { color:transparent; }
 
-input::-webkit-input-placeholder { color: #6c6c6c;}
-input:-moz-placeholder { color: #6c6c6c;}
-input::-moz-placeholder { color: #6c6c6c;}
-input:-ms-input-placeholder { color: #6c6c6c;}
+input::-webkit-input-placeholder { color: var(--darkgrey);}
+input:-moz-placeholder { color: var(--darkgrey);}
+input::-moz-placeholder { color: var(--darkgrey);}
+input:-ms-input-placeholder { color: var(--darkgrey);}
 
 
 .wrap-input100 {
@@ -244,11 +244,12 @@ input:-ms-input-placeholder { color: #6c6c6c;}
 	position: absolute;
 	top: 78vh;
 	left: 5.65vw;
-	border-bottom: .1vw solid #6c6c6c;
+	border-bottom: .1vw solid var(--darkgrey);
 	padding: 0 1.5vw;
-	background-image: url('https://images.vexels.com/media/users/3/132068/isolated/preview/f9bb81e576c1a361c61a8c08945b2c48-search-icon-by-vexels.png');
+	background-image: url('images/loupe.png');
 	background-position: 0 60%;
-	background-size: 8%;
+	background-size: 10%;
+	opacity: 90%;
 	background-repeat: no-repeat;
 }
 
@@ -257,7 +258,7 @@ input:-ms-input-placeholder { color: #6c6c6c;}
 	width: 100%;
 	background: transparent;
 	font-family: "Helvetica Neue", sans-serif;
-	color: #000;
+	color: var(--darkdarkgrey);
 	font-size: .9vw;
 }
 
@@ -265,7 +266,7 @@ input:-ms-input-placeholder { color: #6c6c6c;}
 	content: "";
 	display: block;
 	position: absolute;
-	bottom: -10%;
+	bottom: -9%;
 	left: 0;
 	width: 0;
 	height: 10%;
@@ -273,7 +274,7 @@ input:-ms-input-placeholder { color: #6c6c6c;}
 	-o-transition: all 0.4s;
 	-moz-transition: all 0.4s;
 	transition: all 0.4s;
-	background: #000;
+	background: var(--darkdarkgrey);
 }
 
 input.input100 {
@@ -287,6 +288,10 @@ input.input100 {
 
 
 /* SLIDER : https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css*/
+#slider_container{
+	color: var(--darkdarkgrey);
+}
+
 .ui-slider {
 	position: relative;
 	text-align: left;
@@ -360,3 +365,26 @@ html .ui-button.ui-state-disabled:active {
 	border-radius:10px;
 }
 
+
+/* Buttons to change tab*/
+.btn-style-div {
+	cursor:pointer;
+	text-decoration:none;
+	font-weight:300;
+	color: var(--darkdarkgrey);
+	background-color: rgba(119, 160, 186, 0.6);
+	text-align:center;
+	transition: all 0.5s;
+	width:8vw;
+	height:5vh;
+	font-size:1vw;
+	margin-bottom:2vh;
+	border-radius: 1em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.btn-style-div:hover {
+	background-color: rgba(165, 201, 224, 0.6);
+}

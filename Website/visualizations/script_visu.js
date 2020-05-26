@@ -193,4 +193,3 @@ const criterion_loader= function(){
 
 	});
 };
-

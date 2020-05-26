@@ -179,9 +179,13 @@
 
 	<!--Visualization switching buttons-->
 	<div id="btns">
-		<button type="button" id="history-button" onclick="change_tab('HISTORY')" style="width:8vw;height:5vh;font-size:1vw;margin-bottom:2vh;">History</button>
-		<button type="button" id="map-button" onclick="change_tab('MAP')" style="width:8vw;height:5vh;font-size:1vw;margin-bottom:2vh;">Map</button>
-		<button type="button" id="details-button" onclick="change_tab('DETAILS')" style="width:8vw;height:5vh;font-size:1vw;">Details</button>
+		<div class="btn-style-div" id="history-button" onclick="change_tab('HISTORY')">
+			<p style="flex: 0 0 120px;">History</p>
+		</div>
+
+		<div class="btn-style-div" id="details-button" onclick="change_tab('DETAILS')">
+			<p style="flex: 0 0 120px;">Details</p>
+		</div>
 	</div>
 
 	<!--Comparison criterion radio boxes-->
