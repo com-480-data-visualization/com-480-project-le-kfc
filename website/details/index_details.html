@@ -22,7 +22,9 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-	<!--Slider script-->
+
+
+	<!--Slider and background image fade in script-->
 	<script>
 		$( function() {
 			$( "#slider-range" ).slider({
@@ -37,7 +39,25 @@
 			});
 			$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
 					" - $" + $( "#slider-range" ).slider( "values", 1 ) );
-		} );
+
+			var selecting = false;
+			$( "#slider_container" ).on("mousedown", function (evt) {
+				selecting = true;
+				}).on("mouseup", function (evt) {
+							selecting = false;
+							if (data != null) {
+								load_data();
+							}
+			  });
+			$(document).on("mouseup", function (evt) {
+				if (selecting == true) {
+					selecting = false;
+					if (data != null) {
+						load_data();
+					}
+				}
+			});
+		});
 
 		$(function(){
     var bgimage = new Image();
@@ -49,12 +69,16 @@
 		});
 	</script>
 
+
+
 </head>
 
 <body>
 
 	<!--Shared background of the visualizations-->
 	<svg id="background" class="feature"></svg>
+
+
 
 	<!--Visualization switching buttons-->
 	<!--<div id="btns">
@@ -65,25 +89,19 @@
 		<button type="button" id="details-button" onclick="change_tab('DETAILS')" style="width:100%;height:25%;font-size:1vw;">Details</button>
 	</div>-->
 
+
+
 	<div id="measure_title">CRITERIONS</div>
 
 	<div id="competition_title">COMPETITIONS</div>
 
-	<!--Comparison criterion radio boxes-->
-	<form id="measure_container">
-		<!--<center><b style="font-size:1vw;">MEASURE</b></center>--> <!--Modif Vincent-->
-		<!--<br></br>-->
-	</form>
+	<!--Comparison criterion radio/checkboxes-->
+	<form id="measure_container">	</form>
 
-	<!--Comparison criterion radio boxes-->
-	<form id="competition_container">
-		<!--<center><b style="font-size:1vw;">COMPETITION</b></center>--> <!--Modif Vincent-->
-		<!--<br></br>-->
-	</form>
+	<!--Comparison criterion radio/checkboxes-->
+	<form id="competition_container">	</form>
 
-	<!--Visualization title (map excluded)-->
-	<!--<div id="title">HISTORY</div>-->
-	<!--<div id="title">DETAILS</div>--> <!--Modif Vincent */-->
+
 
 	<!--Time slider-->
 	<div id="slider_container">
@@ -97,15 +115,25 @@
 	<!--Flag slider-->
 	<div class="flag-slider" id="js_flag_scroll"></div>
 
+
+
+	<!--Buttons to go to History or Map tab-->
 	<button type="button" id="buttonHistory" class="buttonTab" onclick="change_tab('HISTORY')"></button>
 	<button type="button" id="buttonMap" class="buttonTab" onclick="change_tab('MAP')"></button>
 
+	<!--Information bubbles for History and Map buttons-->
 	<div id="bubbleHistory">Go to History</div>
 	<div id="bubbleMap" class="bubble">Go to Map</div>
 
+
+
+	<!--Generate data button-->
 	<button type="button" id="buttonData" class="buttonLoad" onclick="load_data()"></button>
 
-	<div id="dataBoard" class="board">Select a competition...</div>
+	<!--Div containing bar plots-->
+	<div id="dataBoard" class="board">
+		<div id="graphic"></div>
+	</div>
 
 </body>
 

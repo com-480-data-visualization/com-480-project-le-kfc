@@ -49,7 +49,7 @@ The various units of measurement available in CSS:
 	https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Values_and_units
 */
 
-svg {
+#background { /*Modif Vincent (name bloc)*/
 	/*background: url("images/stadium.jpg");*/ /*Ajout Vincent*/
 	background-repeat: no-repeat; /*Ajout Vincent*/
 	position: absolute;
@@ -79,21 +79,52 @@ svg {
 
 .board { /* Ajout Vincent */
 	position: absolute;
-	text-align: center;
+	/*text-align: center;*/
 	width: 74vw;
 	height: 69vh;
-  line-height: 69vh;
-	color: white;
-	font-size: 3em;
-	text-shadow: 0 0 2px black;
-	font-weight: bold;
+  /*line-height: 69vh;*/
+	/*color: white;*/
+	/*font-size: 3em;*/
+	/*text-shadow: 0 0 2px black;*/
+	/*font-weight: bold;*/
 	left: 25.5vw;
 	top: 3vh;
 	background: rgba(0, 0, 0, 0.5);
 	animation: 500ms ease-out 0s 1 slideInFromTop;
+	overflow: auto;
 }
 
-@keyframes fadeInAndOut {
+/* Ajout Vincent */
+#graphic {
+	position: absolute;
+	margin-top: 3vh;
+	/*width: 73vw;*/
+	/*height: 68vh;*/
+	/*left: 26vw;*/
+	/*top: 3.5vh;*/
+}
+
+.bar { /* Ajout Vincent */
+    fill: #5f89ad;
+}
+
+.axis { /* Ajout Vincent */
+    font-size: 13px;
+		color: white;
+		font-weight: bold;
+}
+
+.axis path,
+.axis line { /* Ajout Vincent */
+    fill: none;
+    display: none;
+}
+
+.label { /* Ajout Vincent */
+    font-size: 13px;
+}
+
+@keyframes fadeInAndOut { /* Ajout Vincent */
     0% {
 			  display: none;
 			  opacity: 0;
@@ -115,7 +146,7 @@ svg {
     }
 }
 
-#bubbleHistory {
+#bubbleHistory { /* Ajout Vincent */
     background-color: #F2F2F2;
 		box-shadow: 0px 0px 6px #B2B2B2;
     border-radius: 5px;
@@ -130,7 +161,7 @@ svg {
 		animation: 2650ms linear 1000ms 1 fadeInAndOut;
 }
 
-#bubbleHistory::after {
+#bubbleHistory::after { /* Ajout Vincent */
     background-color: #F2F2F2;
     box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
     content: "\00a0";
@@ -147,7 +178,7 @@ svg {
         -webkit-transform: rotate( 45deg );
 }
 
-#bubbleMap {
+#bubbleMap { /* Ajout Vincent */
     background-color: #F2F2F2;
 		box-shadow: 0px 0px 6px #B2B2B2;
     border-radius: 5px;
@@ -162,7 +193,7 @@ svg {
 		animation: 2650ms linear 1000ms 1 fadeInAndOut;
 }
 
-#bubbleMap::after {
+#bubbleMap::after { /* Ajout Vincent */
     background-color: #F2F2F2;
     box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
     content: "\00a0";
