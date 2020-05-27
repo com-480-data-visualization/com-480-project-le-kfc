@@ -124,6 +124,8 @@ The various units of measurement available in CSS:
     font-size: 13px;
 }
 
+
+
 /* div of board flag display when selecting a team */
 .flagBoardDisplay {
 	width: 7.5vw;
@@ -140,6 +142,7 @@ The various units of measurement available in CSS:
 	height: 7.5vw;
 }
 
+/* div for team graph title */
 .titleDiv {
 	position: absolute;
 	width: 55.25vw;
@@ -152,6 +155,84 @@ The various units of measurement available in CSS:
 	text-align: center;
 }
 
+/* button triggering the two teams comparison */
+.buttonCompare {
+	position: absolute;
+	width: 10vw;
+	height: 3.5vw;
+	left: 37.5vw;
+	top: 2vh;
+	background-image: url("images/vsbw.jpg");
+  background-size: 10vw 3.5vw;
+	border: 0.1vh solid yellow;
+}
+
+/* other visual aspect of the compare button */
+#buttonCancelVS.buttonCompare {
+	background-image: url("images/vs.jpg");
+	left: 31.8vw;
+}
+
+/* shadow box apearing when we need to select a second country */
+.shadowBox {
+  position: fixed;
+  width: 89.6vw;
+  height: 200px;
+  top: 80.2vh;
+  left: 5.15vw;
+  /* for IE */
+  box-shadow: 0 0 0 1000px rgba(0,0,0,.75);
+  /* for other browsers */
+  box-shadow: 0 0 0 100vmax rgba(0,0,0,.75);
+  pointer-events: none;
+}
+
+/* div of board flag display when selecting a team */
+.flagBoardDisplay2 {
+	position: absolute;
+	width: 7.5vw;
+	height: 7.5vw;
+	margin-top: -7.5vw;
+	margin-left: 65.5vw;
+}
+
+/* image for div of board flag display */
+.flagBoardDisplay2 img {
+	object-fit: cover;
+	border-radius: 50%;
+	width: 7.5vw;
+	height: 7.5vw;
+}
+
+/* div for the name of the first country selected */
+.titleDiv1 {
+	position: absolute;
+	width: 25vw;
+	height: 4vh;
+	left: 7vw;
+	top: 6.5vh;
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+	pointer-events: none;
+	touch-action: none;
+}
+
+/* div for the name of the second country selected */
+.titleDiv2 {
+	position: absolute;
+	width: 25vw;
+	height: 4vh;
+	left: 41.75vw;
+	top: 6.5vh;
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+	pointer-events: none;
+	touch-action: none;
+}
 
 
 /* animation for information bubbles */
@@ -177,7 +258,7 @@ The various units of measurement available in CSS:
     }
 }
 
-/* animation bubble left */
+/* animation left bubble */
 #bubbleHistory {
     background-color: #F2F2F2;
 		box-shadow: 0px 0px 6px #B2B2B2;
@@ -194,7 +275,7 @@ The various units of measurement available in CSS:
 		animation: 2650ms linear 1000ms 1 fadeInAndOut;
 }
 
-/* animation bubble left extension */
+/* extension of animation of left bubble */
 #bubbleHistory::after {
     background-color: #F2F2F2;
     box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
@@ -212,7 +293,7 @@ The various units of measurement available in CSS:
         -webkit-transform: rotate( 45deg );
 }
 
-/* animation bubble right */
+/* animation right bubble */
 #bubbleMap {
     background-color: #F2F2F2;
 		box-shadow: 0px 0px 6px #B2B2B2;
@@ -229,7 +310,7 @@ The various units of measurement available in CSS:
 		animation: 2650ms linear 1000ms 1 fadeInAndOut;
 }
 
-/* animation bubble right extension */
+/* extension of animation of right bubble */
 #bubbleMap::after {
     background-color: #F2F2F2;
     box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
@@ -275,7 +356,7 @@ The various units of measurement available in CSS:
 	background-image: url("images/planet.jpg");
   background-size: 3.75vw 7vh;
 	border: none;
-	border-radius: 50%
+	border-radius: 50%;
 }
 
 
