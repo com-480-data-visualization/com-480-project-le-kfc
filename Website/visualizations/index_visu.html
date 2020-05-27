@@ -81,8 +81,6 @@
 			//Printing the name and value of the country from the hover display box
 			let p1 = document.createElement("p");
 			let p2 = document.createElement("small");
-			p1.style.marginTop = "3px";
-			p1.style.lineHeight = "0";
 			p1.appendChild(document.createTextNode(layer.feature.properties.name));
 			p2.appendChild(document.createTextNode(layer.feature.properties.name));
 			document.getElementById("map_hover").appendChild(p1);
@@ -217,13 +215,12 @@
 	<p>MEASURE</p>
 </form>
 
-<!--Comparison criterion radio boxes-->
+<!--Comparison competition radio boxes-->
 <form id="competition_container">
 	<p>COMPETITION</p>
 </form>
 
 <!--Visualization title (map excluded)-->
-<div id="title"></div>
 
 <!--Time slider-->
 <div id="slider_container">

@@ -12,8 +12,6 @@
 	--light3grey: #ddd;
 	--light4grey: #eee;
 	--white:#fff;
-	--gradient1: #218c74;
-	--gradient2: #b8e994;
 	--font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	--font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
@@ -73,14 +71,6 @@ The various units of measurement available in CSS:
 	text-align: center;
 }
 
-#title {
-	position: absolute;
-	font-size: 5vw;
-	top: 1vw;
-	vertical-align: middle;
-	color:white;
-}
-
 #slider_container {
 	position: absolute;
 	top: 77vh;
@@ -89,6 +79,7 @@ The various units of measurement available in CSS:
 	height: 5vh;
 	float: left;
 	text-align: center;
+	color: var(--darkdarkgrey);
 }
 
 /* FLAG SLIDER STYLE */
@@ -238,10 +229,6 @@ input.input100 {
 
 
 /* SLIDER : https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css*/
-#slider_container{
-	color: var(--darkdarkgrey);
-}
-
 .ui-slider {
 	position: relative;
 	text-align: left;
@@ -360,6 +347,13 @@ html .ui-button.ui-state-disabled:active {
 	text-align: center;
 }
 
+#map_hover p{
+	margin-top: -0.5vw !important;
+	margin-bottom: 0 !important;
+
+	padding-top: 0 !important;
+}
+
 #measure_container:hover, #competition_container:hover {background-color: rgba(119, 160, 186, 0.6);}
 
 #measure_container {
@@ -385,17 +379,17 @@ html .ui-button.ui-state-disabled:active {
 	font-size:1vw;
 	text-align: center;
 	overflow: auto;
-	width: 10vw;
+	width: 11vw;
 }
 
 #map_hover{
-	margin-top: -0.5vw;
 	top: 37vh;
 	font-size:1vw;
 	right: 1vw;
 	text-align: center;
 	height: 8vh;
-	width: 10vw;
+	width: 11vw;
+	white-space: initial;
 }
 
 .content {
@@ -403,7 +397,7 @@ html .ui-button.ui-state-disabled:active {
 	top: 2vw;
 	left: 5%;
 	right: 5%;
-	bottom: 0;
+	bottom: 5%;
 	overflow: auto;
 }
 
@@ -428,7 +422,7 @@ body label {
 	min-width: 10px;
 	min-height: 10px;
 	transition: all 0.2s ease-out 0s;
-	background: rgba(166, 193, 208, 0.8);
+	background: rgba(155, 177, 198, 0.8);
 	border: none;
 	cursor: pointer;
 	display: inline-block;
@@ -438,7 +432,7 @@ body label {
 	vertical-align:middle;
 }
 .option-input:hover {
-	background: rgba(155, 177, 198, 0.9);
+	background: rgba(130, 154, 177, 0.9);
 }
 .option-input:checked {
 	background: rgba(40, 97, 125, 0.8);

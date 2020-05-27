@@ -127,6 +127,7 @@ const assign_stats= function(){
         const MOST_INVOLVED_TEAM_b = team_to_match_played[MOST_INVOLVED_TEAM];
         const MOST_INVOLVED_TEAM_c = Number((MOST_INVOLVED_TEAM_b/shift).toFixed(2));
         const GOALS_SCORED_b = Number((GOALS_SCORED/shift).toFixed(2));
+        const GOALS_SCORED_c = Number((GOALS_SCORED/MATCH_PLAYED).toFixed(2));
         const MOST_SCORING_TEAM = max_key_from_value(team_to_goal_scored, unique_teams, false, team_to_match_played);
         const MOST_SCORING_TEAM_b = team_to_goal_scored[MOST_SCORING_TEAM];
         const MOST_SCORING_TEAM_c = Number((MOST_SCORING_TEAM_b/shift).toFixed(2));
@@ -152,7 +153,7 @@ const assign_stats= function(){
             '<b>Teams involved</b>:<em> - - - - - - - - - - - - - - - </em>'+TEAMS_INVOLVED+ ' teams',
             '<b>Matches played</b>:<em> - - - - - - - - - - - - - - -</em>'+MATCH_PLAYED+' matches  -  '+MATCH_PLAYED_b+' matches/year',
             '<b>Most involved team:</b><em> - - - - - - - - - - -</em> '+MOST_INVOLVED_TEAM+'  -  '+MOST_INVOLVED_TEAM_b+' matches  -  '+MOST_INVOLVED_TEAM_c+' matches/year',
-            '<b>Goals scored</b>:<em> - - - - - - - - - - - - - - - - - .</em>'+GOALS_SCORED+' goals  -  '+GOALS_SCORED_b+' goals/year',
+            '<b>Goals scored</b>:<em> - - - - - - - - - - - - - - - - - .</em>'+GOALS_SCORED+' goals  -  '+GOALS_SCORED_b+' goals/year  -  '+GOALS_SCORED_c+' goals/match',
             '<b>Most scoring team</b>: <em> - - - - - - - - - - - - </em>'+MOST_SCORING_TEAM+'  -  '+MOST_SCORING_TEAM_b+' goals  -  '+MOST_SCORING_TEAM_c+' goals/year',
             '<b>Highest average scoring team</b>*: <em>.</em>'+HIGHEST_AVERAGE_SCORING_TEAM+'  -  '+HIGHEST_AVERAGE_SCORING_TEAM_b+' goals/match',
             '<b>Most successful team</b>: <em> - - - - - - - - - </em>'+MOST_SUCCESFULL_TEAM+'  -  '+MOST_SUCCESFULL_TEAM_b+' wins',
