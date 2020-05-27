@@ -43,16 +43,16 @@
 			var selecting = false;
 			$( "#slider_container" ).on("mousedown", function (evt) {
 				selecting = true;
-				}).on("mouseup", function (evt) {
-							selecting = false;
-							if (data != null) {
-								load_data();
-							}
-			  });
+			}).on("mouseup", function (evt) {
+				selecting = false;
+				if (data != null && currBtnTeamId != null) {
+					load_data();
+				}
+			});
 			$(document).on("mouseup", function (evt) {
 				if (selecting == true) {
 					selecting = false;
-					if (data != null) {
+					if (data != null && currBtnTeamId != null) {
 						load_data();
 					}
 				}
@@ -127,10 +127,11 @@
 
 
 
-	<!--Generate data button-->
+	<!--Generate data button and back to world mode button-->
 	<button type="button" id="buttonData" class="buttonLoad" onclick="load_data()"></button>
+	<button type="button" id="buttonWorldMode" class="buttonWorld" onclick="world_mode()"></button>
 
-	<!--Div containing bar plots-->
+	<!--Div containing bar plots for every team-->
 	<div id="dataBoard" class="board">
 		<div id="graphic"></div>
 	</div>
@@ -140,6 +141,13 @@
    <stop offset="0" stop-color="#fff"></stop>
    <stop offset="1" stop-color="#00f0NaN"></stop>
   </linearGradient>
+
+	<!--Div containing bar plots for one team-->
+	<div id="dataTeam" class="board" style="display:none;">
+		<div id="flagTeam" class="flagBoardDisplay"></div>
+		<div id="graphTitleOneTeam" class="titleDiv"></div>
+		<div id="graphicTeam"></div>
+	</div>
 
 </body>
 
