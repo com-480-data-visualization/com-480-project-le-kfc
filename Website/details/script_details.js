@@ -18,10 +18,9 @@ const change_tab= function(name) {
 
 //Events launched after page as finished loading
 window.addEventListener('load', function() {
-	setTimeout(function(){flag_loader("../../data/final_flags.csv")}, 1000);
+	setTimeout(function(){flag_loader("../../data/final_flags.csv")}, 3700);
 	setTimeout(function(){document.getElementById("slider_container").style.opacity = "1"}, 3700);
 	setTimeout(function(){document.getElementById("search_bar").style.opacity = "1"}, 3700);
-	setTimeout(function(){document.getElementById("buttonData").style.opacity = "1"}, 3700);
 	setTimeout(function(){document.getElementById("buttonWorldMode").style.opacity = "1"}, 3700);
 	setTimeout(function(){document.getElementById("js_flag_scroll").style.opacity = "1"}, 3700);
 });
