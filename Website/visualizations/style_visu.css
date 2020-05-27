@@ -3,15 +3,6 @@
 	--background: #c5e8ff;
 	--backgrounddark: #a5c9e0;
 	--backgrounddark2: #77a0ba;
-	--indigo: #6610f2;
-	--purple: #6f42c1;
-	--pink: #e83e8c;
-	--red: #dc3545;
-	--orange: #ff7800;
-	--yellow: #ffc107;
-	--green: #28a745;
-	--teal: #20c997;
-	--cyan: #17a2b8;
 	--black:#000;
 	--darkdarkgrey: #111;
 	--darkgrey: #3c3c3c;
@@ -80,27 +71,6 @@ The various units of measurement available in CSS:
 	width: 8vw;
 	height: 20vh;
 	text-align: center;
-}
-
-#map_select{
-	position: absolute;
-	width: 15vw;
-	height: 25vh;
-	top: 47vh;
-	left: 83vw;
-	text-align: center;
-	border-style: dotted;
-	overflow: auto;
-}
-
-#map_hover{
-	position: absolute;
-	width: 15vw;
-	height: 8vh;
-	top: 37vh;
-	left: 83vw;
-	text-align: center;
-	border-style: dotted
 }
 
 #title {
@@ -369,13 +339,10 @@ html .ui-button.ui-state-disabled:active {
 	background-color: rgba(165, 201, 224, 0.6);
 }
 
-#measure_container, #competition_container {
+#measure_container, #competition_container, #map_select, #map_hover {
 	position: absolute;
-	left: 1vw;
 	width: 15vw;
-	height: 30vh;
 	overflow: scroll;
-	text-align:left;
 	border-radius: 1em;
 	padding:1%;
 	font-weight:300;
@@ -383,22 +350,53 @@ html .ui-button.ui-state-disabled:active {
 	color: var(--darkdarkgrey);
 	transition: all 0.5s;
 	white-space: nowrap;
-	float:left;
 }
 
-#measure_container p , #competition_container p {
+#measure_container p , #competition_container p, #map_select p, #map_hover p{
 	font-size:1vw;
 	font-weight: bold;
-	text-align: center;
 	margin-top: -0.5vw;
 	opacity: 0.9;
+	text-align: center;
 }
 
 #measure_container:hover, #competition_container:hover {background-color: rgba(119, 160, 186, 0.6);}
 
-#measure_container {top: 10vh;}
+#measure_container {
+	top: 10vh;
+	height: 30vh;
+	left: 1vw;
+	text-align:left;
+	float:left;
+}
 
-#competition_container {top: 42vh;}
+#competition_container {
+	top: 42vh;
+	height: 30vh;
+	left: 1vw;
+	text-align:left;
+	float:left;
+}
+
+#map_select{
+	height: 25vh;
+	top: 47vh;
+	right: 1vw;
+	font-size:1vw;
+	text-align: center;
+	overflow: auto;
+	width: 10vw;
+}
+
+#map_hover{
+	margin-top: -0.5vw;
+	top: 37vh;
+	font-size:1vw;
+	right: 1vw;
+	text-align: center;
+	height: 8vh;
+	width: 10vw;
+}
 
 .content {
 	position: absolute;

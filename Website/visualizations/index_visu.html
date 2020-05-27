@@ -42,7 +42,7 @@
 	<!--Importing Leaflet-->
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css" />
 	<style type="text/css">
-		.leaflet-container{background-color:#c5e8ff;}
+		.leaflet-container{background-color:var(--background);}
 	</style>
 
 	<!--Choropleth map scripts-->
@@ -79,10 +79,14 @@
 			}
 
 			//Printing the name and value of the country from the hover display box
-			let p = document.createElement("p");
-			p.style.fontSize="2vh";
-			p.appendChild(document.createTextNode(layer.feature.properties.name+" --> "+layer.feature.properties.name));
-			document.getElementById("map_hover").appendChild(p);
+			let p1 = document.createElement("p");
+			let p2 = document.createElement("small");
+			p1.style.marginTop = "3px";
+			p1.style.lineHeight = "0";
+			p1.appendChild(document.createTextNode(layer.feature.properties.name));
+			p2.appendChild(document.createTextNode(layer.feature.properties.name));
+			document.getElementById("map_hover").appendChild(p1);
+			document.getElementById("map_hover").appendChild(p2);
 		}
 
 		//Runs when a country stops being hovered over
@@ -97,12 +101,10 @@
 			document.getElementById("map_hover").innerHTML=""
 
 			//Putting the corresponding flag in evidence
-			flag=	document.getElementById(layer.feature.properties.name);
+			flag=document.getElementById(layer.feature.properties.name);
 
 			if (flag!=null && !layer.clicked) {
 				flag.style="resetStyle";
-
-
 			}
 
 		}
@@ -113,18 +115,15 @@
 			//Activating or deactivating the clicked state
 			layer.clicked=!layer.clicked
 
-
 			if (layer.clicked) {
-
 				//Adding the name and value of the country from the select box
-				let p = document.createElement("p");
+				let p = document.createElement("small");
+				p.style.display="block";
+				p.style.textAlign = "left";
 				p.id=layer.feature.properties.name+"_display";
-				p.style.fontSize="2vh";
-				p.appendChild(document.createTextNode(layer.feature.properties.name+" --> "+layer.feature.properties.name));
+				p.appendChild(document.createTextNode(layer.feature.properties.name+" → "+layer.feature.properties.name));
 				document.getElementById("map_select").appendChild(p);
-
 			} else {
-
 				//Removing the name and value of the country from the select box
 				let p=document.getElementById(layer.feature.properties.name+"_display");
 				p.parentNode.removeChild(p);
@@ -197,7 +196,9 @@
 
 <!--Choropleth map data containers-->
 <div id="map_hover"></div>
-<div id="map_select"></div>
+<div id="map_select">
+	<p style="margin-top:3px;line-height: 0;">SUMMARY</p>
+</div>
 
 
 <!--Visualization switching buttons-->
@@ -233,7 +234,7 @@
 <!--Flag slider-->
 <div class="flag-slider" id="js_flag_scroll"></div>
 <div class="wrap-input100">
-	<input class="input100" type="text" id="search_bar" oninput="input_listener()" placeholder="Search for country...">
+	<input class="input100" type="text" id="search_bar" oninput="input_listener()" placeholder="Search for a country...">
 	<span class="focus-input100"></span>
 </div>
 

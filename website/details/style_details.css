@@ -1,7 +1,22 @@
-/*
-This CSS governs the appearance of our site.
-You can find the basic concepts of CSS here: https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/How_CSS_works
-*/
+:root {
+	--blue: #007bff;
+	--background: #c5e8ff;
+	--backgrounddark: #a5c9e0;
+	--backgrounddark2: #77a0ba;
+	--black:#000;
+	--darkdarkgrey: #111;
+	--darkgrey: #3c3c3c;
+	--grey: #6c6c6c;
+	--lightgrey: #9c9c9c;
+	--lightlightgrey: #cccccc;
+	--light3grey: #ddd;
+	--light4grey: #eee;
+	--white:#fff;
+	--gradient1: #218c74;
+	--gradient2: #b8e994;
+	--font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
 
 /*
 This makes the border and padding be counted as part of the element's size.
@@ -33,10 +48,10 @@ body {
 	align-content: center;
 
 	/* background behind the plot */
-	background: white;
+	background: var(--background);
 
 	/* default text */
-	font-family: sans-serif;
+	font-family: Helvetica, sans-serif;
 	font-size: 1.1rem;
 }
 
@@ -510,4 +525,56 @@ The various units of measurement available in CSS:
 	direction: rtl;
 	background: rgba(255, 255, 0, 0.6);
 	animation: 500ms ease-out 0s 1 slideInFromLeft;
+}
+
+/* SLIDER : https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css*/
+#slider_container{
+	color: var(--darkdarkgrey);
+}
+
+.ui-slider {
+	position: relative;
+	text-align: left;
+}
+.ui-slider .ui-slider-handle {
+	position: absolute;
+	z-index: 2;
+	width: 1.2em;
+	height: 1.2em;
+	cursor: default;
+	-ms-touch-action: none;
+	touch-action: none;
+}
+.ui-slider .ui-slider-range {
+	position: absolute;
+	z-index: 1;
+	font-size: .7em;
+	display: block;
+	border: 0;
+	background-position: 0 0;
+}
+
+.ui-slider-horizontal {
+	height: .8em;
+}
+.ui-slider-horizontal .ui-slider-handle {
+	top: -.2em;
+	margin-left: -.6em;
+}
+.ui-slider-horizontal .ui-slider-range {
+	top: 0;
+	height: 100%;
+}
+
+/* Bars colors*/
+.ui-widget-content {
+	background: var(--backgrounddark);
+	color: #333333;
+}
+.ui-widget-content a {
+	color: #333333;
+}
+.ui-widget-header {
+	background: var(--backgrounddark2);
+	font-weight: bold;
 }
