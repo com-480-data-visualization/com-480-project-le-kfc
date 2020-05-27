@@ -22,22 +22,6 @@
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 	<!--Slider script-->
-	<script>
-		$( function() {
-			$( "#slider-range" ).slider({
-				range: true,
-				min: 1872,
-				max: 2020,
-				values: [ 1872, 2020 ],
-				slide: function( event, ui ) {
-					$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-					$( "#slider_text" ).html(ui.values[ 0 ]+" - "+ui.values[ 1 ]);
-				}
-			});
-			$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-					" - $" + $( "#slider-range" ).slider( "values", 1 ) );
-		} );
-	</script>
 
 	<!--Importing Leaflet-->
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css" />
@@ -47,147 +31,6 @@
 
 	<!--Choropleth map scripts-->
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
-	<script>
-
-		//Assigns a color to the inputed value
-		function getColor(d) {
-				return "red"
-		}
-
-		//Runs when hovering over a country
-		function onHover(layer) {
-
-				//Putting the tile in evidence
-				layer.setStyle({
-						weight: 2,
-						fillOpacity: 0.9,
-						dashArray: ''
-				});
-
-				if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-						layer.bringToFront();
-				}
-
-				//Putting the corresponding flag in evidence
-				flag=	document.getElementById(layer.feature.properties.name);
-
-				if (flag!=null) {
-						flag.style.opacity=0;
-						flag.style.background="none";
-						flag.style.border="none";
-
-				}
-
-				//Printing the name and value of the country from the hover display box
-				let p = document.createElement("p");
-				p.style.fontSize="2vh";
-	    	p.appendChild(document.createTextNode(layer.feature.properties.name+" --> "+layer.feature.properties.name));
-	    	document.getElementById("map_hover").appendChild(p);
-		}
-
-		//Runs when a country stops being hovered over
-		function onHoverEnd(layer) {
-
-			//Deactivates the hovered country's targetting
-			if (!layer.clicked){
-				geojson.resetStyle(layer);
-			}
-
-			//Removes the data of the hovered country from the hover display box
-			document.getElementById("map_hover").innerHTML=""
-
-			//Putting the corresponding flag in evidence
-			flag=	document.getElementById(layer.feature.properties.name);
-
-			if (flag!=null && !layer.clicked) {
-					flag.style="resetStyle";
-
-
-			}
-
-		}
-
-		//Runs when clicking on a country
-		function select(layer) {
-
-			//Activating or deactivating the clicked state
-			layer.clicked=!layer.clicked
-
-
-			if (layer.clicked) {
-
-			//Adding the name and value of the country from the select box
-			let p = document.createElement("p");
-			p.id=layer.feature.properties.name+"_display";
-			p.style.fontSize="2vh";
-    	p.appendChild(document.createTextNode(layer.feature.properties.name+" --> "+layer.feature.properties.name));
-    	document.getElementById("map_select").appendChild(p);
-
-		} else {
-
-			//Removing the name and value of the country from the select box
-			let p=document.getElementById(layer.feature.properties.name+"_display");
-			p.parentNode.removeChild(p);
-		}
-
-		}
-
-		//Assigning onHover, onHoverEnd and select to the tiles
-		function onEachFeature(feature, layer) {
-				layer.clicked = false;
-				flag=document.getElementById(feature.properties.name)
-			
-				if(flag!=null){
-					flag.addEventListener("click", function(e){
-						select(layer);
-					});
-					flag.addEventListener("mouseover", function(e){
-						onHoverEnd(layer);
-					});
-					flag.addEventListener("mouseout", function(e){
-						onHover(layer);
-					});
-				}
-				layer.on({
-						mouseover: function(e){onHover(e.target)},
-						mouseout:  function(e){onHoverEnd(e.target)},
-						click:  function(e){select(e.target)}
-				});
-		}
-
-		//Assigns visual characteristics to the input tile (ex: color)
-		function style(feature) {
-
-			return {
-					fillColor: getColor(feature.properties.name),
-					weight: 1,
-					opacity: 1,
-					color: 'black',
-					dashArray: '3',
-					fillOpacity: 0.7
-			};
-		}
-
-		//Loads the tiles and sets-up the map
-		$.ajaxSetup({beforeSend: function(xhr){
-				if (xhr.overrideMimeType)
-				{
-					xhr.overrideMimeType("application/json");
-				}
-			}
-		});
-
-		$.getJSON("map_processed.json",function(data){
-
-			let map = L.map('map',{minZoom:1}).setView([50, 0], 3);
-				geojson=L.geoJson(data, {
-					style: style,
-					onEachFeature: onEachFeature
-				}).addTo(map);
-		})
-
-
-	</script>
 
 </head>
 <body>
@@ -208,6 +51,10 @@
 
 		<div class="btn-style-div" id="details-button" onclick="change_tab('DETAILS')">
 			<p style="flex: 0 0 120px;">Details</p>
+		</div>
+
+		<div class="btn-style-div" id="update_button" onclick="change_tab('DETAILS')">
+			<p style="flex: 0 0 120px;">Update</p>
 		</div>
 	</div>
 
@@ -238,7 +85,6 @@
 		<input class="input100" type="text" id="search_bar" oninput="input_listener()" placeholder="Search for country...">
 		<span class="focus-input100"></span>
 	</div>
-
 
 </body>
 </html>
