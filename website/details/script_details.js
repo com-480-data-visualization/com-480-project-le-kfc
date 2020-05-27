@@ -8,6 +8,7 @@ function whenDocumentLoaded(action) {
 	}
 }
 
+//Events launched after page as finished loading
 window.addEventListener('load', function() {
 	setTimeout(function(){document.getElementById("buttonHistory").style.opacity = "1"}, 600);
 	setTimeout(function(){document.getElementById("buttonMap").style.opacity = "1"}, 600);
@@ -21,125 +22,256 @@ window.addEventListener('load', function() {
 	setTimeout(function(){document.getElementById("bubbleMap").style.display = "None"}, 3700);
 });
 
-
-
 // variable for competition checkboxes and flag buttons management
 let disabled_checkboxes = new Set();
 let currBtnTeamId = null;
 
-// variables for games data loading and D3.js svg bar plots
+// variables for games data loading and D3.js svg bar plots and their title
 let games;
 let data = null;
 let graph_name;
 
+// variables used for the two teams comparison case
+let currBtnTeamId2 = null;
+let temp;
 
+// function triggered when modifying the first team in the two teams comparison section
+function changeVS1() {
+	// Resetting radio buttons and checkboxes
+	disabled_checkboxes.clear();
+	for(var i=0; i < measures.length; i++) {
+			currBtnId = measures[i] + " button";
+			currBtn = document.getElementById(currBtnId);
+			currBtn.checked = false;
+			currBtn.disabled = false;
+	}
+	for(var i=0; i < competitions.length; i++) {
+			currBtnId = competitions[i] + " button";
+			currBtn = document.getElementById(currBtnId);
+			currBtn.checked = false;
+			currBtn.disabled = false;
+	}
+	document.getElementById("shadowFocus").style.display = "block";
+	currBtnTeamId = null;
+	document.getElementById("buttonWorldMode").disabled = true;
+	document.getElementById("buttonCancelVS").disabled = true;
+	document.getElementById("flagVS1").style.pointerEvents = "none";
+	document.getElementById("flagVS2").style.pointerEvents = "none";
+}
 
+// function triggered when modifying the second team in the two teams comparison section
+function changeVS2() {
+	disabled_checkboxes.clear();
+	for(var i=0; i < measures.length; i++) {
+			currBtnId = measures[i] + " button";
+			currBtn = document.getElementById(currBtnId);
+			currBtn.checked = false;
+			currBtn.disabled = false;
+	}
+	for(var i=0; i < competitions.length; i++) {
+			currBtnId = competitions[i] + " button";
+			currBtn = document.getElementById(currBtnId);
+			currBtn.checked = false;
+			currBtn.disabled = false;
+	}
+	document.getElementById("shadowFocus").style.display = "block";
+	currBtnTeamId2 = null;
+	document.getElementById("buttonWorldMode").disabled = true;
+	document.getElementById("buttonCancelVS").disabled = true;
+	document.getElementById("flagVS1").style.pointerEvents = "none";
+	document.getElementById("flagVS2").style.pointerEvents = "none";
+}
 
+// function triggered when changing the team selection in the two teams comparison section
+function changeVS(newFlag) {
+		if (currBtnTeamId == null) {
+				if (newFlag == currBtnTeamId2) {
+						alert("Please choose a team different than the other one");
+						changeVS1();
+				} else {
+					currBtnTeamId = newFlag;
+					document.getElementById("nameCountry1").innerHTML = currBtnTeamId;
+					for (i=0; i<flag_number; i++) {
+						if (flags[i]['Country'] == currBtnTeamId) {
+							document.getElementById("flagVS1").innerHTML = "<img src=\""+flags[i]['ImageURL']+"\">";
+							break;
+						}
+					}
+				}
+		} else if (currBtnTeamId2 == null) {
+				if (newFlag == currBtnTeamId) {
+						alert("Please choose a team different than the other one");
+						changeVS2()
+				} else {
+					currBtnTeamId2 = newFlag;
+					document.getElementById("nameCountry2").innerHTML = currBtnTeamId2;
+					for (i=0; i<flag_number; i++) {
+						if (flags[i]['Country'] == currBtnTeamId2) {
+							document.getElementById("flagVS2").innerHTML = "<img src=\""+flags[i]['ImageURL']+"\">";
+							break;
+						}
+					}
+				}
+		}
+}
 
+// function triggered when entering in two teams comparison section
+function triggerVS() {
+	disabled_checkboxes.clear();
+	for(var i=0; i < measures.length; i++) {
+			currBtnId = measures[i] + " button";
+			currBtn = document.getElementById(currBtnId);
+			currBtn.checked = false;
+			currBtn.disabled = false;
+	}
+	for(var i=0; i < competitions.length; i++) {
+			currBtnId = competitions[i] + " button";
+			currBtn = document.getElementById(currBtnId);
+			currBtn.checked = false;
+			currBtn.disabled = false;
+	}
 
+	document.getElementById("dataBoard").style.display = "none";
+	document.getElementById("dataTeam").style.display = "none";
+	document.getElementById("dataVS").style.display = "block";
 
+	for (i=0; i<flag_number; i++) {
+		if (flags[i]['Country'] == currBtnTeamId) {
+			document.getElementById("flagVS1").innerHTML = "<img src=\""+flags[i]['ImageURL']+"\">";
+			break;
+		}
+	}
+	document.getElementById("nameCountry1").innerHTML = currBtnTeamId;
 
+	document.getElementById("shadowFocus").style.display = "block";
+	document.getElementById("buttonWorldMode").disabled = true;
+	document.getElementById("buttonCancelVS").disabled = true;
+	document.getElementById("flagVS1").style.pointerEvents = "none";
+	document.getElementById("flagVS2").style.pointerEvents = "none";
+	currBtnTeamId2 = null;
+}
 
+// function triggered when exiting the two teams comparison section
+function cancelVS() {
+	temp = currBtnTeamId;
+	currBtnTeamId = null;
+	currBtnTeamId2 = null;
+	document.getElementById("flagVS1").innerHTML = "";
+	document.getElementById("flagVS2").innerHTML = "";
+	document.getElementById("nameCountry1").innerHTML = "";
+	document.getElementById("nameCountry2").innerHTML = "";
+	set_team(temp);
+}
 
-
-
-
-
-
-
-
-/* triggered when a new country is selected */
+// function triggered when a country is selected
 function set_team(newCountry) {
-	if (document.getElementById("bar_plot_graphic_team") != null) {
-		d3.select("#bar_plot_graphic_team").remove();
-	}
+	if (document.getElementById("shadowFocus").style.display == "block") {
 
-	Array.from(document.getElementById("measure_container").getElementsByTagName('div')).forEach((item, i) => { /*Modif Vincent*/
-		item.getElementsByTagName('input')[0].type="checkbox";
-	});
-	if (currBtnTeamId == null) {
-		disabled_checkboxes.clear();
-		for(var i=0; i < measures.length; i++) {
-				currBtnId = measures[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
+		document.getElementById("shadowFocus").style.display = "none";
+		document.getElementById("buttonWorldMode").disabled = false;
+		document.getElementById("buttonCancelVS").disabled = false;
+		document.getElementById("flagVS1").style.pointerEvents = "auto";
+		document.getElementById("flagVS2").style.pointerEvents = "auto";
+		changeVS(newCountry);
+
+	} else { // We are entering in one team bar plot section
+
+		// Removing existing bar plots
+		if (document.getElementById("bar_plot_graphic_team") != null) {
+			d3.select("#bar_plot_graphic_team").remove();
 		}
-		for(var i=0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-		}
-	}
 
-	if (currBtnTeamId != newCountry) {
-		let prev = currBtnTeamId;
-  	currBtnTeamId = newCountry;
-
-  	document.getElementById("dataBoard").style.display = "none";
-		document.getElementById("dataTeam").style.display = "block";
-
-		document.getElementById("buttonData").style.visibility = "hidden";
-		document.getElementById("buttonWorldMode").style.visibility = "visible";
-
-		document.getElementById("graphTitleOneTeam").innerHTML = currBtnTeamId;
-
-		for (i=0; i<flag_number; i++) {
-			if (flags[i]['Country'] == currBtnTeamId) {
-				document.getElementById("flagTeam").innerHTML = "<img src=\""+flags[i]['ImageURL']+"\">";
-				break;
+		// Resetting radio buttons and checkboxes, and transforming radio button into checkboxes for the single team bar plot section
+		Array.from(document.getElementById("measure_container").getElementsByTagName('div')).forEach((item, i) => {
+			item.getElementsByTagName('input')[0].type="checkbox";
+		});
+		if (currBtnTeamId == null) {
+			disabled_checkboxes.clear();
+			for(var i=0; i < measures.length; i++) {
+					currBtnId = measures[i] + " button";
+					currBtn = document.getElementById(currBtnId);
+					currBtn.checked = false;
+					currBtn.disabled = false;
+			}
+			for(var i=0; i < competitions.length; i++) {
+					currBtnId = competitions[i] + " button";
+					currBtn = document.getElementById(currBtnId);
+					currBtn.checked = false;
+					currBtn.disabled = false;
 			}
 		}
 
-		if (prev == null) {
-				data = null;
-		} else {
-				load_data();
+		if (currBtnTeamId != newCountry) {
+			let prev = currBtnTeamId;
+	  	currBtnTeamId = newCountry;
+
+	  	document.getElementById("dataBoard").style.display = "none";
+			document.getElementById("dataTeam").style.display = "block";
+			document.getElementById("dataVS").style.display = "none";
+
+			document.getElementById("buttonData").style.visibility = "hidden";
+			document.getElementById("buttonWorldMode").style.visibility = "visible";
+
+			document.getElementById("graphTitleOneTeam").innerHTML = currBtnTeamId;
+
+			for (i=0; i<flag_number; i++) {
+				if (flags[i]['Country'] == currBtnTeamId) {
+					document.getElementById("flagTeam").innerHTML = "<img src=\""+flags[i]['ImageURL']+"\">";
+					break;
+				}
+			}
+
+			// we don't load immediately a bar plot when entering in the section since no criterion nor competition is selected
+			if (prev == null) {
+					data = null;
+			} else {
+					// we now load the data immediately at the moment a parameter is modified
+					load_data();
+			}
 		}
 	}
 }
 
-
-
+// function triggered when entering world mode which is the section with bar plots of every team and focused on exclusively one criterion at a time
 const world_mode = function() {
-	if (currBtnTeamId == null) {
-		alert("You are already in world mode");
-		return;
-	} else {
+	document.getElementById("flagVS1").innerHTML = "";
+	document.getElementById("flagVS2").innerHTML = "";
+	document.getElementById("nameCountry1").innerHTML = "";
+	document.getElementById("nameCountry2").innerHTML = "";
 
-		if (document.getElementById("bar_plot_graphic") != null) {
-			d3.select("#bar_plot_graphic").remove();
-		}
-
-		Array.from(document.getElementById("measure_container").getElementsByTagName('div')).forEach((item, i) => { /*Modif Vincent*/
-			item.getElementsByTagName('input')[0].type="radio";
-		});
-		disabled_checkboxes.clear();
-		for(var i=0; i < measures.length; i++) {
-				currBtnId = measures[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-		}
-		for(var i=0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-		}
-
-		currBtnTeamId = null;
-		data = null;
-		document.getElementById("dataTeam").style.display = "none";
-		document.getElementById("dataBoard").style.display = "block";
-
-		document.getElementById("buttonData").style.visibility = "visible";
-		document.getElementById("buttonWorldMode").style.visibility = "hidden";
+	// Removing existing bar plot
+	if (document.getElementById("bar_plot_graphic") != null) {
+		d3.select("#bar_plot_graphic").remove();
 	}
+
+	// Resetting radio buttons and checkboxes, and transforming checkboxes button into radios for the world bar plot section
+	Array.from(document.getElementById("measure_container").getElementsByTagName('div')).forEach((item, i) => { /*Modif Vincent*/
+		item.getElementsByTagName('input')[0].type="radio";
+	});
+	disabled_checkboxes.clear();
+	for(var i=0; i < measures.length; i++) {
+			currBtnId = measures[i] + " button";
+			currBtn = document.getElementById(currBtnId);
+			currBtn.checked = false;
+			currBtn.disabled = false;
+	}
+	for(var i=0; i < competitions.length; i++) {
+			currBtnId = competitions[i] + " button";
+			currBtn = document.getElementById(currBtnId);
+			currBtn.checked = false;
+			currBtn.disabled = false;
+	}
+
+	currBtnTeamId = null;
+	currBtnTeamId2 = null;
+	data = null;
+	document.getElementById("dataTeam").style.display = "none";
+	document.getElementById("dataBoard").style.display = "block";
+	document.getElementById("dataVS").style.display = "none";
+
+	document.getElementById("buttonData").style.visibility = "visible";
+	document.getElementById("buttonWorldMode").style.visibility = "hidden";
 }
-
-
 
 // data loader for games stats
 const data_loader = function(path) {
@@ -149,54 +281,67 @@ const data_loader = function(path) {
 	});
 };
 
+// launch the corresponding data parsing function according to the section we are
 const load_data = function() {
 	if (currBtnTeamId == null) {
 		load_data_world();
-	} else {
+	} else if (currBtnTeamId2 == null) {
 		load_data_one_country()
+	} else {
+		load_data_two_countries()
 	}
 }
 
+// data parsing for two teams comparison section
+const load_data_two_countries = function() {
 
+	// Removing existing bar plots
+	if (document.getElementById("bar_plot_graphic_team") != null) {
+		d3.select("#bar_plot_graphic_team").remove();
+	}
+	if (document.getElementById("bar_plot_graphic") != null) {
+		d3.select("#bar_plot_graphic").remove();
+	}
 
+	data1 = get_one_country_data(games, currBtnTeamId);
+	data2 = get_one_country_data(games, currBtnTeamId2);
 
+	if (data1.length == 0 || data2.length == 0) {
+		data1 = null;
+		data2 = null;
+		return;
+	}
 
+	//TODO : Create div and elements to display the statistics retrieved from the two data variables
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// parsing games stats information
-const get_one_country_data = function(data_i) {
+// data parsing for one team comparison section
+const get_one_country_data = function(data_i, chosen_team) {
 		let retrieved_data = new Array();
 		let measure_set = new Set();
 		let competition_set = new Set();
+
+		// getting measure parameters
 		measures.forEach((item, i) => {
 			if (document.getElementById(measures[i] + " button").checked) {
 				measure_set.add(measures[i]);
 			}
 		});
+
+		// getting competition parameters
 		competitions.forEach((item, i) => {
 			if (document.getElementById(competitions[i] + " button").checked) {
 				competition_set.add(competitions[i]);
 			}
 		});
+
+		// Do nothing if the user didn't select any criterion no competition
 		if (measure_set.size == 0 || competition_set.size == 0) {
 			return retrieved_data;
 		}
 
-		if (competition_set.size == 1 && competition_set.has("All")) {
+		// handle a small issue with the speciall competition checkbox "All" which checks and uncheck automatically every other competition checkboxes
+		if (competition_set.has("All")) {
 			competitions.forEach((item, i) => {
 				if (i != 0) {
 					competition_set.add(competitions[i]);
@@ -204,7 +349,7 @@ const get_one_country_data = function(data_i) {
 			});
 		}
 
-		let team = currBtnTeamId;
+		let team = chosen_team;
 
 		let year;
 		let start_year = document.getElementById("slider_text").textContent.substring(0, 4);
@@ -235,11 +380,11 @@ const get_one_country_data = function(data_i) {
 				found = 0;
 
 				games.forEach(row => {
-
 						if (row.away_team == team || row.home_team == team) {
 									year = row.date.substring(0, 4);
 									if ((year >= start_year) && (year <= end_year)) {
 												if (competition_set.has(row.tournament)) {
+
 															if (measure == "Matches Played") {
 																	counter++;
 															} else if (measure == "Wins") {
@@ -304,6 +449,7 @@ const get_one_country_data = function(data_i) {
 																			}
 																	}
 															}
+
 												}
 									}
 						}
@@ -320,31 +466,32 @@ const get_one_country_data = function(data_i) {
 		return retrieved_data;
 }
 
-// bar plot creation for one country in details tab
+// bar plot creation for one country comparison section
 const load_data_one_country = function() {
+
+	// removing existing bar plots
 	if (document.getElementById("bar_plot_graphic_team") != null) {
 		d3.select("#bar_plot_graphic_team").remove();
 	}
-
 	if (document.getElementById("bar_plot_graphic") != null) {
 		d3.select("#bar_plot_graphic").remove();
 	}
 
-	data = get_one_country_data(games);
+	data = get_one_country_data(games, currBtnTeamId);
 
+	// do nothing if there is no data corresponding to the selected filters
 	if (data.length == 0) {
-		//alert("Please select a criterion and a competition");
 		document.getElementById("graphTitleOneTeam").innerHTML = currBtnTeamId;
 		data = null;
 		return;
 	}
 
-	//sort bars based on value
+	// sort bars based on value
 	data = data.sort(function (a, b) {
 	  return d3.ascending(a.value, b.value);
 	})
 
-	//set up svg using margin conventions - we'll need plenty of room on the left for labels
+	//set up svg with margins
 	var margin = {
 	  top: 0,
 	  right: 35,
@@ -352,8 +499,8 @@ const load_data_one_country = function() {
 	  left: 214
 	};
 
-	var width = 1045 - margin.left - margin.right,
-	  height = 35 * data.length - margin.top - margin.bottom;
+	var width = 1000 - margin.left - margin.right,
+	  height = 30 * data.length - margin.top - margin.bottom;
 
 	var svg = d3.select("#graphicTeam").append("svg")
 		.attr("id", "bar_plot_graphic_team")
@@ -375,9 +522,8 @@ const load_data_one_country = function() {
 	      return d.name;
 	  }));
 
-	//make y axis to show bar names
+	// make y axis to show bar names
 	var yAxis = d3.axisLeft(y)
-	  //no tick marks
 	  .tickSize(0);
 
 	var gy = svg.append("g")
@@ -389,6 +535,7 @@ const load_data_one_country = function() {
 	  .enter()
 	  .append("g")
 
+	// apply gradient on bars
 	var gradient = svg
     .append("linearGradient")
     .attr("x1", 0)
@@ -408,30 +555,28 @@ const load_data_one_country = function() {
 	    .attr("offset", "0.5")
 	    .attr("stop-color", "#f00")
 
-	//append rects
+	// append rects
 	bars.append("rect")
 	  .attr("class", "bar")
 	  .attr("y", function (d) {
 	      return y(d.name);
 	  })
-	  .attr("height", 20)//y.bandwidth())
+	  .attr("height", 20)
 	  .attr("x", 0)
 	  .attr("width", function (d) {
 				return 0;
 	  })
 		.attr("fill", "url(#gradient)");
 
-	//add a value label to the right of each bar
+	// add a value label to the right of each bar
 	bars.append("text")
 	  .attr("class", "label")
 		.attr("fill", "white")
 		.attr("font-weight", "bold")
 		.attr("opacity", "0")
-	  //y position of the label is halfway down the bar
 	  .attr("y", function (d) {
 	      return y(d.name) + y.bandwidth() / 2 + 4;
 	  })
-	  //x position is 3 pixels to the right of the bar
 	  .attr("x", function (d) {
 	      return x(d.value) + 3;
 	  })
@@ -439,7 +584,7 @@ const load_data_one_country = function() {
 	      return d.value;
 	  });
 
-	// Animation
+	// add animations on plot
 	svg.selectAll("rect")
 	  .transition()
 	  .duration(2500)
@@ -466,50 +611,24 @@ const load_data_one_country = function() {
 		});
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// parsing games stats information
+// parsing games stats information for world section
 const get_world_data = function(data_i) {
 	let retrieved_data = new Array();
 	let competition_set = new Set();
+
+	// getting competition parameters onlu since criterions are now radio button because we only manage one criterion at a time
 	competitions.forEach((item, i) => {
 		if (document.getElementById(competitions[i] + " button").checked) {
 			competition_set.add(competitions[i]);
 		}
 	});
+
+	// Do nothing if no competition is selected
 	if (competition_set.size == 0) {
 		return retrieved_data;
 	}
 
+	// add all the existing teams to a set
 	let teams = new Set();
 	data_i.forEach(row => {
 			teams.add(row.away_team);
@@ -523,13 +642,10 @@ const get_world_data = function(data_i) {
 	if (document.getElementById("Matches Played button").checked) {
 		graph_name = "Matches Played between " + start_year + " and " + end_year;
 		let counter;
-
 		teams.forEach(team => {
 				counter = 0;
-
 				games.forEach(row => {
 					year = row.date.substring(0, 4);
-
 					if (competition_set.has("All")) {
 						if ((row.away_team == team || row.home_team == team) && (year >= start_year) && (year <= end_year)) {
 							counter++;
@@ -539,7 +655,6 @@ const get_world_data = function(data_i) {
 							counter++;
 						}
 					}
-
 				})
 				retrieved_data.push({"name": team, "value": counter});
 		});
@@ -547,13 +662,10 @@ const get_world_data = function(data_i) {
 	} else if (document.getElementById("Wins button").checked) {
 		graph_name = "Matches won between " + start_year + " and " + end_year;
 		let counter;
-
 		teams.forEach(team => {
 				counter = 0;
-
 				games.forEach(row => {
 					year = row.date.substring(0, 4);
-
 					if (competition_set.has("All")) {
 						if ((row.away_team == team || row.home_team == team) && (year >= start_year) && (year <= end_year)) {
 							if ((row.away_team == team && parseInt(row.away_score) > parseInt(row.home_score)) || (row.home_team == team && parseInt(row.home_score) > parseInt(row.away_score))) {
@@ -567,7 +679,6 @@ const get_world_data = function(data_i) {
 							}
 						}
 					}
-
 				})
 				retrieved_data.push({"name": team, "value": counter});
 		});
@@ -575,13 +686,10 @@ const get_world_data = function(data_i) {
 	} else if (document.getElementById("Draws button").checked) {
 		graph_name = "Draw matches between " + start_year + " and " + end_year;
 		let counter;
-
 		teams.forEach(team => {
 				counter = 0;
-
 				games.forEach(row => {
 					year = row.date.substring(0, 4);
-
 					if (competition_set.has("All")) {
 						if ((row.away_team == team || row.home_team == team) && (year >= start_year) && (year <= end_year)) {
 							if (parseInt(row.home_score) == parseInt(row.away_score)) {
@@ -595,7 +703,6 @@ const get_world_data = function(data_i) {
 							}
 						}
 					}
-
 				})
 				retrieved_data.push({"name": team, "value": counter});
 		});
@@ -603,13 +710,10 @@ const get_world_data = function(data_i) {
 	} else if (document.getElementById("Losses button").checked) {
 		graph_name = "Matches Lost between " + start_year + " and " + end_year;
 		let counter;
-
 		teams.forEach(team => {
 				counter = 0;
-
 				games.forEach(row => {
 					year = row.date.substring(0, 4);
-
 					if (competition_set.has("All")) {
 						if ((row.away_team == team || row.home_team == team) && (year >= start_year) && (year <= end_year)) {
 							if ((row.away_team == team && parseInt(row.away_score) < parseInt(row.home_score)) || (row.home_team == team && parseInt(row.home_score) < parseInt(row.away_score))) {
@@ -623,7 +727,6 @@ const get_world_data = function(data_i) {
 							}
 						}
 					}
-
 				})
 				retrieved_data.push({"name": team, "value": counter});
 		});
@@ -631,13 +734,10 @@ const get_world_data = function(data_i) {
 	} else if (document.getElementById("Goals Scored button").checked) {
 		graph_name = "Goals scored between " + start_year + " and " + end_year;
 		let counter;
-
 		teams.forEach(team => {
 				counter = 0;
-
 				games.forEach(row => {
 					year = row.date.substring(0, 4);
-
 					if (competition_set.has("All")) {
 						if ((row.away_team == team || row.home_team == team) && (year >= start_year) && (year <= end_year)) {
 							if (row.away_team == team) {
@@ -655,7 +755,6 @@ const get_world_data = function(data_i) {
 							}
 						}
 					}
-
 				})
 				retrieved_data.push({"name": team, "value": counter});
 		});
@@ -663,13 +762,10 @@ const get_world_data = function(data_i) {
 	} else if (document.getElementById("Goals Conceded button").checked) {
 		graph_name = "Goals conceded between " + start_year + " and " + end_year;
 		let counter;
-
 		teams.forEach(team => {
 				counter = 0;
-
 				games.forEach(row => {
 					year = row.date.substring(0, 4);
-
 					if (competition_set.has("All")) {
 						if ((row.away_team == team || row.home_team == team) && (year >= start_year) && (year <= end_year)) {
 							if (row.away_team == team) {
@@ -687,7 +783,6 @@ const get_world_data = function(data_i) {
 							}
 						}
 					}
-
 				})
 				retrieved_data.push({"name": team, "value": counter});
 		});
@@ -695,17 +790,13 @@ const get_world_data = function(data_i) {
 	} else if (document.getElementById("Friendly Home Matches Played button").checked) {
 		graph_name = "Friendly home matches played between " + start_year + " and " + end_year;
 		let counter;
-
 		teams.forEach(team => {
 				counter = 0;
-
 				games.forEach(row => {
 					year = row.date.substring(0, 4);
-
 					if ((row.home_team == team) && (row.tournament == "Friendly") && (row.neutral == "False") && (year >= start_year) && (year <= end_year)) {
 							counter++;
 					}
-
 				})
 				retrieved_data.push({"name": team, "value": counter});
 		});
@@ -713,17 +804,13 @@ const get_world_data = function(data_i) {
 	} else if (document.getElementById("Friendly Away Matches Played button").checked) {
 		graph_name = "Friendly away matches played between " + start_year + " and " + end_year;
 		let counter;
-
 		teams.forEach(team => {
 				counter = 0;
-
 				games.forEach(row => {
 					year = row.date.substring(0, 4);
-
 					if ((row.away_team == team) && (row.tournament == "Friendly") && (row.neutral == "False") && (year >= start_year) && (year <= end_year)) {
 							counter++;
 					}
-
 				})
 				retrieved_data.push({"name": team, "value": counter});
 		});
@@ -731,17 +818,13 @@ const get_world_data = function(data_i) {
 	} else if (document.getElementById("Friendly Neutral Matches Played button").checked) {
 		graph_name = "Friendly neutral matches played between " + start_year + " and " + end_year;
 		let counter;
-
 		teams.forEach(team => {
 				counter = 0;
-
 				games.forEach(row => {
 					year = row.date.substring(0, 4);
-
 					if ((row.away_team == team || row.home_team == team) && (row.tournament == "Friendly") && (row.neutral == "True") && (year >= start_year) && (year <= end_year)) {
 							counter++;
 					}
-
 				})
 				retrieved_data.push({"name": team, "value": counter});
 		});
@@ -749,13 +832,10 @@ const get_world_data = function(data_i) {
 	} else if (document.getElementById("Tournament Matches Played button").checked) {
 		graph_name = "Tournament matches played between " + start_year + " and " + end_year;
 		let counter;
-
 		teams.forEach(team => {
 				counter = 0;
-
 				games.forEach(row => {
 					year = row.date.substring(0, 4);
-
 					if (competition_set.has("All")) {
 						if ((row.away_team == team || row.home_team == team) && (row.tournament != "Friendly") && (year >= start_year) && (year <= end_year)) {
 								counter++;
@@ -765,7 +845,6 @@ const get_world_data = function(data_i) {
 								counter++;
 						}
 					}
-
 				})
 				retrieved_data.push({"name": team, "value": counter});
 		});
@@ -774,10 +853,8 @@ const get_world_data = function(data_i) {
 		graph_name = "Major tournaments played between " + start_year + " and " + end_year;
 		let curr_year;
 		let valid_years;
-
 		teams.forEach(team => {
 				valid_years = new Set();
-
 				games.forEach(row => {
 					year = row.date.substring(0, 4);
 					curr_year = year;
@@ -796,14 +873,12 @@ const get_world_data = function(data_i) {
 								valid_years.add(curr_year);
 						}
 					}
-
 				})
 				retrieved_data.push({"name": team, "value": valid_years.size});
 		});
 
 	} else if (document.getElementById("World Cup Tournaments Won button").checked) {
 		graph_name = "World Cup tournaments won between " + start_year + " and " + end_year;
-
 		let winners = [{"country": "Brazil", "wins": [1958, 1962, 1970, 1994, 2002]}, {"country": "Germany", "wins": [1954, 1974, 1990, 2014]},
 																																									{"country": "Italy", "wins": [1934, 1938, 1982, 2006]},
 																																									{"country": "France", "wins": [1998, 2018]},
@@ -813,7 +888,6 @@ const get_world_data = function(data_i) {
 																																									{"country": "England", "wins": [1966]}];
 		let found;
 		let counter;
-
 		teams.forEach(team => {
 			found = 0;
 			for (i=0; i < winners.length; i++) {
@@ -829,12 +903,10 @@ const get_world_data = function(data_i) {
 					break;
 				}
 			}
-
 			if (found == 0) {
 					retrieved_data.push({"name": team, "value": 0});
 			}
 		});
-
 	}
 
 	return retrieved_data;
@@ -842,10 +914,10 @@ const get_world_data = function(data_i) {
 
 // bar plot creation for world section in details tab
 const load_data_world = function() {
+	// removing existing plots
 	if (document.getElementById("bar_plot_graphic") != null) {
 		d3.select("#bar_plot_graphic").remove();
 	}
-
 	if (document.getElementById("bar_plot_graphic_team") != null) {
 		d3.select("#bar_plot_graphic_team").remove();
 	}
@@ -854,18 +926,19 @@ const load_data_world = function() {
 
 	data = get_world_data(games);
 
+	// Do nothing is no games matches the request
 	if (data.length == 0) {
 		alert("Please select a criterion and a competition");
 		data = null;
 		return;
 	}
 
-	//sort bars based on value
+	// sort bars based on value
 	data = data.sort(function (a, b) {
 	  return d3.ascending(a.value, b.value);
 	})
 
-	//set up svg using margin conventions - we'll need plenty of room on the left for labels
+	// set up svg using margins
 	var margin = {
 	  top: 26,
 	  right: 35,
@@ -873,7 +946,7 @@ const load_data_world = function() {
 	  left: 214
 	};
 
-	var width = 1045 - margin.left - margin.right,
+	var width = 1000 - margin.left - margin.right,
 	  height = 5000 - margin.top - margin.bottom;
 
 	var svg = d3.select("#graphic").append("svg")
@@ -905,9 +978,8 @@ const load_data_world = function() {
 	      return d.name;
 	  }));
 
-	//make y axis to show bar names
+	// make y axis to show bar names
 	var yAxis = d3.axisLeft(y)
-	  //no tick marks
 	  .tickSize(0);
 
 	var gy = svg.append("g")
@@ -919,6 +991,7 @@ const load_data_world = function() {
 	  .enter()
 	  .append("g")
 
+		// apply gradient on bars
 	var gradient = svg
     .append("linearGradient")
     .attr("x1", 0)
@@ -938,7 +1011,7 @@ const load_data_world = function() {
 	    .attr("offset", "0.5")
 	    .attr("stop-color", "#f00")
 
-	//append rects
+	// append rects
 	bars.append("rect")
 	  .attr("class", "bar")
 	  .attr("y", function (d) {
@@ -951,17 +1024,15 @@ const load_data_world = function() {
 	  })
 		.attr("fill", "url(#gradient)");
 
-	//add a value label to the right of each bar
+	// add a value label to the right of each bar
 	bars.append("text")
 	  .attr("class", "label")
 		.attr("fill", "white")
 		.attr("font-weight", "bold")
 		.attr("opacity", "0")
-	  //y position of the label is halfway down the bar
 	  .attr("y", function (d) {
 	      return y(d.name) + y.bandwidth() / 2 + 4;
 	  })
-	  //x position is 3 pixels to the right of the bar
 	  .attr("x", function (d) {
 	      return x(d.value) + 3;
 	  })
@@ -969,7 +1040,7 @@ const load_data_world = function() {
 	      return d.value;
 	  });
 
-	// Animation
+	// add animations to the plot
 	svg.selectAll("rect")
 	  .transition()
 	  .duration(2500)
@@ -996,35 +1067,7 @@ const load_data_world = function() {
 		});
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// TODO : Enable buttons to change tab
 /*
 //Tab change function
 const change_tab = function(name) {
@@ -1062,25 +1105,22 @@ const change_tab = function(name) {
 };
 */
 
-
-
 //Flag database
 let flags;
-
-//todo: modify it in function of the matched number of country in the Search bar
 let flag_number = 215;
 
 //Flag loading function
 const flag_loader = function(path) {
 	d3.csv(path).then(function(data) {
-		//Assigning the loaded data to the local database
+		// Assigning the loaded data to the local database
 		flags=data;
-		//Filling the first flags
+		// Filling the first flags
 		assign_flags();
 	});
 };
 
 const assign_flags = function() {
+
     //Reference to the flag container
     let scrollmenu = document.getElementById("js_flag_scroll");
     scrollmenu.classList.add("flag-slider");
@@ -1115,51 +1155,17 @@ const assign_flags = function() {
 
         square.appendChild(button_style);
         if(cnt<flag_number) square2.appendChild(button_style2);
+
 				cnt++;
 
         wrapper.appendChild(square);
         wrapper.appendChild(square2);
         scrollmenu.appendChild(wrapper);
     }
+
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//List of criterions
+//List of criterions/measures
 measures=["Matches Played", "Wins", "Draws", "Losses", "Goals Scored", "Goals Conceded",
 					"Friendly Home Matches Played", "Friendly Away Matches Played", "Friendly Neutral Matches Played",
 					"Tournament Matches Played", "Major Tournaments Played", "World Cup Tournaments Won"];
@@ -1203,7 +1209,7 @@ competitions=['All', 'Friendly',
 			        'Vietnam Independence Cup', 'WAFF Championship',
 			        'West African Cup', 'Windward Islands Tournament'];
 
-//Criterion loading myFunction
+//Criterion loader to create the side menus
 const criterion_loader = function() {
 
 	//Reference to the criterion containers
@@ -1213,7 +1219,7 @@ const criterion_loader = function() {
 	//Loading all measure criterions
 	measures.forEach((item, i) => {
 
-		//Instanciating the radio button + text container
+		//Instanciating the container of the radio button and its label
 		const container=document.createElement("div");
 		container.style.width="21vw";
 		container.style.height="3vh";
@@ -1254,7 +1260,8 @@ const criterion_loader = function() {
 
 	//Loading all competition criterions
 	competitions.forEach((item, i) => {
-		//Instanciating the checkbox+text container
+
+		//Instanciating the container of the checkbox and its label
 		const container=document.createElement("div");
 		container.style.width="21vw";
 		container.style.height="3vh";
@@ -1293,37 +1300,23 @@ const criterion_loader = function() {
 	});
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// triggered when the document is ready
 whenDocumentLoaded(() => {
+
+	// load the flag database
 	data_loader("../../data/final_results.csv"); /* Ajout Vincent */
 
+	// create the criterions side menus
 	criterion_loader();
 
+	// hide the button taking us to te world bar plot section since that this section is the one we immediately go when opening manually the "Details" tab
 	document.getElementById("buttonWorldMode").style.visibility = "hidden";
 
-	// get all the checkboxes on the page
+	// get all the checkboxes or radios on the page
 	var checkboxes = document.querySelectorAll('input[type=checkbox]');
 	var radios = document.querySelectorAll('input[type=radio]');
 
-	// add a change event listener
+	// add a change event listener to all of them to record any change and immediately draw a plot in response to this change
 	for(var i = 0; i < checkboxes.length; i++) {
 	    checkboxes[i].addEventListener('change', function(){
 					if (currBtnTeamId != null) {
@@ -1350,6 +1343,7 @@ whenDocumentLoaded(() => {
 	    });
 	}
 
+	// onclick listeners for every measure criterion in order to disable some competitions that are irrelevant with the selected filter
 	document.getElementById("Friendly Home Matches Played button").onclick = function() {
 		if (currBtnTeamId == null) {
 			disabled_checkboxes.clear();
@@ -1555,13 +1549,18 @@ whenDocumentLoaded(() => {
 		}
 	};
 
+	// special checkbox having an impact on all the other ones by switching their value to "checked" or "unchecked"
 	document.getElementById("All button").onclick = function() {
 		if (this.checked) {
 			for(var i=1; i < competitions.length; i++) {
 					currBtnId = competitions[i] + " button";
 					currBtn = document.getElementById(currBtnId);
 					if(!disabled_checkboxes.has(currBtnId)) {
-						currBtn.checked = true;
+						if (currBtnTeamId == null) {
+							currBtn.checked = true;
+						} else {
+							currBtn.checked = false;
+						}
 						currBtn.disabled = true;
 					}
 			}
