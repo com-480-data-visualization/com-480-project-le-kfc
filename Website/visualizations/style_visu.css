@@ -198,26 +198,6 @@ The various units of measurement available in CSS:
 	margin: 1vw 1vw;
 }
 
-#measure_container {
-	position: absolute;
-	top: 40vh;
-	left: 1vw;
-	width: 10vw;
-	height: 16vh;
-	border-style: dotted;
-	overflow: hidden;
-}
-
-#competition_container {
-	position: absolute;
-	top: 60vh;
-	left: 1vw;
-	width: 10vw;
-	height: 16vh;
-	border-style: dotted;
-	overflow: hidden;
-}
-
 /* INPUT */
 input {
 	outline: none;
@@ -365,7 +345,8 @@ html .ui-button.ui-state-disabled:active {
 	border-radius:10px;
 }
 
-/* Buttons to change tab*/
+/* Buttons and containers */
+
 .btn-style-div {
 	cursor:pointer;
 	text-decoration:none;
@@ -387,3 +368,89 @@ html .ui-button.ui-state-disabled:active {
 .btn-style-div:hover {
 	background-color: rgba(165, 201, 224, 0.6);
 }
+
+#measure_container, #competition_container {
+	position: absolute;
+	left: 1vw;
+	width: 15vw;
+	height: 30vh;
+	overflow: scroll;
+	text-align:left;
+	border-radius: 1em;
+	padding:1%;
+	font-weight:300;
+	background-color: rgba(119, 160, 186, 0.4);
+	color: var(--darkdarkgrey);
+	transition: all 0.5s;
+	white-space: nowrap;
+	float:left;
+}
+
+#measure_container p , #competition_container p {
+	font-size:1vw;
+	font-weight: bold;
+	text-align: center;
+	margin-top: -0.5vw;
+	opacity: 0.9;
+}
+
+#measure_container:hover, #competition_container:hover {background-color: rgba(119, 160, 186, 0.6);}
+
+#measure_container {top: 10vh;}
+
+#competition_container {top: 42vh;}
+
+.content {
+	position: absolute;
+	top: 2vw;
+	left: 5%;
+	right: 5%;
+	bottom: 0;
+	overflow: auto;
+}
+
+/* Check boxes and radio buttons */
+body label {
+	display: block;
+	font-size: 1vw;
+	min-font-size: 16px;
+	color: var(--darkdarkgrey);
+	padding-top: -20px;
+}
+
+.option-input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+	position: relative;
+	height: 1vw;
+	width: 1vw;
+	min-width: 10px;
+	min-height: 10px;
+	transition: all 0.2s ease-out 0s;
+	background: rgba(166, 193, 208, 0.8);
+	border: none;
+	cursor: pointer;
+	display: inline-block;
+	margin-right: 0.5rem;
+	outline: none;
+	margin-top:0;
+	vertical-align:middle;
+}
+.option-input:hover {
+	background: rgba(155, 177, 198, 0.9);
+}
+.option-input:checked {
+	background: rgba(40, 97, 125, 0.8);
+}
+
+.option-input.radio {
+	border-radius: 50%;
+}
+.option-input.radio::after {
+	border-radius: 50%;
+}
+
+

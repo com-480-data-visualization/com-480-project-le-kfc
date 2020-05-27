@@ -7,7 +7,7 @@ let flags_input = [];
 let flag_number;
 
 //List of criterions
-measures=["Matches Hosted","Goals","Victories","Tournaments Won"];
+measures=["Matches Hosted","Goals","Victories","Tournaments Won", "TESSSSSSSSTTTTTTTTTTTTTTTTTTTTTTTTTTT", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST", "TEST"];
 competitions=["Euro","Friendly","World Cups","African Cup Of Nations"];
 
 /////////////////////////////////////////////////////////////////////////
@@ -147,61 +147,42 @@ const criterion_loader= function(){
 	const measure_ref=document.getElementById("measure_container");
 	const competition_ref=document.getElementById("competition_container");
 
+	const content_meas = document.createElement("div");
+	content_meas.classList.add("content");
 	//Loading all measure criterions
 	measures.forEach((item, i) => {
 
-		//Instanciating the radio button + text container
-		const container=document.createElement("div");
-		container.style.width="20vw";
-		container.style.height="3vh";
-
-		//Instanciating the radio button
-		const button=document.createElement("input");
-		button.id= measures[i]+" button";
-		button.type="radio";
-		button.name="radio";
-		button.style.width="1.5vw";
-		button.style.height="1.5vh";
-
-		//Instanciating the label
-		const text=document.createElement("label");
-		text.style.fontSize="1.5vh";
-		text.for=measures[i]+" button";
-		text.innerHTML=measures[i];
-
-		//Linking all components together
-		container.appendChild(button);
-		container.appendChild(text);
-		measure_ref.appendChild(container);
-
+		const label = document.createElement("label");
+		const input = document.createElement('input');
+		input.type = "radio"; //checkbox or radio
+		input.classList.add("option-input");
+		input.classList.add("radio"); //checkbox or radio
+		input.name = "example" //only for radios
+		label.appendChild(input);
+		const small = document.createElement("small");
+		small.innerHTML = item;
+		label.appendChild(small);
+		content_meas.appendChild(label);
 	});
+	measure_ref.appendChild(content_meas);
 
+	const content_comp = document.createElement("div");
+	content_comp.classList.add("content");
 	//Loading all competition criterions
 	competitions.forEach((item, i) => {
-		//Instanciating the checkbox+text container
-		const container=document.createElement("div");
-		container.style.width="20vw";
-		container.style.height="3vh";
-
-		//Instanciating the checkbox
-		const button=document.createElement("input");
-		button.id= competitions[i]+"button";
-		button.type="checkbox";
-		button.style.width="1.5vw";
-		button.style.height="1.5vh";
-
-		//Instanciating the label
-		const text=document.createElement("label");
-		text.style.fontSize="1.5vh";
-		text.for=competitions[i]+" button";
-		text.innerHTML=competitions[i];
-
-		//Linking all components together
-		container.appendChild(button);
-		container.appendChild(text);
-		competition_ref.appendChild(container);
-
+		const label = document.createElement("label");
+		const input = document.createElement('input');
+		input.type = "checkbox"; //checkbox or radio
+		input.classList.add("option-input");
+		input.classList.add("checkbox"); //checkbox or radio
+		label.appendChild(input);
+		const small = document.createElement("small");
+		small.innerHTML = item;
+		label.appendChild(small);
+		content_comp.appendChild(label);
 	});
+	competition_ref.appendChild(content_comp);
+
 };
 
 /////////////////////////////////////////////////////////////////////////
