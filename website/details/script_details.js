@@ -8,6 +8,14 @@ function whenDocumentLoaded(action) {
 	}
 }
 
+const change_tab= function(name) {
+	if (name === "HISTORY") {
+		window.open("../index.html", '_self');
+	} else if (name === "MAP") {
+		window.open("../visualizations/index_visu.html", '_self');
+	}
+}
+
 //Events launched after page as finished loading
 window.addEventListener('load', function() {
 	setTimeout(function(){document.getElementById("buttonHistory").style.opacity = "1"}, 600);
@@ -18,8 +26,6 @@ window.addEventListener('load', function() {
 	setTimeout(function(){document.getElementById("buttonData").style.opacity = "1"}, 3700);
 	setTimeout(function(){document.getElementById("buttonWorldMode").style.opacity = "1"}, 3700);
 	setTimeout(function(){document.getElementById("js_flag_scroll").style.opacity = "1"}, 3700);
-	setTimeout(function(){document.getElementById("bubbleHistory").style.display = "None"}, 3700);
-	setTimeout(function(){document.getElementById("bubbleMap").style.display = "None"}, 3700);
 });
 
 // variable for competition checkboxes and flag buttons management

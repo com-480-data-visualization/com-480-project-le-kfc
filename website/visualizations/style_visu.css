@@ -1,3 +1,7 @@
+
+/* INTRODUCTION
+The various units of measurement available in CSS: https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Values_and_units */
+
 :root {
 	--blue: #007bff;
 	--background: #c5e8ff;
@@ -15,32 +19,18 @@
 	--font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	--font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
-
-/*
-This makes the border and padding be counted as part of the element's size.
-https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model
-It switches from
-	https://mdn.mozillademos.org/files/13647/box-model-standard-small.png
-to
-	https://mdn.mozillademos.org/files/13649/box-model-alt-small.png
-*/
 * {
 	box-sizing: border-box;
 }
-
-/*
-Make the document fill the whole viewport, this overrides any weird defaults that browsers might have.
-*/
+/*Make the document fill the whole viewport, this overrides any weird defaults that browsers might have.*/
 html, body, figure {
 
 	padding: 0;
 	margin: 0;
 	border: 0;
 }
-
 /* Default font and size */
 body {
-	/* center vertically */
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
@@ -54,36 +44,23 @@ body {
 	font-size: 1.1rem;
 }
 
-/*
-It is easier to read if the text is not too wide, so we limit the width.
-We use the class selector ".", so this style will be applied to elements with class="width-limited"
 
-The various units of measurement available in CSS:
-	https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Values_and_units
-*/
 
-#btns {
+
+/* FLAG SLIDER */
+
+.flag-slider {
+	overflow: auto;
+	white-space: nowrap;
+	padding-bottom: 1vh;
+
 	position: absolute;
-	top: 5vh;
-	left: 90vw;
-	width: 8vw;
-	height: 20vh;
-	text-align: center;
+	top: 80%;
+	left: 3.75vw;
+	width: 89.6vw;
+	/*height: 18%;*/
+	margin: 1vw 1vw;
 }
-
-#slider_container {
-	position: absolute;
-	top: 77vh;
-	left: 35vw;
-	width: 30vw;
-	height: 5vh;
-	float: left;
-	text-align: center;
-	color: var(--darkdarkgrey);
-}
-
-/* FLAG SLIDER STYLE */
-
 /*shadow effect on flags*/
 .button-style {
 	transition: all 1s ease-out;
@@ -105,20 +82,17 @@ The various units of measurement available in CSS:
 	text-decoration: none;
 	text-transform:uppercase;
 }
-
 .button-style:before{
 	content: '';
 	display: inline-block;
 	height: 56%;
 	horiz-align:center;
 }
-
 .button-style:hover {
 	background: none;
 	border: none;
 	opacity:0;
 }
-
 /*one flag*/
 .square {
 	width: 3vw;
@@ -126,14 +100,12 @@ The various units of measurement available in CSS:
 	position: relative;
 	margin-top: 10%;
 }
-
 .square img {
 	object-fit: cover;
 	width: 3vw;
 	border-radius:50%;
 	height:3vw;
 }
-
 /*two flags*/
 .wrapper{
 	width: 3vw;
@@ -145,55 +117,43 @@ The various units of measurement available in CSS:
 	margin-left: 1%;
 }
 
-/*flag slider*/
-.flag-slider {
-	overflow: auto;
-	white-space: nowrap;
-	padding-bottom: 1vh;
 
-	position: absolute;
-	top: 80%;
-	left: 3.75vw;
-	width: 89.6vw;
-	/*height: 18%;*/
-	margin: 1vw 1vw;
-}
 
-/* INPUT */
+
+
+
+
+/* SEARCH INPUT */
+
 input {
 	outline: none;
 	border: none;
 }
-
 input:focus {
 	border-color: transparent !important;
 }
-
 input:focus::-webkit-input-placeholder { color:transparent; }
 input:focus:-moz-placeholder { color:transparent; }
 input:focus::-moz-placeholder { color:transparent; }
 input:focus:-ms-input-placeholder { color:transparent; }
-
 input::-webkit-input-placeholder { color: var(--darkgrey);}
 input:-moz-placeholder { color: var(--darkgrey);}
 input::-moz-placeholder { color: var(--darkgrey);}
 input:-ms-input-placeholder { color: var(--darkgrey);}
-
-
 .wrap-input100 {
 	width: 13vw;
 	position: absolute;
 	top: 78vh;
-	left: 5.65vw;
 	border-bottom: .1vw solid var(--darkgrey);
 	padding: 0 1.5vw;
 	background-image: url('images/loupe.png');
 	background-position: 0 60%;
 	background-size: 10%;
-	opacity: 90%;
+	opacity: 0;
 	background-repeat: no-repeat;
 }
-
+.input-map {left: 5.65vw;}
+.input-details {right: 5.65vw;}
 .input100 {
 	display: block;
 	width: 100%;
@@ -202,7 +162,6 @@ input:-ms-input-placeholder { color: var(--darkgrey);}
 	color: var(--darkdarkgrey);
 	font-size: .9vw;
 }
-
 .focus-input100::before {
 	content: "";
 	display: block;
@@ -217,18 +176,42 @@ input:-ms-input-placeholder { color: var(--darkgrey);}
 	transition: all 0.4s;
 	background: var(--darkdarkgrey);
 }
-
 input.input100 {
 	height: 4%;
 }
-
 .input100:focus + .focus-input100::before {
 	width: 100%;
+}
+#anim-map-input{
+	animation-name: fadeInFromNone;
+	animation-delay: 10s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+
+}
+#anim-map-input::after{
+	opacity: 0.9;
 }
 
 
 
-/* SLIDER : https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css*/
+
+
+
+/* TIME SLIDER
+ * https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css
+ */
+
+#slider_container {
+	position: absolute;
+	top: 77vh;
+	left: 35vw;
+	width: 30vw;
+	height: 5vh;
+	float: left;
+	text-align: center;
+	color: var(--darkdarkgrey);
+}
 .ui-slider {
 	position: relative;
 	text-align: left;
@@ -250,7 +233,6 @@ input.input100 {
 	border: 0;
 	background-position: 0 0;
 }
-
 .ui-slider-horizontal {
 	height: .8em;
 }
@@ -262,8 +244,7 @@ input.input100 {
 	top: 0;
 	height: 100%;
 }
-
-/* Bars colors*/
+/*Bars colors*/
 .ui-widget-content {
 	background: var(--backgrounddark);
 	color: #333333;
@@ -275,25 +256,20 @@ input.input100 {
 	background: var(--backgrounddark2);
 	font-weight: bold;
 }
-
 /* Cursor colors and shape*/
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default,
 .ui-button,
-
 html .ui-button.ui-state-disabled:active {
 	background: var(--lightlightgrey);
 }
-
 .ui-widget-content .ui-state-hover{
 	background: var(--lightgrey);
 }
-
 .ui-widget-content .ui-state-active{
 	background: var(--grey);
 }
-
 /* Corner radius */
 .ui-corner-all,
 .ui-corner-top,
@@ -302,8 +278,22 @@ html .ui-button.ui-state-disabled:active {
 	border-radius:10px;
 }
 
-/* Buttons and containers */
 
+
+
+
+
+
+/* MAIN CONTAINERS */
+
+#btns {
+	position: absolute;
+	top: 5vh;
+	right: 1vw;
+	width: 8vw;
+	height: 20vh;
+	text-align: center;
+}
 .btn-style-div {
 	cursor:pointer;
 	text-decoration:none;
@@ -321,12 +311,10 @@ html .ui-button.ui-state-disabled:active {
 	justify-content: center;
 	align-items: center;
 }
-
 .btn-style-div:hover {
 	background-color: rgba(165, 201, 224, 0.6);
 }
-
-#measure_container, #competition_container, #map_select, #map_hover {
+#measure_container, #competition_container, #map_select, #map_hover, .guideline_container, .anim-map {
 	position: absolute;
 	width: 15vw;
 	overflow: scroll;
@@ -338,7 +326,6 @@ html .ui-button.ui-state-disabled:active {
 	transition: all 0.5s;
 	white-space: nowrap;
 }
-
 #measure_container p , #competition_container p, #map_select p, #map_hover p{
 	font-size:1vw;
 	font-weight: bold;
@@ -346,16 +333,13 @@ html .ui-button.ui-state-disabled:active {
 	opacity: 0.9;
 	text-align: center;
 }
-
 #map_hover p{
 	margin-top: -0.5vw !important;
 	margin-bottom: 0 !important;
 
 	padding-top: 0 !important;
 }
-
 #measure_container:hover, #competition_container:hover {background-color: rgba(119, 160, 186, 0.6);}
-
 #measure_container {
 	top: 10vh;
 	height: 30vh;
@@ -363,7 +347,18 @@ html .ui-button.ui-state-disabled:active {
 	text-align:left;
 	float:left;
 }
-
+#generate_container {
+	top: 1vw;
+	height: 6.2vh;
+	left: 1vw;
+	width: 15vw;
+	text-align:left;
+	float:left;
+	background: var(--backgrounddark2);
+	position: absolute;
+	overflow: scroll;
+	border-radius: 1em;
+}
 #competition_container {
 	top: 42vh;
 	height: 30vh;
@@ -371,7 +366,6 @@ html .ui-button.ui-state-disabled:active {
 	text-align:left;
 	float:left;
 }
-
 #map_select{
 	height: 25vh;
 	top: 47vh;
@@ -381,7 +375,6 @@ html .ui-button.ui-state-disabled:active {
 	overflow: auto;
 	width: 11vw;
 }
-
 #map_hover{
 	top: 37vh;
 	font-size:1vw;
@@ -391,7 +384,6 @@ html .ui-button.ui-state-disabled:active {
 	width: 11vw;
 	white-space: initial;
 }
-
 .content {
 	position: absolute;
 	top: 2vw;
@@ -400,8 +392,42 @@ html .ui-button.ui-state-disabled:active {
 	bottom: 5%;
 	overflow: auto;
 }
+.guideline_container, .anim-map{
+	background-color: var(--backgrounddark2);
+	height: 8vh;
+	top: 74.1vh;
+	left: 1vw;
+	text-align: center;
+	opacity: 0;
+	white-space: initial;
+	line-height: normal;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.guideline_container {
+	animation-name: fadeInAndOut;
+	animation-duration: 10s;
+	animation-delay: 200ms;
+}
+.anim-map{
+	color: rgba(17, 17, 17, 0);
+	opacity: 1;
+	background-color: rgba(119, 160, 186, 0);
+	animation-name: fadeInAndOutText;
+	animation-delay: 1.5s;
+	animation-duration: 3.5s;
+}
 
-/* Check boxes and radio buttons */
+
+
+
+
+
+
+/* CHECK BOXES AND RADIO BUTTONS */
+
 body label {
 	display: block;
 	font-size: 1vw;
@@ -409,7 +435,6 @@ body label {
 	color: var(--darkdarkgrey);
 	padding-top: -20px;
 }
-
 .option-input {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -437,7 +462,6 @@ body label {
 .option-input:checked {
 	background: rgba(40, 97, 125, 0.8);
 }
-
 .option-input.radio {
 	border-radius: 50%;
 }
@@ -446,3 +470,26 @@ body label {
 }
 
 
+
+
+
+
+/* ANIMATIONS */
+@keyframes fadeInAndOut {
+	0% {display: block;opacity: 0;}
+	20% {display: block;opacity: 1;}
+	80% {display: block;opacity: 1;}
+	100% {display: block;opacity: 0;}
+}
+
+@keyframes fadeInAndOutText {
+	0% {display: block;color: rgba(17, 17, 17, 0);background-color: rgba(119, 160, 186, 0);}
+	20% {display: block;color: rgb(17, 17, 17);background-color: rgba(119, 160, 186, 1);}
+	80% {display: block;color: rgba(17, 17, 17, 1);background-color: rgba(119, 160, 186, 1);}
+	100% {display: block;color: rgba(17, 17, 17, 0);background-color: rgba(119, 160, 186, 0);}
+}
+
+@keyframes fadeInFromNone {
+	0% {display: none;opacity: 0;}
+	100% {display: block;opacity: 1;}
+}

@@ -65,38 +65,26 @@ hr {
 	border: 1px solid rgba(40, 97, 125, 0.8);
 }
 
-/* animation for background of bar plot */
-@keyframes slideInFromTop {
-	0% {
-		transform: translateY(-100%);
-	}
-	100% {
-		transform: translateX(0);
-	}
+/* ANIMATIONS */
+@keyframes fadeInAndOut {
+	0% {display: block;opacity: 0;}
+	20% {display: block;opacity: 1;}
+	80% {display: block;opacity: 1;}
+	100% {display: block;opacity: 0;}
 }
-
-/* animation for measure/criterion and competition containers and their title div */
-@keyframes slideInFromLeft {
-	0% {
-		transform: translateX(-100%);
-	}
-	100% {
-		transform: translateX(0);
-	}
-}
-
 
 
 /* background for svg bar plot */
 .board {
 	position: absolute;
-	width: 74vw;
-	height: 70.25vh;
-	left: 25.5vw;
-	top: 3vh;
-	background: rgba(0, 0, 0, 0.5);
-	animation: 500ms ease-out 0s 1 slideInFromTop;
+	width: 73vw;
+	height: 66vh;
+	left: 17vw;
+	top: 8vh;
+	background: var(--backgrounddark);
 	overflow: auto;
+	border-left: .1vw solid var(--backgrounddark2);
+
 }
 
 /* div to draw svg bar plot inside */
@@ -247,101 +235,6 @@ hr {
 }
 
 
-/* animation for information bubbles */
-@keyframes fadeInAndOut {
-	0% {
-		display: none;
-		opacity: 0;
-	}
-
-	20% {
-		display: block;
-		opacity: 1;
-	}
-
-	80% {
-		display: block;
-		opacity: 1;
-	}
-
-	100% {
-		display: none;
-		opacity: 0;
-	}
-}
-
-/* animation left bubble */
-#bubbleHistory {
-	background-color: #F2F2F2;
-	box-shadow: 0px 0px 6px #B2B2B2;
-	border-radius: 5px;
-	height: 8vh;
-	width:  10vw;
-	margin-top: 83.5vh;
-	left: 0;
-	margin-left: 6vw;
-	line-height: 8vh;
-	text-align: center;
-	position: absolute;
-	opacity: 0;
-	animation: 2650ms linear 1000ms 1 fadeInAndOut;
-}
-
-/* extension of animation of left bubble */
-#bubbleHistory::after {
-	background-color: #F2F2F2;
-	box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
-	content: "\00a0";
-	display: block;
-	height: 1.5vw;
-	width:  1.5vw;
-	left: -0.585vw;
-	top: -5.25vh;
-	position: relative;
-	transform:             rotate( 45deg );
-	-moz-transform:    rotate( 45deg );
-	-ms-transform:     rotate( 45deg );
-	-o-transform:      rotate( 45deg );
-	-webkit-transform: rotate( 45deg );
-}
-
-/* animation right bubble */
-#bubbleMap {
-	background-color: #F2F2F2;
-	box-shadow: 0px 0px 6px #B2B2B2;
-	border-radius: 5px;
-	height: 8vh;
-	width:  10vw;
-	margin-top: 83.5vh;
-	right: 0;
-	margin-right: 6vw;
-	line-height: 8vh;
-	text-align: center;
-	position: absolute;
-	opacity: 0;
-	animation: 2650ms linear 1000ms 1 fadeInAndOut;
-}
-
-/* extension of animation of right bubble */
-#bubbleMap::after {
-	background-color: #F2F2F2;
-	box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
-	content: "\00a0";
-	display: block;
-	height: 1.5vw;
-	width:  1.5vw;
-	left: 9.275vw;
-	top: -5.25vh;
-	position: relative;
-	transform:             rotate( 45deg );
-	-moz-transform:    rotate( 45deg );
-	-ms-transform:     rotate( 45deg );
-	-o-transform:      rotate( 45deg );
-	-webkit-transform: rotate( 45deg );
-}
-
-
-
 /* buttons to change tab */
 .buttonTab {
 	position: absolute;
@@ -393,7 +286,7 @@ hr {
 
 /*!* search bar *!
 #search_bar {
-	animation: 300ms ease-out 3.70s 1 fadeInFromNone;
+	animation: 300ms ease-out 3.70s 1 fade-in;
 }*/
 
 /* generate data button */
@@ -408,7 +301,7 @@ hr {
 	background-size: 12.75vw 4.75vh;
 	opacity: 0;
 	border: 0.1vw solid black;
-	animation: 300ms ease-out 3.70s 1 fadeInFromNone;
+	animation: 300ms ease-out 3.70s 1 fade-in;
 }
 
 /* Back to world mode button */
@@ -423,12 +316,12 @@ hr {
 	background-size: 13vw 4.7vh;
 	opacity: 0;
 	border: 0.1vw solid black;
-	animation: 300ms ease-out 3.70s 1 fadeInFromNone;
+	animation: 300ms ease-out 3.70s 1 fade-in;
 }
 /*
 !* flag slider *!
 .flag-slider {
-	animation: 300ms ease-out 3.70s 1 fadeInFromNone;
+	animation: 300ms ease-out 3.70s 1 fade-in;
 }*/
 
 

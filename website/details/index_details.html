@@ -63,91 +63,98 @@
 			});*/
 		});
 
-/*		$(function(){
-    var bgimage = new Image();
-    bgimage.src="https://i.pinimg.com/originals/42/50/cf/4250cf3e0be36300f7f2db83c6827ca6.jpg";
-		$(".feature").hide();
-		    $(bgimage).load(function(){
-		        $(".feature").css("background-image","url("+$(this).attr("src")+")").fadeIn(1000);
-		    });
-		});*/
+		/*		$(function(){
+            var bgimage = new Image();
+            bgimage.src="https://i.pinimg.com/originals/42/50/cf/4250cf3e0be36300f7f2db83c6827ca6.jpg";
+                $(".feature").hide();
+                    $(bgimage).load(function(){
+                        $(".feature").css("background-image","url("+$(this).attr("src")+")").fadeIn(1000);
+                    });
+                });*/
 	</script>
 
 </head>
 
 <body>
 
-	<!--Comparison criterion radio boxes-->
-	<form id="measure_container">
-		<p>MEASURE</p>
-	</form>
+<div id="generate_container"></div>
 
-	<!--Comparison competition radio boxes-->
-	<form id="competition_container">
-		<p>COMPETITION</p>
-	</form>
-
-
-
-	<!--Time slider-->
-	<div id="slider_container">
-		<div id="slider-range"></div>
-		<div style="font-size:1vw;" id="slider_text">1872 - 2020</div>
+<!--Visualization switching buttons-->
+<div id="btns">
+	<div class="btn-style-div" id="history-button" onclick="change_tab('HISTORY')">
+		<p style="flex: 0 0 120px;">History</p>
 	</div>
 
-	<!--Flag slider-->
-	<div class="flag-slider" id="js_flag_scroll"></div>
-	<div class="wrap-input100">
-		<input class="input100" type="text" id="search_bar" oninput="input_listener()" placeholder="Search for a country...">
-		<span class="focus-input100"></span>
+	<div class="btn-style-div" id="details-button" onclick="change_tab('MAP')">
+		<p style="flex: 0 0 120px;">Map</p>
 	</div>
+</div>
+
+<!--Comparison criterion radio boxes-->
+<form id="measure_container">
+	<p>MEASURE</p>
+</form>
+
+<!--Comparison competition radio boxes-->
+<form id="competition_container">
+	<p>COMPETITION</p>
+</form>
+
+
+<!--Time slider-->
+<div id="slider_container">
+	<div id="slider-range"></div>
+	<div style="font-size:1vw;" id="slider_text">1872 - 2020</div>
+</div>
+
+<!--Flag slider-->
+<div class="flag-slider" id="js_flag_scroll"></div>
+<div class="wrap-input100 input-details" style="opacity: 0.9">
+	<input class="input100" type="text" id="search_bar" oninput="input_listener()" placeholder="Search for a country...">
+	<span class="focus-input100"></span>
+</div>
+
+<!--Guideline bubble -->
+<div class="guideline_container">
+	Choose either none, one or two teams.
+</div>
 
 
 
-	<!--Buttons to go to History or Map tab-->
-	<button type="button" id="buttonHistory" class="buttonTab" onclick="change_tab('HISTORY')"></button>
-	<button type="button" id="buttonMap" class="buttonTab" onclick="change_tab('MAP')"></button>
+<!--Generate data button and back to world mode button-->
+<button type="button" id="buttonData" class="buttonLoad" onclick="load_data()"></button>
+<button type="button" id="buttonWorldMode" class="buttonWorld" onclick="world_mode()"></button>
 
-	<!--Information bubbles for History and Map buttons-->
-	<div id="bubbleHistory">Go to History</div>
-	<div id="bubbleMap" class="bubble">Go to Map</div>
+<!--Div containing bar plots for every team-->
+<div id="dataBoard" class="board">
+	<div id="graphic"></div>
+</div>
 
+<!--Div containing bar plots for one team-->
+<div id="dataTeam" class="board" style="display:none;">
+	<div id="flagTeam" class="flagBoardDisplay"></div>
+	<button type="button" id="buttonVS" class="buttonCompare" onclick="triggerVS()"></button>
+	<div id="graphTitleOneTeam" class="titleDiv"></div>
+	<div id="graphicTeam"></div>
+</div>
 
+<!--Linear gradient for bar plot color-->
+<linearGradient id="svg_2">
+	<stop offset="0" stop-color="#fff"></stop>
+	<stop offset="1" stop-color="#00f0NaN"></stop>
+</linearGradient>
 
-	<!--Generate data button and back to world mode button-->
-	<button type="button" id="buttonData" class="buttonLoad" onclick="load_data()"></button>
-	<button type="button" id="buttonWorldMode" class="buttonWorld" onclick="world_mode()"></button>
+<!--Div for two teams comparison-->
+<div id="dataVS" class="board" style="display:none;">
+	<div id="flagVS1" class="flagBoardDisplay" onclick="changeVS1()"></div>
+	<div id="flagVS2" class="flagBoardDisplay2" onclick="changeVS2()"></div>
+	<button type="button" id="buttonCancelVS" class="buttonCompare" onclick="cancelVS()"></button>
+	<div id="nameCountry1" class="titleDiv1"></div>
+	<div id="nameCountry2" class="titleDiv2"></div>
+</div>
 
-	<!--Div containing bar plots for every team-->
-	<div id="dataBoard" class="board">
-		<div id="graphic"></div>
-	</div>
-
-	<!--Div containing bar plots for one team-->
-	<div id="dataTeam" class="board" style="display:none;">
-		<div id="flagTeam" class="flagBoardDisplay"></div>
-		<button type="button" id="buttonVS" class="buttonCompare" onclick="triggerVS()"></button>
-		<div id="graphTitleOneTeam" class="titleDiv"></div>
-		<div id="graphicTeam"></div>
-	</div>
-
-	<!--Linear gradient for bar plot color-->
-	<linearGradient id="svg_2">
-   <stop offset="0" stop-color="#fff"></stop>
-   <stop offset="1" stop-color="#00f0NaN"></stop>
-  </linearGradient>
-
-	<!--Div for two teams comparison-->
-	<div id="dataVS" class="board" style="display:none;">
-		<div id="flagVS1" class="flagBoardDisplay" onclick="changeVS1()"></div>
-		<div id="flagVS2" class="flagBoardDisplay2" onclick="changeVS2()"></div>
-		<button type="button" id="buttonCancelVS" class="buttonCompare" onclick="cancelVS()"></button>
-		<div id="nameCountry1" class="titleDiv1"></div>
-		<div id="nameCountry2" class="titleDiv2"></div>
-	</div>
-
-	<!--Shadow box to focus on selecting a second country-->
-	<div id="shadowFocus" class="shadowBox" style="display:none;"></div>
+<!--Shadow box to focus on selecting a second country-->
+<div id="shadowFocus" class="shadowBox" style="display:none;"></div>
 
 </body>
 
