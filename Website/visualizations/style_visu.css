@@ -318,7 +318,7 @@ input.input100 {
 	height: .8em;
 }
 .ui-slider-horizontal .ui-slider-handle {
-	top: -.3em;
+	top: -.2em;
 	margin-left: -.6em;
 }
 .ui-slider-horizontal .ui-slider-range {
@@ -364,9 +364,6 @@ html .ui-button.ui-state-disabled:active {
 .ui-corner-tl {
 	border-radius:10px;
 }
-<<<<<<< HEAD
-=======
-
 
 /* Buttons to change tab*/
 .btn-style-div {
@@ -390,4 +387,3 @@ html .ui-button.ui-state-disabled:active {
 .btn-style-div:hover {
 	background-color: rgba(165, 201, 224, 0.6);
 }
->>>>>>> bece7096dfeac64b3ac70649732726451c6fa36a
