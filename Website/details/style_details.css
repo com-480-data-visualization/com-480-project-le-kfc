@@ -1,0 +1,327 @@
+:root {
+	--blue: #007bff;
+	--background: #c5e8ff;
+	--backgrounddark: #a5c9e0;
+	--backgrounddark2: #77a0ba;
+	--black:#000;
+	--darkdarkgrey: #111;
+	--darkgrey: #3c3c3c;
+	--grey: #6c6c6c;
+	--lightgrey: #9c9c9c;
+	--lightlightgrey: #cccccc;
+	--light3grey: #ddd;
+	--light4grey: #eee;
+	--white:#fff;
+	--font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/*
+This makes the border and padding be counted as part of the element's size.
+https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model
+It switches from
+	https://mdn.mozillademos.org/files/13647/box-model-standard-small.png
+to
+	https://mdn.mozillademos.org/files/13649/box-model-alt-small.png
+*/
+* {
+	box-sizing: border-box;
+}
+
+/*
+Make the document fill the whole viewport, this overrides any weird defaults that browsers might have.
+*/
+html, body, figure {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+/* Default font and size */
+body {
+	/* center vertically */
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-content: center;
+
+	/* background behind the plot */
+	background: var(--background);
+
+	/* default text */
+	font-family: Helvetica, sans-serif;
+	font-size: 1.1rem;
+}
+
+/*
+It is easier to read if the text is not too wide, so we limit the width.
+We use the class selector ".", so this style will be applied to elements with class="width-limited"
+
+The various units of measurement available in CSS:
+	https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Values_and_units
+*/
+
+hr {
+	border: 1px solid rgba(40, 97, 125, 0.8);
+}
+
+/* ANIMATIONS */
+@keyframes fadeInAndOut {
+	0% {display: block;opacity: 0;}
+	20% {display: block;opacity: 1;}
+	80% {display: block;opacity: 1;}
+	100% {display: block;opacity: 0;}
+}
+
+
+/* background for svg bar plot */
+.board {
+	position: absolute;
+	width: 73vw;
+	height: 66vh;
+	left: 17vw;
+	top: 8vh;
+	background: var(--backgrounddark);
+	overflow: auto;
+	border-left: .1vw solid var(--backgrounddark2);
+
+}
+
+/* div to draw svg bar plot inside */
+#graphic {
+	position: absolute;
+	margin-top: 3vh;
+}
+
+/* div to draw svg bar plot of one team inside */
+#graphicTeam {
+	position: absolute;
+	margin-top: 3vh;
+}
+
+/* empty bar plot class for creation of horizontal bars */
+.bar {
+
+}
+
+/* bar plot class for left labels */
+.axis {
+	font-size: 13px;
+	color: white;
+	font-weight: bold;
+	animation: 3000ms ease-out 0s 1 fadeInFromNone;
+}
+
+/* bar plot class */
+.axis path,
+.axis line {
+	fill: none;
+	display: none;
+}
+
+/* bar plot class for right labels */
+.label {
+	font-size: 13px;
+}
+
+
+
+/* div of board flag display when selecting a team */
+.flagBoardDisplay {
+	width: 7.5vw;
+	height: 7.5vw;
+	margin-top: 1vw;
+	margin-left: 1vw;
+}
+
+/* image of for div of board flag display */
+.flagBoardDisplay img {
+	object-fit: cover;
+	border-radius: 50%;
+	width: 7.5vw;
+	height: 7.5vw;
+}
+
+/* div for team graph title */
+.titleDiv {
+	position: absolute;
+	width: 55.25vw;
+	height: 4vh;
+	left: 14.88vw;
+	top: 12.5vh;
+	font-size: 22px;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+}
+
+/* button triggering the two teams comparison */
+.buttonCompare {
+	position: absolute;
+	width: 10vw;
+	height: 3.5vw;
+	left: 37.5vw;
+	top: 2vh;
+	background-image: url("images/vsbw.jpg");
+	background-size: 10vw 3.5vw;
+	border: 0.1vh solid yellow;
+}
+
+/* other visual aspect of the compare button */
+#buttonCancelVS.buttonCompare {
+	background-image: url("images/vs.jpg");
+	left: 31.8vw;
+}
+
+/* shadow box apearing when we need to select a second country */
+.shadowBox {
+	position: fixed;
+	width: 89.6vw;
+	height: 200px;
+	top: 80.2vh;
+	left: 5.15vw;
+	/* for IE */
+	box-shadow: 0 0 0 1000px rgba(0,0,0,.75);
+	/* for other browsers */
+	box-shadow: 0 0 0 100vmax rgba(0,0,0,.75);
+	pointer-events: none;
+}
+
+/* div of board flag display when selecting a team */
+.flagBoardDisplay2 {
+	position: absolute;
+	width: 7.5vw;
+	height: 7.5vw;
+	margin-top: -7.5vw;
+	margin-left: 65.5vw;
+}
+
+/* image for div of board flag display */
+.flagBoardDisplay2 img {
+	object-fit: cover;
+	border-radius: 50%;
+	width: 7.5vw;
+	height: 7.5vw;
+}
+
+/* div for the name of the first country selected */
+.titleDiv1 {
+	position: absolute;
+	width: 25vw;
+	height: 4vh;
+	left: 7vw;
+	top: 6.5vh;
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+	pointer-events: none;
+	touch-action: none;
+}
+
+/* div for the name of the second country selected */
+.titleDiv2 {
+	position: absolute;
+	width: 25vw;
+	height: 4vh;
+	left: 41.75vw;
+	top: 6.5vh;
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+	pointer-events: none;
+	touch-action: none;
+}
+
+
+/* buttons to change tab */
+.buttonTab {
+	position: absolute;
+	width: 3.75vw;
+	height: 7vh;
+	margin-top: 84vh;
+	opacity: 0;
+	animation: 300ms linear 600ms 1 fadeInFromNone;
+}
+
+/* button to go to history tab */
+#buttonHistory.buttonTab {
+	left: 0;
+	margin-left: 0.5vw;
+	background-image: url("images/book.jpg");
+	background-size: 3.75vw 7vh;
+	border: none;
+}
+
+/* button to go to map tab */
+#buttonMap.buttonTab {
+	right: 0;
+	margin-right: 0.5vw;
+	background-image: url("images/planet.jpg");
+	background-size: 3.75vw 7vh;
+	border: none;
+	border-radius: 50%;
+}
+
+
+
+/* animation for time slider, search bar, generate data button and flag slider */
+@keyframes fadeInFromNone {
+	0% {
+		display: none;
+		opacity: 0;
+	}
+
+	100% {
+		display: block;
+		opacity: 1;
+	}
+}
+
+/* time slider */
+#slider_container{
+	color: var(--darkdarkgrey);
+}
+
+/*!* search bar *!
+#search_bar {
+	animation: 300ms ease-out 3.70s 1 fade-in;
+}*/
+
+/* generate data button */
+.buttonLoad {
+	position: absolute;
+	width: 13vw;
+	height: 5vh;
+	margin-top: 74.2vh;
+	right: 0;
+	margin-right: 18vw;
+	background-image: url("images/data.jpg");
+	background-size: 12.75vw 4.75vh;
+	opacity: 0;
+	border: 0.1vw solid black;
+	animation: 300ms ease-out 3.70s 1 fade-in;
+}
+
+/* Back to world mode button */
+.buttonWorld {
+	position: absolute;
+	width: 13vw;
+	height: 5vh;
+	margin-top: 74.2vh;
+	right: 0;
+	margin-right: 3.5vw;
+	background-image: url("images/world.jpg");
+	background-size: 13vw 4.7vh;
+	opacity: 0;
+	border: 0.1vw solid black;
+	animation: 300ms ease-out 3.70s 1 fade-in;
+}
+/*
+!* flag slider *!
+.flag-slider {
+	animation: 300ms ease-out 3.70s 1 fade-in;
+}*/
+
+

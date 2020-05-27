@@ -75,7 +75,7 @@ const max_key_from_value= function(array, teams, at_least_10, team_to_match_play
 const assign_stats= function(){
     const dates = [1872, 1900, 1930, 1950, 1970, 1990, 2000, 2010, 2020];
     const nameDivs = ["stat1", "stat2", "stat3", "stat4", "stat5", "stat6", "stat7", "stat8"];
-    let paragraphElement = 1;
+
     for (let i = 0; i < dates.length-1; i++) {
         const from = dates[i];
         const to = dates[i+1];
@@ -97,7 +97,6 @@ const assign_stats= function(){
         let team_to_drawns_ratio = init_array(unique_teams);
         let team_to_defeats = init_array(unique_teams);
         let team_to_defeats_ratio = init_array(unique_teams);
-
 
         data_.forEach(row => {
             GOALS_SCORED+=parseInt(row.away_score);
@@ -128,6 +127,7 @@ const assign_stats= function(){
         const MOST_INVOLVED_TEAM_b = team_to_match_played[MOST_INVOLVED_TEAM];
         const MOST_INVOLVED_TEAM_c = Number((MOST_INVOLVED_TEAM_b/shift).toFixed(2));
         const GOALS_SCORED_b = Number((GOALS_SCORED/shift).toFixed(2));
+        const GOALS_SCORED_c = Number((GOALS_SCORED/MATCH_PLAYED).toFixed(2));
         const MOST_SCORING_TEAM = max_key_from_value(team_to_goal_scored, unique_teams, false, team_to_match_played);
         const MOST_SCORING_TEAM_b = team_to_goal_scored[MOST_SCORING_TEAM];
         const MOST_SCORING_TEAM_c = Number((MOST_SCORING_TEAM_b/shift).toFixed(2));
@@ -144,24 +144,33 @@ const assign_stats= function(){
         const DRAWN_TEAM_RATIO = max_key_from_value(team_to_drawns_ratio, unique_teams, true, team_to_match_played);
         const DRAWN_TEAM_RATIO_b = Number((team_to_drawns_ratio[DRAWN_TEAM_RATIO]*100).toFixed());
         const WORST_LOSING_TEAM_RATIO = max_key_from_value(team_to_defeats_ratio, unique_teams, true, team_to_match_played);
-
         const WORST_LOSING_TEAM_RATIO_b = Number((team_to_defeats_ratio[WORST_LOSING_TEAM_RATIO]*100).toFixed(2));
+
+
         const stat_section = document.getElementById(nameDiv);
         stat_section.classList.add("stats");
-        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Teams involved</b>:<em> - - - - - - - - - - - - - - - </em>'+TEAMS_INVOLVED+ ' teams';
-        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Matches played</b>:<em> - - - - - - - - - - - - - - -</em>'+MATCH_PLAYED+' matches  -  '+MATCH_PLAYED_b+' matches/year';
-        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Most involved team:</b><em> - - - - - - - - - - -</em> '+MOST_INVOLVED_TEAM+'  -  '+MOST_INVOLVED_TEAM_b+' matches  -  '+MOST_INVOLVED_TEAM_c+' matches/year';
-        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Goals scored</b>:<em> - - - - - - - - - - - - - - - - - .</em>'+GOALS_SCORED+' goals  -  '+GOALS_SCORED_b+' goals/year';
-        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Most scoring team</b>: <em> - - - - - - - - - - - - </em>'+MOST_SCORING_TEAM+'  -  '+MOST_SCORING_TEAM_b+' goals  -  '+MOST_SCORING_TEAM_c+' goals/year';
-        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Highest average scoring team</b>*: <em>.</em>'+HIGHEST_AVERAGE_SCORING_TEAM+'  -  '+HIGHEST_AVERAGE_SCORING_TEAM_b+' goals/match';
-        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Most successful team</b>: <em> - - - - - - - - - </em>'+MOST_SUCCESFULL_TEAM+'  -  '+MOST_SUCCESFULL_TEAM_b+' wins';
-        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Best win ratio</b>*:  <em> - - - - - - - - - - - - - - - - </em>'+MOST_SUCCESFULL_TEAM_RATIO+'  -  '+MOST_SUCCESFULL_TEAM_RATIO_b+'%';
-        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Drawn team</b>: <em> - - - - - - - - - - - - - - .- - - - </em>'+DRAWN_TEAM+'  -  '+DRAWN_TEAM_b+' drawns';
-        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Best drawn ratio</b>*: <em> - - - - - - - - - .- - - - </em>'+DRAWN_TEAM_RATIO+'  -  '+DRAWN_TEAM_RATIO_b+'%';
-        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Worst losing team</b>: <em> - - - - - - - - - - - -- </em>'+WORST_LOSING_TEAM+'  -  '+WORST_LOSING_TEAM_b+' defeats';
-        document.getElementById("p"+paragraphElement++).innerHTML = '<b>Best defeat ratio</b>*: <em> - - - - - - - - - - - - - </em>'+WORST_LOSING_TEAM_RATIO+'  -  '+WORST_LOSING_TEAM_RATIO_b+'%';
+        const text = [
+            '<b>Teams involved</b>:<em> - - - - - - - - - - - - - - - </em>'+TEAMS_INVOLVED+ ' teams',
+            '<b>Matches played</b>:<em> - - - - - - - - - - - - - - -</em>'+MATCH_PLAYED+' matches  -  '+MATCH_PLAYED_b+' matches/year',
+            '<b>Most involved team:</b><em> - - - - - - - - - - -</em> '+MOST_INVOLVED_TEAM+'  -  '+MOST_INVOLVED_TEAM_b+' matches  -  '+MOST_INVOLVED_TEAM_c+' matches/year',
+            '<b>Goals scored</b>:<em> - - - - - - - - - - - - - - - - - .</em>'+GOALS_SCORED+' goals  -  '+GOALS_SCORED_b+' goals/year  -  '+GOALS_SCORED_c+' goals/match',
+            '<b>Most scoring team</b>: <em> - - - - - - - - - - - - </em>'+MOST_SCORING_TEAM+'  -  '+MOST_SCORING_TEAM_b+' goals  -  '+MOST_SCORING_TEAM_c+' goals/year',
+            '<b>Highest average scoring team</b>*: <em>.</em>'+HIGHEST_AVERAGE_SCORING_TEAM+'  -  '+HIGHEST_AVERAGE_SCORING_TEAM_b+' goals/match',
+            '<b>Most successful team</b>: <em> - - - - - - - - - </em>'+MOST_SUCCESFULL_TEAM+'  -  '+MOST_SUCCESFULL_TEAM_b+' wins',
+            '<b>Best win ratio</b>*:  <em> - - - - - - - - - - - - - - - - </em>'+MOST_SUCCESFULL_TEAM_RATIO+'  -  '+MOST_SUCCESFULL_TEAM_RATIO_b+'%',
+            '<b>Drawn team</b>: <em> - - - - - - - - - - - - - - .- - - - </em>'+DRAWN_TEAM+'  -  '+DRAWN_TEAM_b+' drawns',
+            '<b>Best drawn ratio</b>*: <em> - - - - - - - - - .- - - - </em>'+DRAWN_TEAM_RATIO+'  -  '+DRAWN_TEAM_RATIO_b+'%',
+            '<b>Worst losing team</b>: <em> - - - - - - - - - - - -- </em>'+WORST_LOSING_TEAM+'  -  '+WORST_LOSING_TEAM_b+' defeats',
+            '<b>Best defeat ratio</b>*: <em> - - - - - - - - - - - - - </em>'+WORST_LOSING_TEAM_RATIO+'  -  '+WORST_LOSING_TEAM_RATIO_b+'%'
+        ];
+        text.forEach(t => {
+            const p = document.createElement("p");
+            p.innerHTML = t;
+            stat_section.appendChild(p);
+        });
         const elem = document.createElement("small");
         elem.innerHTML = '<br>* only teams involved in more than 10 matches are considered';
+
         stat_section.appendChild(elem);
     }
 
