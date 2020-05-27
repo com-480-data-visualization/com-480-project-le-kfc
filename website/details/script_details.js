@@ -37,15 +37,16 @@ let temp;
 
 // function triggered when modifying the first team in the two teams comparison section
 function changeVS1() {
-	// Resetting radio buttons and checkboxes
+	let i;
+// Resetting radio buttons and checkboxes
 	disabled_checkboxes.clear();
-	for(var i=0; i < measures.length; i++) {
+	for(i = 0; i < measures.length; i++) {
 		currBtnId = measures[i] + " button";
 		currBtn = document.getElementById(currBtnId);
 		currBtn.checked = false;
 		currBtn.disabled = false;
 	}
-	for(var i=0; i < competitions.length; i++) {
+	for(i = 0; i < competitions.length; i++) {
 		currBtnId = competitions[i] + " button";
 		currBtn = document.getElementById(currBtnId);
 		currBtn.checked = false;
@@ -61,14 +62,15 @@ function changeVS1() {
 
 // function triggered when modifying the second team in the two teams comparison section
 function changeVS2() {
+	let i;
 	disabled_checkboxes.clear();
-	for(var i=0; i < measures.length; i++) {
+	for(i = 0; i < measures.length; i++) {
 		currBtnId = measures[i] + " button";
 		currBtn = document.getElementById(currBtnId);
 		currBtn.checked = false;
 		currBtn.disabled = false;
 	}
-	for(var i=0; i < competitions.length; i++) {
+	for(i = 0; i < competitions.length; i++) {
 		currBtnId = competitions[i] + " button";
 		currBtn = document.getElementById(currBtnId);
 		currBtn.checked = false;
@@ -85,28 +87,28 @@ function changeVS2() {
 // function triggered when changing the team selection in the two teams comparison section
 function changeVS(newFlag) {
 	if (currBtnTeamId == null) {
-		if (newFlag == currBtnTeamId2) {
+		if (newFlag === currBtnTeamId2) {
 			alert("Please choose a team different than the other one");
 			changeVS1();
 		} else {
 			currBtnTeamId = newFlag;
 			document.getElementById("nameCountry1").innerHTML = currBtnTeamId;
 			for (i=0; i<flag_number; i++) {
-				if (flags[i]['Country'] == currBtnTeamId) {
+				if (flags[i]['Country'] === currBtnTeamId) {
 					document.getElementById("flagVS1").innerHTML = "<img src=\""+flags[i]['ImageURL']+"\">";
 					break;
 				}
 			}
 		}
 	} else if (currBtnTeamId2 == null) {
-		if (newFlag == currBtnTeamId) {
+		if (newFlag === currBtnTeamId) {
 			alert("Please choose a team different than the other one");
 			changeVS2()
 		} else {
 			currBtnTeamId2 = newFlag;
 			document.getElementById("nameCountry2").innerHTML = currBtnTeamId2;
 			for (i=0; i<flag_number; i++) {
-				if (flags[i]['Country'] == currBtnTeamId2) {
+				if (flags[i]['Country'] === currBtnTeamId2) {
 					document.getElementById("flagVS2").innerHTML = "<img src=\""+flags[i]['ImageURL']+"\">";
 					break;
 				}
@@ -117,14 +119,15 @@ function changeVS(newFlag) {
 
 // function triggered when entering in two teams comparison section
 function triggerVS() {
+	let i;
 	disabled_checkboxes.clear();
-	for(var i=0; i < measures.length; i++) {
+	for(i = 0; i < measures.length; i++) {
 		currBtnId = measures[i] + " button";
 		currBtn = document.getElementById(currBtnId);
 		currBtn.checked = false;
 		currBtn.disabled = false;
 	}
-	for(var i=0; i < competitions.length; i++) {
+	for(i = 0; i < competitions.length; i++) {
 		currBtnId = competitions[i] + " button";
 		currBtn = document.getElementById(currBtnId);
 		currBtn.checked = false;
@@ -136,7 +139,7 @@ function triggerVS() {
 	document.getElementById("dataVS").style.display = "block";
 
 	for (i=0; i<flag_number; i++) {
-		if (flags[i]['Country'] == currBtnTeamId) {
+		if (flags[i]['Country'] === currBtnTeamId) {
 			document.getElementById("flagVS1").innerHTML = "<img src=\""+flags[i]['ImageURL']+"\">";
 			break;
 		}
@@ -165,7 +168,8 @@ function cancelVS() {
 
 // function triggered when a country is selected
 function set_team(newCountry) {
-	if (document.getElementById("shadowFocus").style.display == "block") {
+	let i;
+	if (document.getElementById("shadowFocus").style.display === "block") {
 
 		document.getElementById("shadowFocus").style.display = "none";
 		document.getElementById("buttonWorldMode").disabled = false;
@@ -187,13 +191,13 @@ function set_team(newCountry) {
 		});
 		if (currBtnTeamId == null) {
 			disabled_checkboxes.clear();
-			for(var i=0; i < measures.length; i++) {
+			for(i = 0; i < measures.length; i++) {
 				currBtnId = measures[i] + " button";
 				currBtn = document.getElementById(currBtnId);
 				currBtn.checked = false;
 				currBtn.disabled = false;
 			}
-			for(var i=0; i < competitions.length; i++) {
+			for(i = 0; i < competitions.length; i++) {
 				currBtnId = competitions[i] + " button";
 				currBtn = document.getElementById(currBtnId);
 				currBtn.checked = false;
@@ -201,7 +205,7 @@ function set_team(newCountry) {
 			}
 		}
 
-		if (currBtnTeamId != newCountry) {
+		if (currBtnTeamId !== newCountry) {
 			let prev = currBtnTeamId;
 			currBtnTeamId = newCountry;
 
@@ -215,7 +219,7 @@ function set_team(newCountry) {
 			document.getElementById("graphTitleOneTeam").innerHTML = currBtnTeamId;
 
 			for (i=0; i<flag_number; i++) {
-				if (flags[i]['Country'] == currBtnTeamId) {
+				if (flags[i]['Country'] === currBtnTeamId) {
 					document.getElementById("flagTeam").innerHTML = "<img src=\""+flags[i]['ImageURL']+"\">";
 					break;
 				}
@@ -234,6 +238,7 @@ function set_team(newCountry) {
 
 // function triggered when entering world mode which is the section with bar plots of every team and focused on exclusively one criterion at a time
 const world_mode = function() {
+	let i;
 	document.getElementById("flagVS1").innerHTML = "";
 	document.getElementById("flagVS2").innerHTML = "";
 	document.getElementById("nameCountry1").innerHTML = "";
@@ -249,13 +254,15 @@ const world_mode = function() {
 		item.getElementsByTagName('input')[0].type="radio";
 	});
 	disabled_checkboxes.clear();
-	for(var i=0; i < measures.length; i++) {
+	let currBtnId;
+	let currBtn;
+	for (i = 0; i < measures.length; i++) {
 		currBtnId = measures[i] + " button";
 		currBtn = document.getElementById(currBtnId);
 		currBtn.checked = false;
 		currBtn.disabled = false;
 	}
-	for(var i=0; i < competitions.length; i++) {
+	for(i = 0; i < competitions.length; i++) {
 		currBtnId = competitions[i] + " button";
 		currBtn = document.getElementById(currBtnId);
 		currBtn.checked = false;
@@ -303,13 +310,12 @@ const load_data_two_countries = function() {
 		d3.select("#bar_plot_graphic").remove();
 	}
 
-	data1 = get_one_country_data(games, currBtnTeamId);
-	data2 = get_one_country_data(games, currBtnTeamId2);
+	let data1 = get_one_country_data(games, currBtnTeamId);
+	let data2 = get_one_country_data(games, currBtnTeamId2);
 
-	if (data1.length == 0 || data2.length == 0) {
+	if (data1.length === 0 || data2.length === 0) {
 		data1 = null;
 		data2 = null;
-		return;
 	}
 
 	//TODO : Create div and elements to display the statistics retrieved from the two data variables
@@ -317,7 +323,7 @@ const load_data_two_countries = function() {
 
 // data parsing for one team comparison section
 const get_one_country_data = function(data_i, chosen_team) {
-	let retrieved_data = new Array();
+	let retrieved_data = [];
 	let measure_set = new Set();
 	let competition_set = new Set();
 
@@ -336,14 +342,14 @@ const get_one_country_data = function(data_i, chosen_team) {
 	});
 
 	// Do nothing if the user didn't select any criterion no competition
-	if (measure_set.size == 0 || competition_set.size == 0) {
+	if (measure_set.size === 0 || competition_set.size === 0) {
 		return retrieved_data;
 	}
 
 	// handle a small issue with the speciall competition checkbox "All" which checks and uncheck automatically every other competition checkboxes
 	if (competition_set.has("All")) {
 		competitions.forEach((item, i) => {
-			if (i != 0) {
+			if (i !== 0) {
 				competition_set.add(competitions[i]);
 			}
 		});
@@ -380,66 +386,66 @@ const get_one_country_data = function(data_i, chosen_team) {
 		found = 0;
 
 		games.forEach(row => {
-			if (row.away_team == team || row.home_team == team) {
+			if (row.away_team === team || row.home_team === team) {
 				year = row.date.substring(0, 4);
 				if ((year >= start_year) && (year <= end_year)) {
 					if (competition_set.has(row.tournament)) {
 
-						if (measure == "Matches Played") {
+						if (measure === "Matches Played") {
 							counter++;
-						} else if (measure == "Wins") {
-							if ((row.away_team == team && parseInt(row.away_score) > parseInt(row.home_score)) || (row.home_team == team && parseInt(row.away_score) < parseInt(row.home_score))) {
+						} else if (measure === "Wins") {
+							if ((row.away_team === team && parseInt(row.away_score) > parseInt(row.home_score)) || (row.home_team === team && parseInt(row.away_score) < parseInt(row.home_score))) {
 								counter++;
 							}
-						} else if (measure == "Draws") {
-							if (parseInt(row.away_score) == parseInt(row.home_score)) {
+						} else if (measure === "Draws") {
+							if (parseInt(row.away_score) === parseInt(row.home_score)) {
 								counter++;
 							}
-						} else if (measure == "Losses") {
-							if ((row.away_team == team && parseInt(row.away_score) < parseInt(row.home_score)) || (row.home_team == team && parseInt(row.away_score) > parseInt(row.home_score))) {
+						} else if (measure === "Losses") {
+							if ((row.away_team === team && parseInt(row.away_score) < parseInt(row.home_score)) || (row.home_team === team && parseInt(row.away_score) > parseInt(row.home_score))) {
 								counter++;
 							}
-						} else if (measure == "Goals Scored") {
-							if (row.away_team == team) {
+						} else if (measure === "Goals Scored") {
+							if (row.away_team === team) {
 								counter += parseInt(row.away_score);
 							} else {
 								counter += parseInt(row.home_score);
 							}
-						} else if (measure == "Goals Conceded") {
-							if (row.home_team == team) {
+						} else if (measure === "Goals Conceded") {
+							if (row.home_team === team) {
 								counter += parseInt(row.away_score);
 							} else {
 								counter += parseInt(row.home_score);
 							}
-						} else if (measure == "Friendly Home Matches Played") {
-							if (row.tournament == "Friendly" && row.home_team == team) {
+						} else if (measure === "Friendly Home Matches Played") {
+							if (row.tournament === "Friendly" && row.home_team === team) {
 								counter++;
 							}
-						} else if (measure == "Friendly Away Matches Played") {
-							if (row.tournament == "Friendly" && row.away_team == team) {
+						} else if (measure === "Friendly Away Matches Played") {
+							if (row.tournament === "Friendly" && row.away_team === team) {
 								counter++;
 							}
-						} else if (measure == "Friendly Neutral Matches Played") {
-							if (row.tournament == "Friendly" && row.neutral == "True") {
+						} else if (measure === "Friendly Neutral Matches Played") {
+							if (row.tournament === "Friendly" && row.neutral === "True") {
 								counter++;
 							}
-						} else if (measure == "Tournament Matches Played") {
-							if (row.tournament != "Friendly") {
+						} else if (measure === "Tournament Matches Played") {
+							if (row.tournament !== "Friendly") {
 								counter++;
 							}
-						} else if (measure == "Major Tournaments Played") {
-							if (row.tournament == "FIFA World Cup" || row.tournament == "UEFA Euro" ||
-								row.tournament == "Copa América" || row.tournament == "African Cup of Nations" ||
-								row.tournament == "Gold Cup" || row.tournament == "AFC Asian Cup" || row.tournament == "Oceania Nations Cup") {
+						} else if (measure === "Major Tournaments Played") {
+							if (row.tournament === "FIFA World Cup" || row.tournament === "UEFA Euro" ||
+								row.tournament === "Copa América" || row.tournament === "African Cup of Nations" ||
+								row.tournament === "Gold Cup" || row.tournament === "AFC Asian Cup" || row.tournament === "Oceania Nations Cup") {
 
 								valid_years.add(year);
 							}
-						} else if (measure == "World Cup Tournaments Won") {
-							if (found == 0) {
-								for (i=0; i < wc_winners.length; i++) {
-									if (team == wc_winners[i]["country"]) {
+						} else if (measure === "World Cup Tournaments Won") {
+							if (found === 0) {
+								for (let i=0; i < wc_winners.length; i++) {
+									if (team === wc_winners[i]["country"]) {
 										found = 1;
-										for (j=0; j < wc_winners[i]["wins"].length; j++) {
+										for (let j=0; j < wc_winners[i]["wins"].length; j++) {
 											if (wc_winners[i]["wins"][j] >= start_year && wc_winners[i]["wins"][j] <= end_year) {
 												counter++;
 											}
@@ -456,7 +462,7 @@ const get_one_country_data = function(data_i, chosen_team) {
 
 		});
 
-		if (measure == "Major Tournaments Played") {
+		if (measure === "Major Tournaments Played") {
 			counter = valid_years.size
 		}
 
@@ -480,7 +486,7 @@ const load_data_one_country = function() {
 	data = get_one_country_data(games, currBtnTeamId);
 
 	// do nothing if there is no data corresponding to the selected filters
-	if (data.length == 0) {
+	if (data.length === 0) {
 		document.getElementById("graphTitleOneTeam").innerHTML = currBtnTeamId;
 		data = null;
 		return;
@@ -492,30 +498,30 @@ const load_data_one_country = function() {
 	})
 
 	//set up svg with margins
-	var margin = {
+	const margin = {
 		top: 0,
 		right: 35,
 		bottom: 0,
 		left: 214
 	};
 
-	var width = 1000 - margin.left - margin.right,
+	const width = 1000 - margin.left - margin.right,
 		height = 30 * data.length - margin.top - margin.bottom;
 
-	var svg = d3.select("#graphicTeam").append("svg")
+	const svg = d3.select("#graphicTeam").append("svg")
 		.attr("id", "bar_plot_graphic_team")
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
 		.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-	var x = d3.scaleLinear()
+	const x = d3.scaleLinear()
 		.range([0, width])
 		.domain([0, d3.max(data, function (d) {
 			return d.value;
 		})]);
 
-	var y = d3.scaleBand()
+	const y = d3.scaleBand()
 		.rangeRound([height, 0])
 		.padding(0.2)
 		.domain(data.map(function (d) {
@@ -523,27 +529,27 @@ const load_data_one_country = function() {
 		}));
 
 	// make y axis to show bar names
-	var yAxis = d3.axisLeft(y)
+	const yAxis = d3.axisLeft(y)
 		.tickSize(0);
 
-	var gy = svg.append("g")
+	const gy = svg.append("g")
 		.attr("class", "y axis")
-		.call(yAxis)
+		.call(yAxis);
 
-	var bars = svg.selectAll(".bar")
+	const bars = svg.selectAll(".bar")
 		.data(data)
 		.enter()
-		.append("g")
+		.append("g");
 
 	// apply gradient on bars
-	var gradient = svg
+	const gradient = svg
 		.append("linearGradient")
 		.attr("x1", 0)
 		.attr("x2", 1850)
 		.attr("y1", "0")
 		.attr("y2", "0")
 		.attr("id", "gradient")
-		.attr("gradientUnits", "userSpaceOnUse")
+		.attr("gradientUnits", "userSpaceOnUse");
 
 	gradient
 		.append("stop")
@@ -613,7 +619,7 @@ const load_data_one_country = function() {
 
 // parsing games stats information for world section
 const get_world_data = function(data_i) {
-	let retrieved_data = new Array();
+	let retrieved_data = [];
 	let competition_set = new Set();
 
 	// getting competition parameters onlu since criterions are now radio button because we only manage one criterion at a time
@@ -624,7 +630,7 @@ const get_world_data = function(data_i) {
 	});
 
 	// Do nothing if no competition is selected
-	if (competition_set.size == 0) {
+	if (competition_set.size === 0) {
 		return retrieved_data;
 	}
 
@@ -647,11 +653,11 @@ const get_world_data = function(data_i) {
 			games.forEach(row => {
 				year = row.date.substring(0, 4);
 				if (competition_set.has("All")) {
-					if ((row.away_team == team || row.home_team == team) && (year >= start_year) && (year <= end_year)) {
+					if ((row.away_team === team || row.home_team === team) && (year >= start_year) && (year <= end_year)) {
 						counter++;
 					}
 				} else {
-					if ((row.away_team == team || row.home_team == team) && (competition_set.has(row.tournament)) && (year >= start_year) && (year <= end_year)) {
+					if ((row.away_team === team || row.home_team === team) && (competition_set.has(row.tournament)) && (year >= start_year) && (year <= end_year)) {
 						counter++;
 					}
 				}
@@ -667,14 +673,14 @@ const get_world_data = function(data_i) {
 			games.forEach(row => {
 				year = row.date.substring(0, 4);
 				if (competition_set.has("All")) {
-					if ((row.away_team == team || row.home_team == team) && (year >= start_year) && (year <= end_year)) {
-						if ((row.away_team == team && parseInt(row.away_score) > parseInt(row.home_score)) || (row.home_team == team && parseInt(row.home_score) > parseInt(row.away_score))) {
+					if ((row.away_team === team || row.home_team === team) && (year >= start_year) && (year <= end_year)) {
+						if ((row.away_team === team && parseInt(row.away_score) > parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) > parseInt(row.away_score))) {
 							counter++;
 						}
 					}
 				} else {
-					if ((row.away_team == team || row.home_team == team) && (competition_set.has(row.tournament)) && (year >= start_year) && (year <= end_year)) {
-						if ((row.away_team == team && parseInt(row.away_score) > parseInt(row.home_score)) || (row.home_team == team && parseInt(row.home_score) > parseInt(row.away_score))) {
+					if ((row.away_team === team || row.home_team === team) && (competition_set.has(row.tournament)) && (year >= start_year) && (year <= end_year)) {
+						if ((row.away_team === team && parseInt(row.away_score) > parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) > parseInt(row.away_score))) {
 							counter++;
 						}
 					}
@@ -691,14 +697,14 @@ const get_world_data = function(data_i) {
 			games.forEach(row => {
 				year = row.date.substring(0, 4);
 				if (competition_set.has("All")) {
-					if ((row.away_team == team || row.home_team == team) && (year >= start_year) && (year <= end_year)) {
-						if (parseInt(row.home_score) == parseInt(row.away_score)) {
+					if ((row.away_team === team || row.home_team === team) && (year >= start_year) && (year <= end_year)) {
+						if (parseInt(row.home_score) === parseInt(row.away_score)) {
 							counter++;
 						}
 					}
 				} else {
-					if ((row.away_team == team || row.home_team == team) && (competition_set.has(row.tournament)) && (year >= start_year) && (year <= end_year)) {
-						if (parseInt(row.home_score) == parseInt(row.away_score)) {
+					if ((row.away_team === team || row.home_team === team) && (competition_set.has(row.tournament)) && (year >= start_year) && (year <= end_year)) {
+						if (parseInt(row.home_score) === parseInt(row.away_score)) {
 							counter++;
 						}
 					}
@@ -715,14 +721,14 @@ const get_world_data = function(data_i) {
 			games.forEach(row => {
 				year = row.date.substring(0, 4);
 				if (competition_set.has("All")) {
-					if ((row.away_team == team || row.home_team == team) && (year >= start_year) && (year <= end_year)) {
-						if ((row.away_team == team && parseInt(row.away_score) < parseInt(row.home_score)) || (row.home_team == team && parseInt(row.home_score) < parseInt(row.away_score))) {
+					if ((row.away_team === team || row.home_team === team) && (year >= start_year) && (year <= end_year)) {
+						if ((row.away_team === team && parseInt(row.away_score) < parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) < parseInt(row.away_score))) {
 							counter++;
 						}
 					}
 				} else {
-					if ((row.away_team == team || row.home_team == team) && (competition_set.has(row.tournament)) && (year >= start_year) && (year <= end_year)) {
-						if ((row.away_team == team && parseInt(row.away_score) < parseInt(row.home_score)) || (row.home_team == team && parseInt(row.home_score) < parseInt(row.away_score))) {
+					if ((row.away_team === team || row.home_team === team) && (competition_set.has(row.tournament)) && (year >= start_year) && (year <= end_year)) {
+						if ((row.away_team === team && parseInt(row.away_score) < parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) < parseInt(row.away_score))) {
 							counter++;
 						}
 					}
@@ -739,16 +745,16 @@ const get_world_data = function(data_i) {
 			games.forEach(row => {
 				year = row.date.substring(0, 4);
 				if (competition_set.has("All")) {
-					if ((row.away_team == team || row.home_team == team) && (year >= start_year) && (year <= end_year)) {
-						if (row.away_team == team) {
+					if ((row.away_team === team || row.home_team === team) && (year >= start_year) && (year <= end_year)) {
+						if (row.away_team === team) {
 							counter += parseInt(row.away_score);
 						} else {
 							counter += parseInt(row.home_score);
 						}
 					}
 				} else {
-					if ((row.away_team == team || row.home_team == team) && (competition_set.has(row.tournament)) && (year >= start_year) && (year <= end_year)) {
-						if (row.away_team == team) {
+					if ((row.away_team === team || row.home_team === team) && (competition_set.has(row.tournament)) && (year >= start_year) && (year <= end_year)) {
+						if (row.away_team === team) {
 							counter += parseInt(row.away_score);
 						} else {
 							counter += parseInt(row.home_score);
@@ -767,16 +773,16 @@ const get_world_data = function(data_i) {
 			games.forEach(row => {
 				year = row.date.substring(0, 4);
 				if (competition_set.has("All")) {
-					if ((row.away_team == team || row.home_team == team) && (year >= start_year) && (year <= end_year)) {
-						if (row.away_team == team) {
+					if ((row.away_team === team || row.home_team === team) && (year >= start_year) && (year <= end_year)) {
+						if (row.away_team === team) {
 							counter += parseInt(row.home_score);
 						} else {
 							counter += parseInt(row.away_score);
 						}
 					}
 				} else {
-					if ((row.away_team == team || row.home_team == team) && (competition_set.has(row.tournament)) && (year >= start_year) && (year <= end_year)) {
-						if (row.away_team == team) {
+					if ((row.away_team === team || row.home_team === team) && (competition_set.has(row.tournament)) && (year >= start_year) && (year <= end_year)) {
+						if (row.away_team === team) {
 							counter += parseInt(row.home_score);
 						} else {
 							counter += parseInt(row.away_score);
@@ -794,7 +800,7 @@ const get_world_data = function(data_i) {
 			counter = 0;
 			games.forEach(row => {
 				year = row.date.substring(0, 4);
-				if ((row.home_team == team) && (row.tournament == "Friendly") && (row.neutral == "False") && (year >= start_year) && (year <= end_year)) {
+				if ((row.home_team === team) && (row.tournament === "Friendly") && (row.neutral === "False") && (year >= start_year) && (year <= end_year)) {
 					counter++;
 				}
 			})
@@ -808,7 +814,7 @@ const get_world_data = function(data_i) {
 			counter = 0;
 			games.forEach(row => {
 				year = row.date.substring(0, 4);
-				if ((row.away_team == team) && (row.tournament == "Friendly") && (row.neutral == "False") && (year >= start_year) && (year <= end_year)) {
+				if ((row.away_team === team) && (row.tournament === "Friendly") && (row.neutral === "False") && (year >= start_year) && (year <= end_year)) {
 					counter++;
 				}
 			})
@@ -822,7 +828,7 @@ const get_world_data = function(data_i) {
 			counter = 0;
 			games.forEach(row => {
 				year = row.date.substring(0, 4);
-				if ((row.away_team == team || row.home_team == team) && (row.tournament == "Friendly") && (row.neutral == "True") && (year >= start_year) && (year <= end_year)) {
+				if ((row.away_team === team || row.home_team === team) && (row.tournament === "Friendly") && (row.neutral === "True") && (year >= start_year) && (year <= end_year)) {
 					counter++;
 				}
 			})
@@ -837,11 +843,11 @@ const get_world_data = function(data_i) {
 			games.forEach(row => {
 				year = row.date.substring(0, 4);
 				if (competition_set.has("All")) {
-					if ((row.away_team == team || row.home_team == team) && (row.tournament != "Friendly") && (year >= start_year) && (year <= end_year)) {
+					if ((row.away_team === team || row.home_team === team) && (row.tournament !== "Friendly") && (year >= start_year) && (year <= end_year)) {
 						counter++;
 					}
 				} else {
-					if ((row.away_team == team || row.home_team == team) && (row.tournament != "Friendly") && (competition_set.has(row.tournament)) && (year >= start_year) && (year <= end_year)) {
+					if ((row.away_team === team || row.home_team === team) && (row.tournament !== "Friendly") && (competition_set.has(row.tournament)) && (year >= start_year) && (year <= end_year)) {
 						counter++;
 					}
 				}
@@ -859,17 +865,17 @@ const get_world_data = function(data_i) {
 				year = row.date.substring(0, 4);
 				curr_year = year;
 				if (competition_set.has("All")) {
-					if ((row.away_team == team || row.home_team == team) && (row.tournament == "FIFA World Cup" || row.tournament == "UEFA Euro" ||
-						row.tournament == "Copa América" || row.tournament == "African Cup of Nations" ||
-						row.tournament == "Gold Cup" || row.tournament == "AFC Asian Cup" ||
-						row.tournament == "Oceania Nations Cup") && (year >= start_year) && (year <= end_year)) {
+					if ((row.away_team === team || row.home_team === team) && (row.tournament === "FIFA World Cup" || row.tournament === "UEFA Euro" ||
+						row.tournament === "Copa América" || row.tournament === "African Cup of Nations" ||
+						row.tournament === "Gold Cup" || row.tournament === "AFC Asian Cup" ||
+						row.tournament === "Oceania Nations Cup") && (year >= start_year) && (year <= end_year)) {
 						valid_years.add(curr_year);
 					}
 				} else {
-					if ((row.away_team == team || row.home_team == team) && (row.tournament == "FIFA World Cup" || row.tournament == "UEFA Euro" ||
-						row.tournament == "Copa América" || row.tournament == "African Cup of Nations" ||
-						row.tournament == "Gold Cup" || row.tournament == "AFC Asian Cup" ||
-						row.tournament == "Oceania Nations Cup") && (competition_set.has(row.tournament)) && (year >= start_year) && (year <= end_year)) {
+					if ((row.away_team === team || row.home_team === team) && (row.tournament === "FIFA World Cup" || row.tournament === "UEFA Euro" ||
+						row.tournament === "Copa América" || row.tournament === "African Cup of Nations" ||
+						row.tournament === "Gold Cup" || row.tournament === "AFC Asian Cup" ||
+						row.tournament === "Oceania Nations Cup") && (competition_set.has(row.tournament)) && (year >= start_year) && (year <= end_year)) {
 						valid_years.add(curr_year);
 					}
 				}
@@ -891,7 +897,7 @@ const get_world_data = function(data_i) {
 		teams.forEach(team => {
 			found = 0;
 			for (i=0; i < winners.length; i++) {
-				if (team == winners[i]["country"]) {
+				if (team === winners[i]["country"]) {
 					found = 1;
 					counter = 0;
 					for (j=0; j < winners[i]["wins"].length; j++) {
@@ -903,7 +909,7 @@ const get_world_data = function(data_i) {
 					break;
 				}
 			}
-			if (found == 0) {
+			if (found === 0) {
 				retrieved_data.push({"name": team, "value": 0});
 			}
 		});
@@ -927,7 +933,7 @@ const load_data_world = function() {
 	data = get_world_data(games);
 
 	// Do nothing is no games matches the request
-	if (data.length == 0) {
+	if (data.length === 0) {
 		alert("Please select a criterion and a competition");
 		data = null;
 		return;
@@ -979,27 +985,27 @@ const load_data_world = function() {
 		}));
 
 	// make y axis to show bar names
-	var yAxis = d3.axisLeft(y)
+	const yAxis = d3.axisLeft(y)
 		.tickSize(0);
 
-	var gy = svg.append("g")
+	const gy = svg.append("g")
 		.attr("class", "y axis")
-		.call(yAxis)
+		.call(yAxis);
 
-	var bars = svg.selectAll(".bar")
+	const bars = svg.selectAll(".bar")
 		.data(data)
 		.enter()
-		.append("g")
+		.append("g");
 
 	// apply gradient on bars
-	var gradient = svg
+	const gradient = svg
 		.append("linearGradient")
 		.attr("x1", 0)
 		.attr("x2", 1850)
 		.attr("y1", "0")
 		.attr("y2", "0")
 		.attr("id", "gradient")
-		.attr("gradientUnits", "userSpaceOnUse")
+		.attr("gradientUnits", "userSpaceOnUse");
 
 	gradient
 		.append("stop")
@@ -1243,7 +1249,8 @@ const criterion_loader = function() {
 // triggered when the document is ready
 whenDocumentLoaded(() => {
 
-	// load the flag database
+	let i;
+// load the flag database
 	data_loader("../../data/final_results.csv"); /* Ajout Vincent */
 
 	// create the criterions side menus
@@ -1257,7 +1264,7 @@ whenDocumentLoaded(() => {
 	var radios = document.querySelectorAll('input[type=radio]');
 
 	// add a change event listener to all of them to record any change and immediately draw a plot in response to this change
-	for(var i = 0; i < checkboxes.length; i++) {
+	for(i = 0; i < checkboxes.length; i++) {
 		checkboxes[i].addEventListener('change', function(){
 			if (currBtnTeamId != null) {
 				for (var i = 0; i < radios.length; i++) {
@@ -1270,7 +1277,7 @@ whenDocumentLoaded(() => {
 		});
 	}
 
-	for(var i = 0; i < radios.length; i++) {
+	for(i = 0; i < radios.length; i++) {
 		radios[i].addEventListener('change', function(){
 			if (currBtnTeamId != null) {
 				for (var i = 0; i < checkboxes.length; i++) {
@@ -1286,18 +1293,19 @@ whenDocumentLoaded(() => {
 	// onclick listeners for every measure criterion in order to disable some competitions that are irrelevant with the selected filter
 	document.getElementById("Friendly Home Matches Played button").onclick = function() {
 		if (currBtnTeamId == null) {
+			let i;
 			disabled_checkboxes.clear();
-			for(var i=0; i < competitions.length; i++) {
+			for(i = 0; i < competitions.length; i++) {
 				currBtnId = competitions[i] + " button";
 				currBtn = document.getElementById(currBtnId);
 				currBtn.checked = false;
 				currBtn.disabled = false;
 			}
-			for(var i=0; i < competitions.length; i++) {
+			for(i = 0; i < competitions.length; i++) {
 				currBtnId = competitions[i] + " button";
 				currBtn = document.getElementById(currBtnId);
 				currBtn.disabled = true;
-				if (currBtnId != "Friendly button" && currBtnId != "All button") {
+				if (currBtnId !== "Friendly button" && currBtnId !== "All button") {
 					disabled_checkboxes.add(currBtnId);
 				} else {
 					currBtn.checked = true;
@@ -1308,18 +1316,19 @@ whenDocumentLoaded(() => {
 
 	document.getElementById("Friendly Away Matches Played button").onclick = function() {
 		if (currBtnTeamId == null) {
+			let i;
 			disabled_checkboxes.clear();
-			for(var i=0; i < competitions.length; i++) {
+			for(i = 0; i < competitions.length; i++) {
 				currBtnId = competitions[i] + " button";
 				currBtn = document.getElementById(currBtnId);
 				currBtn.checked = false;
 				currBtn.disabled = false;
 			}
-			for(var i=0; i < competitions.length; i++) {
+			for(i = 0; i < competitions.length; i++) {
 				currBtnId = competitions[i] + " button";
 				currBtn = document.getElementById(currBtnId);
 				currBtn.disabled = true;
-				if (currBtnId != "Friendly button" && currBtnId != "All button") {
+				if (currBtnId !== "Friendly button" && currBtnId != "All button") {
 					disabled_checkboxes.add(currBtnId);
 				} else {
 					currBtn.checked = true;
@@ -1327,21 +1336,21 @@ whenDocumentLoaded(() => {
 			}
 		}
 	};
-
 	document.getElementById("Friendly Neutral Matches Played button").onclick = function() {
 		if (currBtnTeamId == null) {
+			let i;
 			disabled_checkboxes.clear();
-			for(var i=0; i < competitions.length; i++) {
+			for(i = 0; i < competitions.length; i++) {
 				currBtnId = competitions[i] + " button";
 				currBtn = document.getElementById(currBtnId);
 				currBtn.checked = false;
 				currBtn.disabled = false;
 			}
-			for(var i=0; i < competitions.length; i++) {
+			for(i = 0; i < competitions.length; i++) {
 				currBtnId = competitions[i] + " button";
 				currBtn = document.getElementById(currBtnId);
 				currBtn.disabled = true;
-				if (currBtnId != "Friendly button" && currBtnId != "All button") {
+				if (currBtnId !== "Friendly button" && currBtnId !== "All button") {
 					disabled_checkboxes.add(currBtnId);
 				} else {
 					currBtn.checked = true;
@@ -1352,17 +1361,18 @@ whenDocumentLoaded(() => {
 
 	document.getElementById("Tournament Matches Played button").onclick = function() {
 		if (currBtnTeamId == null) {
+			let i;
 			disabled_checkboxes.clear();
-			for(var i=0; i < competitions.length; i++) {
+			for(i = 0; i < competitions.length; i++) {
 				currBtnId = competitions[i] + " button";
 				currBtn = document.getElementById(currBtnId);
 				currBtn.checked = false;
 				currBtn.disabled = false;
 			}
-			for(var i=0; i < competitions.length; i++) {
+			for(i = 0; i < competitions.length; i++) {
 				currBtnId = competitions[i] + " button";
 				currBtn = document.getElementById(currBtnId);
-				if (currBtnId == "Friendly button") {
+				if (currBtnId === "Friendly button") {
 					currBtn.disabled = true;
 					disabled_checkboxes.add(currBtnId);
 				}
@@ -1395,9 +1405,11 @@ whenDocumentLoaded(() => {
 	};
 
 	document.getElementById("Draws button").onclick = function() {
+		let currBtn;
+		let currBtnId;
 		if (currBtnTeamId == null) {
 			disabled_checkboxes.clear();
-			for(var i=0; i < competitions.length; i++) {
+			for (var i = 0; i < competitions.length; i++) {
 				currBtnId = competitions[i] + " button";
 				currBtn = document.getElementById(currBtnId);
 				currBtn.checked = false;
@@ -1407,9 +1419,11 @@ whenDocumentLoaded(() => {
 	};
 
 	document.getElementById("Losses button").onclick = function() {
+		let currBtnId;
+		let currBtn;
 		if (currBtnTeamId == null) {
 			disabled_checkboxes.clear();
-			for(var i=0; i < competitions.length; i++) {
+			for (let i = 0; i < competitions.length; i++) {
 				currBtnId = competitions[i] + " button";
 				currBtn = document.getElementById(currBtnId);
 				currBtn.checked = false;
@@ -1419,9 +1433,11 @@ whenDocumentLoaded(() => {
 	};
 
 	document.getElementById("Goals Scored button").onclick = function() {
+		let currBtn;
+		let currBtnId;
 		if (currBtnTeamId == null) {
 			disabled_checkboxes.clear();
-			for(var i=0; i < competitions.length; i++) {
+			for (let i = 0; i < competitions.length; i++) {
 				currBtnId = competitions[i] + " button";
 				currBtn = document.getElementById(currBtnId);
 				currBtn.checked = false;
@@ -1431,9 +1447,11 @@ whenDocumentLoaded(() => {
 	};
 
 	document.getElementById("Goals Conceded button").onclick = function() {
+		let currBtn;
+		let currBtnId;
 		if (currBtnTeamId == null) {
 			disabled_checkboxes.clear();
-			for(var i=0; i < competitions.length; i++) {
+			for (let i = 0; i < competitions.length; i++) {
 				currBtnId = competitions[i] + " button";
 				currBtn = document.getElementById(currBtnId);
 				currBtn.checked = false;
@@ -1443,23 +1461,26 @@ whenDocumentLoaded(() => {
 	};
 
 	document.getElementById("Major Tournaments Played button").onclick = function() {
+		let currBtnId;
+		let currBtn;
 		if (currBtnTeamId == null) {
+			let i;
 			disabled_checkboxes.clear();
-			for(var i=0; i < competitions.length; i++) {
+			for (i = 0; i < competitions.length; i++) {
 				currBtnId = competitions[i] + " button";
 				currBtn = document.getElementById(currBtnId);
 				currBtn.checked = false;
 				currBtn.disabled = false;
 			}
-			for(var i=0; i < competitions.length; i++) {
+			for (i = 0; i < competitions.length; i++) {
 				currBtnId = competitions[i] + " button";
 				currBtn = document.getElementById(currBtnId);
-				if (currBtnId != "All button" && currBtnId != "FIFA World Cup button" && currBtnId != "UEFA Euro button" &&
-					currBtnId != "Copa América button" &&
-					currBtnId != "African Cup of Nations button" &&
-					currBtnId != "Gold Cup button" &&
-					currBtnId != "AFC Asian Cup button" &&
-					currBtnId != "Oceania Nations Cup button") {
+				if (currBtnId !== "All button" && currBtnId !== "FIFA World Cup button" && currBtnId !== "UEFA Euro button" &&
+					currBtnId !== "Copa América button" &&
+					currBtnId !== "African Cup of Nations button" &&
+					currBtnId !== "Gold Cup button" &&
+					currBtnId !== "AFC Asian Cup button" &&
+					currBtnId !== "Oceania Nations Cup button") {
 					currBtn.disabled = true;
 					disabled_checkboxes.add(currBtnId);
 				}
@@ -1469,18 +1490,19 @@ whenDocumentLoaded(() => {
 
 	document.getElementById("World Cup Tournaments Won button").onclick = function() {
 		if (currBtnTeamId == null) {
+			let i;
 			disabled_checkboxes.clear();
-			for(var i=0; i < competitions.length; i++) {
+			for(i = 0; i < competitions.length; i++) {
 				currBtnId = competitions[i] + " button";
 				currBtn = document.getElementById(currBtnId);
 				currBtn.checked = false;
 				currBtn.disabled = false;
 			}
-			for(var i=0; i < competitions.length; i++) {
+			for(i = 0; i < competitions.length; i++) {
 				currBtnId = competitions[i] + " button";
 				currBtn = document.getElementById(currBtnId);
 				currBtn.disabled = true;
-				if (currBtnId != "FIFA World Cup button" && currBtnId != "All button") {
+				if (currBtnId !== "FIFA World Cup button" && currBtnId !== "All button") {
 					disabled_checkboxes.add(currBtnId);
 				} else {
 					currBtn.checked = true;
@@ -1491,24 +1513,23 @@ whenDocumentLoaded(() => {
 
 	// special checkbox having an impact on all the other ones by switching their value to "checked" or "unchecked"
 	document.getElementById("All button").onclick = function() {
+		let i;
+		let currBtn;
+		let currBtnId;
 		if (this.checked) {
-			for(var i=1; i < competitions.length; i++) {
+			for (i = 1; i < competitions.length; i++) {
 				currBtnId = competitions[i] + " button";
 				currBtn = document.getElementById(currBtnId);
-				if(!disabled_checkboxes.has(currBtnId)) {
-					if (currBtnTeamId == null) {
-						currBtn.checked = true;
-					} else {
-						currBtn.checked = false;
-					}
+				if (!disabled_checkboxes.has(currBtnId)) {
+					currBtn.checked = currBtnTeamId == null;
 					currBtn.disabled = true;
 				}
 			}
 		} else {
-			for(var i=1; i < competitions.length; i++) {
+			for (i = 1; i < competitions.length; i++) {
 				currBtnId = competitions[i] + " button";
 				currBtn = document.getElementById(currBtnId);
-				if(!disabled_checkboxes.has(currBtnId)) {
+				if (!disabled_checkboxes.has(currBtnId)) {
 					currBtn.checked = false;
 					currBtn.disabled = false;
 				}
