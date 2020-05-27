@@ -189,7 +189,7 @@ function set_team(newCountry) {
 		}
 
 		// Resetting radio buttons and checkboxes, and transforming radio button into checkboxes for the single team bar plot section
-		Array.from(document.getElementById("measure_container").getElementsByTagName('div')).forEach((item, i) => {
+		Array.from(document.getElementById("measure_container").getElementsByTagName('div')[0].getElementsByTagName('label')).forEach((item, i) => {
 			item.getElementsByTagName('input')[0].type="checkbox";
 		});
 		if (currBtnTeamId == null) {
@@ -1226,6 +1226,7 @@ const criterion_loader = function() {
 	});
 	measure_ref.appendChild(content_meas);
 	const content_comp = document.createElement("div");
+
 	content_comp.classList.add("content");
 	//Loading all competition criterions
 	competitions.forEach((item, i) => {
