@@ -11,7 +11,6 @@
 	<!--Standard script imports-->
 	<script src="../lib/d3.min.js"></script>
 	<script src="script_details.js"></script>
-	<script src="../visualizations/script_visu.js"></script>
 
 
 	<!--Page title and authors-->
@@ -77,7 +76,13 @@
 
 <body>
 
-<div id="generate_container"></div>
+<!--Generate data button-->
+<div class="btn-style-div"
+	 id="generate_container" onclick="load_data()">
+	<b>GENERATE DATA</b>
+</div>
+<button type="button" id="buttonData" class="buttonLoad" onclick="load_data()"></button>
+
 
 <!--Visualization switching buttons-->
 <div id="btns">
@@ -122,7 +127,6 @@
 </div>
 
 <!--Generate data button and back to world mode button-->
-<button type="button" id="buttonData" class="buttonLoad" onclick="load_data()"></button>
 <button type="button" id="buttonWorldMode" class="buttonWorld" onclick="world_mode()"></button>
 
 <!--Div containing bar plots for every team-->
@@ -141,7 +145,7 @@
 <!--Linear gradient for bar plot color-->
 <linearGradient id="svg_2">
 	<stop offset="0" stop-color="#fff"></stop>
-	<stop offset="1" stop-color="#00f0NaN"></stop>
+	<stop offset="1" stop-color="#00f000"></stop>
 </linearGradient>
 
 <!--Div for two teams comparison-->
