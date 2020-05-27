@@ -499,8 +499,8 @@ const load_data_one_country = function() {
 	  left: 214
 	};
 
-	var width = 1045 - margin.left - margin.right,
-	  height = 35 * data.length - margin.top - margin.bottom;
+	var width = 1000 - margin.left - margin.right,
+	  height = 30 * data.length - margin.top - margin.bottom;
 
 	var svg = d3.select("#graphicTeam").append("svg")
 		.attr("id", "bar_plot_graphic_team")
@@ -946,7 +946,7 @@ const load_data_world = function() {
 	  left: 214
 	};
 
-	var width = 1045 - margin.left - margin.right,
+	var width = 1000 - margin.left - margin.right,
 	  height = 5000 - margin.top - margin.bottom;
 
 	var svg = d3.select("#graphic").append("svg")
