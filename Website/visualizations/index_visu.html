@@ -55,9 +55,7 @@
 		}
 
 		//Runs when hovering over a country
-		function onHover(e) {
-
-				let layer=e.target
+		function onHover(layer) {
 
 				//Putting the tile in evidence
 				layer.setStyle({
@@ -88,10 +86,7 @@
 		}
 
 		//Runs when a country stops being hovered over
-		function onHoverEnd(e) {
-
-			//Getting the element for which the hover ended
-			let layer=e.target;
+		function onHoverEnd(layer) {
 
 			//Deactivates the hovered country's targetting
 			if (!layer.clicked){
@@ -113,10 +108,7 @@
 		}
 
 		//Runs when clicking on a country
-		function select(e) {
-
-			//Getting the selected element
-			let layer = e.target;
+		function select(layer) {
 
 			//Activating or deactivating the clicked state
 			layer.clicked=!layer.clicked
@@ -143,10 +135,23 @@
 		//Assigning onHover, onHoverEnd and select to the tiles
 		function onEachFeature(feature, layer) {
 				layer.clicked = false;
+				flag=document.getElementById(feature.properties.name)
+			
+				if(flag!=null){
+					flag.addEventListener("click", function(e){
+						select(layer);
+					});
+					flag.addEventListener("mouseover", function(e){
+						onHoverEnd(layer);
+					});
+					flag.addEventListener("mouseout", function(e){
+						onHover(layer);
+					});
+				}
 				layer.on({
-						mouseover: onHover,
-						mouseout:  onHoverEnd,
-						click:  select
+						mouseover: function(e){onHover(e.target)},
+						mouseout:  function(e){onHoverEnd(e.target)},
+						click:  function(e){select(e.target)}
 				});
 		}
 
@@ -172,8 +177,8 @@
 			}
 		});
 
-		$.getJSON("choropleth.json",function(data){
-		//$.getJSON("choropleth.json",function(data){
+		$.getJSON("map_processed.json",function(data){
+
 			let map = L.map('map',{minZoom:1}).setView([50, 0], 3);
 				geojson=L.geoJson(data, {
 					style: style,
@@ -197,9 +202,13 @@
 
 	<!--Visualization switching buttons-->
 	<div id="btns">
-		<button type="button" id="history-button" onclick="change_tab('HISTORY')" style="width:8vw;height:5vh;font-size:1vw;margin-bottom:2vh;">History</button>
-		<button type="button" id="map-button" onclick="change_tab('MAP')" style="width:8vw;height:5vh;font-size:1vw;margin-bottom:2vh;">Map</button>
-		<button type="button" id="details-button" onclick="change_tab('DETAILS')" style="width:8vw;height:5vh;font-size:1vw;">Details</button>
+		<div class="btn-style-div" id="history-button" onclick="change_tab('HISTORY')">
+			<p style="flex: 0 0 120px;">History</p>
+		</div>
+
+		<div class="btn-style-div" id="details-button" onclick="change_tab('DETAILS')">
+			<p style="flex: 0 0 120px;">Details</p>
+		</div>
 	</div>
 
 	<!--Comparison criterion radio boxes-->

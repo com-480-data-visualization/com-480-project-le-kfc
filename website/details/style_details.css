@@ -93,6 +93,12 @@ The various units of measurement available in CSS:
 	margin-top: 3vh;
 }
 
+/* div to draw svg bar plot of one team inside */
+#graphicTeam {
+	position: absolute;
+	margin-top: 3vh;
+}
+
 /* empty bar plot class for creation of horizontal bars */
 .bar {
 
@@ -116,6 +122,34 @@ The various units of measurement available in CSS:
 /* bar plot class for right labels */
 .label {
     font-size: 13px;
+}
+
+/* div of board flag display when selecting a team */
+.flagBoardDisplay {
+	width: 7.5vw;
+	height: 7.5vw;
+	margin-top: 1vw;
+	margin-left: 1vw;
+}
+
+/* image of for div of board flag display */
+.flagBoardDisplay img {
+	object-fit: cover;
+	border-radius: 50%;
+	width: 7.5vw;
+	height: 7.5vw;
+}
+
+.titleDiv {
+	position: absolute;
+	width: 55.25vw;
+	height: 4vh;
+	left: 14.88vw;
+	top: 10vh;
+	font-size: 22px;
+	font-weight: bold;
+	color: white;
+	text-align: center;
 }
 
 
@@ -151,7 +185,8 @@ The various units of measurement available in CSS:
     height: 8vh;
 		width:  10vw;
     margin-top: 83.5vh;
-		margin-left: -38vw;
+		left: 0;
+		margin-left: 6vw;
 		line-height: 8vh;
 		text-align: center;
 		position: absolute;
@@ -185,7 +220,8 @@ The various units of measurement available in CSS:
     height: 8vh;
 		width:  10vw;
     margin-top: 83.5vh;
-		margin-left: 38vw;
+		right: 0;
+		margin-right: 6vw;
 		line-height: 8vh;
 		text-align: center;
 		position: absolute;
@@ -225,7 +261,8 @@ The various units of measurement available in CSS:
 
 /* button to go to history tab */
 #buttonHistory.buttonTab {
-	margin-left: -47.65vw;
+	left: 0;
+	margin-left: 0.5vw;
 	background-image: url("images/book.jpg");
   background-size: 3.75vw 7vh;
 	border: none;
@@ -233,7 +270,8 @@ The various units of measurement available in CSS:
 
 /* button to go to map tab */
 #buttonMap.buttonTab {
-	margin-left: 47.65vw;
+	right: 0;
+	margin-right: 0.5vw;
 	background-image: url("images/planet.jpg");
   background-size: 3.75vw 7vh;
 	border: none;
@@ -294,9 +332,25 @@ The various units of measurement available in CSS:
 	width: 13vw;
 	height: 5vh;
 	margin-top: 74.2vh;
-	margin-left: 32.5vw;
+	right: 0;
+	margin-right: 18vw;
 	background-image: url("images/data.jpg");
   background-size: 12.75vw 4.75vh;
+	opacity: 0;
+	border: 0.1vw solid black;
+	animation: 300ms ease-out 3.70s 1 fadeInFromNone;
+}
+
+/* Back to world mode button */
+.buttonWorld {
+	position: absolute;
+	width: 13vw;
+	height: 5vh;
+	margin-top: 74.2vh;
+	right: 0;
+	margin-right: 3.5vw;
+	background-image: url("images/world.jpg");
+  background-size: 13vw 4.7vh;
 	opacity: 0;
 	border: 0.1vw solid black;
 	animation: 300ms ease-out 3.70s 1 fadeInFromNone;
