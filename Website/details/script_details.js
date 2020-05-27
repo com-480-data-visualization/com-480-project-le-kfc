@@ -18,8 +18,6 @@ const change_tab= function(name) {
 
 //Events launched after page as finished loading
 window.addEventListener('load', function() {
-	setTimeout(function(){document.getElementById("buttonHistory").style.opacity = "1"}, 600);
-	setTimeout(function(){document.getElementById("buttonMap").style.opacity = "1"}, 600);
 	setTimeout(function(){flag_loader("../../data/final_flags.csv")}, 1000);
 	setTimeout(function(){document.getElementById("slider_container").style.opacity = "1"}, 3700);
 	setTimeout(function(){document.getElementById("search_bar").style.opacity = "1"}, 3700);
