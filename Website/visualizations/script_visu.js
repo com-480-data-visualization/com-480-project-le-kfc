@@ -47,7 +47,10 @@ const change_tab= function(name){
 	if (name==="HISTORY") {
 		window.open("../index.html",'_self');
 	}
-	else {
+	else if(name==="DETAILS") {
+		window.open("../details/index_details.html",'_self');
+	}
+	/*else {
 		if(name==='MAP'){
 			document.getElementById("title").innerHTML='';
 			document.getElementById("map").style.visibility= "visible";
@@ -66,7 +69,7 @@ const change_tab= function(name){
 				item.getElementsByTagName('input')[0].type="checkbox";
 			});
 		}
-	}
+	}*/
 };
 
 //Assigns a color to the inputed value
