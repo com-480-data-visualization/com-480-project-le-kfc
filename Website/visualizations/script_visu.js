@@ -1,7 +1,18 @@
-//Flag database
+/////////////////////////////////////////////////////////////////////////
+//CONSTANTS
+/////////////////////////////////////////////////////////////////////////
+
 let flags;
 let flags_input = [];
 let flag_number;
+
+//List of criterions
+measures=["Matches Hosted","Goals","Victories","Tournaments Won"];
+competitions=["Euro","Friendly","World Cups","African Cup Of Nations"];
+
+/////////////////////////////////////////////////////////////////////////
+//HELPER FUNCTIONS
+/////////////////////////////////////////////////////////////////////////
 
 //Standard initialization function
 function whenDocumentLoaded(action) {
@@ -13,21 +24,9 @@ function whenDocumentLoaded(action) {
 	}
 }
 
-//Launch-time runner
-whenDocumentLoaded(() => {
-
-	//Loading the flags
-	flag_loader("../../data/final_flags.csv");
-
-	//Setting-up the criterion selectors
-	criterion_loader();
-
-});
-
 //Load the flags with input filter
 function input_listener() {
 	let input =  document.getElementById("search_bar").value.toLowerCase();
-	console.log(input);
 
 	flags_input = [];
 	flags.forEach(row => {
@@ -36,9 +35,6 @@ function input_listener() {
 		}
 	});
 	flag_number = flags_input.length;
-
-	console.log(flags_input);
-	console.log(flags);
 
 
 	//Loading the flags
@@ -73,17 +69,21 @@ const change_tab= function(name){
 	}
 };
 
-//Flag loading function
-const flag_loader= function(path){
-	d3.csv(path).then(function(data) {
-		//Assigning the loaded data to the local database
-		flags=data;
-		//Filling the flags without filtration
-		flag_number = flags.length;
-		assign_flags(flags, flag_number);
-	});
+//Assigns a color to the inputed value
+function getColor(d) {
+		return d > 100000000 ? '#800026' :
+					 d > 50000000  ? '#BD0026' :
+					 d > 20000000  ? '#E31A1C' :
+					 d > 10000000  ? '#FC4E2A' :
+					 d > 5000000   ? '#FD8D3C' :
+					 d > 1000000   ? '#FEB24C' :
+					 d > 500000   ? '#FED976' :
+											'#FFEDA0';
+}
 
-};
+/////////////////////////////////////////////////////////////////////////
+//SETUP FUNCTIONS
+/////////////////////////////////////////////////////////////////////////
 
 const assign_flags= function(flags, flag_number){
 	//Reference to the flag container
@@ -113,8 +113,11 @@ const assign_flags= function(flags, flag_number){
 		if(cnt<flag_number) square2.innerHTML = "<img src=\""+flags[cnt]['ImageURL']+"\">";
 		const button_style2 = document.createElement("div");
 		button_style2.classList.add('button-style');
-		if(cnt<flag_number) button_style2.innerHTML = flags[cnt]['Country'].substring(0, 3).toUpperCase();
-		if(cnt<flag_number) button_style2.id=flags[cnt]['Country'];
+		if(cnt<flag_number) {
+			button_style2.innerHTML = flags[cnt]['Country'].substring(0, 3).toUpperCase();
+			button_style2.id=flags[cnt]['Country'];
+		}
+
 		cnt++;
 
 		square.appendChild(button_style);
@@ -125,10 +128,17 @@ const assign_flags= function(flags, flag_number){
 	}
 };
 
+//Flag loading function
+const flag_loader= function(path){
+	d3.csv(path).then(function(data) {
+		//Assigning the loaded data to the local database
+		flags=data;
+		//Filling the flags without filtration
+		flag_number = flags.length;
+		assign_flags(flags, flag_number);
+	});
 
-//List of criterions
-measures=["Matches Hosted","Goals","Victories","Tournaments Won"];
-competitions=["Euro","Friendly","World Cups","African Cup Of Nations"];
+};
 
 //Criterion loading myFunction
 const criterion_loader= function(){
@@ -194,3 +204,15 @@ const criterion_loader= function(){
 	});
 };
 
+/////////////////////////////////////////////////////////////////////////
+//RUN TIME FUNCTION
+/////////////////////////////////////////////////////////////////////////
+//Launch-time runner
+whenDocumentLoaded(() => {
+
+	//Loading the flags
+	flag_loader("../../data/final_flags.csv");
+
+	//Setting-up the criterion selectors
+	criterion_loader();
+});

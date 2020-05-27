@@ -51,54 +51,71 @@
 
 		//Assigns a color to the inputed value
 		function getColor(d) {
-				return d > 100000000 ? '#800026' :
-							 d > 50000000  ? '#BD0026' :
-							 d > 20000000  ? '#E31A1C' :
-							 d > 10000000  ? '#FC4E2A' :
-							 d > 5000000   ? '#FD8D3C' :
-							 d > 1000000   ? '#FEB24C' :
-							 d > 500000   ? '#FED976' :
-													'#FFEDA0';
+				return "red"
 		}
 
 		//Runs when hovering over a country
 		function onHover(e) {
-				let layer = e.target;
+
+				let layer=e.target
 
 				//Putting the tile in evidence
 				layer.setStyle({
 						weight: 2,
-						color: '#666',
-						dashArray: '',
-						fillOpacity: 0.7
+						fillOpacity: 0.9,
+						dashArray: ''
 				});
 
 				if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
 						layer.bringToFront();
 				}
 
+				//Putting the corresponding flag in evidence
+				flag=	document.getElementById(layer.feature.properties.name);
+
+				if (flag!=null) {
+						flag.style.opacity=0;
+						flag.style.background="none";
+						flag.style.border="none";
+
+				}
+
 				//Printing the name and value of the country from the hover display box
 				let p = document.createElement("p");
 				p.style.fontSize="2vh";
-	    	p.appendChild(document.createTextNode(layer.feature.properties.geounit+" --> "+layer.feature.properties.pop_est));
+	    	p.appendChild(document.createTextNode(layer.feature.properties.name+" --> "+layer.feature.properties.name));
 	    	document.getElementById("map_hover").appendChild(p);
 		}
 
 		//Runs when a country stops being hovered over
 		function onHoverEnd(e) {
 
+			//Getting the element for which the hover ended
+			let layer=e.target;
+
 			//Deactivates the hovered country's targetting
-			if (!e.target.clicked){
-				geojson.resetStyle(e.target);
+			if (!layer.clicked){
+				geojson.resetStyle(layer);
 			}
 
 			//Removes the data of the hovered country from the hover display box
 			document.getElementById("map_hover").innerHTML=""
 
+			//Putting the corresponding flag in evidence
+			flag=	document.getElementById(layer.feature.properties.name);
+
+			if (flag!=null && !layer.clicked) {
+					flag.style="resetStyle";
+
+
+			}
+
 		}
 
 		//Runs when clicking on a country
 		function select(e) {
+
+			//Getting the selected element
 			let layer = e.target;
 
 			//Activating or deactivating the clicked state
@@ -109,14 +126,15 @@
 
 			//Adding the name and value of the country from the select box
 			let p = document.createElement("p");
-			p.id=layer.feature.properties.geounit+"_display";
+			p.id=layer.feature.properties.name+"_display";
 			p.style.fontSize="2vh";
-    	p.appendChild(document.createTextNode(layer.feature.properties.geounit+" --> "+layer.feature.properties.pop_est));
+    	p.appendChild(document.createTextNode(layer.feature.properties.name+" --> "+layer.feature.properties.name));
     	document.getElementById("map_select").appendChild(p);
+
 		} else {
 
 			//Removing the name and value of the country from the select box
-			let p=document.getElementById(layer.feature.properties.geounit+"_display");
+			let p=document.getElementById(layer.feature.properties.name+"_display");
 			p.parentNode.removeChild(p);
 		}
 
@@ -127,8 +145,8 @@
 				layer.clicked = false;
 				layer.on({
 						mouseover: onHover,
-						mouseout: onHoverEnd,
-						click: select
+						mouseout:  onHoverEnd,
+						click:  select
 				});
 		}
 
@@ -136,10 +154,10 @@
 		function style(feature) {
 
 			return {
-					fillColor: getColor(feature.properties.pop_est),
-					weight: 2,
+					fillColor: getColor(feature.properties.name),
+					weight: 1,
 					opacity: 1,
-					color: 'white',
+					color: 'black',
 					dashArray: '3',
 					fillOpacity: 0.7
 			};
@@ -154,7 +172,7 @@
 			}
 		});
 
-		$.getJSON("map_processed.json",function(data){
+		$.getJSON("choropleth.json",function(data){
 		//$.getJSON("choropleth.json",function(data){
 			let map = L.map('map',{minZoom:1}).setView([50, 0], 3);
 				geojson=L.geoJson(data, {
