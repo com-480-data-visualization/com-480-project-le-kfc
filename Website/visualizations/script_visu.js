@@ -129,7 +129,7 @@ const stats = function(){
 			db_filtered_country.forEach(row => {
 				if(((d && row.home_team===item && row.home_score > row.away_score)
 					|| (e && row.away_team===item && row.home_score < row.away_score))
-					&&(e||d)&&row.neutral==='False') x++;
+					&&!(e&&d)&&row.neutral==='False') x++;
 			})
 			return x;
 		};
