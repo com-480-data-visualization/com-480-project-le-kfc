@@ -156,7 +156,7 @@ input:-ms-input-placeholder { color: var(--darkgrey);}
 	opacity: 0;
 	background-repeat: no-repeat;
 	z-index: 10;
-	left: 5.65vw;
+	right: 5.65vw;
 }
 .input100 {
 	display: block;
@@ -188,9 +188,10 @@ input.input100 {
 }
 #anim-map-input{
 	animation-name: fadeInFromNone;
-	animation-delay: 10s;
-	animation-duration: 1s;
+	animation-delay: 1s;
+	animation-duration: 1.8s;
 	animation-fill-mode: forwards;
+	opacity: 0;
 }
 
 
@@ -355,9 +356,9 @@ html .ui-button.ui-state-disabled:active {
 	float:left;
 }
 #generate_container {
-	top: 77vh;
+	top: 73.8vh;
 	height: 6.2vh;
-	left: 80vw;
+	left: 1vw;;
 	width: 15vw;
 	text-align:left;
 	float:left;
@@ -418,7 +419,7 @@ html .ui-button.ui-state-disabled:active {
 .guideline_container, .anim-text{
 	background-color: var(--backgrounddark2);
 	height: 8vh;
-	top: 74.1vh;
+	top: 1vh;
 	left: 1vw;
 	text-align: center;
 	opacity: 0;
@@ -432,7 +433,7 @@ html .ui-button.ui-state-disabled:active {
 .guideline_container {
 	overflow: hidden;
 	animation-name: fadeOut;
-	animation-duration: 10s;
+	animation-duration: 13s;
 	animation-delay: 200ms;
 	animation-fill-mode: forwards;
 }
@@ -444,6 +445,7 @@ html .ui-button.ui-state-disabled:active {
 	animation-delay: 1s;
 	animation-duration: 3.5s;
 	animation-fill-mode: forwards;
+	position: absolute;
 }
 
 
