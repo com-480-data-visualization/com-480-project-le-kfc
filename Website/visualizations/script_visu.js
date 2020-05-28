@@ -130,6 +130,7 @@ const stats = function(){
 		}
 	});
 
+Object.values(stat_box).forEach((item, i) => {max=Math.max(max,item)});
 }
 /////////////////////////////////////////////////////////////////////////
 //SETUP FUNCTIONS
