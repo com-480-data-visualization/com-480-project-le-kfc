@@ -129,7 +129,7 @@ const stats = function(){
 			let x=0;
 			db_filtered_country.forEach(row => {
 				if((row.home_team===item && row.home_score > row.away_score)
-					|| (e && row.away_team===item && row.home_score < row.away_score)) x++;
+					|| (row.away_team===item && row.home_score < row.away_score)) x++;
 			})
 			return x;
 		};
@@ -297,13 +297,13 @@ const stats = function(){
 			default:
 				stat_box[item]=0;
 		}
-		//Object.values(stat_box).forEach((item) => {max=Math.max(max,item)});
 
 	});
 
 //Saving the highest value as reference for color scaling
 Object.values(stat_box).forEach((item, i) => {max=Math.max(max,item)});
 }
+
 /////////////////////////////////////////////////////////////////////////
 //SETUP FUNCTIONS
 /////////////////////////////////////////////////////////////////////////
@@ -629,6 +629,31 @@ const criterion_loader= function(){
 		input.addEventListener("click", function(e){
 			measure=e.target;
 			selected_measure=measure.parentNode.childNodes[1].innerHTML;
+			const buttons = document.getElementById("competition_container").elements;
+
+			//Making sure that:
+			//*'Friendly' can't be selected when using a competitive measure
+			//*Only 'Friendly' can't be selected when using a non-competitive measure
+			if (selected_measure.startsWith("Friendly")){
+				for (let i = 0, len = buttons.length; i < len; i++ ) {
+					buttons[i].disabled=true;
+					buttons[i].checked=(buttons[i].data=="Friendly button");
+				}
+				selected_competitions= new Set(["Friendly"]);
+			} else if ((selected_measure==="Tournament Matches Played") ||
+				(selected_measure==="Major Tournaments Played") ||
+				(selected_measure==="World Cup Tournaments Won")){
+					for (let i = 0, len = buttons.length; i < len; i++ ) {
+						buttons[i].disabled=(buttons[i].id=="Friendly button");
+						buttons[i].checked=false;
+					}
+					selected_competitions= new Set();
+			} else {
+				for (let i = 0, len = buttons.length; i < len; i++ ) {
+					buttons[i].disabled=false;
+					buttons[i].checked=false;
+				}
+			}
 			stats();
 		})
 
@@ -667,11 +692,11 @@ const criterion_loader= function(){
 			competition=e.target;
 
 			//Making it such that 'All' can't be selected at the same time as individual competitions
-			if(competition.parentNode.childNodes[1].firstChild.data=="All"){
+			if(competition.parentNode.childNodes[1].firstChild.data==="All"){
 
-					const buttons = document.getElementById("competition_container").elements;
+				const buttons = document.getElementById("competition_container").elements;
 
-					if(!selected_competitions.has("All")){
+				if(!selected_competitions.has("All")){
 						for (let i = 0, len = buttons.length; i < len; i++ ) {
 							buttons[i].disabled=true;
 							buttons[i].checked=false;
@@ -685,13 +710,14 @@ const criterion_loader= function(){
 							buttons[i].disabled=false;
 						}
 						selected_competitions= new Set();
-					}
 
-			}else if(competition.checked && !selected_competitions.has("All")){
+					}
+				} else if(competition.checked && !selected_competitions.has("All")){
 				selected_competitions.add(competition.parentNode.childNodes[1].firstChild.data);
 			} else {
 				selected_competitions.delete(competition.parentNode.childNodes[1].firstChild.data);
 			}
+
 			stats();
 		});
 		label.appendChild(input);
