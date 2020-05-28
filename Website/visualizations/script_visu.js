@@ -475,14 +475,28 @@ const criterion_loader= function(){
 		input.id= competitions[i]+" button";
 		input.addEventListener("click", function(e){
 			competition=e.target;
-			if(selected_competitions.has("All") ){competition.checked=false;}
+
 			if(competition.parentNode.childNodes[1].firstChild.data=="All"){
-				selected_competitions= new Set();
-				console.log(competition.parentNode);
-				competition.parentNode.childNodes.forEach((item, i) => {item.checked=false;});
-				competition.checked=true;
-			}
-			if(competition.checked){
+
+					const buttons = document.getElementById("competition_container").elements;
+
+					if(!selected_competitions.has("All")){
+						for (let i = 0, len = buttons.length; i < len; i++ ) {
+							buttons[i].disabled=true;
+							buttons[i].checked=false;
+						}
+						competition.checked=true;
+						competition.disabled=false;
+						selected_competitions= new Set();
+						selected_competitions.add(competition.parentNode.childNodes[1].firstChild.data);
+					} else {
+						for (let i = 0, len = buttons.length; i < len; i++ ) {
+							buttons[i].disabled=false;
+						}
+						selected_competitions= new Set();
+					}
+
+			}else if(competition.checked && !selected_competitions.has("All")){
 				selected_competitions.add(competition.parentNode.childNodes[1].firstChild.data);
 			} else {
 				selected_competitions.delete(competition.parentNode.childNodes[1].firstChild.data);
