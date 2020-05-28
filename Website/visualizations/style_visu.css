@@ -508,7 +508,7 @@ body label {
 	background: rgba(130, 154, 177, 0.9);
 }
 .option-input:disabled {
-	/*background: rgba(108, 126, 147, 0.9);*/
+	background: rgba(108, 126, 147, 0.9);
 	opacity: 0.25;
 }
 .option-input:checked {

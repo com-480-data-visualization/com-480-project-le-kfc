@@ -124,12 +124,11 @@ const stats = function(){
 		let db_filtered_country=db_filtered.filter(entry => (entry.home_team===item) || (entry.away_team===item));
 		const nb_played = () => {return db_filtered_country.length};
 		let x = 0;
-		const nb_win = (d=true,e=true) => {
+		const nb_win = () => {
 			let x=0;
 			db_filtered_country.forEach(row => {
-				if(((d && row.home_team===item && row.home_score > row.away_score)
-					|| (e && row.away_team===item && row.home_score < row.away_score))
-					&&!(e&&d)&&row.neutral==='False') x++;
+				if((row.home_team===item && row.home_score > row.away_score)
+					|| (e && row.away_team===item && row.home_score < row.away_score)) x++;
 			})
 			return x;
 		};
@@ -138,12 +137,11 @@ const stats = function(){
 			db_filtered_country.forEach(row => {if(row.home_score === row.away_score) x++;})
 			return x;
 		};
-		const nb_lose = (d=true,e=true) => {
+		const nb_lose = () => {
 			let x=0;
 			db_filtered_country.forEach(row => {
-				if(((d && row.home_team===item && row.home_score < row.away_score)
-					|| (e && row.away_team===item && row.home_score > row.away_score))
-					&&!(e&&d)&&row.neutral==='False') x++;
+				if((row.home_team===item && row.home_score < row.away_score)
+					|| (row.away_team===item && row.home_score > row.away_score)) x++;
 			})
 			return x;
 		};
@@ -229,29 +227,40 @@ const stats = function(){
 				stat_box[item]=nb_lose()/nb_played();
 				break;
 			case "Home Wins":
-				stat_box[item]=nb_win(true, false);
+				db_filtered_country.forEach(row => {
+					if(row.home_team===item && row.home_score>row.away_score && row.neutral==='False')x++;
+				})
+				stat_box[item]=x;
 				break;
 			case "Home Draws":
 				db_filtered_country.forEach(row => {
-					if(row.home_score===row.away_score && row.home_team===item)x++;
+					if(row.home_score===row.away_score && row.home_team===item && row.neutral==='False')x++;
 				})
 				stat_box[item]=x;
 				break;
 			case "Home Losses":
-				stat_box[item]=nb_lose(true,false);
+				stat_box[item]=db_filtered_country.forEach(row => {
+					if(row.home_team===item && row.home_score<row.away_score && row.neutral==='False')x++;
+				})
+				stat_box[item]=x;
 				break;
 			case "Away Wins":
-				stat_box[item]=nb_win(false, true);
+				db_filtered_country.forEach(row => {
+					if(row.away_team===item && row.home_score<row.away_score && row.neutral==='False')x++;
+				})
+				stat_box[item]=x;
 				break;
 			case "Away Draws":
 				db_filtered_country.forEach(row => {
-					if(row.home_score===row.away_score && row.away_team===item)x++;
+					if(row.home_score===row.away_score && row.away_team===item && row.neutral==='False')x++;
 				})
 				stat_box[item]=x;
 				break;
 			case "Away Losses":
-				stat_box[item]=nb_lose(false, true);
-				break;
+				db_filtered_country.forEach(row => {
+					if(row.away_team===item && row.home_score>row.away_score && row.neutral==='False')x++;
+				})
+				stat_box[item]=x;				break;
 			case "Performance Factor Home Matches":
 				let prop_real_home_win=0, prop_real_home_lose=0;
 				db_filtered_country.forEach(row => {
@@ -287,7 +296,7 @@ const stats = function(){
 			default:
 				stat_box[item]=0;
 		}
-		Object.values(stat_box).forEach((item, i) => {max=Math.max(max,item)});
+		//Object.values(stat_box).forEach((item) => {max=Math.max(max,item)});
 
 	});
 
