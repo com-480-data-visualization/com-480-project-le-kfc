@@ -12,7 +12,6 @@
 	<script src="../lib/d3.min.js"></script>
 	<script src="script_details.js"></script>
 
-
 	<!--Page title and authors-->
 	<title>International Football</title>
 	<meta name="author" content="Alexandre Reynaud, Léo Bouraux, Vincent Rinaldi">
@@ -60,28 +59,17 @@
 				}
 			});
 		});
-
-		/*		$(function(){
-            var bgimage = new Image();
-            bgimage.src="https://i.pinimg.com/originals/42/50/cf/4250cf3e0be36300f7f2db83c6827ca6.jpg";
-                $(".feature").hide();
-                    $(bgimage).load(function(){
-                        $(".feature").css("background-image","url("+$(this).attr("src")+")").fadeIn(1000);
-                    });
-                });*/
 	</script>
 
 </head>
 
 <body>
 
-<!--Generate data button-->
+<!--Button to generate world data-->
 <div class="btn-style-div"
 	 id="generate_container" onclick="load_data()">
 	<b>GENERATE DATA</b>
 </div>
-<button type="button" id="buttonData" class="buttonLoad" onclick="load_data()"></button>
-
 
 <!--Visualization switching buttons-->
 <div id="btns">
@@ -89,7 +77,7 @@
 		<p style="flex: 0 0 120px;">History</p>
 	</div>
 
-	<div class="btn-style-div" id="details-button" onclick="change_tab('MAP')">
+	<div class="btn-style-div" id="map-button" onclick="change_tab('MAP')">
 		<p style="flex: 0 0 120px;">Map</p>
 	</div>
 </div>
@@ -122,17 +110,14 @@
 <div class="guideline_container">
 </div>
 <div class="anim-text">
-	Choose a criterion, different competition(s)
+	Generate world-wide statistics by selecting a criterion and one or several competitions.
 </div>
-<div class="anim-text" style="animation-delay: 5s">
-	a time range to display data and
+<div class="anim-text" style="animation-delay: 6s">
+	You can select one or two teams for individual analysis and statistical comparisons.
 </div>
-<div class="anim-text" style="animation-delay: 9s">
-	finally either none, one or two teams.
+<div class="anim-text" style="animation-delay: 12s">
+	A time slider is available to navigate through time.
 </div>
-
-<!--Generate data button and back to world mode button-->
-<button type="button" id="buttonWorldMode" class="buttonWorld" onclick="world_mode()"></button>
 
 <!--Div containing bar plots for every team-->
 <div id="dataBoard" class="board">
@@ -141,8 +126,7 @@
 
 <!--Div containing bar plots for one team-->
 <div id="dataTeam" class="board" style="display:none;">
-	<div id="flagTeam" class="flagBoardDisplay"></div>
-	<button type="button" id="buttonVS" class="buttonCompare" onclick="triggerVS()">Go VS</button>
+	<div id="flagTeam" class="flagBoardDisplay" onclick="changeVS1()"></div>
 	<div id="graphTitleOneTeam" class="titleDiv"></div>
 	<div id="graphicTeam"></div>
 </div>
@@ -151,7 +135,6 @@
 <div id="dataVS" class="board" style="display:none;">
 	<div id="flagVS1" class="flagBoardDisplay" onclick="changeVS1()"></div>
 	<div id="flagVS2" class="flagBoardDisplay2" onclick="changeVS2()"></div>
-	<button type="button" id="buttonCancelVS" class="buttonCompare" onclick="cancelVS()">Go Solo</button>
 	<div id="nameCountry1" class="titleDiv1"></div>
 	<div id="nameCountry2" class="titleDiv2"></div>
 
@@ -188,7 +171,7 @@
 			<td>10</td>
 		</tr>
 		</tbody>
-		<table/>
+	</table>
 
 </div>
 

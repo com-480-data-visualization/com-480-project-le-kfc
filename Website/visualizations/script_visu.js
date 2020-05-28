@@ -162,19 +162,19 @@ const stats = function(){
 				break;
 			case "Friendly Home Matches Played":
 				db_filtered_country.forEach(row => {
-					if(row.tournament==='Friendly' && row.neutral===false && row.home_team===item) x++;
+					if(row.tournament==='Friendly' && row.neutral==='False' && row.home_team===item) x++;
 				})
 				stat_box[item]=x;
 				break;
 			case "Friendly Away Matches Played":
 				db_filtered_country.forEach(row => {
-					if(row.tournament==='Friendly' && row.neutral===false && row.away_team===item) x++;
+					if(row.tournament==='Friendly' && row.neutral==='False' && row.away_team===item) x++;
 				})
 				stat_box[item]=x;
 				break;
 			case "Friendly Neutral Matches Played":
 				db_filtered_country.forEach(row => {
-					if(row.tournament==='Friendly' && row.neutral===true) x++;
+					if(row.tournament==='Friendly' && row.neutral==='True') x++;
 				})
 				stat_box[item]=x;
 				break;

@@ -1,4 +1,3 @@
-
 /* INTRODUCTION
 The various units of measurement available in CSS: https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Values_and_units */
 
@@ -323,6 +322,7 @@ html .ui-button.ui-state-disabled:active {
 .btn-style-div:hover {
 	background-color: rgba(165, 201, 224, 0.6);
 }
+
 #measure_container, #competition_container, .map_select, #map_hover, .guideline_container, .anim-text {
 	position: absolute;
 	width: 15vw;
@@ -359,19 +359,35 @@ html .ui-button.ui-state-disabled:active {
 	float:left;
 }
 #generate_container {
-	top: 73.8vh;
-	height: 6.2vh;
-	left: 1vw;;
-	width: 15vw;
+	top: 75.5vh;
+	height: 5vh;
+	left: 3.4vw;
+	width: 10vw;
 	text-align:left;
 	float:left;
 	background: var(--backgrounddark2);
 	position: absolute;
-	overflow: scroll;
+	overflow: hidden;
 	border-radius: 1em;
 	cursor: pointer;
 }
 #generate_container:hover {
+	background: rgba(75, 102, 120, 0.9);
+}
+#generate_container_back {
+	top: 75.5vh;
+	height: 5vh;
+	left: 77vw;
+	width: 13vw;
+	text-align:left;
+	float:left;
+	background: var(--backgrounddark2);
+	position: absolute;
+	overflow: hidden;
+	border-radius: 1em;
+	visibility: hidden;
+}
+#generate_container_back:hover {
 	background: rgba(75, 102, 120, 0.9);
 }
 #competition_container {
@@ -432,11 +448,12 @@ html .ui-button.ui-state-disabled:active {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-size: 12px;
 }
 .guideline_container {
 	overflow: hidden;
 	animation-name: fadeOut;
-	animation-duration: 13s;
+	animation-duration: 15s;
 	animation-delay: 200ms;
 	animation-fill-mode: forwards;
 }
@@ -446,7 +463,7 @@ html .ui-button.ui-state-disabled:active {
 	background-color: rgba(119, 160, 186, 0);
 	animation-name: fadeInAndOutText;
 	animation-delay: 1s;
-	animation-duration: 3.5s;
+	animation-duration: 5s;
 	animation-fill-mode: forwards;
 	position: absolute;
 }
@@ -490,8 +507,9 @@ body label {
 .option-input:hover {
 	background: rgba(130, 154, 177, 0.9);
 }
-.option-input.disabled {
-	background: rgba(108, 126, 147, 0.9);
+.option-input:disabled {
+	/*background: rgba(108, 126, 147, 0.9);*/
+	opacity: 0.25;
 }
 .option-input:checked {
 	background: rgba(40, 97, 125, 0.8);

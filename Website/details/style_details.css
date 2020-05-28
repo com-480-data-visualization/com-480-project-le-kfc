@@ -145,11 +145,11 @@ hr {
 /* div for team graph title */
 .titleDiv {
 	position: absolute;
-	width: 55.25vw;
-	height: 4vh;
+	width: 60vw;
+	height: 3.5vh;
 	left: 7vw;
-	top: 3vh;
-	font-size: 27px;
+	top: 2.5vh;
+	font-size: 23px;
 	font-weight: lighter;
 	color: #111;
 	text-align: left;
@@ -160,7 +160,7 @@ hr {
 	position: absolute;
 	width: 10vw;
 	height: 3.5vw;
-	left: 30vw;
+	left: 31.8vw;
 	top: 2vh;
 	font-size: 1vw;
 	background-color: var(--backgrounddark2);
@@ -174,7 +174,7 @@ hr {
 	width: 7.5vw;
 	height: 7.5vw;
 	margin-top: -7.5vw;
-	margin-left: 65vw;
+	margin-left: 64.5vw;
 }
 
 /* image for div of board flag display */
@@ -189,9 +189,9 @@ hr {
 .titleDiv1 {
 	position: absolute;
 	width: 40vw;
-	height: 4vh;
+	height: 3.5vh;
 	left: 7vw;
-	top: 3vh;
+	top: 2.5vh;
 	font-size: 27px;
 	color: #111;
 	text-align: left;
@@ -204,9 +204,9 @@ hr {
 .titleDiv2 {
 	position: absolute;
 	width: 40vw;
-	height: 4vh;
+	height: 3.5vh;
 	right: 7vw;
-	top: 3vh;
+	top: 2.5vh;
 	font-size: 27px;
 	font-weight: lighter;
 	color: #111;
@@ -217,7 +217,7 @@ hr {
 
 
 /* buttons to change tab */
-.buttonTab {
+/*.buttonTab {
 	position: absolute;
 	width: 3.75vw;
 	height: 7vh;
@@ -227,23 +227,23 @@ hr {
 }
 
 /* button to go to history tab */
-#buttonHistory.buttonTab {
+/*#buttonHistory.buttonTab {
 	left: 0;
 	margin-left: 0.5vw;
 	background-image: url("images/book.jpg");
 	background-size: 3.75vw 7vh;
 	border: none;
-}
+}*/
 
 /* button to go to map tab */
-#buttonMap.buttonTab {
+/*#buttonMap.buttonTab {
 	right: 0;
 	margin-right: 0.5vw;
 	background-image: url("images/planet.jpg");
 	background-size: 3.75vw 7vh;
 	border: none;
 	border-radius: 50%;
-}
+}*/
 
 
 
@@ -271,6 +271,7 @@ hr {
 }*/
 
 /* generate data button */
+/*
 .buttonLoad {
 	position: absolute;
 	width: 13vw;
@@ -284,22 +285,7 @@ hr {
 	border: 0.1vw solid black;
 	animation: 300ms ease-out 3.70s 1 fade-in;
 }
-
-/* Back to world mode button */
-.buttonWorld {
-	position: absolute;
-	width: 13vw;
-	height: 5vh;
-	margin-top: 74.2vh;
-	right: 0;
-	margin-right: 3.5vw;
-	background-image: url("images/world.jpg");
-	background-size: 13vw 4.7vh;
-	opacity: 0;
-	border: 0.1vw solid black;
-	animation: 300ms ease-out 3.70s 1 fade-in;
-}
-
+*/
 
 table {
 	border-spacing: 1vw;
@@ -373,4 +359,3 @@ table td.r, table th.r {
 		top: 0;
 	}
 }
-
