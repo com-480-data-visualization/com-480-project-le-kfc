@@ -69,6 +69,7 @@ let selected_competitions = new Set();
 let db;
 let map;
 let max_val=0;
+let legend;
 /////////////////////////////////////////////////////////////////////////
 //HELPER FUNCTIONS
 /////////////////////////////////////////////////////////////////////////
@@ -126,9 +127,9 @@ const change_tab= function(name){
 /////////////////////////////////////////////////////////////////////////
 const load_map = function(){
 	//Assigns a color to the inputed value
-	function getColor(feature) {
+	function getColor(val) {
 		const colorScale = d3.scaleLinear().domain([0, max_val]).range(['steelblue', 'crimson']);
-		return colorScale(feature.properties.val);
+		return colorScale(val);
 	}
 
 	//Runs when hovering over a country
@@ -267,23 +268,23 @@ const load_map = function(){
 			const competitions=document.getElementById("competition_container");
 			const time_slider_comp=document.getElementById("slider-range").childNodes;
 			measures.addEventListener("click", function(e){
-				max_val=0;
-				feature.properties.val=stats(feature.properties.name);
+				feature.properties.val_new=stats(feature.properties.name);
 			});
 			competitions.addEventListener("click", function(e){
-				max_val=0;
-				feature.properties.val=stats(feature.properties.name);
+				feature.properties.val_new=stats(feature.properties.name);
 			});
 			time_slider_comp.forEach((item, i) => {
 				item.addEventListener("click", function(e){
-					max_val=0;
-					feature.properties.val=stats(feature.properties.name);
+					feature.properties.val_new=stats(feature.properties.name);
 				});
 			});
 
 			update_button=document.getElementById("generate_container");
 			update_button.addEventListener("click", function(e){
+				feature.properties.val=feature.properties.val_new;
 				layer.setStyle(style(feature));
+				const max_display=document.getElementById("max_display");
+				max_display.innerHTML=max_val==0 ? "" : max_val;
 			});
 			layer.on({
 					mouseover: function(e){onHover(e.target)},
@@ -296,7 +297,7 @@ const load_map = function(){
 	function style(feature) {
 		if(feature.properties.clicked){
 			return {
-				fillColor: getColor(feature),
+				fillColor: getColor(feature.properties.val),
 				weight: 2,
 				opacity: 1,
 				color: 'black',
@@ -305,7 +306,7 @@ const load_map = function(){
 			}
 		} else {
 			return {
-					fillColor: getColor(feature),
+					fillColor: getColor(feature.properties.val),
 					weight: 1,
 					opacity: 1,
 					color: 'black',
@@ -455,6 +456,7 @@ const criterion_loader= function(){
 		input.addEventListener("click", function(e){
 			measure=e.target;
 			selected_measure=measure.parentNode.childNodes[1].innerHTML;
+			max_val=0;
 		})
 
 		if (i==0){
@@ -493,7 +495,8 @@ const criterion_loader= function(){
 			} else {
 				selected_competitions.delete(competition.parentNode.childNodes[1].firstChild.data);
 			}
-		})
+			max_val=0;
+		});
 		label.appendChild(input);
 		const small = document.createElement("small");
 		small.innerHTML = item;
@@ -525,6 +528,13 @@ const slider_setup= function(){
 		$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
 			" - $" + $( "#slider-range" ).slider( "values", 1 ) );
 	} );
+
+	const time_slider_comp=document.getElementById("slider-range").childNodes;
+	time_slider_comp.forEach((item, i) => {
+		item.addEventListener("click", function(e){
+			max_val=0;
+		});
+	});
 }
 
 const data_loader = function(path){
