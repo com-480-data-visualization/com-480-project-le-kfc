@@ -1,5 +1,3 @@
-target_countries=new Set();
-
 //Standard initialization function
 function whenDocumentLoaded(action) {
 	if (document.readyState === "loading") {
@@ -10,19 +8,20 @@ function whenDocumentLoaded(action) {
 	}
 }
 
-const change_tab= function(name) {
+//Events launched after page as finished loading
+window.addEventListener('load', function() {
+	setTimeout(function(){flag_loader("../../data/final_flags.csv")}, 100);
+	setTimeout(function(){document.getElementById("js_flag_scroll").style.opacity = "1"}, 3700);
+});
+
+// switch to an other tab of the website
+const change_tab = function(name) {
 	if (name === "HISTORY") {
 		window.open("../index.html", '_self');
 	} else if (name === "MAP") {
 		window.open("../visualizations/index_visu.html", '_self');
 	}
 }
-
-//Events launched after page as finished loading
-window.addEventListener('load', function() {
-	setTimeout(function(){flag_loader("../../data/final_flags.csv")}, 100);
-	setTimeout(function(){document.getElementById("js_flag_scroll").style.opacity = "1"}, 3700);
-});
 
 // variable for competition checkboxes and flag buttons management
 let disabled_checkboxes = new Set();
@@ -37,95 +36,36 @@ let graph_name;
 let currBtnTeamId2 = null;
 let temp;
 
-let bool = false;
+// holds the number of country selected
+let target_countries = new Set();
+let iterator;
 
 // function triggered when modifying the first team in the two teams comparison section
 function changeVS1() {
-	let i;
-// Resetting radio buttons and checkboxes
-	disabled_checkboxes.clear();
-	for(i = 0; i < measures.length; i++) {
-		currBtnId = measures[i] + " button";
-		currBtn = document.getElementById(currBtnId);
-		currBtn.checked = false;
-		currBtn.disabled = false;
+	iterator = target_countries.values();
+	temp = iterator.next().value;
+	if (document.getElementById("search_bar").value !== "") {
+		document.getElementById("search_bar").value = "";
+		input_listener();
 	}
-	for(i = 0; i < competitions.length; i++) {
-		currBtnId = competitions[i] + " button";
-		currBtn = document.getElementById(currBtnId);
-		currBtn.checked = false;
-		currBtn.disabled = false;
-	}
-	bool = true;
-	currBtnTeamId = null;
-	//document.getElementById("buttonWorldMode").disabled = true;
-	document.getElementById("generate_container_back").disabled = true;
-	document.getElementById("buttonCancelVS").disabled = true;
-	document.getElementById("flagVS1").style.pointerEvents = "none";
-	document.getElementById("flagVS2").style.pointerEvents = "none";
+	document.getElementById(temp).click();
 }
 
 // function triggered when modifying the second team in the two teams comparison section
 function changeVS2() {
-	let i;
-	disabled_checkboxes.clear();
-	for(i = 0; i < measures.length; i++) {
-		currBtnId = measures[i] + " button";
-		currBtn = document.getElementById(currBtnId);
-		currBtn.checked = false;
-		currBtn.disabled = false;
+	iterator = target_countries.values();
+	temp = iterator.next().value;
+	temp = iterator.next().value;
+	if (document.getElementById("search_bar").value !== "") {
+		document.getElementById("search_bar").value = "";
+		input_listener();
 	}
-	for(i = 0; i < competitions.length; i++) {
-		currBtnId = competitions[i] + " button";
-		currBtn = document.getElementById(currBtnId);
-		currBtn.checked = false;
-		currBtn.disabled = false;
-	}
-
-	bool = true;
-	currBtnTeamId2 = null;
-
-	document.getElementById("generate_container_back").disabled = true;
-	document.getElementById("buttonCancelVS").disabled = true;
-	document.getElementById("flagVS1").style.pointerEvents = "none";
-	document.getElementById("flagVS2").style.pointerEvents = "none";
+	document.getElementById(temp).click();
 }
 
 // function triggered when changing the team selection in the two teams comparison section
-function changeVS(newFlag) {
-	if (currBtnTeamId == null) {
-		if (newFlag === currBtnTeamId2) {
-			alert("Please choose a team different than the other one");
-			changeVS1();
-		} else {
-			currBtnTeamId = newFlag;
-			document.getElementById("nameCountry1").innerHTML = currBtnTeamId;
-			for (i=0; i<total_flag_number; i++) {
-				if (flags[i]['Country'] === currBtnTeamId) {
-					document.getElementById("flagVS1").innerHTML = "<img src=\""+flags[i]['ImageURL']+"\">";
-					break;
-				}
-			}
-		}
-	} else if (currBtnTeamId2 == null) {
-		if (newFlag === currBtnTeamId) {
-			alert("Please choose a team different than the other one");
-			changeVS2()
-		} else {
-			currBtnTeamId2 = newFlag;
-			document.getElementById("nameCountry2").innerHTML = currBtnTeamId2;
-			for (i=0; i<total_flag_number; i++) {
-				if (flags[i]['Country'] === currBtnTeamId2) {
-					document.getElementById("flagVS2").innerHTML = "<img src=\""+flags[i]['ImageURL']+"\">";
-					break;
-				}
-			}
-		}
-	}
-}
+function changeVS() {
 
-// function triggered when entering in two teams comparison section
-function triggerVS() {
 	let i;
 	disabled_checkboxes.clear();
 	for(i = 0; i < measures.length; i++) {
@@ -141,9 +81,12 @@ function triggerVS() {
 		currBtn.disabled = false;
 	}
 
-	document.getElementById("dataBoard").style.display = "none";
-	document.getElementById("dataTeam").style.display = "none";
-	document.getElementById("dataVS").style.display = "block";
+	iterator = target_countries.values();
+	currBtnTeamId = iterator.next().value;
+	currBtnTeamId2 = iterator.next().value;
+
+	document.getElementById("nameCountry1").innerHTML = currBtnTeamId;
+	document.getElementById("nameCountry2").innerHTML = currBtnTeamId2;
 
 	for (i=0; i<total_flag_number; i++) {
 		if (flags[i]['Country'] === currBtnTeamId) {
@@ -151,41 +94,43 @@ function triggerVS() {
 			break;
 		}
 	}
-	document.getElementById("nameCountry1").innerHTML = currBtnTeamId;
+	for (i=0; i<total_flag_number; i++) {
+		if (flags[i]['Country'] === currBtnTeamId2) {
+			document.getElementById("flagVS2").innerHTML = "<img src=\""+flags[i]['ImageURL']+"\">";
+			break;
+		}
+	}
 
+	document.getElementById("dataBoard").style.display = "none";
+	document.getElementById("dataTeam").style.display = "none";
+	document.getElementById("dataVS").style.display = "block";
 
-	document.getElementById("generate_container_back").disabled = true;
-	bool = true;
-
-	document.getElementById("buttonCancelVS").disabled = true;
-	document.getElementById("flagVS1").style.pointerEvents = "none";
-	document.getElementById("flagVS2").style.pointerEvents = "none";
-	currBtnTeamId2 = null;
+	document.getElementById("flagTeam").style.pointerEvents = "none";
+	document.getElementById("flagVS1").style.pointerEvents = "auto";
+	document.getElementById("flagVS2").style.pointerEvents = "auto";
 }
 
 // function triggered when exiting the two teams comparison section
 function cancelVS() {
-	temp = currBtnTeamId;
 	currBtnTeamId = null;
 	currBtnTeamId2 = null;
+	document.getElementById("flagVS1").style.pointerEvents = "none";
+	document.getElementById("flagVS2").style.pointerEvents = "none";
 	document.getElementById("flagVS1").innerHTML = "";
 	document.getElementById("flagVS2").innerHTML = "";
 	document.getElementById("nameCountry1").innerHTML = "";
 	document.getElementById("nameCountry2").innerHTML = "";
-	set_team(temp);
+	set_team();
 }
 
 // function triggered when a country is selected
-function set_team(newCountry) {
+function set_team() {
 	let i;
 
-	if (bool) {
-		bool = false;
-		document.getElementById("generate_container_back").disabled = true;
-		document.getElementById("buttonCancelVS").disabled = false;
-		document.getElementById("flagVS1").style.pointerEvents = "auto";
-		document.getElementById("flagVS2").style.pointerEvents = "auto";
-		changeVS(newCountry);
+	if (target_countries.size === 2) {
+		//document.getElementById("generate_container_back").disabled = true;
+		//document.getElementById("buttonCancelVS").disabled = false;
+		changeVS();
 
 	} else { // We are entering in one team bar plot section
 
@@ -217,33 +162,23 @@ function set_team(newCountry) {
 			}
 		}
 
-		if (currBtnTeamId !== newCountry) {
-			let prev = currBtnTeamId;
-			currBtnTeamId = newCountry;
 
-			document.getElementById("dataBoard").style.display = "none";
-			document.getElementById("dataTeam").style.display = "block";
-			document.getElementById("dataVS").style.display = "none";
+		iterator = target_countries.values();
+		currBtnTeamId = iterator.next().value;
 
-			document.getElementById("generate_container").style.visibility = "hidden";
-			document.getElementById("generate_container_back").style.visibility = "visible";
-			//document.getElementById("generate_container").innerHTML = "Back TO WORLD MODE";
+		document.getElementById("dataBoard").style.display = "none";
+		document.getElementById("dataTeam").style.display = "block";
+		document.getElementById("dataVS").style.display = "none";
 
-			document.getElementById("graphTitleOneTeam").innerHTML = currBtnTeamId;
+		document.getElementById("generate_container").style.visibility = "hidden";
 
-			for (i=0; i<total_flag_number; i++) {
-				if (flags[i]['Country'] === currBtnTeamId) {
-					document.getElementById("flagTeam").innerHTML = "<img src=\""+flags[i]['ImageURL']+"\">";
-					break;
-				}
-			}
+		document.getElementById("flagTeam").style.pointerEvents = "auto";
+		document.getElementById("graphTitleOneTeam").innerHTML = currBtnTeamId;
 
-			// we don't load immediately a bar plot when entering in the section since no criterion nor competition is selected
-			if (prev == null) {
-				data = null;
-			} else {
-				// we now load the data immediately at the moment a parameter is modified
-				load_data();
+		for (i=0; i<total_flag_number; i++) {
+			if (flags[i]['Country'] === currBtnTeamId) {
+				document.getElementById("flagTeam").innerHTML = "<img src=\""+flags[i]['ImageURL']+"\">";
+				break;
 			}
 		}
 	}
@@ -252,10 +187,9 @@ function set_team(newCountry) {
 // function triggered when entering world mode which is the section with bar plots of every team and focused on exclusively one criterion at a time
 const world_mode = function() {
 	let i;
-	document.getElementById("flagVS1").innerHTML = "";
-	document.getElementById("flagVS2").innerHTML = "";
-	document.getElementById("nameCountry1").innerHTML = "";
-	document.getElementById("nameCountry2").innerHTML = "";
+
+	document.getElementById("flagTeam").innerHTML = "";
+	document.getElementById("graphTitleOneTeam").innerHTML = "";
 
 	// Removing existing bar plot
 	if (document.getElementById("bar_plot_graphic") != null) {
@@ -293,7 +227,7 @@ const world_mode = function() {
 	document.getElementById("dataVS").style.display = "none";
 
 	document.getElementById("generate_container").style.visibility = "visible";
-	document.getElementById("generate_container_back").style.visibility = "hidden";
+	//document.getElementById("generate_container_back").style.visibility = "hidden";
 	//document.getElementById("generate_container").innerHTML = "GENERATE DATA";
 }
 
@@ -336,6 +270,7 @@ const load_data_two_countries = function() {
 	}
 
 	//TODO : Create div and elements to display the statistics retrieved from the two data variables
+
 }
 
 // data parsing for one team comparison section
@@ -400,6 +335,7 @@ const get_one_country_data = function(data_i, chosen_team) {
 	let rounded_factor;
 
 	let valid_years;
+	let found;
 	let i;
 
 	let wc_winners = [{"country": "Brazil", "wins": [1958, 1962, 1970, 1994, 2002]},
@@ -413,11 +349,16 @@ const get_one_country_data = function(data_i, chosen_team) {
 
 	measure_set.forEach(measure => {
 		if (measure === "World Cup Tournaments Won") {
+			found = 0
 			for (i = 0; i < wc_winners.length; i++) {
 				if (team === wc_winners[i]['country']) {
 					retrieved_data.push({"name": measure, "value": wc_winners[i]['wins'].length});
+					found = 1
 					break;
 				}
+			}
+			if (found === 0) {
+				retrieved_data.push({"name": measure, "value": 0});
 			}
 
 		} else {
@@ -571,28 +512,34 @@ const get_one_country_data = function(data_i, chosen_team) {
 			if (measure === "Major Tournaments Played") {
 				retrieved_data.push({"name": measure, "value": valid_years.size});
 
-			} else if (measure === "Ratio Win Per Match button" || measure === "Ratio Draw Per Match button" || measure === "Ratio Loss Per Match button") {
-				num = Number(counter/counter_match);
-				roundedString = num.toFixed(2);
-				rounded = Number(roundedString);
+			} else if (measure === "Ratio Win Per Match" || measure === "Ratio Draw Per Match" || measure === "Ratio Loss Per Match") {
+				if (counter_match === 0) {
+					retrieved_data.push({"name": measure, "value": 0});
+				} else {
+					num = Number(counter/counter_match);
+					roundedString = num.toFixed(2);
+					rounded = Number(roundedString);
 
-				retrieved_data.push({"name": measure, "value": rounded});
+					retrieved_data.push({"name": measure, "value": rounded});
+				}
+			} else if (measure === "Performance Factor Home Matches" || measure === "Performance Factor Away Matches") {
+				if (counter_match === 0 || counter_loc_match === 0) {
+					retrieved_data.push({"name": measure, "value": 0});
+				} else {
+					num_loc = Number(counter_loc/counter_loc_match);
+					roundedString_loc = num_loc.toFixed(2);
+					rounded_loc = Number(roundedString_loc);
 
-			} else if (measure === "Performance Factor Home Matches button" || measure === "Performance Factor Away Matches button") {
-				num_loc = Number(counter_loc/counter_loc_match);
-				roundedString_loc = num_loc.toFixed(2);
-				rounded_loc = Number(roundedString_loc);
+					num = Number(counter/counter_match);
+					roundedString = num.toFixed(2);
+					rounded = Number(roundedString);
 
-				num = Number(counter/counter_match);
-				roundedString = num.toFixed(2);
-				rounded = Number(roundedString);
+					num_factor = Number(rounded_loc/rounded);
+					roundedString_factor = num_factor.toFixed(2);
+					rounded_factor = Number(roundedString_factor);
 
-				num_factor = Number(rounded_loc/rounded);
-				roundedString_factor = num_factor.toFixed(2);
-				rounded_factor = Number(roundedString_factor);
-
-				retrieved_data.push({"name": measure, "value": rounded_factor});
-
+					retrieved_data.push({"name": measure, "value": rounded_factor});
+				}
 			}	else {
 				retrieved_data.push({"name": measure, "value": counter});
 
@@ -637,7 +584,7 @@ const load_data_one_country = function() {
 		left: 225
 	};
 
-	const width = 950 - margin.left - margin.right,
+	const width = 850 - margin.left - margin.right,
 		height = 30 * data.length - margin.top - margin.bottom;
 
 	const svg = d3.select("#graphicTeam").append("svg")
@@ -686,12 +633,12 @@ const load_data_one_country = function() {
 	gradient
 		.append("stop")
 		.attr("offset", "0")
-		.attr("stop-color", "#ff0")
+		.attr("stop-color", "rgba(78,189,238,0.5)")
 
 	gradient
 		.append("stop")
 		.attr("offset", "0.5")
-		.attr("stop-color", "#f00")
+		.attr("stop-color", "#821108")
 
 	// append rects
 	bars.append("rect")
@@ -794,6 +741,7 @@ const get_world_data = function(data_i) {
 
 	let valid_years;
 	let str;
+	let found;
 	let i;
 
 	let wc_winners = [{"country": "Brazil", "wins": [1958, 1962, 1970, 1994, 2002]}, {"country": "Germany", "wins": [1954, 1974, 1990, 2014]},
@@ -813,11 +761,16 @@ const get_world_data = function(data_i) {
 
 	teams.forEach(team => {
 		if (document.getElementById("World Cup Tournaments Won button").checked) {
+			found = 0
 			for (i = 0; i < wc_winners.length; i++) {
 				if (team === wc_winners[i]['country']) {
+					found = 1
 					retrieved_data.push({"name": team, "value": wc_winners[i]['wins'].length});
 					break;
 				}
+			}
+			if (found === 0) {
+				retrieved_data.push({"name": team, "value": 0});
 			}
 
 		} else {
@@ -970,26 +923,34 @@ const get_world_data = function(data_i) {
 				retrieved_data.push({"name": team, "value": valid_years.size});
 
 			} else if (document.getElementById("Ratio Win Per Match button").checked || document.getElementById("Ratio Draw Per Match button").checked || document.getElementById("Ratio Loss Per Match button").checked) {
-				num = Number(counter/counter_match);
-				roundedString = num.toFixed(2);
-				rounded = Number(roundedString);
+				if (counter_match === 0) {
+					retrieved_data.push({"name": team, "value": 0});
+				} else {
+					num = Number(counter/counter_match);
+					roundedString = num.toFixed(2);
+					rounded = Number(roundedString);
 
-				retrieved_data.push({"name": team, "value": rounded});
+					retrieved_data.push({"name": team, "value": rounded});
+				}
 
 			} else if (document.getElementById("Performance Factor Home Matches button").checked || document.getElementById("Performance Factor Away Matches button").checked) {
-				num_loc = Number(counter_loc/counter_loc_match);
-				roundedString_loc = num_loc.toFixed(2);
-				rounded_loc = Number(roundedString_loc);
+				if (counter_match === 0 || counter_loc_match === 0) {
+					retrieved_data.push({"name": team, "value": 0});
+				} else {
+					num_loc = Number(counter_loc/counter_loc_match);
+					roundedString_loc = num_loc.toFixed(2);
+					rounded_loc = Number(roundedString_loc);
 
-				num = Number(counter/counter_match);
-				roundedString = num.toFixed(2);
-				rounded = Number(roundedString);
+					num = Number(counter/counter_match);
+					roundedString = num.toFixed(2);
+					rounded = Number(roundedString);
 
-				num_factor = Number(rounded_loc/rounded);
-				roundedString_factor = num_factor.toFixed(2);
-				rounded_factor = Number(roundedString_factor);
+					num_factor = Number(rounded_loc/rounded);
+					roundedString_factor = num_factor.toFixed(2);
+					rounded_factor = Number(roundedString_factor);
 
-				retrieved_data.push({"name": team, "value": rounded_factor});
+					retrieved_data.push({"name": team, "value": rounded_factor});
+				}
 
 			}	else {
 				retrieved_data.push({"name": team, "value": counter});
@@ -1029,13 +990,13 @@ const load_data_world = function() {
 
 	// set up svg using margins
 	const margin = {
-		top: 26,
+		top: 20,
 		right: 35,
 		bottom: 0,
-		left: 214
+		left: 200
 	};
 
-	const width = 950 - margin.left - margin.right,
+	const width = 850 - margin.left - margin.right,
 		height = 5000 - margin.top - margin.bottom;
 
 	const svg = d3.select("#graphic").append("svg")
@@ -1049,7 +1010,7 @@ const load_data_world = function() {
 		.attr("x", (width / 2))
 		.attr("y", 0 - (margin.top - 40 / 2))
 		.attr("text-anchor", "middle")
-		.style("font-size", "28px")
+		.style("font-size", "24px")
 		.style("font-weight", "light")
 		.style("fill", "#111")
 		.text(graph_name);
@@ -1093,12 +1054,12 @@ const load_data_world = function() {
 	gradient
 		.append("stop")
 		.attr("offset", "0")
-		.attr("stop-color", "#ff0")
+		.attr("stop-color", "rgba(78,189,238,0.5)")
 
 	gradient
 		.append("stop")
-		.attr("offset", "0.5")
-		.attr("stop-color", "#f00")
+		.attr("offset", "0.35")
+		.attr("stop-color", "#821108")
 
 	// append rects
 	bars.append("rect")
@@ -1209,27 +1170,43 @@ const assign_flags= function(flags, flag_number) {
 		button_style.innerHTML = flags[cnt]['Country'].substring(0, 3).toUpperCase();
 		button_style.id=flags[cnt]['Country'];
 		button_style.clicked=target_countries.has(flags[cnt]['Country']);
-		if(button_style.clicked){
+		if(button_style.clicked) {
 			button_style.style.opacity=0;
 			button_style.style.background="none";
 			button_style.style.border="none";
 		}
 		button_style.addEventListener('click',function(e){
-			flag=e.target;
+			let flag=e.target;
 			flag.clicked=(!flag.clicked) && target_countries.size<2;
+			if (target_countries.size === 2 && !target_countries.has(flag.id)) {
+				alert("You cannot select more than two countries at the same time");
+			}
 			if (flag.clicked){
 				//Adding country to targetted countries
 				target_countries.add(flag.id);
 				flag.style.opacity=0;
 				flag.style.background="none";
 				flag.style.border="none";
-				set_team(this.id);
+				if (document.getElementById("search_bar").value !== "") {
+					document.getElementById("search_bar").value = "";
+					input_listener();
+				}
+				set_team();
 			} else {
 				//Removing country from targetted countries
 				target_countries.delete(flag.id);
 				flag.style="resetStyle";
+				if (document.getElementById("search_bar").value !== "") {
+					document.getElementById("search_bar").value = "";
+					input_listener();
+				}
+				if (target_countries.size === 0) {
+					world_mode()
+				} else {
+					cancelVS();
+				}
 			}
-		});
+	  });
 		cnt++;
 		// bottom flag
 		const square2 = document.createElement("div");
@@ -1247,19 +1224,35 @@ const assign_flags= function(flags, flag_number) {
 				button_style2.style.border="none";
 			}
 			button_style2.addEventListener('click',function(e){
-					flag=e.target;
+					let flag=e.target;
 					flag.clicked=(!flag.clicked) && target_countries.size<2;
+					if (target_countries.size === 2 && !target_countries.has(flag.id)) {
+						alert("You cannot select more than two countries at the same time");
+					}
 					if (flag.clicked){
 						//Adding country to targetted countries
 						target_countries.add(flag.id);
 						flag.style.opacity=0;
 						flag.style.background="none";
 						flag.style.border="none";
-						set_team(this.id);
+						if (document.getElementById("search_bar").value !== "") {
+							document.getElementById("search_bar").value = "";
+							input_listener();
+						}
+						set_team();
 					} else {
 						//Removing country from targetted countries
 						target_countries.delete(flag.id);
 						flag.style="resetStyle";
+						if (document.getElementById("search_bar").value !== "") {
+							document.getElementById("search_bar").value = "";
+							input_listener();
+						}
+						if (target_countries.size === 0) {
+							world_mode();
+						} else {
+							cancelVS();
+						}
 					}
 				});
 		};

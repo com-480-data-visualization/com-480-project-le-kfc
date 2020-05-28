@@ -363,7 +363,7 @@ html .ui-button.ui-state-disabled:active {
 #generate_container {
 	top: 75.5vh;
 	height: 5vh;
-	left: 78.5vw;
+	left: 3.4vw;
 	width: 10vw;
 	text-align:left;
 	float:left;
@@ -450,11 +450,12 @@ html .ui-button.ui-state-disabled:active {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-size: 12px;
 }
 .guideline_container {
 	overflow: hidden;
 	animation-name: fadeOut;
-	animation-duration: 13s;
+	animation-duration: 15s;
 	animation-delay: 200ms;
 	animation-fill-mode: forwards;
 }
@@ -464,7 +465,7 @@ html .ui-button.ui-state-disabled:active {
 	background-color: rgba(119, 160, 186, 0);
 	animation-name: fadeInAndOutText;
 	animation-delay: 1s;
-	animation-duration: 3.5s;
+	animation-duration: 5s;
 	animation-fill-mode: forwards;
 	position: absolute;
 }

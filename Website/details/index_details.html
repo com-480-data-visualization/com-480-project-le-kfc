@@ -18,6 +18,7 @@
 
 	<!--Standard style imports-->
 	<link rel="stylesheet" href="../visualizations/style_visu.css">
+	<link rel="stylesheet" href="table.scss">
 	<link rel="stylesheet" href="style_details.css">
 
 	<!--Slider imports-->
@@ -64,17 +65,11 @@
 
 <body>
 
-<!--Generate data button-->
+<!--Button to generate world data-->
 <div class="btn-style-div"
 	 id="generate_container" onclick="load_data()">
 	<b>GENERATE DATA</b>
 </div>
-<!--Generate data button and back to world mode button-->
-<!--<button type="button" id="buttonData" class="buttonLoad" onclick="load_data()"></button>-->
-<div id="generate_container_back" class="btn-style-div" onclick="world_mode()">
-	<b>BACK TO WORLD MODE</b>
-</div>
-
 
 <!--Visualization switching buttons-->
 <div id="btns">
@@ -115,13 +110,13 @@
 <div class="guideline_container">
 </div>
 <div class="anim-text">
-	Choose a criterion, different competition(s)
+	Generate world-wide statistics by selecting a criterion and one or several competitions.
 </div>
-<div class="anim-text" style="animation-delay: 5s">
-	a time range to display data and
+<div class="anim-text" style="animation-delay: 6s">
+	You can select one or two teams for individual analysis and statistical comparisons.
 </div>
-<div class="anim-text" style="animation-delay: 9s">
-	finally either none, one or two teams.
+<div class="anim-text" style="animation-delay: 12s">
+	A time slider is available to navigate through time.
 </div>
 
 <!--Div containing bar plots for every team-->
@@ -131,8 +126,7 @@
 
 <!--Div containing bar plots for one team-->
 <div id="dataTeam" class="board" style="display:none;">
-	<div id="flagTeam" class="flagBoardDisplay"></div>
-	<button type="button" id="buttonVS" class="buttonCompare" onclick="triggerVS()">Go VS</button>
+	<div id="flagTeam" class="flagBoardDisplay" onclick="changeVS1()"></div>
 	<div id="graphTitleOneTeam" class="titleDiv"></div>
 	<div id="graphicTeam"></div>
 </div>
@@ -141,9 +135,44 @@
 <div id="dataVS" class="board" style="display:none;">
 	<div id="flagVS1" class="flagBoardDisplay" onclick="changeVS1()"></div>
 	<div id="flagVS2" class="flagBoardDisplay2" onclick="changeVS2()"></div>
-	<button type="button" id="buttonCancelVS" class="buttonCompare" onclick="cancelVS()">Go Solo</button>
 	<div id="nameCountry1" class="titleDiv1"></div>
 	<div id="nameCountry2" class="titleDiv2"></div>
+
+	<table>
+		<thead>
+		<tr>
+			<th>Country 2</th>
+			<th></th>
+			<th>Stats</th>
+			<th></th>
+			<th>Country 2</th>
+		</tr>
+		<thead>
+		<tbody>
+		<tr>
+			<td>50</td>
+			<td></td>
+			<td>Buts</td>
+			<td></td>
+			<td>10</td>
+		</tr>
+		<tr>
+			<td>50</td>
+			<td></td>
+			<td>Matchs</td>
+			<td></td>
+			<td>10</td>
+		</tr>
+		<tr>
+			<td>50</td>
+			<td></td>
+			<td>Corners</td>
+			<td></td>
+			<td>10</td>
+		</tr>
+		</tbody>
+	</table>
+
 </div>
 
 </body>
