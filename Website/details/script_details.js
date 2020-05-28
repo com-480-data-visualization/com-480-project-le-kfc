@@ -446,7 +446,6 @@ const get_one_country_data = function(data_i, chosen_team) {
 							if (row.tournament === "FIFA World Cup" || row.tournament === "UEFA Euro" ||
 								row.tournament === "Copa América" || row.tournament === "African Cup of Nations" ||
 								row.tournament === "Gold Cup" || row.tournament === "AFC Asian Cup" || row.tournament === "Oceania Nations Cup") {
-
 								valid_years.add(year);
 							}
 						} else if (measure === "World Cup Tournaments Won") {
