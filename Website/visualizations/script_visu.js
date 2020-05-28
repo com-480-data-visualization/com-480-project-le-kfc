@@ -68,8 +68,8 @@ let selected_measure=measures[0];
 let selected_competitions = new Set();
 let db;
 let map;
-let max_val=0;
-let legend;
+let max=0;
+let stat_box= new Map();
 /////////////////////////////////////////////////////////////////////////
 //HELPER FUNCTIONS
 /////////////////////////////////////////////////////////////////////////
@@ -100,35 +100,44 @@ const change_tab= function(name){
 	else if(name==="DETAILS") {
 		window.open("../details/index_details.html",'_self');
 	}
-	/*else {
-		if(name==='MAP'){
-			document.getElementById("title").innerHTML='';
-			document.getElementById("map").style.visibility= "visible";
-			document.getElementById("map_hover").style.visibility= "visible";
-			document.getElementById("map_select").style.visibility= "visible";
-			Array.from(document.getElementById("measure_container").getElementsByTagName('div')).forEach((item, i) => {
-				item.getElementsByTagName('input')[0].type="radio";
-			});
-		}
-		else if(name==='DETAILS'){
-			document.getElementById("title").innerHTML=name;
-			document.getElementById("map").style.visibility= "hidden";
-			document.getElementById("map_hover").style.visibility= "hidden";
-			document.getElementById("map_select").style.visibility= "hidden";
-			Array.from(document.getElementById("measure_container").getElementsByTagName('div')).forEach((item, i) => {
-				item.getElementsByTagName('input')[0].type="checkbox";
-			});
-		}
-	}*/
 };
 
+const stats = function(){
+
+	//Filtering the database to include only relavant information
+	if(selected_competitions.size==0){
+		db_filtered=[];
+	} else if (selected_competitions.has("All")){
+		db_filtered=db;
+	} else {
+		db_filtered=db.filter(entry => selected_competitions.has(entry.tournament));
+	}
+	db_filtered=db_filtered.filter(function(entry){
+		year=parseInt(entry.date.substring(0,4),10);
+		return (year >= start_time) && (year<= end_time);
+	});
+
+	max=0;
+	Object.keys(stat_box).forEach((item,i) => {
+		db_filtered_country=db_filtered.filter(entry => (entry.home_team==item) || (entry.away_team==item));
+		switch (selected_measure) {
+			case "Matches Played":
+				max=Math.max(max,db_filtered_country.length);
+				stat_box[item]=db_filtered_country.length;
+				break;
+			default:
+				stat_box[item]=0;
+		}
+	});
+
+}
 /////////////////////////////////////////////////////////////////////////
 //SETUP FUNCTIONS
 /////////////////////////////////////////////////////////////////////////
 const load_map = function(){
 	//Assigns a color to the inputed value
 	function getColor(val) {
-		const colorScale = d3.scaleLinear().domain([0, max_val]).range(['steelblue', 'crimson']);
+		const colorScale = d3.scaleLinear().domain([0, max]).range(['steelblue', 'crimson']);
 		return colorScale(val);
 	}
 
@@ -196,8 +205,7 @@ const load_map = function(){
 	//Runs when clicking on a country
 	function select(layer) {
 		//Activating or deactivating the clicked state
-		layer.feature.properties.clicked=!layer.feature.properties.clicked
-
+		layer.feature.properties.clicked=!layer.feature.properties.clicked;
 
 		if (layer.feature.properties.clicked) {
 
@@ -223,36 +231,14 @@ const load_map = function(){
 		}
 	}
 
-	const stats = function(name){
 
-		//Filtering the database to include only relavant information
-		if(selected_competitions.size==0){
-			db_filtered=[];
-		} else if (selected_competitions.has("All")){
-			db_filtered=db;
-		} else {
-			db_filtered=db.filter(entry => selected_competitions.has(entry.tournament));
-		}
-		db_filtered=db_filtered.filter(function(entry){
-			year=parseInt(entry.date.substring(0,4),10);
-			return (year >= start_time) && (year<= end_time);
-		});
-		db_filtered=db_filtered.filter(entry => (entry.home_team==name) || (entry.away_team==name));
-
-		switch (selected_measure) {
-			case "Matches Played":
-				max_val=Math.max(max_val,db_filtered.length);
-				return db_filtered.length;
-			default:
-				return 0;
-		}
-	}
 
 	//Assigning onHover, onHoverEnd and select to the tiles
 	function onEachFeature(feature, layer) {
 			layer.feature.properties.clicked = false;
-			feature.properties.val=stats(feature.properties.name);
+			feature.properties.val=0;
 			layer.setStyle(style(feature));
+			stat_box[feature.properties.name]=0;
 
 			//Making the countries reactive to actions of the flags
 			const flag=document.getElementById(feature.properties.name);
@@ -262,48 +248,32 @@ const load_map = function(){
 				flag.addEventListener("mouseout", function(e){onHoverEnd(layer)});
 			}
 
-
-			//Making the map reactive to criterions
-			const measures=document.getElementById("measure_container");
-			const competitions=document.getElementById("competition_container");
-			const time_slider_comp=document.getElementById("slider-range").childNodes;
-			measures.addEventListener("click", function(e){
-				feature.properties.val_new=stats(feature.properties.name);
-			});
-			competitions.addEventListener("click", function(e){
-				feature.properties.val_new=stats(feature.properties.name);
-			});
-			time_slider_comp.forEach((item, i) => {
-				item.addEventListener("click", function(e){
-					feature.properties.val_new=stats(feature.properties.name);
-				});
-			});
-
-			update_button=document.getElementById("generate_container");
+			const update_button=document.getElementById("generate_container");
 			update_button.addEventListener("click", function(e){
-				feature.properties.val=feature.properties.val_new;
+				//console.log(stat_box)
+				feature.properties.val=stat_box[feature.properties.name];
 				layer.setStyle(style(feature));
 				const max_display=document.getElementById("max_display");
 				const min_display=document.getElementById("min_display");
-				max_display.innerHTML= max_val===0 ? "" : max_val;
-				if(max_val<10000000) {
+				max_display.innerHTML= max==0 ? "" : max;
+				if(max<10000000) {
+					min_display.style.fontSize = "8px";
+					max_display.style.fontSize = "8px";
+				}
+				if(max<1000000) {
 					min_display.style.fontSize = "9px";
 					max_display.style.fontSize = "9px";
 				}
-				if(max_val<1000000) {
-					min_display.style.fontSize = "10px";
-					max_display.style.fontSize = "10px";
+				if(max<100000) {
+					min_display.style.fontSize = "11px";
+					max_display.style.fontSize = "11px";
 				}
-				if(max_val<100000) {
-					min_display.style.fontSize = "12px";
-					max_display.style.fontSize = "12px";
+				if(max<10000) {
+					min_display.style.fontSize = "14px";
+					max_display.style.fontSize = "14px";
 				}
-				if(max_val<10000) {
-					min_display.style.fontSize = "16px";
-					max_display.style.fontSize = "16px";
-				}
-
 			});
+
 			layer.on({
 					mouseover: function(e){onHover(e.target)},
 					mouseout:  function(e){onHoverEnd(e.target)},
@@ -474,7 +444,7 @@ const criterion_loader= function(){
 		input.addEventListener("click", function(e){
 			measure=e.target;
 			selected_measure=measure.parentNode.childNodes[1].innerHTML;
-			max_val=0;
+			stats();
 		})
 
 		if (i==0){
@@ -513,7 +483,7 @@ const criterion_loader= function(){
 			} else {
 				selected_competitions.delete(competition.parentNode.childNodes[1].firstChild.data);
 			}
-			max_val=0;
+			stats();
 		});
 		label.appendChild(input);
 		const small = document.createElement("small");
@@ -545,13 +515,12 @@ const slider_setup= function(){
 		});
 		$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
 			" - $" + $( "#slider-range" ).slider( "values", 1 ) );
-	} );
 
-	const time_slider_comp=document.getElementById("slider-range").childNodes;
-	time_slider_comp.forEach((item, i) => {
-		item.addEventListener("click", function(e){
-			max_val=0;
+		time_slider_comp=document.getElementById("slider-range").childNodes;
+		time_slider_comp.forEach((item, i) => {
+			item.addEventListener("click", event => stats());
 		});
+
 	});
 }
 
