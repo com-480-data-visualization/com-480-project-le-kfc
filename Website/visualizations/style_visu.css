@@ -470,6 +470,9 @@ body label {
 .option-input:hover {
 	background: rgba(130, 154, 177, 0.9);
 }
+.option-input.disabled {
+	background: rgba(108, 126, 147, 0.9);
+}
 .option-input:checked {
 	background: rgba(40, 97, 125, 0.8);
 }
