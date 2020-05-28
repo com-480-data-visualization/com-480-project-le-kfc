@@ -18,8 +18,13 @@ function whenDocumentLoaded(action) {
 
 //List of criterions
 measures=["Matches Played", "Wins", "Draws", "Losses", "Goals Scored", "Goals Conceded",
+	"Ratio Win Per Match", "Ratio Draw Per Match", "Ratio Loss Per Match", "Goals Scored Per Match",
+	"Goals Scored Per Year", "Goals Conceded Per Match", "Goals Conceded Per Year",
+	"Home Wins", "Home Draws", "Home Losses", "Away Wins", "Away Draws", "Away Losses",
+	"Performance Factor Home Matches", "Performance Factor Away Matches",
 	"Friendly Home Matches Played", "Friendly Away Matches Played", "Friendly Neutral Matches Played",
 	"Tournament Matches Played", "Major Tournaments Played", "World Cup Tournaments Won"];
+
 competitions=['All', 'Friendly',
 	'FIFA World Cup', 'UEFA Euro', 'Copa América', 'African Cup of Nations', 'Gold Cup', 'AFC Asian Cup', 'Oceania Nations Cup',
 	'FIFA World Cup qualification', 'UEFA Euro qualification', 'Copa América qualification', 'African Cup of Nations qualification',
@@ -91,6 +96,9 @@ function input_listener() {
 	assign_flags(flags_input, flag_number)
 }
 
+function isFloat(n){
+	return Number(n) === n && n % 1 !== 0;
+}
 
 //Tab change function
 const change_tab= function(name){
@@ -105,7 +113,7 @@ const change_tab= function(name){
 const stats = function(){
 
 	//Filtering the database to include only relavant information
-	if(selected_competitions.size==0){
+	if(selected_competitions.size===0){
 		db_filtered=[];
 	} else if (selected_competitions.has("All")){
 		db_filtered=db;
@@ -117,25 +125,201 @@ const stats = function(){
 		return (year >= start_time) && (year<= end_time);
 	});
 
+	//Computing the country statistic chosen by the user
 	max=0;
+	const major_comp = ['FIFA World Cup', 'UEFA Euro', 'Copa América', 'African Cup of Nations', 'Gold Cup', 'AFC Asian Cup', 'Oceania Nations Cup'];
+
 	Object.keys(stat_box).forEach((item,i) => {
-		db_filtered_country=db_filtered.filter(entry => (entry.home_team==item) || (entry.away_team==item));
+		let db_filtered_country=db_filtered.filter(entry => (entry.home_team===item) || (entry.away_team===item));
+		const nb_played = () => {return db_filtered_country.length};
+		let x = 0;
+		const nb_win = () => {
+			let x=0;
+			db_filtered_country.forEach(row => {
+				if((row.home_team===item && row.home_score > row.away_score) ||
+					(row.away_team===item && row.home_score < row.away_score)) x++;
+			})
+			return x;
+		};
+		const nb_draw = () => {
+			let x=0;
+			db_filtered_country.forEach(row => {if(row.home_score === row.away_score) x++;})
+			return x;
+		};
+		const nb_lose = () => {
+			let x=0;
+			db_filtered_country.forEach(row => {
+				if((row.home_team===item && row.home_score < row.away_score)
+					|| (row.away_team===item && row.home_score > row.away_score)) x++;
+			})
+			return x;
+		};
+		const nb_goal_scored = () => {
+			let x = 0;
+			db_filtered_country.forEach(row => {
+				x += row.home_team===item ? parseInt(row.home_score):parseInt(row.away_score);
+			})
+			return x;
+		}
+		const nb_goal_conceded = () => {
+			let x = 0;
+			db_filtered_country.forEach(row => {
+				if(row.home_team===item) x+=parseInt(row.away_score);
+				if(row.away_team===item) x+=parseInt(row.home_score);
+			})
+			return x;
+		}
+
 		switch (selected_measure) {
 			case "Matches Played":
-				max=Math.max(max,db_filtered_country.length);
-				stat_box[item]=db_filtered_country.length;
+				stat_box[item]=nb_played();
+				break;
+			case "Wins":
+				stat_box[item]=nb_win();
+				break;
+			case "Draws":
+				stat_box[item]=nb_draw();
+				break;
+			case "Losses":
+				stat_box[item]=nb_lose();
+				break;
+			case "Goals Scored":
+				stat_box[item]=nb_goal_scored();
+				break;
+			case "Goals Conceded":
+				stat_box[item]=nb_goal_conceded();
+				break;
+			case "Friendly Home Matches Played":
+				db_filtered_country.forEach(row => {
+					if(row.tournament==='Friendly' && row.neutral==='False' && row.home_team===item) x++;
+				})
+				stat_box[item]=x;
+				break;
+			case "Friendly Away Matches Played":
+				db_filtered_country.forEach(row => {
+					if(row.tournament==='Friendly' && row.neutral==='False' && row.away_team===item) x++;
+				})
+				stat_box[item]=x;
+				break;
+			case "Friendly Neutral Matches Played":
+				db_filtered_country.forEach(row => {
+					if(row.tournament==='Friendly' && row.neutral==='True') x++;
+				})
+				stat_box[item]=x;
+				break;
+			case "Tournament Matches Played":
+				db_filtered_country.forEach(row => {if(row.tournament!=='Friendly') x++;})
+				stat_box[item]=x;
+				break;
+			case "Major Tournaments Played":
+				let set = new Set();
+				db_filtered_country.forEach(row => {
+					if(major_comp.includes(row.tournament)){
+						set.add(row.date.substring(0, 4));
+					}
+				})
+				stat_box[item]=set.size;
+				break;
+			case "World Cup Tournaments Won":
+				if(item==='Brazil') stat_box[item]=5;
+				else if(item==='Germany'||item==='Italy') stat_box[item]=4;
+				else if(item==='Argentina'||item==='Uruguay'||item==='France') stat_box[item]=2;
+				else if(item==='Spain' || item==='England') stat_box[item]=1;
+				else stat_box[item]=0;
+				break;
+			case "Ratio Win Per Match":
+				stat_box[item]= nb_played()===0 ? 0 : nb_win()/nb_played();
+				break;
+			case "Ratio Draw Per Match":
+				stat_box[item]= nb_played()===0 ? 0 : nb_draw()/nb_played();
+				break;
+			case "Ratio Loss Per Match":
+				stat_box[item]= nb_played()===0 ? 0 : nb_lose()/nb_played();
+				break;
+			case "Home Wins":
+				db_filtered_country.forEach(row => {
+					if(row.home_team===item && row.home_score>row.away_score && row.neutral==='False')x++;
+				})
+				stat_box[item]=x;
+				break;
+			case "Home Draws":
+				db_filtered_country.forEach(row => {
+					if(row.home_score===row.away_score && row.home_team===item && row.neutral==='False')x++;
+				})
+				stat_box[item]=x;
+				break;
+			case "Home Losses":
+				stat_box[item]=db_filtered_country.forEach(row => {
+					if(row.home_team===item && row.home_score<row.away_score && row.neutral==='False')x++;
+				})
+				stat_box[item]=x;
+				break;
+			case "Away Wins":
+				db_filtered_country.forEach(row => {
+					if(row.away_team===item && row.home_score<row.away_score && row.neutral==='False')x++;
+				})
+				stat_box[item]=x;
+				break;
+			case "Away Draws":
+				db_filtered_country.forEach(row => {
+					if(row.home_score===row.away_score && row.away_team===item && row.neutral==='False')x++;
+				})
+				stat_box[item]=x;
+				break;
+			case "Away Losses":
+				db_filtered_country.forEach(row => {
+					if(row.away_team===item && row.home_score>row.away_score && row.neutral==='False')x++;
+				})
+				stat_box[item]=x;				break;
+			case "Performance Factor Home Matches":
+				let prop_real_home_win=0, prop_real_home_lose=0;
+				db_filtered_country.forEach(row => {
+					if(row.home_team===item && row.neutral==='False') {
+						if(row.home_score>row.away_score)prop_real_home_win++;
+						if(row.home_score<row.away_score)prop_real_home_lose++;
+					}
+				})
+				stat_box[item]= prop_real_home_lose===0?0:prop_real_home_win/prop_real_home_lose;
+				break;
+			case "Performance Factor Away Matches":
+				let prop_real_away_win=0, prop_real_away_lose=0;
+				db_filtered_country.forEach(row => {
+					if(row.away_team===item && row.neutral==='False') {
+						if(row.home_score<row.away_score)prop_real_away_win++;
+						if(row.home_score>row.away_score)prop_real_away_lose++;
+					}
+				})
+				stat_box[item]= prop_real_away_lose===0?0:prop_real_away_win/prop_real_away_lose;
+				break;
+			case "Goals Scored Per Year":
+				stat_box[item]=nb_goal_scored()/(end_time-start_time+1)
+				break;
+			case "Goals Scored Per Match":
+				stat_box[item]= nb_played()===0?0:nb_goal_scored()/nb_played();
+				break;
+			case "Goals Conceded Per Year":
+				stat_box[item]=nb_goal_conceded()/(end_time-start_time+1);
+				break;
+			case "Goals Conceded Per Match":
+				stat_box[item]=nb_played()===0?0:nb_goal_conceded()/nb_played();
 				break;
 			default:
 				stat_box[item]=0;
 		}
-	});
 
+	});
+	Object.values(stat_box).forEach((item,i) => {max=Math.max(max,item)});
+	if(isFloat(max)) max = Number(max).toFixed(2)
 }
+
 /////////////////////////////////////////////////////////////////////////
 //SETUP FUNCTIONS
 /////////////////////////////////////////////////////////////////////////
+
+//Map setup function
 const load_map = function(){
-	//Assigns a color to the inputed value
+
+	//Assigns the color corresponding to the inputed value, taking into account the largest possible value
 	function getColor(val) {
 		const colorScale = d3.scaleLinear().domain([0, max]).range(['rgb(245, 254, 169)', 'rgb(147, 21, 40)']);
 		return colorScale(val);
@@ -165,7 +349,7 @@ const load_map = function(){
 
 		}
 
-		//Printing the name and value of the country from the hover display box
+		//Printing the name and value of the country in the hover display box
 		let p1 = document.createElement("p");
 		let p2 = document.createElement("small");
 		p1.appendChild(document.createTextNode(layer.feature.properties.name));
@@ -204,12 +388,13 @@ const load_map = function(){
 
 	//Runs when clicking on a country
 	function select(layer) {
+
 		//Activating or deactivating the clicked state
 		layer.feature.properties.clicked=!layer.feature.properties.clicked;
 
 		if (layer.feature.properties.clicked) {
 
-			//Adding the name and value of the country from the select box
+			//Adding the name and value of the country to the select box
 			let p = document.createElement("small");
 			p.style.display="block";
 			p.style.textAlign = "left";
@@ -246,13 +431,17 @@ const load_map = function(){
 				flag.addEventListener("mouseout", function(e){onHoverEnd(layer)});
 			}
 
+			function isFloat(n){
+				return Number(n) === n && n % 1 !== 0;
+			}
+
 			const update_button=document.getElementById("generate_container");
 			update_button.addEventListener("click", function(e){
 				feature.properties.val=stat_box[feature.properties.name];
 				layer.setStyle(style(feature));
 				const max_display=document.getElementById("max_display");
 				const min_display=document.getElementById("min_display");
-				max_display.innerHTML= max==0 ? "" : max;
+				max_display.innerHTML= max===0 ? "" : max;
 				if(max<10000000) {
 					min_display.style.fontSize = "8px";
 					max_display.style.fontSize = "8px";
@@ -261,7 +450,7 @@ const load_map = function(){
 					min_display.style.fontSize = "9px";
 					max_display.style.fontSize = "9px";
 				}
-				if(max<100000) {
+				if(max<100000 || isFloat(max)) {
 					min_display.style.fontSize = "11px";
 					max_display.style.fontSize = "11px";
 				}
@@ -321,10 +510,13 @@ const load_map = function(){
 	})
 }
 
+//Flag setup function
 const assign_flags= function(flags, flag_number){
+
 	//Reference to the flag container
 	let scrollmenu = document.getElementById("js_flag_scroll");
 	scrollmenu.classList.add("flag-slider");
+
 	//Delete all childs
 	scrollmenu.innerHTML = '';
 
@@ -351,12 +543,14 @@ const assign_flags= function(flags, flag_number){
 			flag=e.target;
 			flag.clicked=!flag.clicked;
 			if (flag.clicked){
+
 				//Adding country to targetted countries
 				target_countries.add(flag.id);
 				flag.style.opacity=0;
 				flag.style.background="none";
 				flag.style.border="none";
 			} else {
+
 				//Removing country from targetted countries
 				target_countries.delete(flag.id);
 				flag.style="resetStyle";
@@ -383,12 +577,14 @@ const assign_flags= function(flags, flag_number){
 				flag=e.target;
 				flag.clicked=!flag.clicked;
 				if (flag.clicked){
+
 					//Adding country to targetted countries
 					target_countries.add(flag.id);
 					flag.style.opacity=0;
 					flag.style.background="none";
 					flag.style.border="none";
 				} else {
+
 					//Removing country from targetted countries
 					target_countries.delete(flag.id);
 					flag.style="resetStyle";
@@ -398,6 +594,7 @@ const assign_flags= function(flags, flag_number){
 
 		cnt++;
 
+		//Adding the flags to the DOM
 		square.appendChild(button_style);
 		if(cnt<=flag_number) square2.appendChild(button_style2);
 		wrapper.appendChild(square);
@@ -419,17 +616,22 @@ const flag_loader= function(path){
 
 };
 
-//Criterion loading myFunction
+//Criterion loading function
 const criterion_loader= function(){
 
 	//Reference to the criterion containers
 	const measure_ref=document.getElementById("measure_container");
 	const competition_ref=document.getElementById("competition_container");
-
 	const content_meas = document.createElement("div");
-	content_meas.classList.add("content");
+
 	//Loading all measure criterions
+	content_meas.classList.add("content");
 	measures.forEach((item, i) => {
+		if(i===6||i===13){
+			const small = document.createElement("small");
+			small.innerHTML = '<hr>';
+			content_meas.appendChild(small);
+		}
 
 		const label = document.createElement("label");
 		const input = document.createElement('input');
@@ -438,13 +640,40 @@ const criterion_loader= function(){
 		input.classList.add("radio"); //checkbox or radio
 		input.name = "example" //only for radios
 		input.id= measures[i]+" button";
+
+		//Making the stat computations reactive to the the checkboxes
 		input.addEventListener("click", function(e){
 			measure=e.target;
 			selected_measure=measure.parentNode.childNodes[1].innerHTML;
+			const buttons = document.getElementById("competition_container").elements;
+
+			//Making sure that:
+			//*'Friendly' can't be selected when using a competitive measure
+			//*Only 'Friendly' can't be selected when using a non-competitive measure
+			if (selected_measure.startsWith("Friendly")){
+				for (let i = 0, len = buttons.length; i < len; i++ ) {
+					buttons[i].disabled=true;
+					buttons[i].checked=(buttons[i].data=="Friendly button");
+				}
+				selected_competitions= new Set(["Friendly"]);
+			} else if ((selected_measure==="Tournament Matches Played") ||
+				(selected_measure==="Major Tournaments Played") ||
+				(selected_measure==="World Cup Tournaments Won")){
+					for (let i = 0, len = buttons.length; i < len; i++ ) {
+						buttons[i].disabled=(buttons[i].id=="Friendly button");
+						buttons[i].checked=false;
+					}
+					selected_competitions= new Set();
+			} else {
+				for (let i = 0, len = buttons.length; i < len; i++ ) {
+					buttons[i].disabled=false;
+					buttons[i].checked=false;
+				}
+			}
 			stats();
 		})
 
-		if (i==0){
+		if (i===0){
 			input.checked=true;
 		}
 		label.appendChild(input);
@@ -457,9 +686,9 @@ const criterion_loader= function(){
 	});
 	measure_ref.appendChild(content_meas);
 
+	//Loading all competition criterions
 	const content_comp = document.createElement("div");
 	content_comp.classList.add("content");
-	//Loading all competition criterions
 	competitions.forEach((item, i) => {
 
 		if(i===16){
@@ -473,20 +702,38 @@ const criterion_loader= function(){
 		input.classList.add("option-input");
 		input.classList.add("checkbox"); //checkbox or radio
 		input.id= competitions[i]+" button";
+
+		//Making the stat computations reactive to the radioboxes
 		input.addEventListener("click", function(e){
 			competition=e.target;
-			if(selected_competitions.has("All") ){competition.checked=false;}
-			if(competition.parentNode.childNodes[1].firstChild.data=="All"){
-				selected_competitions= new Set();
-				console.log(competition.parentNode);
-				competition.parentNode.childNodes.forEach((item, i) => {item.checked=false;});
-				competition.checked=true;
-			}
-			if(competition.checked){
+
+			//Making it such that 'All' can't be selected at the same time as individual competitions
+			if(competition.parentNode.childNodes[1].firstChild.data==="All"){
+
+				const buttons = document.getElementById("competition_container").elements;
+
+				if(!selected_competitions.has("All")){
+						for (let i = 0, len = buttons.length; i < len; i++ ) {
+							buttons[i].disabled=true;
+							buttons[i].checked=false;
+						}
+						competition.checked=true;
+						competition.disabled=false;
+						selected_competitions= new Set();
+						selected_competitions.add(competition.parentNode.childNodes[1].firstChild.data);
+					} else {
+						for (let i = 0, len = buttons.length; i < len; i++ ) {
+							buttons[i].disabled=false;
+						}
+						selected_competitions= new Set();
+
+					}
+				} else if(competition.checked && !selected_competitions.has("All")){
 				selected_competitions.add(competition.parentNode.childNodes[1].firstChild.data);
 			} else {
 				selected_competitions.delete(competition.parentNode.childNodes[1].firstChild.data);
 			}
+
 			stats();
 		});
 		label.appendChild(input);
@@ -500,7 +747,7 @@ const criterion_loader= function(){
 
 };
 
-
+//Slider setup function
 const slider_setup= function(){
 	$( function() {
 		$( "#slider-range" ).slider({
@@ -528,6 +775,7 @@ const slider_setup= function(){
 	});
 }
 
+//Database loading function
 const data_loader = function(path){
 
 	d3.csv(path).then(function(data) {
@@ -538,6 +786,7 @@ const data_loader = function(path){
 /////////////////////////////////////////////////////////////////////////
 //RUN TIME FUNCTION
 /////////////////////////////////////////////////////////////////////////
+
 //Launch-time runner
 whenDocumentLoaded(() => {
 

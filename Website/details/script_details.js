@@ -533,6 +533,30 @@ const get_one_country_data = function(data_i, chosen_team) {
 							} else {
 								counter_loc_match++;
 							}
+						} else if (measure === "Tournament Matches Played") {
+							if (row.tournament !== "Friendly") {
+								counter++;
+							}
+						} else if (measure === "Major Tournaments Played") {
+							if (row.tournament === "FIFA World Cup" || row.tournament === "UEFA Euro" ||
+								row.tournament === "Copa América" || row.tournament === "African Cup of Nations" ||
+								row.tournament === "Gold Cup" || row.tournament === "AFC Asian Cup" || row.tournament === "Oceania Nations Cup") {
+								valid_years.add(year);
+							}
+						} else if (measure === "World Cup Tournaments Won") {
+							if (found === 0) {
+								for (let i=0; i < wc_winners.length; i++) {
+									if (team === wc_winners[i]["country"]) {
+										found = 1;
+										for (let j=0; j < wc_winners[i]["wins"].length; j++) {
+											if (wc_winners[i]["wins"][j] >= start_year && wc_winners[i]["wins"][j] <= end_year) {
+												counter++;
+											}
+										}
+										break;
+									}
+								}
+							}
 						}
 
 						// Ratio win per match
@@ -560,10 +584,7 @@ const get_one_country_data = function(data_i, chosen_team) {
 							counter++;
 						}
 					} else if (measure === "Major Tournaments Played") {
-						if (row.tournament === "FIFA World Cup" || row.tournament === "UEFA Euro" || row.tournament === "Copa América" || row.tournament === "African Cup of Nations" ||
-																																																															row.tournament === "Gold Cup" ||
-																																																															row.tournament === "AFC Asian Cup" ||
-																																																															row.tournament === "Oceania Nations Cup") {
+						if (row.tournament === "FIFA World Cup" || row.tournament === "UEFA Euro" || row.tournament === "Copa América" || row.tournament === "African Cup of Nations" ||								row.tournament === "Oceania Nations Cup") {
 							valid_years.add(year);
 						}
 					} else if (measure === "World Cup Tournaments Won") {
@@ -1752,7 +1773,6 @@ whenDocumentLoaded(() => {
 	disableCompetitions("Friendly Home Matches Played button");
 	disableCompetitions("Friendly Away Matches Played button");
 	disableCompetitions("Friendly Neutral Matches Played button");
-
 	enableDisabledButtons("Matches Played button");
 	enableDisabledButtons("Wins button");
 	enableDisabledButtons("Draws button");
