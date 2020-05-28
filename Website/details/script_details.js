@@ -191,6 +191,9 @@ function set_team(newCountry) {
 		// Resetting radio buttons and checkboxes, and transforming radio button into checkboxes for the single team bar plot section
 		Array.from(document.getElementById("measure_container").getElementsByTagName('div')[0].getElementsByTagName('label')).forEach((item, i) => {
 			item.getElementsByTagName('input')[0].type="checkbox";
+			item.getElementsByTagName('input')[0].classList = [];
+			item.getElementsByTagName('input')[0].classList.add("option-input");
+			item.getElementsByTagName('input')[0].classList.add("checkbox");
 		});
 		if (currBtnTeamId == null) {
 			disabled_checkboxes.clear();

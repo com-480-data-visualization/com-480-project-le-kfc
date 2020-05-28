@@ -18,45 +18,45 @@ function whenDocumentLoaded(action) {
 
 //List of criterions
 measures=["Matches Played", "Wins", "Draws", "Losses", "Goals Scored", "Goals Conceded",
-					"Friendly Home Matches Played", "Friendly Away Matches Played", "Friendly Neutral Matches Played",
-					"Tournament Matches Played", "Major Tournaments Played", "World Cup Tournaments Won"];
+	"Friendly Home Matches Played", "Friendly Away Matches Played", "Friendly Neutral Matches Played",
+	"Tournament Matches Played", "Major Tournaments Played", "World Cup Tournaments Won"];
 competitions=['All', 'Friendly',
-							'FIFA World Cup', 'UEFA Euro', 'Copa América', 'African Cup of Nations', 'Gold Cup', 'AFC Asian Cup', 'Oceania Nations Cup',
-							'FIFA World Cup qualification', 'UEFA Euro qualification', 'Copa América qualification', 'African Cup of Nations qualification',
-							'Gold Cup qualification', 'AFC Asian Cup qualification',	'Oceania Nations Cup qualification',
-							'ABCS Tournament', 'AFC Challenge Cup', 'AFC Challenge Cup qualification',
-       				'AFF Championship', 'AFF Championship qualification',
-       				'African Nations Championship', 'African Nations Championship qualification',
-							'Amílcar Cabral Cup',	'Atlantic Cup', 'Balkan Cup', 'Baltic Cup',
-       				'Brazil Independence Cup', 'British Championship',
-       				'CCCF Championship', 'CECAFA Cup', 'CFU Caribbean Cup',
-       				'CFU Caribbean Cup qualification', 'CONCACAF Championship',
-			        'CONCACAF Championship qualification', 'CONCACAF Nations League',
-			        'CONCACAF Nations League qualification', 'COSAFA Cup',
-			        'Confederations Cup', 'Copa Artigas', "Copa Bernardo O'Higgins",
-							'Copa Carlos Dittborn', 'Copa Chevallier Boutell', 'Copa Félix Bogado',
-			        'Copa Juan Pinto Durán', 'Copa Lipton', 'Copa Newton',
-			        'Copa Oswaldo Cruz', 'Copa Paz del Chaco',
-			        'Copa Premio Honor Argentino', 'Copa Premio Honor Uruguayo',
-			        'Copa Ramón Castilla', 'Copa Rio Branco', 'Copa Roca',
-			        'Copa del Pacífico', 'Cyprus International Tournament',
-			        'Dragon Cup', 'Dunhill Cup', 'Dynasty Cup', 'EAFF Championship',
-			        'GaNEFo', 'Gulf Cup', 'Indonesia Tournament', 'Intercontinental Cup',
-			        'International Cup', 'Island Games',
-			        'Jordan International Tournament', 'King Hassan II Tournament',
-			        "King's Cup", 'Kirin Cup', 'Korea Cup', 'Lunar New Year Cup',
-			        'Malta International Tournament', 'Merdeka Tournament',
-			        'Merlion Cup', 'Millennium Cup', 'Mundialito', 'NAFU Championship',
-			        'Nations Cup', 'Nehru Cup', 'Nile Basin Tournament',
-			        'Nordic Championship', 'OSN Cup', 'Pacific Games',
-			        'Pan American Championship', "Prime Minister's Cup", 'Rous Cup',
-			        'SAFF Cup', 'SKN Football Festival', 'Simba Tournament',
-			        'South Pacific Games', 'Tournoi de France', 'UAFA Cup',
-			        'UAFA Cup qualification', 'UDEAC Cup', 'UEFA Nations League',
-							'UNCAF Cup', 'UNIFFAC Cup', 'USA Cup',
-			        'United Arab Emirates Friendship Tournament', 'VFF Cup',
-			        'Vietnam Independence Cup', 'WAFF Championship',
-			        'West African Cup', 'Windward Islands Tournament'];
+	'FIFA World Cup', 'UEFA Euro', 'Copa América', 'African Cup of Nations', 'Gold Cup', 'AFC Asian Cup', 'Oceania Nations Cup',
+	'FIFA World Cup qualification', 'UEFA Euro qualification', 'Copa América qualification', 'African Cup of Nations qualification',
+	'Gold Cup qualification', 'AFC Asian Cup qualification',	'Oceania Nations Cup qualification',
+	'ABCS Tournament', 'AFC Challenge Cup', 'AFC Challenge Cup qualification',
+	'AFF Championship', 'AFF Championship qualification',
+	'African Nations Championship', 'African Nations Championship qualification',
+	'Amílcar Cabral Cup',	'Atlantic Cup', 'Balkan Cup', 'Baltic Cup',
+	'Brazil Independence Cup', 'British Championship',
+	'CCCF Championship', 'CECAFA Cup', 'CFU Caribbean Cup',
+	'CFU Caribbean Cup qualification', 'CONCACAF Championship',
+	'CONCACAF Championship qualification', 'CONCACAF Nations League',
+	'CONCACAF Nations League qualification', 'COSAFA Cup',
+	'Confederations Cup', 'Copa Artigas', "Copa Bernardo O'Higgins",
+	'Copa Carlos Dittborn', 'Copa Chevallier Boutell', 'Copa Félix Bogado',
+	'Copa Juan Pinto Durán', 'Copa Lipton', 'Copa Newton',
+	'Copa Oswaldo Cruz', 'Copa Paz del Chaco',
+	'Copa Premio Honor Argentino', 'Copa Premio Honor Uruguayo',
+	'Copa Ramón Castilla', 'Copa Rio Branco', 'Copa Roca',
+	'Copa del Pacífico', 'Cyprus International Tournament',
+	'Dragon Cup', 'Dunhill Cup', 'Dynasty Cup', 'EAFF Championship',
+	'GaNEFo', 'Gulf Cup', 'Indonesia Tournament', 'Intercontinental Cup',
+	'International Cup', 'Island Games',
+	'Jordan International Tournament', 'King Hassan II Tournament',
+	"King's Cup", 'Kirin Cup', 'Korea Cup', 'Lunar New Year Cup',
+	'Malta International Tournament', 'Merdeka Tournament',
+	'Merlion Cup', 'Millennium Cup', 'Mundialito', 'NAFU Championship',
+	'Nations Cup', 'Nehru Cup', 'Nile Basin Tournament',
+	'Nordic Championship', 'OSN Cup', 'Pacific Games',
+	'Pan American Championship', "Prime Minister's Cup", 'Rous Cup',
+	'SAFF Cup', 'SKN Football Festival', 'Simba Tournament',
+	'South Pacific Games', 'Tournoi de France', 'UAFA Cup',
+	'UAFA Cup qualification', 'UDEAC Cup', 'UEFA Nations League',
+	'UNCAF Cup', 'UNIFFAC Cup', 'USA Cup',
+	'United Arab Emirates Friendship Tournament', 'VFF Cup',
+	'Vietnam Independence Cup', 'WAFF Championship',
+	'West African Cup', 'Windward Islands Tournament'];
 
 let flags;
 let flags_input = [];
@@ -67,6 +67,7 @@ let end_time = 2020;
 let selected_measure=measures[0];
 let selected_competitions = new Set();
 let db;
+let map;
 let max_val=0;
 /////////////////////////////////////////////////////////////////////////
 //HELPER FUNCTIONS
@@ -126,39 +127,41 @@ const change_tab= function(name){
 const load_map = function(){
 	//Assigns a color to the inputed value
 	function getColor(feature) {
-			const colorScale = d3.scaleLinear().domain([0, max_val]).range(['steelblue', 'crimson']);
-			return colorScale(feature.properties.val);
+		const colorScale = d3.scaleLinear().domain([0, max_val]).range(['steelblue', 'crimson']);
+		return colorScale(feature.properties.val);
 	}
 
 	//Runs when hovering over a country
 	function onHover(layer) {
 
-			//Putting the tile in evidence
-			layer.setStyle({
-					weight: 2,
-					fillOpacity: 0.9,
-					dashArray: ''
-			});
+		//Putting the tile in evidence
+		layer.setStyle({
+			weight: 2,
+			fillOpacity: 0.9,
+			dashArray: ''
+		});
 
-			if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-					layer.bringToFront();
-			}
+		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+			layer.bringToFront();
+		}
 
-			//Putting the corresponding flag in evidence
-			flag=	document.getElementById(layer.feature.properties.name);
+		//Putting the corresponding flag in evidence
+		flag=	document.getElementById(layer.feature.properties.name);
 
-			if (flag!=null) {
-					flag.style.opacity=0;
-					flag.style.background="none";
-					flag.style.border="none";
+		if (flag!=null) {
+			flag.style.opacity=0;
+			flag.style.background="none";
+			flag.style.border="none";
 
-			}
+		}
 
-			//Printing the name and value of the country from the hover display box
-			let p = document.createElement("p");
-			p.style.fontSize="2vh";
-			p.appendChild(document.createTextNode(layer.feature.properties.name+" --> "+layer.feature.properties.val));
-			document.getElementById("map_hover").appendChild(p);
+		//Printing the name and value of the country from the hover display box
+		let p1 = document.createElement("p");
+		let p2 = document.createElement("small");
+		p1.appendChild(document.createTextNode(layer.feature.properties.name));
+		p2.appendChild(document.createTextNode(layer.feature.properties.val));
+		document.getElementById("map_hover").appendChild(p1);
+		document.getElementById("map_hover").appendChild(p2);
 	}
 
 	//Runs when a country stops being hovered over
@@ -191,32 +194,32 @@ const load_map = function(){
 
 	//Runs when clicking on a country
 	function select(layer) {
-
 		//Activating or deactivating the clicked state
 		layer.feature.properties.clicked=!layer.feature.properties.clicked
 
 
 		if (layer.feature.properties.clicked) {
 
-		//Adding the name and value of the country from the select box
-		let p = document.createElement("p");
-		p.id=layer.feature.properties.name+"_display";
-		p.style.fontSize="2vh";
-		p.appendChild(document.createTextNode(layer.feature.properties.name+" --> "+layer.feature.properties.val));
-		document.getElementById("map_select").appendChild(p);
+			//Adding the name and value of the country from the select box
+			let p = document.createElement("small");
+			p.style.display="block";
+			p.style.textAlign = "left";
+			p.id=layer.feature.properties.name+"_display";
+			p.appendChild(document.createTextNode(layer.feature.properties.name+" → "+layer.feature.properties.val));
+			document.getElementById("map_select").appendChild(p);
 
-		//Adding country to targetted countries
-		target_countries.add(layer.feature.properties.name);
+			//Adding country to targetted countries
+			target_countries.add(layer.feature.properties.name);
 
-	} else {
+		} else {
 
-		//Removing the name and value of the country from the select box
-		let p=document.getElementById(layer.feature.properties.name+"_display");
-		p.parentNode.removeChild(p);
+			//Removing the name and value of the country from the select box
+			let p=document.getElementById(layer.feature.properties.name+"_display");
+			p.parentNode.removeChild(p);
 
-		//Removing country from targetted countries
-		target_countries.delete(layer.feature.properties.name);
-	}
+			//Removing country from targetted countries
+			target_countries.delete(layer.feature.properties.name);
+		}
 	}
 
 	const stats = function(name){
@@ -323,11 +326,11 @@ const load_map = function(){
 
 	$.getJSON("map_processed.json",function(data){
 
-			let map = L.map('map',{minZoom:1}).setView([50, 0], 3);
-			geojson=L.geoJson(data, {
-				onEachFeature: onEachFeature,
-				style: style
-			}).addTo(map);
+		map = L.map('map',{minZoom:1}).setView([50, 0], 3);
+		geojson=L.geoJson(data, {
+			onEachFeature: onEachFeature,
+			style: style
+		}).addTo(map);
 
 	})
 }
@@ -520,7 +523,7 @@ const slider_setup= function(){
 			}
 		});
 		$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-				" - $" + $( "#slider-range" ).slider( "values", 1 ) );
+			" - $" + $( "#slider-range" ).slider( "values", 1 ) );
 	} );
 }
 
