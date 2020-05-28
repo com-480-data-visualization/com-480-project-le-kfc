@@ -122,43 +122,65 @@ const stats = function(){
 
 	Object.keys(stat_box).forEach((item,i) => {
 		let db_filtered_country=db_filtered.filter(entry => (entry.home_team===item) || (entry.away_team===item));
+		const nb_played = () => {return db_filtered_country.length};
 		let x = 0;
+		const nb_win = (d=true,e=true) => {
+			let x=0;
+			db_filtered_country.forEach(row => {
+				if(((d && row.home_team===item && row.home_score > row.away_score)
+					|| (e && row.away_team===item && row.home_score < row.away_score))
+					&&(e||d)&&row.neutral==='False') x++;
+			})
+			return x;
+		};
+		const nb_draw = () => {
+			let x=0;
+			db_filtered_country.forEach(row => {if(row.home_score === row.away_score) x++;})
+			return x;
+		};
+		const nb_lose = (d=true,e=true) => {
+			let x=0;
+			db_filtered_country.forEach(row => {
+				if(((d && row.home_team===item && row.home_score < row.away_score)
+					|| (e && row.away_team===item && row.home_score > row.away_score))
+					&&!(e&&d)&&row.neutral==='False') x++;
+			})
+			return x;
+		};
+		const nb_goal_scored = () => {
+			let x = 0;
+			db_filtered_country.forEach(row => {
+				x += row.home_team===item ? row.home_score:row.away_score;
+			})
+			return x;
+		}
+		const nb_goal_conceded = () => {
+			let x = 0;
+			db_filtered_country.forEach(row => {
+				if(row.home_team===item) x+=row.away_score;
+				if(row.away_team===item) x+=row.home_score;
+			})
+			return x;
+		}
+
 		switch (selected_measure) {
 			case "Matches Played":
-				max=Math.max(max,db_filtered_country.length);
-				stat_box[item]=db_filtered_country.length;
+				stat_box[item]=nb_played();
 				break;
 			case "Wins":
-				db_filtered_country.forEach(row => {
-					if((row.home_team===item && row.home_score > row.away_score) || (row.away_team===item && row.home_score < row.away_score)) x++;
-				})
-				stat_box[item]=x;
+				stat_box[item]=nb_win();
 				break;
 			case "Draws":
-				db_filtered_country.forEach(row => {
-					if(row.home_score === row.away_score) x++;
-				})
-				stat_box[item]=x;
+				stat_box[item]=nb_draw();
 				break;
 			case "Losses":
-				db_filtered_country.forEach(row => {
-					if((row.home_team===item && row.home_score < row.away_score) || (row.away_team===item && row.home_score > row.away_score)) x++;
-				})
-				stat_box[item]=x;
+				stat_box[item]=nb_lose();
 				break;
 			case "Goals Scored":
-				db_filtered_country.forEach(row => {
-					if(row.home_team===item) x+=row.home_score;
-					if(row.away_team===item) x+=row.away_score;
-				})
-				stat_box[item]=x;
+				stat_box[item]=nb_goal_scored();
 				break;
 			case "Goals Conceded":
-				db_filtered_country.forEach(row => {
-					if(row.home_team===item) x+=row.away_score;
-					if(row.away_team===item) x+=row.home_score;
-				})
-				stat_box[item]=x;
+				stat_box[item]=nb_goal_conceded();
 				break;
 			case "Friendly Home Matches Played":
 				db_filtered_country.forEach(row => {
@@ -197,35 +219,76 @@ const stats = function(){
 				else if(item==='Argentina'||item==='Uruguay'||item==='France') stat_box[item]=2;
 				else if(item==='Spain' || item==='England') stat_box[item]=1;
 				break;
-			case "Wins":
+			case "Ratio Win Per Match":
+				stat_box[item]=nb_win()/nb_played();
 				break;
-			case "Wins":
+			case "Ratio Draw Per Match":
+				stat_box[item]=nb_draw()/nb_played();
 				break;
-			case "Wins":
+			case "Ratio Loss Per Match":
+				stat_box[item]=nb_lose()/nb_played();
 				break;
-			case "Wins":
+			case "Home Wins":
+				stat_box[item]=nb_win(true, false);
 				break;
-			case "Wins":
+			case "Home Draws":
+				db_filtered_country.forEach(row => {
+					if(row.home_score===row.away_score && row.home_team===item)x++;
+				})
+				stat_box[item]=x;
 				break;
-			case "Wins":
+			case "Home Losses":
+				stat_box[item]=nb_lose(true,false);
 				break;
-			case "Wins":
+			case "Away Wins":
+				stat_box[item]=nb_win(false, true);
 				break;
-			case "Wins":
+			case "Away Draws":
+				db_filtered_country.forEach(row => {
+					if(row.home_score===row.away_score && row.away_team===item)x++;
+				})
+				stat_box[item]=x;
 				break;
-			case "Wins":
+			case "Away Losses":
+				stat_box[item]=nb_lose(false, true);
 				break;
-			case "Wins":
+			case "Performance Factor Home Matches":
+				let prop_real_home_win=0, prop_real_home_lose=0;
+				db_filtered_country.forEach(row => {
+					if(row.home_team===item && row.neutral==='False') {
+						if(row.home_score>row.away_score)prop_real_home_win++;
+						if(row.home_score<row.away_score)prop_real_home_lose++;
+					}
+				})
+				stat_box[item]=prop_real_home_win/prop_real_home_lose;
 				break;
-			case "Wins":
+			case "Performance Factor Away Matches":
+				let prop_real_away_win=0, prop_real_away_lose=0;
+				db_filtered_country.forEach(row => {
+					if(row.away_team===item && row.neutral==='False') {
+						if(row.home_score<row.away_score)prop_real_away_win++;
+						if(row.home_score>row.away_score)prop_real_away_lose++;
+					}
+				})
+				stat_box[item]=prop_real_away_win/prop_real_away_lose;
 				break;
-			case "Wins":
+			case "Goals Scored Per Year":
+				stat_box[item]=nb_goal_scored()/(end_time-start_time+1)
 				break;
-
-
+			case "Goals Scored Per Match":
+				stat_box[item]=nb_goal_scored()/nb_played();
+				break;
+			case "Goals Conceded Per Year":
+				return stat_box[item]=nb_goal_conceded()/(end_time-start_time+1)
+				break;
+			case "Goals Conceded Per Match":
+				stat_box[item]=nb_goal_conceded()/nb_played();
+				break;
 			default:
 				stat_box[item]=0;
 		}
+		Object.values(stat_box).forEach((item, i) => {max=Math.max(max,item)});
+
 	});
 
 }
