@@ -1575,7 +1575,6 @@ whenDocumentLoaded(() => {
 	disableCompetitions("Friendly Home Matches Played button");
 	disableCompetitions("Friendly Away Matches Played button");
 	disableCompetitions("Friendly Neutral Matches Played button");
-
 	enableDisabledButtons("Matches Played button");
 	enableDisabledButtons("Wins button");
 	enableDisabledButtons("Draws button");
