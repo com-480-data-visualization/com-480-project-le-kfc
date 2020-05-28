@@ -562,12 +562,12 @@ const load_data_one_country = function() {
 	gradient
 		.append("stop")
 		.attr("offset", "0")
-		.attr("stop-color", "#386b82")
+		.attr("stop-color", "rgba(78,189,238,0.5)")
 
 	gradient
 		.append("stop")
 		.attr("offset", "0.5")
-		.attr("stop-color", "#c0392b")
+		.attr("stop-color", "#821108")
 
 	// append rects
 	bars.append("rect")
@@ -1018,12 +1018,12 @@ const load_data_world = function() {
 	gradient
 		.append("stop")
 		.attr("offset", "0")
-		.attr("stop-color", "#386b82")
+		.attr("stop-color", "rgba(78,189,238,0.5)")
 
 	gradient
 		.append("stop")
 		.attr("offset", "0.3")
-		.attr("stop-color", "#c0392b")
+		.attr("stop-color", "#821108")
 
 	// append rects
 	bars.append("rect")
