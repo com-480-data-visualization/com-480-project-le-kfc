@@ -1171,21 +1171,21 @@ const assign_flags= function(flags, flag_number) {
 				button_style2.style.border="none";
 			}
 			button_style2.addEventListener('click',function(e){
-					flag=e.target;
-					flag.clicked=(!flag.clicked) && target_countries.size<2;
-					if (flag.clicked){
-						//Adding country to targetted countries
-						target_countries.add(flag.id);
-						flag.style.opacity=0;
-						flag.style.background="none";
-						flag.style.border="none";
-						set_team(this.id);
-					} else {
-						//Removing country from targetted countries
-						target_countries.delete(flag.id);
-						flag.style="resetStyle";
-					}
-				});
+				flag=e.target;
+				flag.clicked=(!flag.clicked) && target_countries.size<2;
+				if (flag.clicked){
+					//Adding country to targetted countries
+					target_countries.add(flag.id);
+					flag.style.opacity=0;
+					flag.style.background="none";
+					flag.style.border="none";
+					set_team(this.id);
+				} else {
+					//Removing country from targetted countries
+					target_countries.delete(flag.id);
+					flag.style="resetStyle";
+				}
+			});
 		};
 		cnt++;
 
@@ -1336,74 +1336,36 @@ whenDocumentLoaded(() => {
 		});
 	}
 
-	// onclick listeners for every measure criterion in order to disable some competitions that are irrelevant with the selected filter
-	document.getElementById("Friendly Home Matches Played button").onclick = function() {
-		if (currBtnTeamId == null) {
-			let i;
-			disabled_checkboxes.clear();
-			for(i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-			for(i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.disabled = true;
-				if (currBtnId !== "Friendly button" && currBtnId !== "All button") {
-					disabled_checkboxes.add(currBtnId);
-				} else {
-					currBtn.checked = true;
+	function disableCompetitions(elem_str) {
+		document.getElementById(elem_str).onclick = function () {
+			if (currBtnTeamId == null) {
+				let i;
+				disabled_checkboxes.clear();
+				for (i = 0; i < competitions.length; i++) {
+					currBtnId = competitions[i] + " button";
+					currBtn = document.getElementById(currBtnId);
+					currBtn.checked = false;
+					currBtn.disabled = false;
+				}
+				for (i = 0; i < competitions.length; i++) {
+					currBtnId = competitions[i] + " button";
+					currBtn = document.getElementById(currBtnId);
+					currBtn.disabled = true;
+					if (currBtnId !== "Friendly button" && currBtnId !== "All button") {
+						disabled_checkboxes.add(currBtnId);
+					} else {
+						currBtn.checked = true;
+					}
 				}
 			}
-		}
-	};
+		};
+	}
 
-	document.getElementById("Friendly Away Matches Played button").onclick = function() {
-		if (currBtnTeamId == null) {
-			let i;
-			disabled_checkboxes.clear();
-			for(i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-			for(i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.disabled = true;
-				if (currBtnId !== "Friendly button" && currBtnId != "All button") {
-					disabled_checkboxes.add(currBtnId);
-				} else {
-					currBtn.checked = true;
-				}
-			}
-		}
-	};
-	document.getElementById("Friendly Neutral Matches Played button").onclick = function() {
-		if (currBtnTeamId == null) {
-			let i;
-			disabled_checkboxes.clear();
-			for(i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-			for(i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.disabled = true;
-				if (currBtnId !== "Friendly button" && currBtnId !== "All button") {
-					disabled_checkboxes.add(currBtnId);
-				} else {
-					currBtn.checked = true;
-				}
-			}
-		}
-	};
+// onclick listeners for every measure criterion in order to disable some competitions that are irrelevant with the selected filter
+	disableCompetitions("Friendly Home Matches Played button");
+	disableCompetitions("Friendly Away Matches Played button");
+	disableCompetitions("Friendly Away Matches Played button");
+	disableCompetitions("Friendly Neutral Matches Played button");
 
 	document.getElementById("Tournament Matches Played button").onclick = function() {
 		if (currBtnTeamId == null) {
@@ -1426,85 +1388,26 @@ whenDocumentLoaded(() => {
 		}
 	};
 
-	document.getElementById("Matches Played button").onclick = function() {
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for(var i=0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
+	function enableDisabledButtons(elem_str) {
+		document.getElementById(elem_str).onclick = function () {
+			if (currBtnTeamId == null) {
+				disabled_checkboxes.clear();
+				for (var i = 0; i < competitions.length; i++) {
+					currBtnId = competitions[i] + " button";
+					currBtn = document.getElementById(currBtnId);
+					currBtn.checked = false;
+					currBtn.disabled = false;
+				}
 			}
-		}
-	};
+		};
+	}
 
-	document.getElementById("Wins button").onclick = function() {
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for(var i=0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-		}
-	};
-
-	document.getElementById("Draws button").onclick = function() {
-		let currBtn;
-		let currBtnId;
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for (var i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-		}
-	};
-
-	document.getElementById("Losses button").onclick = function() {
-		let currBtnId;
-		let currBtn;
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for (let i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-		}
-	};
-
-	document.getElementById("Goals Scored button").onclick = function() {
-		let currBtn;
-		let currBtnId;
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for (let i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-		}
-	};
-
-	document.getElementById("Goals Conceded button").onclick = function() {
-		let currBtn;
-		let currBtnId;
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for (let i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-		}
-	};
+	enableDisabledButtons("Matches Played button");
+	enableDisabledButtons("Wins button");
+	enableDisabledButtons("Draws button");
+	enableDisabledButtons("Losses button");
+	enableDisabledButtons("Goals Scored button");
+	enableDisabledButtons("Goals Conceded button");
 
 	document.getElementById("Major Tournaments Played button").onclick = function() {
 		let currBtnId;

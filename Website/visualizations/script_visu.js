@@ -128,7 +128,8 @@ const change_tab= function(name){
 const load_map = function(){
 	//Assigns a color to the inputed value
 	function getColor(val) {
-		const colorScale = d3.scaleLinear().domain([0, max_val]).range(['steelblue', 'crimson']);
+		console.log('MAAAAAAAAAX:'+max_val);
+		const colorScale = d3.scaleLinear().domain([0, max_val]).range(['rgb(245, 254, 169)', 'rgb(147, 21, 40)']);
 		return colorScale(val);
 	}
 
@@ -172,7 +173,7 @@ const load_map = function(){
 		if (!layer.feature.properties.clicked){
 			layer.setStyle({
 					weight: 1,
-					fillOpacity: 0.7,
+					fillOpacity: 0.85,
 					dashArray: '3'
 			});
 			geojson.bringToBack(layer);
@@ -241,7 +242,11 @@ const load_map = function(){
 
 		switch (selected_measure) {
 			case "Matches Played":
-				max_val=Math.max(max_val,db_filtered.length);
+				console.log(db_filtered.length)
+				if(db_filtered.length > max_val) {
+					max_val = db_filtered.length;
+					console.log('Maaaaaaaaax'+max_val)
+				}
 				return db_filtered.length;
 			default:
 				return 0;
@@ -545,14 +550,15 @@ const slider_setup= function(){
 		});
 		$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
 			" - $" + $( "#slider-range" ).slider( "values", 1 ) );
-	} );
 
-	const time_slider_comp=document.getElementById("slider-range").childNodes;
-	time_slider_comp.forEach((item, i) => {
-		item.addEventListener("click", function(e){
-			max_val=0;
+		const time_slider_comp=document.getElementById("slider-range").childNodes;
+		time_slider_comp.forEach((item, i) => {
+			item.addEventListener("click", function(e){
+				console.log("MAX VAL REINIT ici")
+				max_val=0;
+			});
 		});
-	});
+	} );
 }
 
 const data_loader = function(path){
@@ -572,7 +578,7 @@ whenDocumentLoaded(() => {
 	flag_loader("../../data/final_flags.csv");
 
 	//Loading the dataset
-	data_loader("../../data/results.csv");
+	data_loader("../../data/final_results.csv");
 
 	//Setting-up the criterion selectors
 	criterion_loader();

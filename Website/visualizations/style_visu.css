@@ -45,6 +45,9 @@ body {
 }
 
 
+hr {
+	border: 1px solid rgba(40, 97, 125, 0.8);
+}
 
 
 /* FLAG SLIDER */
