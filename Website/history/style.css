@@ -169,6 +169,7 @@ h5, .h5 {
 .container_title {
     align-self: center;
     width: 100%;
+    left: 5vw;
     padding-right: 15vw;
     padding-left: 15vw;
     padding-top: 20vh;
@@ -519,7 +520,7 @@ footer {
     transition: all 0.5s;
 }
 .section-btn:hover {
-    background-color: #1c466d;
+    background-color: #3C74B1;
 }
 
 .bg-tl-1 {background: url("images/1880.jpg");}

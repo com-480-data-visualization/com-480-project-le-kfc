@@ -1,3 +1,5 @@
+target_countries=new Set();
+
 //Standard initialization function
 function whenDocumentLoaded(action) {
 	if (document.readyState === "loading") {
@@ -18,10 +20,7 @@ const change_tab= function(name) {
 
 //Events launched after page as finished loading
 window.addEventListener('load', function() {
-	setTimeout(function(){flag_loader("../../data/final_flags.csv")}, 3700);
-	//setTimeout(function(){document.getElementById("slider_container").style.opacity = "1"}, 3700);
-	//setTimeout(function(){document.getElementById("search_bar").style.opacity = "1"}, 3700);
-	//setTimeout(function(){document.getElementById("buttonWorldMode").style.opacity = "1"}, 3700);
+	setTimeout(function(){flag_loader("../../data/final_flags.csv")}, 100);
 	setTimeout(function(){document.getElementById("js_flag_scroll").style.opacity = "1"}, 3700);
 });
 
@@ -37,6 +36,8 @@ let graph_name;
 // variables used for the two teams comparison case
 let currBtnTeamId2 = null;
 let temp;
+
+let bool = false;
 
 // function triggered when modifying the first team in the two teams comparison section
 function changeVS1() {
@@ -55,7 +56,7 @@ function changeVS1() {
 		currBtn.checked = false;
 		currBtn.disabled = false;
 	}
-	document.getElementById("shadowFocus").style.display = "block";
+	bool = true;
 	currBtnTeamId = null;
 	//document.getElementById("buttonWorldMode").disabled = true;
 	document.getElementById("generate_container_back").disabled = true;
@@ -80,9 +81,10 @@ function changeVS2() {
 		currBtn.checked = false;
 		currBtn.disabled = false;
 	}
-	document.getElementById("shadowFocus").style.display = "block";
+
+	bool = true;
 	currBtnTeamId2 = null;
-	//document.getElementById("buttonWorldMode").disabled = true;
+
 	document.getElementById("generate_container_back").disabled = true;
 	document.getElementById("buttonCancelVS").disabled = true;
 	document.getElementById("flagVS1").style.pointerEvents = "none";
@@ -151,9 +153,10 @@ function triggerVS() {
 	}
 	document.getElementById("nameCountry1").innerHTML = currBtnTeamId;
 
-	document.getElementById("shadowFocus").style.display = "block";
-	//document.getElementById("buttonWorldMode").disabled = true;
+
 	document.getElementById("generate_container_back").disabled = true;
+	bool = true;
+
 	document.getElementById("buttonCancelVS").disabled = true;
 	document.getElementById("flagVS1").style.pointerEvents = "none";
 	document.getElementById("flagVS2").style.pointerEvents = "none";
@@ -175,10 +178,9 @@ function cancelVS() {
 // function triggered when a country is selected
 function set_team(newCountry) {
 	let i;
-	if (document.getElementById("shadowFocus").style.display === "block") {
 
-		document.getElementById("shadowFocus").style.display = "none";
-		//document.getElementById("buttonWorldMode").disabled = false;
+	if (bool) {
+		bool = false;
 		document.getElementById("generate_container_back").disabled = true;
 		document.getElementById("buttonCancelVS").disabled = false;
 		document.getElementById("flagVS1").style.pointerEvents = "auto";
@@ -456,87 +458,87 @@ const get_one_country_data = function(data_i, chosen_team) {
 							counter += parseInt(row.home_score);
 						}
 					} else if (measure === "Ratio Win Per Match") {
-							if ((row.away_team === team && parseInt(row.away_score) > parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) > parseInt(row.away_score))) {
-								counter++;
-								counter_match++;
+						if ((row.away_team === team && parseInt(row.away_score) > parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) > parseInt(row.away_score))) {
+							counter++;
+							counter_match++;
+						} else {
+							counter_match++;
+						}
+					} else if (measure === "Ratio Draw Per Match") {
+						if (parseInt(row.home_score) === parseInt(row.away_score)) {
+							counter++;
+							counter_match++;
+						} else {
+							counter_match++;
+						}
+					} else if (measure === "Ratio Loss Per Match") {
+						if ((row.away_team === team && parseInt(row.away_score) < parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) < parseInt(row.away_score))) {
+							counter++;
+							counter_match++;
+						} else {
+							counter_match++;
+						}
+					} else if (measure === "Home Wins") {
+						if (row.home_team === team && parseInt(row.home_score) > parseInt(row.away_score)) {
+							counter++;
+						}
+					} else if (measure === "Home Draws") {
+						if (row.home_team === team && parseInt(row.home_score) === parseInt(row.away_score)) {
+							counter++;
+						}
+					} else if (measure === "Home Losses") {
+						if (row.home_team === team && parseInt(row.home_score) < parseInt(row.away_score)) {
+							counter++;
+						}
+					} else if (measure === "Away Wins") {
+						if (row.away_team === team && parseInt(row.home_score) < parseInt(row.away_score)) {
+							counter++;
+						}
+					} else if (measure === "Away Draws") {
+						if (row.away_team === team && parseInt(row.home_score) === parseInt(row.away_score)) {
+							counter++;
+						}
+					} else if (measure === "Away Losses") {
+						if (row.away_team === team && parseInt(row.home_score) > parseInt(row.away_score)) {
+							counter++;
+						}
+					} else if (measure === "Performance Factor Home Matches") {
+						// Ratio win per match playing home
+						if (row.home_team === team) {
+							if (parseInt(row.home_score) > parseInt(row.away_score)) {
+								counter_loc++;
+								counter_loc_match++;
 							} else {
-								counter_match++;
+								counter_loc_match++;
 							}
-						} else if (measure === "Ratio Draw Per Match") {
-							if (parseInt(row.home_score) === parseInt(row.away_score)) {
-								counter++;
-								counter_match++;
-							} else {
-								counter_match++;
-							}
-						} else if (measure === "Ratio Loss Per Match") {
-							if ((row.away_team === team && parseInt(row.away_score) < parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) < parseInt(row.away_score))) {
-								counter++;
-								counter_match++;
-							} else {
-								counter_match++;
-							}
-						} else if (measure === "Home Wins") {
-							if (row.home_team === team && parseInt(row.home_score) > parseInt(row.away_score)) {
-								counter++;
-							}
-						} else if (measure === "Home Draws") {
-							if (row.home_team === team && parseInt(row.home_score) === parseInt(row.away_score)) {
-								counter++;
-							}
-						} else if (measure === "Home Losses") {
-							if (row.home_team === team && parseInt(row.home_score) < parseInt(row.away_score)) {
-								counter++;
-							}
-						} else if (measure === "Away Wins") {
-							if (row.away_team === team && parseInt(row.home_score) < parseInt(row.away_score)) {
-								counter++;
-							}
-						} else if (measure === "Away Draws") {
-							if (row.away_team === team && parseInt(row.home_score) === parseInt(row.away_score)) {
-								counter++;
-							}
-						} else if (measure === "Away Losses") {
-							if (row.away_team === team && parseInt(row.home_score) > parseInt(row.away_score)) {
-								counter++;
-							}
-						} else if (measure === "Performance Factor Home Matches") {
-							// Ratio win per match playing home
-							if (row.home_team === team) {
-								if (parseInt(row.home_score) > parseInt(row.away_score)) {
-									counter_loc++;
-									counter_loc_match++;
-								} else {
-									counter_loc_match++;
-								}
-							}
+						}
 
-							// Ratio win per match
-							if ((row.away_team === team && parseInt(row.away_score) > parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) > parseInt(row.away_score))) {
-								counter++;
-								counter_match++;
-							} else {
-								counter_match++;
-							}
+						// Ratio win per match
+						if ((row.away_team === team && parseInt(row.away_score) > parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) > parseInt(row.away_score))) {
+							counter++;
+							counter_match++;
+						} else {
+							counter_match++;
+						}
 
-						} else if (measure === "Performance Factor Away Matches") {
-							// Ratio win per match playing away
-							if (row.away_team === team) {
-								if (parseInt(row.home_score) < parseInt(row.away_score)) {
-									counter_loc++;
-									counter_loc_match++;
-								} else {
-									counter_loc_match++;
-								}
-							}
-
-							// Ratio win per match
-							if ((row.away_team === team && parseInt(row.away_score) > parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) > parseInt(row.away_score))) {
-								counter++;
-								counter_match++;
+					} else if (measure === "Performance Factor Away Matches") {
+						// Ratio win per match playing away
+						if (row.away_team === team) {
+							if (parseInt(row.home_score) < parseInt(row.away_score)) {
+								counter_loc++;
+								counter_loc_match++;
 							} else {
-								counter_match++;
+								counter_loc_match++;
 							}
+						}
+
+						// Ratio win per match
+						if ((row.away_team === team && parseInt(row.away_score) > parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) > parseInt(row.away_score))) {
+							counter++;
+							counter_match++;
+						} else {
+							counter_match++;
+						}
 
 					} else if (measure === "Friendly Home Matches Played") {
 						if (row.tournament === "Friendly" && row.home_team === team && row.neutral === "False") {
@@ -635,7 +637,7 @@ const load_data_one_country = function() {
 		left: 225
 	};
 
-	const width = 1000 - margin.left - margin.right,
+	const width = 950 - margin.left - margin.right,
 		height = 30 * data.length - margin.top - margin.bottom;
 
 	const svg = d3.select("#graphicTeam").append("svg")
@@ -707,8 +709,8 @@ const load_data_one_country = function() {
 	// add a value label to the right of each bar
 	bars.append("text")
 		.attr("class", "label")
-		.attr("fill", "white")
-		.attr("font-weight", "bold")
+		.attr("fill", "#111")
+		.attr("font-weight", "lighter")
 		.attr("opacity", "0")
 		.attr("y", function (d) {
 			return y(d.name) + y.bandwidth() / 2 + 4;
@@ -1026,17 +1028,17 @@ const load_data_world = function() {
 	})
 
 	// set up svg using margins
-	var margin = {
+	const margin = {
 		top: 26,
 		right: 35,
 		bottom: 0,
 		left: 214
 	};
 
-	var width = 1000 - margin.left - margin.right,
+	const width = 950 - margin.left - margin.right,
 		height = 5000 - margin.top - margin.bottom;
 
-	var svg = d3.select("#graphic").append("svg")
+	const svg = d3.select("#graphic").append("svg")
 		.attr("id", "bar_plot_graphic")
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
@@ -1048,17 +1050,17 @@ const load_data_world = function() {
 		.attr("y", 0 - (margin.top - 40 / 2))
 		.attr("text-anchor", "middle")
 		.style("font-size", "28px")
-		.style("font-weight", "bold")
-		.style("fill", "white")
+		.style("font-weight", "light")
+		.style("fill", "#111")
 		.text(graph_name);
 
-	var x = d3.scaleLinear()
+	const x = d3.scaleLinear()
 		.range([0, width])
 		.domain([0, d3.max(data, function (d) {
 			return d.value;
 		})]);
 
-	var y = d3.scaleBand()
+	const y = d3.scaleBand()
 		.rangeRound([height, 0])
 		.padding(0.2)
 		.domain(data.map(function (d) {
@@ -1114,8 +1116,8 @@ const load_data_world = function() {
 	// add a value label to the right of each bar
 	bars.append("text")
 		.attr("class", "label")
-		.attr("fill", "white")
-		.attr("font-weight", "bold")
+		.attr("fill", "#111")
+		.attr("font-weight", "light")
 		.attr("opacity", "0")
 		.attr("y", function (d) {
 			return y(d.name) + y.bandwidth() / 2 + 4;
@@ -1205,11 +1207,29 @@ const assign_flags= function(flags, flag_number) {
 		const button_style = document.createElement("div");
 		button_style.classList.add('button-style');
 		button_style.innerHTML = flags[cnt]['Country'].substring(0, 3).toUpperCase();
-
-		if (cnt < flag_number) button_style.id = flags[cnt]['Country'];
-		if (cnt < flag_number) button_style.onclick = function () {
-			set_team(this.id);
-		};
+		button_style.id=flags[cnt]['Country'];
+		button_style.clicked=target_countries.has(flags[cnt]['Country']);
+		if(button_style.clicked){
+			button_style.style.opacity=0;
+			button_style.style.background="none";
+			button_style.style.border="none";
+		}
+		button_style.addEventListener('click',function(e){
+			flag=e.target;
+			flag.clicked=(!flag.clicked) && target_countries.size<2;
+			if (flag.clicked){
+				//Adding country to targetted countries
+				target_countries.add(flag.id);
+				flag.style.opacity=0;
+				flag.style.background="none";
+				flag.style.border="none";
+				set_team(this.id);
+			} else {
+				//Removing country from targetted countries
+				target_countries.delete(flag.id);
+				flag.style="resetStyle";
+			}
+		});
 		cnt++;
 		// bottom flag
 		const square2 = document.createElement("div");
@@ -1220,10 +1240,29 @@ const assign_flags= function(flags, flag_number) {
 		if (cnt < flag_number) {
 			button_style2.innerHTML = flags[cnt]['Country'].substring(0, 3).toUpperCase();
 			button_style2.id = flags[cnt]['Country'];
-			button_style2.onclick = function () {
-				set_team(this.id);
-			};
-		}
+			button_style2.clicked=target_countries.has(flags[cnt]['Country']);
+			if(button_style2.clicked){
+				button_style2.style.opacity=0;
+				button_style2.style.background="none";
+				button_style2.style.border="none";
+			}
+			button_style2.addEventListener('click',function(e){
+					flag=e.target;
+					flag.clicked=(!flag.clicked) && target_countries.size<2;
+					if (flag.clicked){
+						//Adding country to targetted countries
+						target_countries.add(flag.id);
+						flag.style.opacity=0;
+						flag.style.background="none";
+						flag.style.border="none";
+						set_team(this.id);
+					} else {
+						//Removing country from targetted countries
+						target_countries.delete(flag.id);
+						flag.style="resetStyle";
+					}
+				});
+		};
 		cnt++;
 
 		square.appendChild(button_style);
@@ -1341,14 +1380,11 @@ const criterion_loader = function() {
 whenDocumentLoaded(() => {
 
 	let i;
-// load the flag database
+  // load the flag database
 	data_loader("../../data/final_results.csv"); /* Ajout Vincent */
 
 	// create the criterions side menus
 	criterion_loader();
-
-	// hide the button taking us to te world bar plot section since that this section is the one we immediately go when opening manually the "Details" tab
-	//document.getElementById("buttonWorldMode").style.visibility = "hidden";
 
 	// get all the checkboxes or radios on the page
 	var checkboxes = document.querySelectorAll('input[type=checkbox]');

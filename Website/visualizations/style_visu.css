@@ -156,7 +156,7 @@ input:-ms-input-placeholder { color: var(--darkgrey);}
 	opacity: 0;
 	background-repeat: no-repeat;
 	z-index: 10;
-	left: 5.65vw;
+	right: 5.65vw;
 }
 .input100 {
 	display: block;
@@ -188,9 +188,10 @@ input.input100 {
 }
 #anim-map-input{
 	animation-name: fadeInFromNone;
-	animation-delay: 10s;
-	animation-duration: 1s;
+	animation-delay: 1s;
+	animation-duration: 1.8s;
 	animation-fill-mode: forwards;
+	opacity: 0;
 }
 
 
@@ -331,12 +332,14 @@ html .ui-button.ui-state-disabled:active {
 	border-radius: 1em;
 	padding:1%;
 	font-weight:300;
+	font-size: 1vw;
+	min-font-size: 16px;
 	background-color: rgba(119, 160, 186, 0.4);
 	color: var(--darkdarkgrey);
 	transition: all 0.5s;
 	white-space: nowrap;
 }
-#measure_container p , #competition_container p, #map_select p, #map_hover p{
+#measure_container p , #competition_container p, #map_select p, #map_hover p {
 	font-size:1vw;
 	font-weight: bold;
 	margin-top: -0.5vw;
@@ -368,6 +371,7 @@ html .ui-button.ui-state-disabled:active {
 	position: absolute;
 	overflow: hidden;
 	border-radius: 1em;
+	cursor: pointer;
 }
 #generate_container:hover {
 	background: rgba(75, 102, 120, 0.9);
@@ -400,10 +404,22 @@ html .ui-button.ui-state-disabled:active {
 	top: 47vh;
 	right: 1vw;
 	font-size:1vw;
-	text-align: center;
 	overflow: auto;
 	width: 11vw;
+	display: block;
 }
+
+#map_legend{
+	position: absolute;
+	height: 18vh;
+	top: 47vh;
+	right: 13vw;
+	font-size:1vw;
+	text-align: center;
+	width: 4vw;
+	background-color: rgba(1,0,0,0.5);
+}
+
 #map_hover{
 	top: 37vh;
 	font-size:1vw;
@@ -424,7 +440,7 @@ html .ui-button.ui-state-disabled:active {
 .guideline_container, .anim-text{
 	background-color: var(--backgrounddark2);
 	height: 8vh;
-	top: 74.1vh;
+	top: 1vh;
 	left: 1vw;
 	text-align: center;
 	opacity: 0;
@@ -438,7 +454,7 @@ html .ui-button.ui-state-disabled:active {
 .guideline_container {
 	overflow: hidden;
 	animation-name: fadeOut;
-	animation-duration: 10s;
+	animation-duration: 13s;
 	animation-delay: 200ms;
 	animation-fill-mode: forwards;
 }
@@ -450,6 +466,7 @@ html .ui-button.ui-state-disabled:active {
 	animation-delay: 1s;
 	animation-duration: 3.5s;
 	animation-fill-mode: forwards;
+	position: absolute;
 }
 
 

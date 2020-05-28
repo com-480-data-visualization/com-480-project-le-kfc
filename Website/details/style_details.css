@@ -77,13 +77,12 @@ hr {
 /* background for svg bar plot */
 .board {
 	position: absolute;
-	width: 73.5vw;
-	height: 66.45vh;
-	left: 17vw;
-	top: 8vh;
-	background: var(--backgrounddark);
+	width: 71vw;
+	height: 71vh;
+	left: 18vw;
+	top: 2vh;
+	background: var(--background);
 	overflow: auto;
-	border-left: .1vw solid var(--backgrounddark2);
 
 }
 
@@ -107,8 +106,8 @@ hr {
 /* bar plot class for left labels */
 .axis {
 	font-size: 13px;
-	color: white;
-	font-weight: bold;
+	color: #111;
+	font-weight: lighter;
 	animation: 3000ms ease-out 0s 1 fadeInFromNone;
 }
 
@@ -122,6 +121,7 @@ hr {
 /* bar plot class for right labels */
 .label {
 	font-size: 13px;
+	font-weight: lighter;
 }
 
 
@@ -130,7 +130,7 @@ hr {
 .flagBoardDisplay {
 	width: 7.5vw;
 	height: 7.5vw;
-	margin-top: 1vw;
+	margin-top: 0;
 	margin-left: 1vw;
 }
 
@@ -138,8 +138,8 @@ hr {
 .flagBoardDisplay img {
 	object-fit: cover;
 	border-radius: 50%;
-	width: 7.5vw;
-	height: 7.5vw;
+	width: 5vw;
+	height: 5vw;
 }
 
 /* div for team graph title */
@@ -147,12 +147,12 @@ hr {
 	position: absolute;
 	width: 55.25vw;
 	height: 4vh;
-	left: 9.2vw;
-	top: 12.5vh;
-	font-size: 22px;
-	font-weight: bold;
-	color: white;
-	text-align: center;
+	left: 7vw;
+	top: 3vh;
+	font-size: 27px;
+	font-weight: lighter;
+	color: #111;
+	text-align: left;
 }
 
 /* button triggering the two teams comparison */
@@ -162,28 +162,10 @@ hr {
 	height: 3.5vw;
 	left: 31.8vw;
 	top: 2vh;
-	background-image: url("images/vsbw.jpg");
-	background-size: 10vw 3.5vw;
-	border: 0.1vh solid yellow;
-}
-
-/* other visual aspect of the compare button */
-#buttonCancelVS.buttonCompare {
-	background-image: url("images/vs.jpg");
-}
-
-/* shadow box apearing when we need to select a second country */
-.shadowBox {
-	position: fixed;
-	width: 89.6vw;
-	height: 14vh;;
-	top: 82.3vh;
-	left: 5.15vw;
-	/* for IE */
-	box-shadow: 0 0 0 1000px rgba(0,0,0,.75);
-	/* for other browsers */
-	box-shadow: 0 0 0 100vmax rgba(0,0,0,.75);
-	pointer-events: none;
+	font-size: 1vw;
+	background-color: var(--backgrounddark2);
+	border-radius: 1em;
+	border-width: 0;
 }
 
 /* div of board flag display when selecting a team */
@@ -199,36 +181,36 @@ hr {
 .flagBoardDisplay2 img {
 	object-fit: cover;
 	border-radius: 50%;
-	width: 7.5vw;
-	height: 7.5vw;
+	width: 5vw;
+	height: 5vw;
 }
 
 /* div for the name of the first country selected */
 .titleDiv1 {
 	position: absolute;
-	width: 25vw;
+	width: 40vw;
 	height: 4vh;
 	left: 7vw;
-	top: 6.5vh;
-	font-size: 16px;
-	font-weight: bold;
-	color: white;
-	text-align: center;
+	top: 3vh;
+	font-size: 27px;
+	color: #111;
+	text-align: left;
 	pointer-events: none;
 	touch-action: none;
+	font-weight: lighter;
 }
 
 /* div for the name of the second country selected */
 .titleDiv2 {
 	position: absolute;
-	width: 25vw;
+	width: 40vw;
 	height: 4vh;
-	left: 41.75vw;
-	top: 6.5vh;
-	font-size: 16px;
-	font-weight: bold;
-	color: white;
-	text-align: center;
+	right: 7vw;
+	top: 3vh;
+	font-size: 27px;
+	font-weight: lighter;
+	color: #111;
+	text-align: right;
 	pointer-events: none;
 	touch-action: none;
 }
