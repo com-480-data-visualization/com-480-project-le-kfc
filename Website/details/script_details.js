@@ -1224,37 +1224,37 @@ const assign_flags= function(flags, flag_number) {
 				button_style2.style.border="none";
 			}
 			button_style2.addEventListener('click',function(e){
-					let flag=e.target;
-					flag.clicked=(!flag.clicked) && target_countries.size<2;
-					if (target_countries.size === 2 && !target_countries.has(flag.id)) {
-						alert("You cannot select more than two countries at the same time");
+				let flag=e.target;
+				flag.clicked=(!flag.clicked) && target_countries.size<2;
+				if (target_countries.size === 2 && !target_countries.has(flag.id)) {
+					alert("You cannot select more than two countries at the same time");
+				}
+				if (flag.clicked){
+					//Adding country to targetted countries
+					target_countries.add(flag.id);
+					flag.style.opacity=0;
+					flag.style.background="none";
+					flag.style.border="none";
+					if (document.getElementById("search_bar").value !== "") {
+						document.getElementById("search_bar").value = "";
+						input_listener();
 					}
-					if (flag.clicked){
-						//Adding country to targetted countries
-						target_countries.add(flag.id);
-						flag.style.opacity=0;
-						flag.style.background="none";
-						flag.style.border="none";
-						if (document.getElementById("search_bar").value !== "") {
-							document.getElementById("search_bar").value = "";
-							input_listener();
-						}
-						set_team();
+					set_team();
+				} else {
+					//Removing country from targetted countries
+					target_countries.delete(flag.id);
+					flag.style="resetStyle";
+					if (document.getElementById("search_bar").value !== "") {
+						document.getElementById("search_bar").value = "";
+						input_listener();
+					}
+					if (target_countries.size === 0) {
+						world_mode();
 					} else {
-						//Removing country from targetted countries
-						target_countries.delete(flag.id);
-						flag.style="resetStyle";
-						if (document.getElementById("search_bar").value !== "") {
-							document.getElementById("search_bar").value = "";
-							input_listener();
-						}
-						if (target_countries.size === 0) {
-							world_mode();
-						} else {
-							cancelVS();
-						}
+						cancelVS();
 					}
-				});
+				}
+			});
 		};
 		cnt++;
 
@@ -1410,75 +1410,7 @@ whenDocumentLoaded(() => {
 		});
 	}
 
-	// onclick listeners for every measure criterion in order to disable some competitions that are irrelevant with the selected filter
-	document.getElementById("Friendly Home Matches Played button").onclick = function() {
-		if (currBtnTeamId == null) {
-			let i;
-			disabled_checkboxes.clear();
-			for(i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-			for(i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.disabled = true;
-				if (currBtnId !== "Friendly button" && currBtnId !== "All button") {
-					disabled_checkboxes.add(currBtnId);
-				} else {
-					currBtn.checked = true;
-				}
-			}
-		}
-	};
-
-	document.getElementById("Friendly Away Matches Played button").onclick = function() {
-		if (currBtnTeamId == null) {
-			let i;
-			disabled_checkboxes.clear();
-			for(i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-			for(i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.disabled = true;
-				if (currBtnId !== "Friendly button" && currBtnId != "All button") {
-					disabled_checkboxes.add(currBtnId);
-				} else {
-					currBtn.checked = true;
-				}
-			}
-		}
-	};
-	document.getElementById("Friendly Neutral Matches Played button").onclick = function() {
-		if (currBtnTeamId == null) {
-			let i;
-			disabled_checkboxes.clear();
-			for(i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-			for(i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.disabled = true;
-				if (currBtnId !== "Friendly button" && currBtnId !== "All button") {
-					disabled_checkboxes.add(currBtnId);
-				} else {
-					currBtn.checked = true;
-				}
-			}
-		}
-	};
-
+	// we disable the friendly checkbox when choosing this criterion
 	document.getElementById("Tournament Matches Played button").onclick = function() {
 		if (currBtnTeamId == null) {
 			let i;
@@ -1500,6 +1432,7 @@ whenDocumentLoaded(() => {
 		}
 	};
 
+	// we only keep the checkboxes of the seven major competitions when choosing this criterion
 	document.getElementById("Major Tournaments Played button").onclick = function() {
 		let currBtnId;
 		let currBtn;
@@ -1528,6 +1461,7 @@ whenDocumentLoaded(() => {
 		}
 	};
 
+	// we only keep the checkboxes of the FIFA World Cup competition when choosing this criterion
 	document.getElementById("World Cup Tournaments Won button").onclick = function() {
 		if (currBtnTeamId == null) {
 			let i;
@@ -1577,239 +1511,65 @@ whenDocumentLoaded(() => {
 		}
 	};
 
- // all the following events simply reset all the checkboxes to their default status
-	document.getElementById("Matches Played button").onclick = function() {
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for(var i=0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
+	// functions grouping several onClick event doing the same thing
+	function enableDisabledButtons(elem_str) {
+		document.getElementById(elem_str).onclick = function () {
+			if (currBtnTeamId == null) {
+				disabled_checkboxes.clear();
+				for (var i = 0; i < competitions.length; i++) {
+					currBtnId = competitions[i] + " button";
+					currBtn = document.getElementById(currBtnId);
+					currBtn.checked = false;
+					currBtn.disabled = false;
+				}
 			}
-		}
-	};
+		};
+	}
 
-	document.getElementById("Wins button").onclick = function() {
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for(var i=0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
+	function disableCompetitions(elem_str) {
+		document.getElementById(elem_str).onclick = function () {
+			if (currBtnTeamId == null) {
+				let i;
+				disabled_checkboxes.clear();
+				for (i = 0; i < competitions.length; i++) {
+					currBtnId = competitions[i] + " button";
+					currBtn = document.getElementById(currBtnId);
+					currBtn.checked = false;
+					currBtn.disabled = false;
+				}
+				for (i = 0; i < competitions.length; i++) {
+					currBtnId = competitions[i] + " button";
+					currBtn = document.getElementById(currBtnId);
+					currBtn.disabled = true;
+					if (currBtnId !== "Friendly button" && currBtnId !== "All button") {
+						disabled_checkboxes.add(currBtnId);
+					} else {
+						currBtn.checked = true;
+					}
+				}
 			}
-		}
-	};
+		};
+	}
 
-	document.getElementById("Draws button").onclick = function() {
-		let currBtn;
-		let currBtnId;
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for (var i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-		}
-	};
+	disableCompetitions("Friendly Home Matches Played button");
+	disableCompetitions("Friendly Away Matches Played button");
+	disableCompetitions("Friendly Neutral Matches Played button");
 
-	document.getElementById("Losses button").onclick = function() {
-		let currBtnId;
-		let currBtn;
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for (let i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-		}
-	};
-
-	document.getElementById("Goals Scored button").onclick = function() {
-		let currBtn;
-		let currBtnId;
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for (let i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-		}
-	};
-
-	document.getElementById("Goals Conceded button").onclick = function() {
-		let currBtn;
-		let currBtnId;
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for (let i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-		}
-	};
-
-	document.getElementById("Ratio Win Per Match button").onclick = function() {
-		let currBtn;
-		let currBtnId;
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for (let i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-		}
-	};
-
-	document.getElementById("Ratio Draw Per Match button").onclick = function() {
-		let currBtn;
-		let currBtnId;
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for (let i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-		}
-	};
-
-	document.getElementById("Ratio Loss Per Match button").onclick = function() {
-		let currBtn;
-		let currBtnId;
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for (let i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-		}
-	};
-
-	document.getElementById("Home Wins button").onclick = function() {
-		let currBtn;
-		let currBtnId;
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for (let i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-		}
-	};
-
-	document.getElementById("Home Draws button").onclick = function() {
-		let currBtn;
-		let currBtnId;
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for (let i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-		}
-	};
-
-	document.getElementById("Home Losses button").onclick = function() {
-		let currBtn;
-		let currBtnId;
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for (let i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-		}
-	};
-
-	document.getElementById("Away Wins button").onclick = function() {
-		let currBtn;
-		let currBtnId;
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for (let i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-		}
-	};
-
-	document.getElementById("Away Draws button").onclick = function() {
-		let currBtn;
-		let currBtnId;
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for (let i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-		}
-	};
-
-	document.getElementById("Away Losses button").onclick = function() {
-		let currBtn;
-		let currBtnId;
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for (let i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-		}
-	};
-
-	document.getElementById("Performance Factor Home Matches button").onclick = function() {
-		let currBtn;
-		let currBtnId;
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for (let i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-		}
-	};
-
-	document.getElementById("Performance Factor Away Matches button").onclick = function() {
-		let currBtn;
-		let currBtnId;
-		if (currBtnTeamId == null) {
-			disabled_checkboxes.clear();
-			for (let i = 0; i < competitions.length; i++) {
-				currBtnId = competitions[i] + " button";
-				currBtn = document.getElementById(currBtnId);
-				currBtn.checked = false;
-				currBtn.disabled = false;
-			}
-		}
-	};
-
+	enableDisabledButtons("Matches Played button");
+	enableDisabledButtons("Wins button");
+	enableDisabledButtons("Draws button");
+	enableDisabledButtons("Losses button");
+	enableDisabledButtons("Goals Scored button");
+	enableDisabledButtons("Goals Conceded button");
+	enableDisabledButtons("Ratio Win Per Match button");
+	enableDisabledButtons("Ratio Draw Per Match button");
+	enableDisabledButtons("Ratio Loss Per Match button");
+	enableDisabledButtons("Home Wins button");
+	enableDisabledButtons("Home Draws button");
+	enableDisabledButtons("Home Losses button");
+	enableDisabledButtons("Away Wins button");
+	enableDisabledButtons("Away Draws button");
+	enableDisabledButtons("Away Losses button");
+	enableDisabledButtons("Performance Factor Home Matches button");
+	enableDisabledButtons("Performance Factor Away Matches button");
 });

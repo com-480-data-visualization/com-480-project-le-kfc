@@ -40,33 +40,36 @@
 
 <!--Choropleth map data containers-->
 <div id="map_hover"></div>
-<div id="map_select">
+<div class="map_select" id="map_select_id">
 	<p style="margin-top:3px;line-height: 0;">SUMMARY</p>
 </div>
 
-<svg width="2vw" height="34vh" style="position: absolute;
-	bottom: 11vh;
-	right: 14vw;
+<svg style="position: relative;
+	width: 2vw; height: 25vh;
+	padding:0 !important;
+	margin: 0 !important;
+	top: 50vh;
+	right: 12vw;
 	font-size:1vw;
 	text-align: center;">
 	<defs>
+		 'rgb(147, 21, 40)
 		<linearGradient id="grad1" x1="0%" y1="100%" x2="0%" y2="0%">
-			<stop offset="0%" style="stop-color:rgb(116, 154, 204);stop-opacity:1" />
-			<stop offset="100%" style="stop-color:rgb(209, 107, 119);stop-opacity:1" />
+			<stop offset="0%" style="stop-color:rgba(245, 254, 169, 0.85);stop-opacity:1" />
+			<stop offset="100%" style="stop-color:rgba(147, 21, 40, 0.85);stop-opacity:1" />
 		</linearGradient>
 	</defs>
 	<rect width="50" height="150" fill="url(#grad1)" />
-	<text x="50%" y="45%" font-family="Helvetica"
+	<text x="50%" y="140px" font-family="Helvetica"
 		  dominant-baseline="middle" text-anchor="middle"
 		  font-size="12px" id="min_display">
 		0
 	</text>
-	<text x="50%" y="5%" font-family="Helvetica"
+	<text x="50%" y="13px" font-family="Helvetica"
 		  dominant-baseline="middle" text-anchor="middle"
 		  font-size="12px" id="max_display">
 	</text>
 </svg>
-
 
 <!--Visualization switching buttons-->
 <div id="btns">
@@ -109,7 +112,7 @@
 	 id="generate_container">
 	<b>GENERATE DATA</b>
 </div>
-<button type="button" id="buttonData" class="buttonLoad" onclick="load_data()"></button>
+<button type="button" id="buttonData" class="buttonLoad" onclick="load_map()"></button>
 
 </body>
 </html>
