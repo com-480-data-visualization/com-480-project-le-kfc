@@ -285,22 +285,22 @@ const load_map = function(){
 				layer.setStyle(style(feature));
 				const max_display=document.getElementById("max_display");
 				const min_display=document.getElementById("min_display");
-				max_display.innerHTML= max_val===0 ? "" : max_val;
+				max_display.innerHTML= max_val==0 ? "" : max_val;
 				if(max_val<10000000) {
+					min_display.style.fontSize = "8px";
+					max_display.style.fontSize = "8px";
+				}
+				if(max_val<1000000) {
 					min_display.style.fontSize = "9px";
 					max_display.style.fontSize = "9px";
 				}
-				if(max_val<1000000) {
-					min_display.style.fontSize = "10px";
-					max_display.style.fontSize = "10px";
-				}
 				if(max_val<100000) {
-					min_display.style.fontSize = "12px";
-					max_display.style.fontSize = "12px";
+					min_display.style.fontSize = "11px";
+					max_display.style.fontSize = "11px";
 				}
 				if(max_val<10000) {
-					min_display.style.fontSize = "16px";
-					max_display.style.fontSize = "16px";
+					min_display.style.fontSize = "14px";
+					max_display.style.fontSize = "14px";
 				}
 
 			});
