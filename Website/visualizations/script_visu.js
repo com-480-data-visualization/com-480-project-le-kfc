@@ -117,6 +117,7 @@ const stats = function(){
 		return (year >= start_time) && (year<= end_time);
 	});
 
+	//Computing the country statistic chosen by the user
 	max=0;
 	const major_comp = ['FIFA World Cup', 'UEFA Euro', 'Copa América', 'African Cup of Nations', 'Gold Cup', 'AFC Asian Cup', 'Oceania Nations Cup'];
 
@@ -228,13 +229,17 @@ const stats = function(){
 		}
 	});
 
+//Saving the highest value as reference for color scaling
 Object.values(stat_box).forEach((item, i) => {max=Math.max(max,item)});
 }
 /////////////////////////////////////////////////////////////////////////
 //SETUP FUNCTIONS
 /////////////////////////////////////////////////////////////////////////
+
+//Map setup function
 const load_map = function(){
-	//Assigns a color to the inputed value
+
+	//Assigns the color corresponding to the inputed value, taking into account the largest possible value
 	function getColor(val) {
 		const colorScale = d3.scaleLinear().domain([0, max]).range(['rgb(245, 254, 169)', 'rgb(147, 21, 40)']);
 		return colorScale(val);
@@ -264,7 +269,7 @@ const load_map = function(){
 
 		}
 
-		//Printing the name and value of the country from the hover display box
+		//Printing the name and value of the country in the hover display box
 		let p1 = document.createElement("p");
 		let p2 = document.createElement("small");
 		p1.appendChild(document.createTextNode(layer.feature.properties.name));
@@ -303,12 +308,13 @@ const load_map = function(){
 
 	//Runs when clicking on a country
 	function select(layer) {
+
 		//Activating or deactivating the clicked state
 		layer.feature.properties.clicked=!layer.feature.properties.clicked;
 
 		if (layer.feature.properties.clicked) {
 
-			//Adding the name and value of the country from the select box
+			//Adding the name and value of the country to the select box
 			let p = document.createElement("small");
 			p.style.display="block";
 			p.style.textAlign = "left";
@@ -345,6 +351,7 @@ const load_map = function(){
 				flag.addEventListener("mouseout", function(e){onHoverEnd(layer)});
 			}
 
+			//Rendering a button capable of updating the map
 			const update_button=document.getElementById("generate_container");
 			update_button.addEventListener("click", function(e){
 				feature.properties.val=stat_box[feature.properties.name];
@@ -420,10 +427,13 @@ const load_map = function(){
 	})
 }
 
+//Flag setup function
 const assign_flags= function(flags, flag_number){
+
 	//Reference to the flag container
 	let scrollmenu = document.getElementById("js_flag_scroll");
 	scrollmenu.classList.add("flag-slider");
+
 	//Delete all childs
 	scrollmenu.innerHTML = '';
 
@@ -450,12 +460,14 @@ const assign_flags= function(flags, flag_number){
 			flag=e.target;
 			flag.clicked=!flag.clicked;
 			if (flag.clicked){
+
 				//Adding country to targetted countries
 				target_countries.add(flag.id);
 				flag.style.opacity=0;
 				flag.style.background="none";
 				flag.style.border="none";
 			} else {
+
 				//Removing country from targetted countries
 				target_countries.delete(flag.id);
 				flag.style="resetStyle";
@@ -482,12 +494,14 @@ const assign_flags= function(flags, flag_number){
 				flag=e.target;
 				flag.clicked=!flag.clicked;
 				if (flag.clicked){
+
 					//Adding country to targetted countries
 					target_countries.add(flag.id);
 					flag.style.opacity=0;
 					flag.style.background="none";
 					flag.style.border="none";
 				} else {
+
 					//Removing country from targetted countries
 					target_countries.delete(flag.id);
 					flag.style="resetStyle";
@@ -497,6 +511,7 @@ const assign_flags= function(flags, flag_number){
 
 		cnt++;
 
+		//Adding the flags to the DOM
 		square.appendChild(button_style);
 		if(cnt<=flag_number) square2.appendChild(button_style2);
 		wrapper.appendChild(square);
@@ -518,16 +533,16 @@ const flag_loader= function(path){
 
 };
 
-//Criterion loading myFunction
+//Criterion loading function
 const criterion_loader= function(){
 
 	//Reference to the criterion containers
 	const measure_ref=document.getElementById("measure_container");
 	const competition_ref=document.getElementById("competition_container");
-
 	const content_meas = document.createElement("div");
-	content_meas.classList.add("content");
+
 	//Loading all measure criterions
+	content_meas.classList.add("content");
 	measures.forEach((item, i) => {
 
 		const label = document.createElement("label");
@@ -537,6 +552,8 @@ const criterion_loader= function(){
 		input.classList.add("radio"); //checkbox or radio
 		input.name = "example" //only for radios
 		input.id= measures[i]+" button";
+
+		//Making the stat computations reactive to the the checkboxes
 		input.addEventListener("click", function(e){
 			measure=e.target;
 			selected_measure=measure.parentNode.childNodes[1].innerHTML;
@@ -556,9 +573,9 @@ const criterion_loader= function(){
 	});
 	measure_ref.appendChild(content_meas);
 
+	//Loading all competition criterions
 	const content_comp = document.createElement("div");
 	content_comp.classList.add("content");
-	//Loading all competition criterions
 	competitions.forEach((item, i) => {
 
 		if(i===16){
@@ -572,9 +589,12 @@ const criterion_loader= function(){
 		input.classList.add("option-input");
 		input.classList.add("checkbox"); //checkbox or radio
 		input.id= competitions[i]+" button";
+
+		//Making the stat computations reactive to the radioboxes
 		input.addEventListener("click", function(e){
 			competition=e.target;
 
+			//Making it such that 'All' can't be selected at the same time as individual competitions
 			if(competition.parentNode.childNodes[1].firstChild.data=="All"){
 
 					const buttons = document.getElementById("competition_container").elements;
@@ -613,7 +633,7 @@ const criterion_loader= function(){
 
 };
 
-
+//Slider setup function
 const slider_setup= function(){
 	$( function() {
 		$( "#slider-range" ).slider({
@@ -641,6 +661,7 @@ const slider_setup= function(){
 	});
 }
 
+//Database loading function
 const data_loader = function(path){
 
 	d3.csv(path).then(function(data) {
@@ -651,6 +672,7 @@ const data_loader = function(path){
 /////////////////////////////////////////////////////////////////////////
 //RUN TIME FUNCTION
 /////////////////////////////////////////////////////////////////////////
+
 //Launch-time runner
 whenDocumentLoaded(() => {
 
