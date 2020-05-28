@@ -18,7 +18,7 @@ const change_tab= function(name) {
 
 //Events launched after page as finished loading
 window.addEventListener('load', function() {
-	setTimeout(function(){flag_loader("../../data/final_flags.csv")}, 3700);
+	setTimeout(function(){flag_loader("../../data/final_flags.csv")}, 100);
 	setTimeout(function(){document.getElementById("slider_container").style.opacity = "1"}, 3700);
 	setTimeout(function(){document.getElementById("search_bar").style.opacity = "1"}, 3700);
 	setTimeout(function(){document.getElementById("buttonWorldMode").style.opacity = "1"}, 3700);
@@ -38,6 +38,8 @@ let graph_name;
 let currBtnTeamId2 = null;
 let temp;
 
+let bool = false;
+
 // function triggered when modifying the first team in the two teams comparison section
 function changeVS1() {
 	let i;
@@ -55,7 +57,7 @@ function changeVS1() {
 		currBtn.checked = false;
 		currBtn.disabled = false;
 	}
-	document.getElementById("shadowFocus").style.display = "block";
+	bool = true;
 	currBtnTeamId = null;
 	document.getElementById("buttonWorldMode").disabled = true;
 	document.getElementById("buttonCancelVS").disabled = true;
@@ -79,7 +81,7 @@ function changeVS2() {
 		currBtn.checked = false;
 		currBtn.disabled = false;
 	}
-	document.getElementById("shadowFocus").style.display = "block";
+	bool = true;
 	currBtnTeamId2 = null;
 	document.getElementById("buttonWorldMode").disabled = true;
 	document.getElementById("buttonCancelVS").disabled = true;
@@ -149,7 +151,7 @@ function triggerVS() {
 	}
 	document.getElementById("nameCountry1").innerHTML = currBtnTeamId;
 
-	document.getElementById("shadowFocus").style.display = "block";
+	bool = true;
 	document.getElementById("buttonWorldMode").disabled = true;
 	document.getElementById("buttonCancelVS").disabled = true;
 	document.getElementById("flagVS1").style.pointerEvents = "none";
@@ -172,9 +174,8 @@ function cancelVS() {
 // function triggered when a country is selected
 function set_team(newCountry) {
 	let i;
-	if (document.getElementById("shadowFocus").style.display === "block") {
-
-		document.getElementById("shadowFocus").style.display = "none";
+	if (bool) {
+		bool = false;
 		document.getElementById("buttonWorldMode").disabled = false;
 		document.getElementById("buttonCancelVS").disabled = false;
 		document.getElementById("flagVS1").style.pointerEvents = "auto";
@@ -461,7 +462,6 @@ const get_one_country_data = function(data_i, chosen_team) {
 								}
 							}
 						}
-
 					}
 				}
 			}
@@ -560,12 +560,12 @@ const load_data_one_country = function() {
 	gradient
 		.append("stop")
 		.attr("offset", "0")
-		.attr("stop-color", "#ff0")
+		.attr("stop-color", "#386b82")
 
 	gradient
 		.append("stop")
 		.attr("offset", "0.5")
-		.attr("stop-color", "#f00")
+		.attr("stop-color", "#c0392b")
 
 	// append rects
 	bars.append("rect")
@@ -583,8 +583,8 @@ const load_data_one_country = function() {
 	// add a value label to the right of each bar
 	bars.append("text")
 		.attr("class", "label")
-		.attr("fill", "white")
-		.attr("font-weight", "bold")
+		.attr("fill", "#111")
+		.attr("font-weight", "lighter")
 		.attr("opacity", "0")
 		.attr("y", function (d) {
 			return y(d.name) + y.bandwidth() / 2 + 4;
@@ -951,17 +951,17 @@ const load_data_world = function() {
 	})
 
 	// set up svg using margins
-	var margin = {
-		top: 26,
+	const margin = {
+		top: 2,
 		right: 35,
 		bottom: 0,
 		left: 214
 	};
 
-	var width = 1000 - margin.left - margin.right,
+	const width = 1000 - margin.left - margin.right,
 		height = 5000 - margin.top - margin.bottom;
 
-	var svg = d3.select("#graphic").append("svg")
+	const svg = d3.select("#graphic").append("svg")
 		.attr("id", "bar_plot_graphic")
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
@@ -970,20 +970,20 @@ const load_data_world = function() {
 
 	svg.append("text")
 		.attr("x", (width / 2))
-		.attr("y", 0 - (margin.top - 40 / 2))
+		.attr("y", 0 - (margin.top - 41 / 2))
 		.attr("text-anchor", "middle")
-		.style("font-size", "28px")
-		.style("font-weight", "bold")
-		.style("fill", "white")
+		.style("font-size", "29px")
+		.style("font-weight", "light")
+		.style("fill", "#111")
 		.text(graph_name);
 
-	var x = d3.scaleLinear()
+	const x = d3.scaleLinear()
 		.range([0, width])
 		.domain([0, d3.max(data, function (d) {
 			return d.value;
 		})]);
 
-	var y = d3.scaleBand()
+	const y = d3.scaleBand()
 		.rangeRound([height, 0])
 		.padding(0.2)
 		.domain(data.map(function (d) {
@@ -1016,12 +1016,12 @@ const load_data_world = function() {
 	gradient
 		.append("stop")
 		.attr("offset", "0")
-		.attr("stop-color", "#ff0")
+		.attr("stop-color", "#386b82")
 
 	gradient
 		.append("stop")
-		.attr("offset", "0.5")
-		.attr("stop-color", "#f00")
+		.attr("offset", "0.3")
+		.attr("stop-color", "#c0392b")
 
 	// append rects
 	bars.append("rect")
@@ -1039,8 +1039,8 @@ const load_data_world = function() {
 	// add a value label to the right of each bar
 	bars.append("text")
 		.attr("class", "label")
-		.attr("fill", "white")
-		.attr("font-weight", "bold")
+		.attr("fill", "#111")
+		.attr("font-weight", "light")
 		.attr("opacity", "0")
 		.attr("y", function (d) {
 			return y(d.name) + y.bandwidth() / 2 + 4;

@@ -326,6 +326,8 @@ html .ui-button.ui-state-disabled:active {
 	border-radius: 1em;
 	padding:1%;
 	font-weight:300;
+	font-size: 1vw;
+	min-font-size: 16px;
 	background-color: rgba(119, 160, 186, 0.4);
 	color: var(--darkdarkgrey);
 	transition: all 0.5s;
@@ -363,6 +365,7 @@ html .ui-button.ui-state-disabled:active {
 	position: absolute;
 	overflow: scroll;
 	border-radius: 1em;
+	cursor: pointer;
 }
 #generate_container:hover {
 	background: rgba(75, 102, 120, 0.9);
@@ -379,9 +382,9 @@ html .ui-button.ui-state-disabled:active {
 	top: 47vh;
 	right: 1vw;
 	font-size:1vw;
-	text-align: center;
 	overflow: auto;
 	width: 11vw;
+	display: block;
 }
 #map_hover{
 	top: 37vh;
