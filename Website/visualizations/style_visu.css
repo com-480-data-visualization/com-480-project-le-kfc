@@ -320,7 +320,7 @@ html .ui-button.ui-state-disabled:active {
 .btn-style-div:hover {
 	background-color: rgba(165, 201, 224, 0.6);
 }
-#measure_container, #competition_container, #map_select, #map_hover, .guideline_container, .anim-text {
+#measure_container, #competition_container, .map_select, #map_hover, .guideline_container, .anim-text {
 	position: absolute;
 	width: 15vw;
 	overflow: hidden;
@@ -334,7 +334,7 @@ html .ui-button.ui-state-disabled:active {
 	transition: all 0.5s;
 	white-space: nowrap;
 }
-#measure_container p , #competition_container p, #map_select p, #map_hover p {
+#measure_container p , #competition_container p, .map_select p, #map_hover p {
 	font-size:1vw;
 	font-weight: bold;
 	margin-top: -0.5vw;
@@ -378,7 +378,7 @@ html .ui-button.ui-state-disabled:active {
 	text-align:left;
 	float:left;
 }
-#map_select{
+.map_select{
 	height: 25vh;
 	top: 47vh;
 	right: 1vw;

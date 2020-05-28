@@ -207,7 +207,7 @@ const load_map = function(){
 			p.style.textAlign = "left";
 			p.id=layer.feature.properties.name+"_display";
 			p.appendChild(document.createTextNode(layer.feature.properties.name+" → "+layer.feature.properties.val));
-			document.getElementById("map_select").appendChild(p);
+			document.getElementById("map_select_id").appendChild(p);
 
 			//Adding country to targetted countries
 			target_countries.add(layer.feature.properties.name);
