@@ -319,6 +319,11 @@ html .ui-button.ui-state-disabled:active {
 .btn-style-div:hover {
 	background-color: rgba(165, 201, 224, 0.6);
 }
+
+#history-button.btn-style-div {
+	margin-top: 3vh;
+}
+
 #measure_container, #competition_container, #map_select, #map_hover, .guideline_container, .anim-text {
 	position: absolute;
 	width: 15vw;
@@ -353,18 +358,34 @@ html .ui-button.ui-state-disabled:active {
 	float:left;
 }
 #generate_container {
-	top: 77vh;
-	height: 6.2vh;
-	left: 80vw;
-	width: 15vw;
+	top: 75.5vh;
+	height: 5vh;
+	left: 78.5vw;
+	width: 10vw;
 	text-align:left;
 	float:left;
 	background: var(--backgrounddark2);
 	position: absolute;
-	overflow: scroll;
+	overflow: hidden;
 	border-radius: 1em;
 }
 #generate_container:hover {
+	background: rgba(75, 102, 120, 0.9);
+}
+#generate_container_back {
+	top: 75.5vh;
+	height: 5vh;
+	left: 77vw;
+	width: 13vw;
+	text-align:left;
+	float:left;
+	background: var(--backgrounddark2);
+	position: absolute;
+	overflow: hidden;
+	border-radius: 1em;
+	visibility: hidden;
+}
+#generate_container_back:hover {
 	background: rgba(75, 102, 120, 0.9);
 }
 #competition_container {
@@ -470,8 +491,9 @@ body label {
 .option-input:hover {
 	background: rgba(130, 154, 177, 0.9);
 }
-.option-input.disabled {
-	background: rgba(108, 126, 147, 0.9);
+.option-input:disabled {
+	/*background: rgba(108, 126, 147, 0.9);*/
+	opacity: 0.25;
 }
 .option-input:checked {
 	background: rgba(40, 97, 125, 0.8);

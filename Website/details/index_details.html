@@ -43,7 +43,7 @@
 			$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
 					" - $" + $( "#slider-range" ).slider( "values", 1 ) );
 
-			/*var selecting = false;
+			var selecting = false;
 			$( "#slider_container" ).on("mousedown", function (evt) {
 				selecting = true;
 			}).on("mouseup", function (evt) {
@@ -59,7 +59,7 @@
 						load_data();
 					}
 				}
-			});*/
+			});
 		});
 
 		/*		$(function(){
@@ -81,7 +81,11 @@
 	 id="generate_container" onclick="load_data()">
 	<b>GENERATE DATA</b>
 </div>
-<button type="button" id="buttonData" class="buttonLoad" onclick="load_data()"></button>
+<!--Generate data button and back to world mode button-->
+<!--<button type="button" id="buttonData" class="buttonLoad" onclick="load_data()"></button>-->
+<div id="generate_container_back" class="btn-style-div" onclick="world_mode()">
+	<b>BACK TO WORLD MODE</b>
+</div>
 
 
 <!--Visualization switching buttons-->
@@ -90,7 +94,7 @@
 		<p style="flex: 0 0 120px;">History</p>
 	</div>
 
-	<div class="btn-style-div" id="details-button" onclick="change_tab('MAP')">
+	<div class="btn-style-div" id="map-button" onclick="change_tab('MAP')">
 		<p style="flex: 0 0 120px;">Map</p>
 	</div>
 </div>
@@ -125,9 +129,6 @@
 <div class="anim-text" style="animation-duration: 8s">
 	Choose either none, one or two teams.
 </div>
-
-<!--Generate data button and back to world mode button-->
-<button type="button" id="buttonWorldMode" class="buttonWorld" onclick="world_mode()"></button>
 
 <!--Div containing bar plots for every team-->
 <div id="dataBoard" class="board">
