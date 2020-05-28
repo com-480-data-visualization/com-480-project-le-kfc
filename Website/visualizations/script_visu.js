@@ -18,8 +18,13 @@ function whenDocumentLoaded(action) {
 
 //List of criterions
 measures=["Matches Played", "Wins", "Draws", "Losses", "Goals Scored", "Goals Conceded",
+	"Ratio Win Per Match", "Ratio Draw Per Match", "Ratio Loss Per Match", "Goals Scored Per Match",
+	"Goals Scored Per Year", "Goals Conceded Per Match", "Goals Conceded Per Year",
+	"Home Wins", "Home Draws", "Home Losses", "Away Wins", "Away Draws", "Away Losses",
+	"Performance Factor Home Matches", "Performance Factor Away Matches",
 	"Friendly Home Matches Played", "Friendly Away Matches Played", "Friendly Neutral Matches Played",
 	"Tournament Matches Played", "Major Tournaments Played", "World Cup Tournaments Won"];
+
 competitions=['All', 'Friendly',
 	'FIFA World Cup', 'UEFA Euro', 'Copa América', 'African Cup of Nations', 'Gold Cup', 'AFC Asian Cup', 'Oceania Nations Cup',
 	'FIFA World Cup qualification', 'UEFA Euro qualification', 'Copa América qualification', 'African Cup of Nations qualification',
@@ -91,6 +96,9 @@ function input_listener() {
 	assign_flags(flags_input, flag_number)
 }
 
+function isFloat(n){
+	return Number(n) === n && n % 1 !== 0;
+}
 
 //Tab change function
 const change_tab= function(name){
@@ -128,8 +136,8 @@ const stats = function(){
 		const nb_win = () => {
 			let x=0;
 			db_filtered_country.forEach(row => {
-				if((row.home_team===item && row.home_score > row.away_score)
-					|| (row.away_team===item && row.home_score < row.away_score)) x++;
+				if((row.home_team===item && row.home_score > row.away_score) ||
+					(row.away_team===item && row.home_score < row.away_score)) x++;
 			})
 			return x;
 		};
@@ -149,15 +157,15 @@ const stats = function(){
 		const nb_goal_scored = () => {
 			let x = 0;
 			db_filtered_country.forEach(row => {
-				x += row.home_team===item ? row.home_score:row.away_score;
+				x += row.home_team===item ? parseInt(row.home_score):parseInt(row.away_score);
 			})
 			return x;
 		}
 		const nb_goal_conceded = () => {
 			let x = 0;
 			db_filtered_country.forEach(row => {
-				if(row.home_team===item) x+=row.away_score;
-				if(row.away_team===item) x+=row.home_score;
+				if(row.home_team===item) x+=parseInt(row.away_score);
+				if(row.away_team===item) x+=parseInt(row.home_score);
 			})
 			return x;
 		}
@@ -217,15 +225,16 @@ const stats = function(){
 				else if(item==='Germany'||item==='Italy') stat_box[item]=4;
 				else if(item==='Argentina'||item==='Uruguay'||item==='France') stat_box[item]=2;
 				else if(item==='Spain' || item==='England') stat_box[item]=1;
+				else stat_box[item]=0;
 				break;
 			case "Ratio Win Per Match":
-				stat_box[item]=nb_win()/nb_played();
+				stat_box[item]= nb_played()===0 ? 0 : nb_win()/nb_played();
 				break;
 			case "Ratio Draw Per Match":
-				stat_box[item]=nb_draw()/nb_played();
+				stat_box[item]= nb_played()===0 ? 0 : nb_draw()/nb_played();
 				break;
 			case "Ratio Loss Per Match":
-				stat_box[item]=nb_lose()/nb_played();
+				stat_box[item]= nb_played()===0 ? 0 : nb_lose()/nb_played();
 				break;
 			case "Home Wins":
 				db_filtered_country.forEach(row => {
@@ -270,7 +279,7 @@ const stats = function(){
 						if(row.home_score<row.away_score)prop_real_home_lose++;
 					}
 				})
-				stat_box[item]=prop_real_home_win/prop_real_home_lose;
+				stat_box[item]= prop_real_home_lose===0?0:prop_real_home_win/prop_real_home_lose;
 				break;
 			case "Performance Factor Away Matches":
 				let prop_real_away_win=0, prop_real_away_lose=0;
@@ -280,28 +289,27 @@ const stats = function(){
 						if(row.home_score>row.away_score)prop_real_away_lose++;
 					}
 				})
-				stat_box[item]=prop_real_away_win/prop_real_away_lose;
+				stat_box[item]= prop_real_away_lose===0?0:prop_real_away_win/prop_real_away_lose;
 				break;
 			case "Goals Scored Per Year":
 				stat_box[item]=nb_goal_scored()/(end_time-start_time+1)
 				break;
 			case "Goals Scored Per Match":
-				stat_box[item]=nb_goal_scored()/nb_played();
+				stat_box[item]= nb_played()===0?0:nb_goal_scored()/nb_played();
 				break;
 			case "Goals Conceded Per Year":
-				return stat_box[item]=nb_goal_conceded()/(end_time-start_time+1)
+				stat_box[item]=nb_goal_conceded()/(end_time-start_time+1);
 				break;
 			case "Goals Conceded Per Match":
-				stat_box[item]=nb_goal_conceded()/nb_played();
+				stat_box[item]=nb_played()===0?0:nb_goal_conceded()/nb_played();
 				break;
 			default:
 				stat_box[item]=0;
 		}
 
 	});
-
-//Saving the highest value as reference for color scaling
-Object.values(stat_box).forEach((item, i) => {max=Math.max(max,item)});
+	Object.values(stat_box).forEach((item,i) => {max=Math.max(max,item)});
+	if(isFloat(max)) max = Number(max).toFixed(2)
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -423,14 +431,17 @@ const load_map = function(){
 				flag.addEventListener("mouseout", function(e){onHoverEnd(layer)});
 			}
 
-			//Rendering a button capable of updating the map
+			function isFloat(n){
+				return Number(n) === n && n % 1 !== 0;
+			}
+
 			const update_button=document.getElementById("generate_container");
 			update_button.addEventListener("click", function(e){
 				feature.properties.val=stat_box[feature.properties.name];
 				layer.setStyle(style(feature));
 				const max_display=document.getElementById("max_display");
 				const min_display=document.getElementById("min_display");
-				max_display.innerHTML= max==0 ? "" : max;
+				max_display.innerHTML= max===0 ? "" : max;
 				if(max<10000000) {
 					min_display.style.fontSize = "8px";
 					max_display.style.fontSize = "8px";
@@ -439,7 +450,7 @@ const load_map = function(){
 					min_display.style.fontSize = "9px";
 					max_display.style.fontSize = "9px";
 				}
-				if(max<100000) {
+				if(max<100000 || isFloat(max)) {
 					min_display.style.fontSize = "11px";
 					max_display.style.fontSize = "11px";
 				}
@@ -616,6 +627,11 @@ const criterion_loader= function(){
 	//Loading all measure criterions
 	content_meas.classList.add("content");
 	measures.forEach((item, i) => {
+		if(i===6||i===13){
+			const small = document.createElement("small");
+			small.innerHTML = '<hr>';
+			content_meas.appendChild(small);
+		}
 
 		const label = document.createElement("label");
 		const input = document.createElement('input');
