@@ -105,7 +105,7 @@ const change_tab= function(name){
 const stats = function(){
 
 	//Filtering the database to include only relavant information
-	if(selected_competitions.size==0){
+	if(selected_competitions.size===0){
 		db_filtered=[];
 	} else if (selected_competitions.has("All")){
 		db_filtered=db;
@@ -118,13 +118,111 @@ const stats = function(){
 	});
 
 	max=0;
+	const major_comp = ['FIFA World Cup', 'UEFA Euro', 'Copa América', 'African Cup of Nations', 'Gold Cup', 'AFC Asian Cup', 'Oceania Nations Cup'];
+
 	Object.keys(stat_box).forEach((item,i) => {
-		db_filtered_country=db_filtered.filter(entry => (entry.home_team==item) || (entry.away_team==item));
+		let db_filtered_country=db_filtered.filter(entry => (entry.home_team===item) || (entry.away_team===item));
+		let x = 0;
 		switch (selected_measure) {
 			case "Matches Played":
 				max=Math.max(max,db_filtered_country.length);
 				stat_box[item]=db_filtered_country.length;
 				break;
+			case "Wins":
+				db_filtered_country.forEach(row => {
+					if((row.home_team===item && row.home_score > row.away_score) || (row.away_team===item && row.home_score < row.away_score)) x++;
+				})
+				stat_box[item]=x;
+				break;
+			case "Draws":
+				db_filtered_country.forEach(row => {
+					if(row.home_score === row.away_score) x++;
+				})
+				stat_box[item]=x;
+				break;
+			case "Losses":
+				db_filtered_country.forEach(row => {
+					if((row.home_team===item && row.home_score < row.away_score) || (row.away_team===item && row.home_score > row.away_score)) x++;
+				})
+				stat_box[item]=x;
+				break;
+			case "Goals Scored":
+				db_filtered_country.forEach(row => {
+					if(row.home_team===item) x+=row.home_score;
+					if(row.away_team===item) x+=row.away_score;
+				})
+				stat_box[item]=x;
+				break;
+			case "Goals Conceded":
+				db_filtered_country.forEach(row => {
+					if(row.home_team===item) x+=row.away_score;
+					if(row.away_team===item) x+=row.home_score;
+				})
+				stat_box[item]=x;
+				break;
+			case "Friendly Home Matches Played":
+				db_filtered_country.forEach(row => {
+					if(row.tournament==='Friendly' && row.neutral==='False' && row.home_team===item) x++;
+				})
+				stat_box[item]=x;
+				break;
+			case "Friendly Away Matches Played":
+				db_filtered_country.forEach(row => {
+					if(row.tournament==='Friendly' && row.neutral==='False' && row.away_team===item) x++;
+				})
+				stat_box[item]=x;
+				break;
+			case "Friendly Neutral Matches Played":
+				db_filtered_country.forEach(row => {
+					if(row.tournament==='Friendly' && row.neutral==='True') x++;
+				})
+				stat_box[item]=x;
+				break;
+			case "Tournament Matches Played":
+				db_filtered_country.forEach(row => {if(row.tournament!=='Friendly') x++;})
+				stat_box[item]=x;
+				break;
+			case "Major Tournaments Played":
+				let set = new Set();
+				db_filtered_country.forEach(row => {
+					if(major_comp.includes(row.tournament)){
+						set.add(row.date.substring(0, 4));
+					}
+				})
+				stat_box[item]=set.size;
+				break;
+			case "World Cup Tournaments Won":
+				if(item==='Brazil') stat_box[item]=5;
+				else if(item==='Germany'||item==='Italy') stat_box[item]=4;
+				else if(item==='Argentina'||item==='Uruguay'||item==='France') stat_box[item]=2;
+				else if(item==='Spain' || item==='England') stat_box[item]=1;
+				break;
+			case "Wins":
+				break;
+			case "Wins":
+				break;
+			case "Wins":
+				break;
+			case "Wins":
+				break;
+			case "Wins":
+				break;
+			case "Wins":
+				break;
+			case "Wins":
+				break;
+			case "Wins":
+				break;
+			case "Wins":
+				break;
+			case "Wins":
+				break;
+			case "Wins":
+				break;
+			case "Wins":
+				break;
+
+
 			default:
 				stat_box[item]=0;
 		}
@@ -445,7 +543,7 @@ const criterion_loader= function(){
 			stats();
 		})
 
-		if (i==0){
+		if (i===0){
 			input.checked=true;
 		}
 		label.appendChild(input);
