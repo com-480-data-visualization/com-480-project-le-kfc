@@ -165,8 +165,14 @@ const load_map = function(){
 	function onHoverEnd(layer) {
 
 		//Deactivates the hovered country's targetting
-		if (!layer.clicked){
-			geojson.resetStyle(layer);
+		if (!layer.feature.properties.clicked){
+			layer.setStyle({
+					weight: 1,
+					fillOpacity: 0.7,
+					dashArray: '3'
+			});
+			geojson.bringToBack(layer);
+
 		}
 
 		//Removes the data of the hovered country from the hover display box
@@ -175,7 +181,7 @@ const load_map = function(){
 		//Putting the corresponding flag in evidence
 		flag=	document.getElementById(layer.feature.properties.name);
 
-		if (flag!=null && !layer.clicked) {
+		if (flag!=null && !layer.feature.properties.clicked) {
 				flag.style="resetStyle";
 
 
@@ -187,10 +193,10 @@ const load_map = function(){
 	function select(layer) {
 
 		//Activating or deactivating the clicked state
-		layer.clicked=!layer.clicked
+		layer.feature.properties.clicked=!layer.feature.properties.clicked
 
 
-		if (layer.clicked) {
+		if (layer.feature.properties.clicked) {
 
 		//Adding the name and value of the country from the select box
 		let p = document.createElement("p");
@@ -231,10 +237,8 @@ const load_map = function(){
 
 		switch (selected_measure) {
 			case "Matches Played":
-				max_val=1018;
-				console.log(db_filtered.length);
+				max_val=Math.max(max_val,db_filtered.length);
 				return db_filtered.length;
-				break;
 			default:
 				return 0;
 		}
@@ -242,7 +246,7 @@ const load_map = function(){
 
 	//Assigning onHover, onHoverEnd and select to the tiles
 	function onEachFeature(feature, layer) {
-			layer.clicked = false;
+			layer.feature.properties.clicked = false;
 			feature.properties.val=stats(feature.properties.name);
 			layer.setStyle(style(feature));
 
@@ -258,17 +262,24 @@ const load_map = function(){
 			//Making the map reactive to criterions
 			const measures=document.getElementById("measure_container");
 			const competitions=document.getElementById("competition_container");
-			const time_slider=document.getElementById("slider_container");
+			const time_slider_comp=document.getElementById("slider-range").childNodes;
 			measures.addEventListener("click", function(e){
+				max_val=0;
 				feature.properties.val=stats(feature.properties.name);
-				layer.setStyle(style(feature));
 			});
 			competitions.addEventListener("click", function(e){
+				max_val=0;
 				feature.properties.val=stats(feature.properties.name);
-				layer.setStyle(style(feature));
 			});
-			time_slider.addEventListener("click", function(e){
-				feature.properties.val=stats(feature.properties.name);
+			time_slider_comp.forEach((item, i) => {
+				item.addEventListener("click", function(e){
+					max_val=0;
+					feature.properties.val=stats(feature.properties.name);
+				});
+			});
+
+			update_button=document.getElementById("generate_container");
+			update_button.addEventListener("click", function(e){
 				layer.setStyle(style(feature));
 			});
 			layer.on({
@@ -280,14 +291,25 @@ const load_map = function(){
 
 	//Assigns visual characteristics to the input tile (ex: color)
 	function style(feature) {
-		return {
+		if(feature.properties.clicked){
+			return {
 				fillColor: getColor(feature),
-				weight: 1,
+				weight: 2,
 				opacity: 1,
 				color: 'black',
-				dashArray: '3',
-				fillOpacity: 0.7
-		};
+				dashArray: '',
+				fillOpacity: 0.9
+			}
+		} else {
+			return {
+					fillColor: getColor(feature),
+					weight: 1,
+					opacity: 1,
+					color: 'black',
+					dashArray: '3',
+					fillOpacity: 0.7
+			};
+		}
 	}
 
 	//Loads the tiles and sets-up the map
