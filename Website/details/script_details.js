@@ -1,3 +1,5 @@
+target_countries=new Set();
+
 //Standard initialization function
 function whenDocumentLoaded(action) {
 	if (document.readyState === "loading") {
@@ -1129,11 +1131,29 @@ const assign_flags= function(flags, flag_number) {
 		const button_style = document.createElement("div");
 		button_style.classList.add('button-style');
 		button_style.innerHTML = flags[cnt]['Country'].substring(0, 3).toUpperCase();
-
-		if (cnt < flag_number) button_style.id = flags[cnt]['Country'];
-		if (cnt < flag_number) button_style.onclick = function () {
-			set_team(this.id);
-		};
+		button_style.id=flags[cnt]['Country'];
+		button_style.clicked=target_countries.has(flags[cnt]['Country']);
+		if(button_style.clicked){
+			button_style.style.opacity=0;
+			button_style.style.background="none";
+			button_style.style.border="none";
+		}
+		button_style.addEventListener('click',function(e){
+			flag=e.target;
+			flag.clicked=(!flag.clicked) && target_countries.size<2;
+			if (flag.clicked){
+				//Adding country to targetted countries
+				target_countries.add(flag.id);
+				flag.style.opacity=0;
+				flag.style.background="none";
+				flag.style.border="none";
+				set_team(this.id);
+			} else {
+				//Removing country from targetted countries
+				target_countries.delete(flag.id);
+				flag.style="resetStyle";
+			}
+		});
 		cnt++;
 		// bottom flag
 		const square2 = document.createElement("div");
@@ -1144,10 +1164,29 @@ const assign_flags= function(flags, flag_number) {
 		if (cnt < flag_number) {
 			button_style2.innerHTML = flags[cnt]['Country'].substring(0, 3).toUpperCase();
 			button_style2.id = flags[cnt]['Country'];
-			button_style2.onclick = function () {
-				set_team(this.id);
-			};
-		}
+			button_style2.clicked=target_countries.has(flags[cnt]['Country']);
+			if(button_style2.clicked){
+				button_style2.style.opacity=0;
+				button_style2.style.background="none";
+				button_style2.style.border="none";
+			}
+			button_style2.addEventListener('click',function(e){
+					flag=e.target;
+					flag.clicked=(!flag.clicked) && target_countries.size<2;
+					if (flag.clicked){
+						//Adding country to targetted countries
+						target_countries.add(flag.id);
+						flag.style.opacity=0;
+						flag.style.background="none";
+						flag.style.border="none";
+						set_team(this.id);
+					} else {
+						//Removing country from targetted countries
+						target_countries.delete(flag.id);
+						flag.style="resetStyle";
+					}
+				});
+		};
 		cnt++;
 
 		square.appendChild(button_style);
