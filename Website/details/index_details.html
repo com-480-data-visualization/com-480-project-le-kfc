@@ -18,9 +18,8 @@
 	<meta name="author" content="Alexandre Reynaud, Léo Bouraux, Vincent Rinaldi">
 
 	<!--Standard style imports-->
-
 	<link rel="stylesheet" href="../visualizations/style_visu.css">
-
+	<link rel="stylesheet" href="table.scss">
 	<link rel="stylesheet" href="style_details.css">
 
 	<!--Slider imports-->
@@ -43,7 +42,7 @@
 			$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
 					" - $" + $( "#slider-range" ).slider( "values", 1 ) );
 
-			/*var selecting = false;
+			var selecting = false;
 			$( "#slider_container" ).on("mousedown", function (evt) {
 				selecting = true;
 			}).on("mouseup", function (evt) {
@@ -59,7 +58,7 @@
 						load_data();
 					}
 				}
-			});*/
+			});
 		});
 
 		/*		$(function(){
@@ -155,6 +154,42 @@
 	<button type="button" id="buttonCancelVS" class="buttonCompare" onclick="cancelVS()">Go Solo</button>
 	<div id="nameCountry1" class="titleDiv1"></div>
 	<div id="nameCountry2" class="titleDiv2"></div>
+
+	<table>
+		<thead>
+		<tr>
+			<th>Country 2</th>
+			<th></th>
+			<th>Stats</th>
+			<th></th>
+			<th>Country 2</th>
+		</tr>
+		<thead>
+		<tbody>
+		<tr>
+			<td>50</td>
+			<td></td>
+			<td>Buts</td>
+			<td></td>
+			<td>10</td>
+		</tr>
+		<tr>
+			<td>50</td>
+			<td></td>
+			<td>Matchs</td>
+			<td></td>
+			<td>10</td>
+		</tr>
+		<tr>
+			<td>50</td>
+			<td></td>
+			<td>Corners</td>
+			<td></td>
+			<td>10</td>
+		</tr>
+		</tbody>
+		<table/>
+
 </div>
 
 </body>

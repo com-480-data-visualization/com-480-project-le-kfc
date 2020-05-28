@@ -137,7 +137,7 @@ const stats = function(){
 const load_map = function(){
 	//Assigns a color to the inputed value
 	function getColor(val) {
-		const colorScale = d3.scaleLinear().domain([0, max]).range(['steelblue', 'crimson']);
+		const colorScale = d3.scaleLinear().domain([0, max]).range(['rgb(245, 254, 169)', 'rgb(147, 21, 40)']);
 		return colorScale(val);
 	}
 
@@ -215,7 +215,7 @@ const load_map = function(){
 			p.style.textAlign = "left";
 			p.id=layer.feature.properties.name+"_display";
 			p.appendChild(document.createTextNode(layer.feature.properties.name+" → "+layer.feature.properties.val));
-			document.getElementById("map_select").appendChild(p);
+			document.getElementById("map_select_id").appendChild(p);
 
 			//Adding country to targetted countries
 			target_countries.add(layer.feature.properties.name);
@@ -230,8 +230,6 @@ const load_map = function(){
 			target_countries.delete(layer.feature.properties.name);
 		}
 	}
-
-
 
 	//Assigning onHover, onHoverEnd and select to the tiles
 	function onEachFeature(feature, layer) {
@@ -250,7 +248,6 @@ const load_map = function(){
 
 			const update_button=document.getElementById("generate_container");
 			update_button.addEventListener("click", function(e){
-				//console.log(stat_box)
 				feature.properties.val=stat_box[feature.properties.name];
 				layer.setStyle(style(feature));
 				const max_display=document.getElementById("max_display");
@@ -478,6 +475,13 @@ const criterion_loader= function(){
 		input.id= competitions[i]+" button";
 		input.addEventListener("click", function(e){
 			competition=e.target;
+			if(selected_competitions.has("All") ){competition.checked=false;}
+			if(competition.parentNode.childNodes[1].firstChild.data=="All"){
+				selected_competitions= new Set();
+				console.log(competition.parentNode);
+				competition.parentNode.childNodes.forEach((item, i) => {item.checked=false;});
+				competition.checked=true;
+			}
 			if(competition.checked){
 				selected_competitions.add(competition.parentNode.childNodes[1].firstChild.data);
 			} else {
@@ -541,7 +545,7 @@ whenDocumentLoaded(() => {
 	flag_loader("../../data/final_flags.csv");
 
 	//Loading the dataset
-	data_loader("../../data/results.csv");
+	data_loader("../../data/final_results.csv");
 
 	//Setting-up the criterion selectors
 	criterion_loader();
