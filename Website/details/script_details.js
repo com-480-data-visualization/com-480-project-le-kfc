@@ -30,6 +30,8 @@ let currBtnTeamId = null;
 // variables for games data loading and D3.js svg bar plots and their title
 let games;
 let data = null;
+let data1 = null;
+let data2 = null;
 let graph_name;
 
 // variables used for the two teams comparison case
@@ -63,10 +65,11 @@ function changeVS2() {
 	document.getElementById(temp).click();
 }
 
-// function triggered when changing the team selection in the two teams comparison section
+// function triggered when selection a second team for the two teams comparison feature
 function changeVS() {
-
 	let i;
+
+	// Resetting radio buttons and checkboxes
 	disabled_checkboxes.clear();
 	for(i = 0; i < measures.length; i++) {
 		currBtnId = measures[i] + " button";
@@ -81,10 +84,12 @@ function changeVS() {
 		currBtn.disabled = false;
 	}
 
+	// getting the identifier of the two selected flags
 	iterator = target_countries.values();
 	currBtnTeamId = iterator.next().value;
 	currBtnTeamId2 = iterator.next().value;
 
+	// setting header presentation of the displayed screen
 	document.getElementById("nameCountry1").innerHTML = currBtnTeamId;
 	document.getElementById("nameCountry2").innerHTML = currBtnTeamId2;
 
@@ -110,7 +115,7 @@ function changeVS() {
 	document.getElementById("flagVS2").style.pointerEvents = "auto";
 }
 
-// function triggered when exiting the two teams comparison section
+// function triggered when removing a team for the selection and going back to one team analysis feature
 function cancelVS() {
 	currBtnTeamId = null;
 	currBtnTeamId2 = null;
@@ -120,6 +125,7 @@ function cancelVS() {
 	document.getElementById("flagVS2").innerHTML = "";
 	document.getElementById("nameCountry1").innerHTML = "";
 	document.getElementById("nameCountry2").innerHTML = "";
+	document.getElementById("tableTwoTeams").innerHTML = "";
 	set_team();
 }
 
@@ -127,14 +133,14 @@ function cancelVS() {
 function set_team() {
 	let i;
 
+	// if we have now selected two countries we enter into teams comparison feature
 	if (target_countries.size === 2) {
-		//document.getElementById("generate_container_back").disabled = true;
-		//document.getElementById("buttonCancelVS").disabled = false;
 		changeVS();
 
-	} else { // We are entering in one team bar plot section
+	// else we are entering into one team analysis section
+	} else {
 
-		// Removing existing bar plots
+		// Removing existing D3.js bar plots
 		if (document.getElementById("bar_plot_graphic_team") != null) {
 			d3.select("#bar_plot_graphic_team").remove();
 		}
@@ -162,7 +168,7 @@ function set_team() {
 			}
 		}
 
-
+		// getting value of selected country
 		iterator = target_countries.values();
 		currBtnTeamId = iterator.next().value;
 
@@ -172,6 +178,7 @@ function set_team() {
 
 		document.getElementById("generate_container").style.visibility = "hidden";
 
+		// seeting header presentation of the displayed screen
 		document.getElementById("flagTeam").style.pointerEvents = "auto";
 		document.getElementById("graphTitleOneTeam").innerHTML = currBtnTeamId;
 
@@ -184,7 +191,7 @@ function set_team() {
 	}
 }
 
-// function triggered when entering world mode which is the section with bar plots of every team and focused on exclusively one criterion at a time
+// function triggered when entering world mode which is the section with bar plots of every team and which focused exclusively on one criterion at a time
 const world_mode = function() {
 	let i;
 
@@ -227,24 +234,29 @@ const world_mode = function() {
 	document.getElementById("dataVS").style.display = "none";
 
 	document.getElementById("generate_container").style.visibility = "visible";
-	//document.getElementById("generate_container_back").style.visibility = "hidden";
-	//document.getElementById("generate_container").innerHTML = "GENERATE DATA";
 }
 
 // data loader for games stats
 const data_loader = function(path) {
 	d3.csv(path).then(function(dataset) {
+
 		//Assigning the loaded data to the local database
 		games = dataset;
 	});
 };
 
-// launch the corresponding data parsing function according to the section we are
+// launch the corresponding data parsing function according to the situation we are
 const load_data = function() {
+
+	// No country selected
 	if (currBtnTeamId == null) {
 		load_data_world();
+
+	// one country selected
 	} else if (currBtnTeamId2 == null) {
 		load_data_one_country()
+
+	// two countries selected
 	} else {
 		load_data_two_countries()
 	}
@@ -253,7 +265,10 @@ const load_data = function() {
 // data parsing for two teams comparison section
 const load_data_two_countries = function() {
 
-	// Removing existing bar plots
+	// resetting previous data display
+	document.getElementById("tableTwoTeams").innerHTML = "";
+
+	// Removing existing D3.js bar plots
 	if (document.getElementById("bar_plot_graphic_team") != null) {
 		d3.select("#bar_plot_graphic_team").remove();
 	}
@@ -261,16 +276,46 @@ const load_data_two_countries = function() {
 		d3.select("#bar_plot_graphic").remove();
 	}
 
-	let data1 = get_one_country_data(games, currBtnTeamId);
-	let data2 = get_one_country_data(games, currBtnTeamId2);
+	// retrieving data for the two selected nations
+	data1 = get_one_country_data(games, currBtnTeamId);
+	data2 = get_one_country_data(games, currBtnTeamId2);
 
-	if (data1.length === 0 || data2.length === 0) {
+	if (data1.length === 0 || data2.length === 0 || data1.length !== data2.length) {
 		data1 = null;
 		data2 = null;
+		return;
 	}
 
-	//TODO : Create div and elements to display the statistics retrieved from the two data variables
+	let i;
+	let x;
+	let y;
+	let z;
+	let table = document.getElementById("tableTwoTeams");
 
+	// building the stats table for comparison
+	table.innerHTML= "";
+	for (i=0; i<data1.length; i++) {
+		row = document.createElement('tr');
+		table.appendChild(row);
+  	x = row.insertCell(0);
+  	x.innerHTML = data1[i]['value'];
+		y = row.insertCell(1);
+		y.style.width="30vw"
+		y.style.height="5vh"
+  	y.innerHTML = data1[i]['name'];
+		z = row.insertCell(2);
+  	z.innerHTML = data2[i]['value'];
+		if (data1[i]['value'] > data2[i]['value']) {
+			x.style.backgroundColor="rgba(255,0,0,0.25)";
+			z.style.backgroundColor="rgba(0,0,255,0.25)";
+		} else if (data1[i]['value'] < data2[i]['value']) {
+			x.style.backgroundColor="rgba(0,0,255,0.25)";
+			z.style.backgroundColor="rgba(255,0,0,0.25)";
+		} else {
+			x.style.backgroundColor="rgba(255,255,0,0.25)";
+			z.style.backgroundColor="rgba(255,255,0,0.25)";
+		}
+	}
 }
 
 // data parsing for one team comparison section
@@ -293,7 +338,7 @@ const get_one_country_data = function(data_i, chosen_team) {
 		}
 	});
 
-	// Do nothing if the user didn't select any criterion no competition
+	// Do nothing if the user didn't select any criterion nor competition
 	if (measure_set.size === 0 || competition_set.size === 0) {
 		return retrieved_data;
 	}
@@ -337,6 +382,7 @@ const get_one_country_data = function(data_i, chosen_team) {
 	let valid_years;
 	let found;
 	let i;
+	let j;
 
 	let wc_winners = [{"country": "Brazil", "wins": [1958, 1962, 1970, 1994, 2002]},
 		{"country": "Germany", "wins": [1954, 1974, 1990, 2014]},
@@ -347,25 +393,13 @@ const get_one_country_data = function(data_i, chosen_team) {
 		{"country": "Spain", "wins": [2010]},
 		{"country": "England", "wins": [1966]}];
 
+	// executing main data retrieving computation where all the selected measures have to be handled for each row of the dataset for the one team analysis feature
 	measure_set.forEach(measure => {
-		if (measure === "World Cup Tournaments Won") {
-			found = 0
-			for (i = 0; i < wc_winners.length; i++) {
-				if (team === wc_winners[i]['country']) {
-					retrieved_data.push({"name": measure, "value": wc_winners[i]['wins'].length});
-					found = 1
-					break;
-				}
-			}
-			if (found === 0) {
-				retrieved_data.push({"name": measure, "value": 0});
-			}
-
-		} else {
 			counter = 0;
 			counter_match = 0;
 			counter_loc = 0;
 			counter_loc_match = 0;
+
 			valid_years = new Set();
 
 			games.forEach(row => {
@@ -419,33 +453,61 @@ const get_one_country_data = function(data_i, chosen_team) {
 						} else {
 							counter_match++;
 						}
+					} else if (measure === "Ratio Goal Scored Per Match") {
+						if (row.away_team === team) {
+							counter += parseInt(row.away_score);
+						} else {
+							counter += parseInt(row.home_score);
+						}
+						counter_match++;
+					} else if (measure === "Ratio Goal Scored Per Year") {
+						if (row.away_team === team) {
+							counter += parseInt(row.away_score);
+						} else {
+							counter += parseInt(row.home_score);
+						}
+						valid_years.add(year);
+					} else if (measure === "Ratio Goal Conceded Per Match") {
+						if (row.away_team === team) {
+							counter += parseInt(row.home_score);
+						} else {
+							counter += parseInt(row.away_score);
+						}
+						counter_match++;
+					} else if (measure === "Ratio Goal Conceded Per Year") {
+						if (row.away_team === team) {
+							counter += parseInt(row.home_score);
+						} else {
+							counter += parseInt(row.away_score);
+						}
+						valid_years.add(year);
 					} else if (measure === "Home Wins") {
-						if (row.home_team === team && parseInt(row.home_score) > parseInt(row.away_score)) {
+						if (row.home_team === team && parseInt(row.home_score) > parseInt(row.away_score) && row.neutral === "False") {
 							counter++;
 						}
 					} else if (measure === "Home Draws") {
-						if (row.home_team === team && parseInt(row.home_score) === parseInt(row.away_score)) {
+						if (row.home_team === team && parseInt(row.home_score) === parseInt(row.away_score) && row.neutral === "False") {
 							counter++;
 						}
 					} else if (measure === "Home Losses") {
-						if (row.home_team === team && parseInt(row.home_score) < parseInt(row.away_score)) {
+						if (row.home_team === team && parseInt(row.home_score) < parseInt(row.away_score) && row.neutral === "False") {
 							counter++;
 						}
 					} else if (measure === "Away Wins") {
-						if (row.away_team === team && parseInt(row.home_score) < parseInt(row.away_score)) {
+						if (row.away_team === team && parseInt(row.home_score) < parseInt(row.away_score) && row.neutral === "False") {
 							counter++;
 						}
 					} else if (measure === "Away Draws") {
-						if (row.away_team === team && parseInt(row.home_score) === parseInt(row.away_score)) {
+						if (row.away_team === team && parseInt(row.home_score) === parseInt(row.away_score) && row.neutral === "False") {
 							counter++;
 						}
 					} else if (measure === "Away Losses") {
-						if (row.away_team === team && parseInt(row.home_score) > parseInt(row.away_score)) {
+						if (row.away_team === team && parseInt(row.home_score) > parseInt(row.away_score) && row.neutral === "False") {
 							counter++;
 						}
 					} else if (measure === "Performance Factor Home Matches") {
 						// Ratio win per match playing home
-						if (row.home_team === team) {
+						if (row.home_team === team && row.neutral === "False") {
 							if (parseInt(row.home_score) > parseInt(row.away_score)) {
 								counter_loc++;
 								counter_loc_match++;
@@ -464,7 +526,7 @@ const get_one_country_data = function(data_i, chosen_team) {
 
 					} else if (measure === "Performance Factor Away Matches") {
 						// Ratio win per match playing away
-						if (row.away_team === team) {
+						if (row.away_team === team && row.neutral === "False") {
 							if (parseInt(row.home_score) < parseInt(row.away_score)) {
 								counter_loc++;
 								counter_loc_match++;
@@ -504,6 +566,18 @@ const get_one_country_data = function(data_i, chosen_team) {
 																																																															row.tournament === "Oceania Nations Cup") {
 							valid_years.add(year);
 						}
+					} else if (measure === "World Cup Tournaments Won") {
+						for (i=0; i < wc_winners.length; i++) {
+							if (team === wc_winners[i]["country"]) {
+
+								for (j=0; j < (wc_winners[i]["wins"]).length; j++) {
+									if (parseInt(year) === (wc_winners[i]["wins"])[j]) {
+
+										valid_years.add(year);
+									}
+								}
+							}
+						}
 					}
 				}
 
@@ -522,6 +596,7 @@ const get_one_country_data = function(data_i, chosen_team) {
 
 					retrieved_data.push({"name": measure, "value": rounded});
 				}
+
 			} else if (measure === "Performance Factor Home Matches" || measure === "Performance Factor Away Matches") {
 				if (counter_match === 0 || counter_loc_match === 0) {
 					retrieved_data.push({"name": measure, "value": 0});
@@ -540,11 +615,36 @@ const get_one_country_data = function(data_i, chosen_team) {
 
 					retrieved_data.push({"name": measure, "value": rounded_factor});
 				}
-			}	else {
+
+			}	else if (measure === "Ratio Goal Scored Per Match" || measure === "Ratio Goal Conceded Per Match") {
+				if (counter_match === 0) {
+					retrieved_data.push({"name": measure, "value": 0});
+				} else {
+					num = Number(counter/counter_match);
+					roundedString = num.toFixed(2);
+					rounded = Number(roundedString);
+
+					retrieved_data.push({"name": measure, "value": rounded});
+				}
+
+			} else if (measure === "Ratio Goal Scored Per Year" || measure === "Ratio Goal Conceded Per Year") {
+				if (valid_years.size === 0) {
+					retrieved_data.push({"name": measure, "value": 0});
+				} else {
+					num = Number(counter/valid_years.size);
+					roundedString = num.toFixed(2);
+					rounded = Number(roundedString);
+
+					retrieved_data.push({"name": measure, "value": rounded});
+				}
+
+			} else if (measure === "World Cup Tournaments Won") {
+				retrieved_data.push({"name": measure, "value": valid_years.size});
+
+			} else {
 				retrieved_data.push({"name": measure, "value": counter});
 
 			}
-		}
 
 	});
 
@@ -562,6 +662,7 @@ const load_data_one_country = function() {
 		d3.select("#bar_plot_graphic").remove();
 	}
 
+	// retrieving collected data
 	data = get_one_country_data(games, currBtnTeamId);
 
 	// do nothing if there is no data corresponding to the selected filters
@@ -633,12 +734,12 @@ const load_data_one_country = function() {
 	gradient
 		.append("stop")
 		.attr("offset", "0")
-		.attr("stop-color", "rgba(78,189,238,0.5)")
+		.attr("stop-color", "rgb(245,254,169)")
 
 	gradient
 		.append("stop")
-		.attr("offset", "0.5")
-		.attr("stop-color", "#821108")
+		.attr("offset", "0.35")
+		.attr("stop-color", "rgb(147,21,40)")
 
 	// append rects
 	bars.append("rect")
@@ -696,7 +797,7 @@ const load_data_one_country = function() {
 		});
 }
 
-// parsing games stats information for world section
+// parsing games stats information for world data feature
 const get_world_data = function(data_i) {
 	let retrieved_data = [];
 	let competition_set = new Set();
@@ -741,8 +842,8 @@ const get_world_data = function(data_i) {
 
 	let valid_years;
 	let str;
-	let found;
 	let i;
+	let j;
 
 	let wc_winners = [{"country": "Brazil", "wins": [1958, 1962, 1970, 1994, 2002]}, {"country": "Germany", "wins": [1954, 1974, 1990, 2014]},
 		{"country": "Italy", "wins": [1934, 1938, 1982, 2006]},
@@ -759,212 +860,264 @@ const get_world_data = function(data_i) {
 			}
 	});
 
+	// executing the main computation for the world data collection where only one criterion at a time can be checked
 	teams.forEach(team => {
-		if (document.getElementById("World Cup Tournaments Won button").checked) {
-			found = 0
-			for (i = 0; i < wc_winners.length; i++) {
-				if (team === wc_winners[i]['country']) {
-					found = 1
-					retrieved_data.push({"name": team, "value": wc_winners[i]['wins'].length});
-					break;
-				}
-			}
-			if (found === 0) {
-				retrieved_data.push({"name": team, "value": 0});
-			}
+		counter = 0;
+		counter_match = 0;
+		counter_loc = 0;
+		counter_loc_match = 0;
+		valid_years = new Set();
+		games.forEach(row => {
+				year = row.date.substring(0, 4);
 
-		} else {
-			counter = 0;
-			counter_match = 0;
-			counter_loc = 0;
-			counter_loc_match = 0;
-			valid_years = new Set();
-			games.forEach(row => {
-					year = row.date.substring(0, 4);
-
-					if ((row.away_team === team || row.home_team === team) && (competition_set.has(row.tournament)) && (year >= start_year) && (year <= end_year)) {
-						if (document.getElementById("Matches Played button").checked) {
+				if ((row.away_team === team || row.home_team === team) && (competition_set.has(row.tournament)) && (year >= start_year) && (year <= end_year)) {
+					if (document.getElementById("Matches Played button").checked) {
+						counter++;
+					} else if (document.getElementById("Wins button").checked) {
+						if ((row.away_team === team && parseInt(row.away_score) > parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) > parseInt(row.away_score))) {
 							counter++;
-						} else if (document.getElementById("Wins button").checked) {
-							if ((row.away_team === team && parseInt(row.away_score) > parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) > parseInt(row.away_score))) {
-								counter++;
-							}
-						} else if (document.getElementById("Draws button").checked) {
-							if (parseInt(row.home_score) === parseInt(row.away_score)) {
-								counter++;
-							}
-						} else if (document.getElementById("Losses button").checked) {
-							if ((row.away_team === team && parseInt(row.away_score) < parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) < parseInt(row.away_score))) {
-								counter++;
-							}
-						} else if (document.getElementById("Goals Scored button").checked) {
-							if (row.away_team === team) {
-								counter += parseInt(row.away_score);
+						}
+					} else if (document.getElementById("Draws button").checked) {
+						if (parseInt(row.home_score) === parseInt(row.away_score)) {
+							counter++;
+						}
+					} else if (document.getElementById("Losses button").checked) {
+						if ((row.away_team === team && parseInt(row.away_score) < parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) < parseInt(row.away_score))) {
+							counter++;
+						}
+					} else if (document.getElementById("Goals Scored button").checked) {
+						if (row.away_team === team) {
+							counter += parseInt(row.away_score);
+						} else {
+							counter += parseInt(row.home_score);
+						}
+					} else if (document.getElementById("Goals Conceded button").checked) {
+						if (row.away_team === team) {
+							counter += parseInt(row.home_score);
+						} else {
+							counter += parseInt(row.away_score);
+						}
+					} else if (document.getElementById("Ratio Win Per Match button").checked) {
+						if ((row.away_team === team && parseInt(row.away_score) > parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) > parseInt(row.away_score))) {
+							counter++;
+							counter_match++;
+						} else {
+							counter_match++;
+						}
+					} else if (document.getElementById("Ratio Draw Per Match button").checked) {
+						if (parseInt(row.home_score) === parseInt(row.away_score)) {
+							counter++;
+							counter_match++;
+						} else {
+							counter_match++;
+						}
+					} else if (document.getElementById("Ratio Loss Per Match button").checked) {
+						if ((row.away_team === team && parseInt(row.away_score) < parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) < parseInt(row.away_score))) {
+							counter++;
+							counter_match++;
+						} else {
+							counter_match++;
+						}
+					} else if (document.getElementById("Ratio Goal Scored Per Match button").checked) {
+						if (row.away_team === team) {
+							counter += parseInt(row.away_score);
+						} else {
+							counter += parseInt(row.home_score);
+						}
+						counter_match++;
+					} else if (document.getElementById("Ratio Goal Scored Per Year button").checked) {
+						if (row.away_team === team) {
+							counter += parseInt(row.away_score);
+						} else {
+							counter += parseInt(row.home_score);
+						}
+						valid_years.add(year);
+					} else if (document.getElementById("Ratio Goal Conceded Per Match button").checked) {
+						if (row.away_team === team) {
+							counter += parseInt(row.home_score);
+						} else {
+							counter += parseInt(row.away_score);
+						}
+						counter_match++;
+					} else if (document.getElementById("Ratio Goal Conceded Per Year button").checked) {
+						if (row.away_team === team) {
+							counter += parseInt(row.home_score);
+						} else {
+							counter += parseInt(row.away_score);
+						}
+						valid_years.add(year);
+					} else if (document.getElementById("Home Wins button").checked) {
+						if (row.home_team === team && parseInt(row.home_score) > parseInt(row.away_score) && row.neutral === "False") {
+							counter++;
+						}
+					} else if (document.getElementById("Home Draws button").checked) {
+						if (row.home_team === team && parseInt(row.home_score) === parseInt(row.away_score) && row.neutral === "False") {
+							counter++;
+						}
+					} else if (document.getElementById("Home Losses button").checked) {
+						if (row.home_team === team && parseInt(row.home_score) < parseInt(row.away_score) && row.neutral === "False") {
+							counter++;
+						}
+					} else if (document.getElementById("Away Wins button").checked) {
+						if (row.away_team === team && parseInt(row.home_score) < parseInt(row.away_score) && row.neutral === "False") {
+							counter++;
+						}
+					} else if (document.getElementById("Away Draws button").checked) {
+						if (row.away_team === team && parseInt(row.home_score) === parseInt(row.away_score) && row.neutral === "False") {
+							counter++;
+						}
+					} else if (document.getElementById("Away Losses button").checked) {
+						if (row.away_team === team && parseInt(row.home_score) > parseInt(row.away_score) && row.neutral === "False") {
+							counter++;
+						}
+					} else if (document.getElementById("Performance Factor Home Matches button").checked) {
+						// Ratio win per match playing home
+						if (row.home_team === team && row.neutral === "False") {
+							if (parseInt(row.home_score) > parseInt(row.away_score)) {
+								counter_loc++;
+								counter_loc_match++;
 							} else {
-								counter += parseInt(row.home_score);
+								counter_loc_match++;
 							}
-						} else if (document.getElementById("Goals Conceded button").checked) {
-							if (row.away_team === team) {
-								counter += parseInt(row.home_score);
+						}
+
+						// Ratio win per match
+						if ((row.away_team === team && parseInt(row.away_score) > parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) > parseInt(row.away_score))) {
+							counter++;
+							counter_match++;
+						} else {
+							counter_match++;
+						}
+
+					} else if (document.getElementById("Performance Factor Away Matches button").checked) {
+						// Ratio win per match playing away
+						if (row.away_team === team && row.neutral === "False") {
+							if (parseInt(row.home_score) < parseInt(row.away_score)) {
+								counter_loc++;
+								counter_loc_match++;
 							} else {
-								counter += parseInt(row.away_score);
+								counter_loc_match++;
 							}
-						} else if (document.getElementById("Ratio Win Per Match button").checked) {
-							if ((row.away_team === team && parseInt(row.away_score) > parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) > parseInt(row.away_score))) {
-								counter++;
-								counter_match++;
-							} else {
-								counter_match++;
-							}
-						} else if (document.getElementById("Ratio Draw Per Match button").checked) {
-							if (parseInt(row.home_score) === parseInt(row.away_score)) {
-								counter++;
-								counter_match++;
-							} else {
-								counter_match++;
-							}
-						} else if (document.getElementById("Ratio Loss Per Match button").checked) {
-							if ((row.away_team === team && parseInt(row.away_score) < parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) < parseInt(row.away_score))) {
-								counter++;
-								counter_match++;
-							} else {
-								counter_match++;
-							}
-						} else if (document.getElementById("Home Wins button").checked) {
-							if (row.home_team === team && parseInt(row.home_score) > parseInt(row.away_score)) {
-								counter++;
-							}
-						} else if (document.getElementById("Home Draws button").checked) {
-							if (row.home_team === team && parseInt(row.home_score) === parseInt(row.away_score)) {
-								counter++;
-							}
-						} else if (document.getElementById("Home Losses button").checked) {
-							if (row.home_team === team && parseInt(row.home_score) < parseInt(row.away_score)) {
-								counter++;
-							}
-						} else if (document.getElementById("Away Wins button").checked) {
-							if (row.away_team === team && parseInt(row.home_score) < parseInt(row.away_score)) {
-								counter++;
-							}
-						} else if (document.getElementById("Away Draws button").checked) {
-							if (row.away_team === team && parseInt(row.home_score) === parseInt(row.away_score)) {
-								counter++;
-							}
-						} else if (document.getElementById("Away Losses button").checked) {
-							if (row.away_team === team && parseInt(row.home_score) > parseInt(row.away_score)) {
-								counter++;
-							}
-						} else if (document.getElementById("Performance Factor Home Matches button").checked) {
-							// Ratio win per match playing home
-							if (row.home_team === team) {
-								if (parseInt(row.home_score) > parseInt(row.away_score)) {
-									counter_loc++;
-									counter_loc_match++;
-								} else {
-									counter_loc_match++;
+						}
+
+						// Ratio win per match
+						if ((row.away_team === team && parseInt(row.away_score) > parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) > parseInt(row.away_score))) {
+							counter++;
+							counter_match++;
+						} else {
+							counter_match++;
+						}
+
+					} else if (document.getElementById("Friendly Home Matches Played button").checked) {
+						if ((row.home_team === team) && (row.tournament === "Friendly") && (row.neutral === "False")) {
+							counter++;
+						}
+					} else if (document.getElementById("Friendly Away Matches Played button").checked) {
+						if ((row.away_team === team) && (row.tournament === "Friendly") && (row.neutral === "False")) {
+							counter++;
+						}
+					} else if (document.getElementById("Friendly Neutral Matches Played button").checked) {
+						if ((row.tournament === "Friendly") && (row.neutral === "True")) {
+							counter++;
+						}
+					} else if (document.getElementById("Tournament Matches Played button").checked) {
+						if (row.tournament !== "Friendly") {
+							counter++;
+						}
+					} else if (document.getElementById("Major Tournaments Played button").checked) {
+						if (row.tournament === "FIFA World Cup" || row.tournament === "UEFA Euro" || row.tournament === "Copa América" || row.tournament === "African Cup of Nations" ||
+																																																															row.tournament === "Gold Cup" ||
+																																																															row.tournament === "AFC Asian Cup" ||
+																																																															row.tournament === "Oceania Nations Cup") {
+							valid_years.add(year);
+						}
+					} else if (document.getElementById("World Cup Tournaments Won button").checked) {
+						for (i=0; i < wc_winners.length; i++) {
+							if (team === wc_winners[i]["country"]) {
+
+								for (j=0; j < (wc_winners[i]["wins"]).length; j++) {
+									if (parseInt(year) === (wc_winners[i]["wins"])[j]) {
+
+										valid_years.add(year);
+									}
 								}
-							}
-
-							// Ratio win per match
-							if ((row.away_team === team && parseInt(row.away_score) > parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) > parseInt(row.away_score))) {
-								counter++;
-								counter_match++;
-							} else {
-								counter_match++;
-							}
-
-						} else if (document.getElementById("Performance Factor Away Matches button").checked) {
-							// Ratio win per match playing away
-							if (row.away_team === team) {
-								if (parseInt(row.home_score) < parseInt(row.away_score)) {
-									counter_loc++;
-									counter_loc_match++;
-								} else {
-									counter_loc_match++;
-								}
-							}
-
-							// Ratio win per match
-							if ((row.away_team === team && parseInt(row.away_score) > parseInt(row.home_score)) || (row.home_team === team && parseInt(row.home_score) > parseInt(row.away_score))) {
-								counter++;
-								counter_match++;
-							} else {
-								counter_match++;
-							}
-
-						} else if (document.getElementById("Friendly Home Matches Played button").checked) {
-							if ((row.home_team === team) && (row.tournament === "Friendly") && (row.neutral === "False")) {
-								counter++;
-							}
-						} else if (document.getElementById("Friendly Away Matches Played button").checked) {
-							if ((row.away_team === team) && (row.tournament === "Friendly") && (row.neutral === "False")) {
-								counter++;
-							}
-						} else if (document.getElementById("Friendly Neutral Matches Played button").checked) {
-							if ((row.tournament === "Friendly") && (row.neutral === "True")) {
-								counter++;
-							}
-						} else if (document.getElementById("Tournament Matches Played button").checked) {
-							if (row.tournament !== "Friendly") {
-								counter++;
-							}
-						} else if (document.getElementById("Major Tournaments Played button").checked) {
-							if (row.tournament === "FIFA World Cup" || row.tournament === "UEFA Euro" || row.tournament === "Copa América" || row.tournament === "African Cup of Nations" ||
-																																																																row.tournament === "Gold Cup" ||
-																																																																row.tournament === "AFC Asian Cup" ||
-																																																																row.tournament === "Oceania Nations Cup") {
-								valid_years.add(year);
 							}
 						}
 					}
-			})
-
-			if (document.getElementById("Major Tournaments Played button").checked) {
-				retrieved_data.push({"name": team, "value": valid_years.size});
-
-			} else if (document.getElementById("Ratio Win Per Match button").checked || document.getElementById("Ratio Draw Per Match button").checked || document.getElementById("Ratio Loss Per Match button").checked) {
-				if (counter_match === 0) {
-					retrieved_data.push({"name": team, "value": 0});
-				} else {
-					num = Number(counter/counter_match);
-					roundedString = num.toFixed(2);
-					rounded = Number(roundedString);
-
-					retrieved_data.push({"name": team, "value": rounded});
 				}
+		})
 
-			} else if (document.getElementById("Performance Factor Home Matches button").checked || document.getElementById("Performance Factor Away Matches button").checked) {
-				if (counter_match === 0 || counter_loc_match === 0) {
-					retrieved_data.push({"name": team, "value": 0});
-				} else {
-					num_loc = Number(counter_loc/counter_loc_match);
-					roundedString_loc = num_loc.toFixed(2);
-					rounded_loc = Number(roundedString_loc);
+		if (document.getElementById("Major Tournaments Played button").checked) {
+			retrieved_data.push({"name": team, "value": valid_years.size});
 
-					num = Number(counter/counter_match);
-					roundedString = num.toFixed(2);
-					rounded = Number(roundedString);
+		} else if (document.getElementById("Ratio Win Per Match button").checked || document.getElementById("Ratio Draw Per Match button").checked || document.getElementById("Ratio Loss Per Match button").checked) {
+			if (counter_match === 0) {
+				retrieved_data.push({"name": team, "value": 0});
+			} else {
+				num = Number(counter/counter_match);
+				roundedString = num.toFixed(2);
+				rounded = Number(roundedString);
 
-					num_factor = Number(rounded_loc/rounded);
-					roundedString_factor = num_factor.toFixed(2);
-					rounded_factor = Number(roundedString_factor);
-
-					retrieved_data.push({"name": team, "value": rounded_factor});
-				}
-
-			}	else {
-				retrieved_data.push({"name": team, "value": counter});
-
+				retrieved_data.push({"name": team, "value": rounded});
 			}
+
+		} else if (document.getElementById("Performance Factor Home Matches button").checked || document.getElementById("Performance Factor Away Matches button").checked) {
+			if (counter_match === 0 || counter_loc_match === 0) {
+				retrieved_data.push({"name": team, "value": 0});
+			} else {
+				num_loc = Number(counter_loc/counter_loc_match);
+				roundedString_loc = num_loc.toFixed(2);
+				rounded_loc = Number(roundedString_loc);
+
+				num = Number(counter/counter_match);
+				roundedString = num.toFixed(2);
+				rounded = Number(roundedString);
+
+				num_factor = Number(rounded_loc/rounded);
+				roundedString_factor = num_factor.toFixed(2);
+				rounded_factor = Number(roundedString_factor);
+
+				retrieved_data.push({"name": team, "value": rounded_factor});
+			}
+
+		}	else if (document.getElementById("Ratio Goal Scored Per Match button").checked || document.getElementById("Ratio Goal Conceded Per Match button").checked) {
+			if (counter_match === 0) {
+				retrieved_data.push({"name": team, "value": 0});
+			} else {
+				num = Number(counter/counter_match);
+				roundedString = num.toFixed(2);
+				rounded = Number(roundedString);
+
+				retrieved_data.push({"name": team, "value": rounded});
+			}
+
+		} else if (document.getElementById("Ratio Goal Scored Per Year button").checked || document.getElementById("Ratio Goal Conceded Per Year button").checked) {
+			if (valid_years.size === 0) {
+				retrieved_data.push({"name": team, "value": 0});
+			} else {
+				num = Number(counter/valid_years.size);
+				roundedString = num.toFixed(2);
+				rounded = Number(roundedString);
+
+				retrieved_data.push({"name": team, "value": rounded});
+			}
+
+		} else if (document.getElementById("World Cup Tournaments Won button").checked) {
+			retrieved_data.push({"name": team, "value": valid_years.size});
+
+		} else {
+			retrieved_data.push({"name": team, "value": counter});
+
 		}
 	});
 
 	return retrieved_data;
 }
 
-// bar plot creation for world section in details tab
+// bar plot creation for world data feature
 const load_data_world = function() {
-	// removing existing plots
+
+	// removing existing D3.js plots
 	if (document.getElementById("bar_plot_graphic") != null) {
 		d3.select("#bar_plot_graphic").remove();
 	}
@@ -974,6 +1127,7 @@ const load_data_world = function() {
 
 	graph_name = "";
 
+	// collecting data
 	data = get_world_data(games);
 
 	// Do nothing is no games matches the request
@@ -1054,12 +1208,12 @@ const load_data_world = function() {
 	gradient
 		.append("stop")
 		.attr("offset", "0")
-		.attr("stop-color", "rgba(78,189,238,0.5)")
+		.attr("stop-color", "rgb(245,254,169)")
 
 	gradient
 		.append("stop")
 		.attr("offset", "0.35")
-		.attr("stop-color", "#821108")
+		.attr("stop-color", "rgb(147,21,40)")
 
 	// append rects
 	bars.append("rect")
@@ -1117,7 +1271,6 @@ const load_data_world = function() {
 		});
 }
 
-
 //Flag database
 let flags;
 let flags_input = [];
@@ -1126,9 +1279,11 @@ let flag_number;
 //Flag loading function
 const flag_loader= function(path){
 	d3.csv(path).then(function(data) {
+
 		//Assigning the loaded data to the local database
 		flags=data;
 		total_flag_number = 215;
+
 		//Filling the flags without filtration
 		flag_number = flags.length;
 		assign_flags(flags, flag_number);
@@ -1146,15 +1301,19 @@ function input_listener() {
 		}
 	});
 	flag_number = flags_input.length;
+
 	//Loading the flags
 	assign_flags(flags_input, flag_number)
 }
 
+// create the flag slider
 const assign_flags= function(flags, flag_number) {
+
 	//Reference to the flag container
 	let scrollmenu = document.getElementById("js_flag_scroll");
 	scrollmenu.classList.add("flag-slider");
-	//Delete all childs
+
+	//Delete all children
 	scrollmenu.innerHTML = '';
 	let cnt = 0;
 	while (cnt < flag_number) {
@@ -1175,39 +1334,54 @@ const assign_flags= function(flags, flag_number) {
 			button_style.style.background="none";
 			button_style.style.border="none";
 		}
+
 		button_style.addEventListener('click',function(e){
+
 			let flag=e.target;
 			flag.clicked=(!flag.clicked) && target_countries.size<2;
 			if (target_countries.size === 2 && !target_countries.has(flag.id)) {
 				alert("You cannot select more than two countries at the same time");
 			}
+
 			if (flag.clicked){
-				//Adding country to targetted countries
+
+				//Adding country among the targetted countries when clicked
 				target_countries.add(flag.id);
 				flag.style.opacity=0;
 				flag.style.background="none";
 				flag.style.border="none";
+
+				// Reseting the search bar results
 				if (document.getElementById("search_bar").value !== "") {
 					document.getElementById("search_bar").value = "";
 					input_listener();
 				}
+
 				set_team();
 			} else {
-				//Removing country from targetted countries
+
+				//Removing the country from the targetted ones
 				target_countries.delete(flag.id);
 				flag.style="resetStyle";
+
+				// resetting search bar results
 				if (document.getElementById("search_bar").value !== "") {
 					document.getElementById("search_bar").value = "";
 					input_listener();
 				}
+
+				// execute the corresponding function according to the number of flags that is now actually selected
 				if (target_countries.size === 0) {
 					world_mode()
 				} else {
 					cancelVS();
 				}
 			}
+
 	  });
+
 		cnt++;
+
 		// bottom flag
 		const square2 = document.createElement("div");
 		square2.classList.add('square');
@@ -1223,41 +1397,56 @@ const assign_flags= function(flags, flag_number) {
 				button_style2.style.background="none";
 				button_style2.style.border="none";
 			}
+
 			button_style2.addEventListener('click',function(e){
+
 				let flag=e.target;
 				flag.clicked=(!flag.clicked) && target_countries.size<2;
 				if (target_countries.size === 2 && !target_countries.has(flag.id)) {
 					alert("You cannot select more than two countries at the same time");
 				}
+
 				if (flag.clicked){
+
 					//Adding country to targetted countries
 					target_countries.add(flag.id);
 					flag.style.opacity=0;
 					flag.style.background="none";
 					flag.style.border="none";
+
+					// resetting search bar results
 					if (document.getElementById("search_bar").value !== "") {
 						document.getElementById("search_bar").value = "";
 						input_listener();
 					}
+
 					set_team();
 				} else {
+
 					//Removing country from targetted countries
 					target_countries.delete(flag.id);
 					flag.style="resetStyle";
+
+					// resetting search bar results
 					if (document.getElementById("search_bar").value !== "") {
 						document.getElementById("search_bar").value = "";
 						input_listener();
 					}
+
+					// execute corresponding function according to the number of flags that is now actually selected
 					if (target_countries.size === 0) {
 						world_mode();
 					} else {
 						cancelVS();
 					}
 				}
+
 			});
 		};
+
 		cnt++;
 
+		// create a column of flags for the flag slider
 		square.appendChild(button_style);
 		if (cnt <= flag_number) square2.appendChild(button_style2);
 		wrapper.appendChild(square);
@@ -1269,6 +1458,7 @@ const assign_flags= function(flags, flag_number) {
 //List of criterions/measures
 measures=["Matches Played", "Wins", "Draws", "Losses", "Goals Scored", "Goals Conceded",
 	"Ratio Win Per Match", "Ratio Draw Per Match", "Ratio Loss Per Match",
+	"Ratio Goal Scored Per Match", "Ratio Goal Scored Per Year", "Ratio Goal Conceded Per Match", "Ratio Goal Conceded Per Year",
 	"Home Wins", "Home Draws", "Home Losses", "Away Wins", "Away Draws", "Away Losses",
 	"Performance Factor Home Matches", "Performance Factor Away Matches",
 	"Friendly Home Matches Played", "Friendly Away Matches Played", "Friendly Neutral Matches Played",
@@ -1322,13 +1512,18 @@ const criterion_loader = function() {
 
 	const content_meas = document.createElement("div");
 	content_meas.classList.add("content");
+
 	//Loading all measure criterions
 	measures.forEach((item, i) => {
-		if(i===6){
+
+		// creating separating lines in the menus
+		if(i===6 || i===13 || i===19 || i === 21 || i === 24){
 			const small = document.createElement("small");
 			small.innerHTML = '<hr>';
 			content_meas.appendChild(small);
 		}
+
+		// creating radio button for measures menu
 		const label = document.createElement("label");
 		const input = document.createElement('input');
 		input.type = "radio"; //checkbox or radio
@@ -1341,19 +1536,21 @@ const criterion_loader = function() {
 		small.innerHTML = item;
 		label.appendChild(small);
 		content_meas.appendChild(label);
-		//measure_ref.appendChild(content_meas);
 	});
+
 	measure_ref.appendChild(content_meas);
 	const content_comp = document.createElement("div");
-
 	content_comp.classList.add("content");
-	//Loading all competition criterions
+
+	//Loading all competition criterions with separating section lines
 	competitions.forEach((item, i) => {
-		if(i===16){
+		if(i===1 || i===2 || i===9 || i===16){
 			const small = document.createElement("small");
 			small.innerHTML = '<hr>';
 			content_comp.appendChild(small);
 		}
+
+		// creating the checkboxes for competitions menu
 		const label = document.createElement("label");
 		const input = document.createElement('input');
 		input.type = "checkbox"; //checkbox or radio
@@ -1366,13 +1563,14 @@ const criterion_loader = function() {
 		label.appendChild(small);
 		content_comp.appendChild(label);
 	});
+
 	competition_ref.appendChild(content_comp);
 };
 
 // triggered when the document is ready
 whenDocumentLoaded(() => {
-
 	let i;
+
   // load the flag database
 	data_loader("../../data/final_results.csv"); /* Ajout Vincent */
 
@@ -1485,7 +1683,7 @@ whenDocumentLoaded(() => {
 		}
 	};
 
-	// special checkbox having an impact on all the other ones by switching their value to "checked" or "unchecked"
+	// "All" is a special checkbox having an impact on all the checkboxes of its menu by switching automatically their value to "checked" or "unchecked"
 	document.getElementById("All button").onclick = function() {
 		let i;
 		let currBtn;
@@ -1564,6 +1762,10 @@ whenDocumentLoaded(() => {
 	enableDisabledButtons("Ratio Win Per Match button");
 	enableDisabledButtons("Ratio Draw Per Match button");
 	enableDisabledButtons("Ratio Loss Per Match button");
+	enableDisabledButtons("Ratio Goal Scored Per Match button");
+	enableDisabledButtons("Ratio Goal Scored Per Year button");
+	enableDisabledButtons("Ratio Goal Conceded Per Match button");
+	enableDisabledButtons("Ratio Goal Conceded Per Year button");
 	enableDisabledButtons("Home Wins button");
 	enableDisabledButtons("Home Draws button");
 	enableDisabledButtons("Home Losses button");

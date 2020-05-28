@@ -73,7 +73,6 @@ hr {
 	100% {display: block;opacity: 0;}
 }
 
-
 /* background for svg bar plot */
 .board {
 	position: absolute;
@@ -83,7 +82,7 @@ hr {
 	top: 2vh;
 	background: var(--background);
 	overflow: auto;
-
+	overflow-x: hidden;
 }
 
 /* div to draw svg bar plot inside */
@@ -124,8 +123,6 @@ hr {
 	font-weight: lighter;
 }
 
-
-
 /* div of board flag display when selecting a team */
 .flagBoardDisplay {
 	width: 7.5vw;
@@ -155,26 +152,13 @@ hr {
 	text-align: left;
 }
 
-/* button triggering the two teams comparison */
-.buttonCompare {
-	position: absolute;
-	width: 10vw;
-	height: 3.5vw;
-	left: 31.8vw;
-	top: 2vh;
-	font-size: 1vw;
-	background-color: var(--backgrounddark2);
-	border-radius: 1em;
-	border-width: 0;
-}
-
 /* div of board flag display when selecting a team */
 .flagBoardDisplay2 {
 	position: absolute;
 	width: 7.5vw;
 	height: 7.5vw;
 	margin-top: -7.5vw;
-	margin-left: 64.5vw;
+	margin-left: 63.5vw;
 }
 
 /* image for div of board flag display */
@@ -192,7 +176,7 @@ hr {
 	height: 3.5vh;
 	left: 7vw;
 	top: 2.5vh;
-	font-size: 27px;
+	font-size: 23px;
 	color: #111;
 	text-align: left;
 	pointer-events: none;
@@ -205,9 +189,9 @@ hr {
 	position: absolute;
 	width: 40vw;
 	height: 3.5vh;
-	right: 7vw;
+	right: 8.5vw;
 	top: 2.5vh;
-	font-size: 27px;
+	font-size: 23px;
 	font-weight: lighter;
 	color: #111;
 	text-align: right;
@@ -215,39 +199,7 @@ hr {
 	touch-action: none;
 }
 
-
-/* buttons to change tab */
-/*.buttonTab {
-	position: absolute;
-	width: 3.75vw;
-	height: 7vh;
-	margin-top: 84vh;
-	opacity: 0;
-	animation: 300ms linear 600ms 1 fadeInFromNone;
-}
-
-/* button to go to history tab */
-/*#buttonHistory.buttonTab {
-	left: 0;
-	margin-left: 0.5vw;
-	background-image: url("images/book.jpg");
-	background-size: 3.75vw 7vh;
-	border: none;
-}*/
-
-/* button to go to map tab */
-/*#buttonMap.buttonTab {
-	right: 0;
-	margin-right: 0.5vw;
-	background-image: url("images/planet.jpg");
-	background-size: 3.75vw 7vh;
-	border: none;
-	border-radius: 50%;
-}*/
-
-
-
-/* animation for time slider, search bar, generate data button and flag slider */
+/* animation for stuff like time slider or search bar when opening the tab */
 @keyframes fadeInFromNone {
 	0% {
 		display: none;
@@ -265,27 +217,14 @@ hr {
 	color: var(--darkdarkgrey);
 }
 
-/*!* search bar *!
-#search_bar {
-	animation: 300ms ease-out 3.70s 1 fade-in;
-}*/
-
-/* generate data button */
-/*
-.buttonLoad {
-	position: absolute;
-	width: 13vw;
-	height: 5vh;
-	margin-top: 74.2vh;
-	right: 0;
-	margin-right: 18vw;
-	background-image: url("images/data.jpg");
-	background-size: 12.75vw 4.75vh;
-	opacity: 0;
-	border: 0.1vw solid black;
-	animation: 300ms ease-out 3.70s 1 fade-in;
+/* some classes for table display */
+table.fixed {
+	table-layout:fixed;
 }
-*/
+
+table.fixed td {
+	overflow: hidden;
+}
 
 table {
 	border-spacing: 1vw;
@@ -299,33 +238,42 @@ table {
 	position: relative;
 	color: #111;
 }
+
 table * {
 	position: relative;
 }
+
 table td, table th {
 	padding-left: 8px;
 }
+
 table thead tr {
 	height: 60px;
 	background: var(--backgrounddark2);
 	font-size: 16px;
 }
+
 table tbody tr {
 	height: 48px;
 	border-bottom: 1px solid var(--backgrounddark);
 }
+
 table tbody tr:last-child {
 	border: 0;
 }
+
 table td, table th {
 	text-align: center;
 }
+
 table td.l, table th.l {
 	text-align: right;
 }
+
 table td.c, table th.c {
 	text-align: center;
 }
+
 table td.r, table th.r {
 	text-align: center;
 }

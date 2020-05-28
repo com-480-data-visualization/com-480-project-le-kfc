@@ -46,14 +46,14 @@
 				selecting = true;
 			}).on("mouseup", function (evt) {
 				selecting = false;
-				if (data != null && currBtnTeamId != null) {
+				if ((data != null || (data1 != null && data2 != null)) && (currBtnTeamId != null)) {
 					load_data();
 				}
 			});
 			$(document).on("mouseup", function (evt) {
 				if (selecting == true) {
 					selecting = false;
-					if (data != null && currBtnTeamId != null) {
+					if ((data != null || (data1 != null && data2 != null)) && (currBtnTeamId != null)) {
 						load_data();
 					}
 				}
@@ -132,47 +132,12 @@
 </div>
 
 <!--Div for two teams comparison-->
-<div id="dataVS" class="board" style="display:none;">
+<div id="dataVS" class="board" style="display:none">
 	<div id="flagVS1" class="flagBoardDisplay" onclick="changeVS1()"></div>
 	<div id="flagVS2" class="flagBoardDisplay2" onclick="changeVS2()"></div>
 	<div id="nameCountry1" class="titleDiv1"></div>
 	<div id="nameCountry2" class="titleDiv2"></div>
-
-	<table>
-		<thead>
-		<tr>
-			<th>Country 2</th>
-			<th></th>
-			<th>Stats</th>
-			<th></th>
-			<th>Country 2</th>
-		</tr>
-		<thead>
-		<tbody>
-		<tr>
-			<td>50</td>
-			<td></td>
-			<td>Buts</td>
-			<td></td>
-			<td>10</td>
-		</tr>
-		<tr>
-			<td>50</td>
-			<td></td>
-			<td>Matchs</td>
-			<td></td>
-			<td>10</td>
-		</tr>
-		<tr>
-			<td>50</td>
-			<td></td>
-			<td>Corners</td>
-			<td></td>
-			<td>10</td>
-		</tr>
-		</tbody>
-	</table>
-
+	<table id="tableTwoTeams" class="fixed" style="margin-right:4.55vw"></table>
 </div>
 
 </body>
