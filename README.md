@@ -78,3 +78,29 @@ We are now using in addition the following external dataset to load the country 
 ## Milestone 3 (Thursday 28th May, 5pm)
 
 **80% of the final grade**
+
+The website can be directly run on Mozilla Firefow, Microsoft Edge, Google Chrome and Safari, and is not adapted for cell phones. You can access it either by clicking on the link at the end of the section, or by opening the index.html file in our GitHub repository.
+
+The website presents an historical and statistical view of football matches between nations since the very beginning of football history, and is divided in three diferent tabs:
+
+- The first tab is named **History** and presents an overview of the greatest football events concerning nations that occured since the end of the XIXth century. By scrolling down the page, you will be able to select a major event from an available interactive timeline to directly be sent to the corresponding section and access to the story of this event. You can also simply scroll down manually to visit every section ordered from top to bottom chronologically. Three different links are available at the very end of this page to access the repository of the website, the source of the images used for the different historical section of the page, and the list of the team members that built this website.
+
+- The second tab is **Map** and displays a choropleth world map showing statistics about countries depending on the selected criterions that are located in two differents menus on the left of the screen that are [Measures] which gathers all the different kind of statistics that are available in our website, and [Competitions] that acts as a filter to focus only on the desired competitions. A time slider is available to select the time period on which we want to retrieve the statistics, as well as a flag slider to display data about the selected country. Simply click on the [Generate Data] button to load the statistics on the map. A legend will appear given details about the corresponding colors, as well as the highest and lowest recorded value. Note that information about a country can be also highlighted by hovering over a territory. Clicking on this territory, or on the corresponding flag, will save the value in a small box near the legend to record every user interaction with the map.
+
+- The third tab is the **Details** tab which offer to the user other types of visualization to display the data. The criterions menus, flag slider, and time slider, are also available on this page. First, an horizontal bar plot gathering world-wide statistics can be displayed by clicking on the [Generate Data] button after selecting a measure and the desired competitions to focus on. Only one measure at a time can be selected in this situation. Secondly, the user can visualize statistics concerning a single country if he wants, by simply clicking on a country in the flag slider. Every measures will be available at selection at this moment. The user can display whatever statistic he wants by simply selecting the corresponding measures, and there is no need to press the [Generate Data] button anymore. The new horizontal bar plot will be updated immediately after any parameter change. Finally, the user, after selecting its first country, can select a second one to compare them over a chosen period of time for specific statistics. The procedure concerning the parameters selection is the same, and the plotted statistics will again update immediately each time the user modify its parameters selection. The resulting plot will not be a bar plot, but a table with each country statistics displayed in a different column, separared by a third column gathring the name of every selected measures. The cells of the values will be colored depending on their value compared to the other on the same measure.  
+
+We use the follwing libraries with their corresponding version:
+
+- Leaflet 0.7.1
+- JQuery 1.12.4
+- JQuery-UI 1.12.1
+- D3.js 5.7.0
+
+Our website is hosted via the following link:
+- [Web Site Le-KFC Data Visualization Spring 2020 EPFL : International Football Data]()
+
+You can watch or download our screen cast by clicking on the following link:
+- [Screencast Le-KFC Data Visualization Spring 2020 EPFL](https://drive.google.com/file/d/1g2SIYmflNMGMaUGoOa7PgznJqv9r7V4L/view?usp=sharing)
+
+The Process Book is available in our repo under the name:
+- [Process Book Le-KFC Data Visualization Spring 2020 EPFL]()
