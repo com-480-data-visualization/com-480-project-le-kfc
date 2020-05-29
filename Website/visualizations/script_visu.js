@@ -73,12 +73,13 @@ let flag_number;
 let target_countries = new Set();
 let start_time = 1872;
 let end_time = 2020;
-let selected_measure=[];
+let selected_measure;
 let selected_competitions = new Set();
 let db;
 let map;
 let max=0;
 let stat_box= new Map();
+let old_stat_box= new Map(); //Makes sure the Generate Data Button is the only way to update the display
 /////////////////////////////////////////////////////////////////////////
 //HELPER FUNCTIONS
 /////////////////////////////////////////////////////////////////////////
@@ -98,6 +99,11 @@ function input_listener() {
 
 	//Loading the flags
 	assign_flags(flags_input, flag_number)
+
+	//Refreshes the map to link it to the new buttons
+	map.off();
+	map.remove();
+
 }
 
 function isFloat(n){
@@ -420,9 +426,18 @@ const load_map = function(){
 	//Assigning onHover, onHoverEnd and select to the tiles
 	function onEachFeature(feature, layer) {
 			layer.feature.properties.clicked = false;
-			feature.properties.val=0;
+
+			//Initializing the tile's value (undefined unless reload)
+			layer.feature.properties.val=old_stat_box[feature.properties.name]
+
+			//Displaying the values on the map
 			layer.setStyle(style(feature));
-			stat_box[feature.properties.name]=0;
+
+			//Initializing the stat box entry if necessary (not for reloads)
+			if(!(feature.properties.name in stat_box)){
+				stat_box[feature.properties.name]=0;
+				old_stat_box[feature.properties.name]=0;
+			}
 
 			//Making the countries reactive to actions of the flags
 			const flag=document.getElementById(feature.properties.name);
@@ -434,8 +449,9 @@ const load_map = function(){
 
 			const update_button=document.getElementById("generate_container");
 			update_button.addEventListener("click", function(e){
-				feature.properties.val=stat_box[feature.properties.name];
+				feature.properties.val=old_stat_box[feature.properties.name];
 				layer.setStyle(style(feature));
+				old_stat_box[feature.properties.name]=stat_box[feature.properties.name]
 				const max_display=document.getElementById("max_display");
 				const min_display=document.getElementById("min_display");
 				max_display.innerHTML= max===0 ? "" : max;
@@ -662,10 +678,6 @@ const criterion_loader= function(){
 			}
 			stats();
 		})
-
-		if (i===0){
-			input.checked=true;
-		}
 		label.appendChild(input);
 		const small = document.createElement("small");
 		small.innerHTML = item;

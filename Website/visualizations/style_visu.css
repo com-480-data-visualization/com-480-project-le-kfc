@@ -126,10 +126,6 @@ hr {
 
 
 
-
-
-
-
 /* SEARCH INPUT */
 
 input {
@@ -147,6 +143,7 @@ input::-webkit-input-placeholder { color: var(--darkgrey);}
 input:-moz-placeholder { color: var(--darkgrey);}
 input::-moz-placeholder { color: var(--darkgrey);}
 input:-ms-input-placeholder { color: var(--darkgrey);}
+
 .wrap-input100 {
 	width: 13vw;
 	position: absolute;
