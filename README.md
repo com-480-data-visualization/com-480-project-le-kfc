@@ -99,7 +99,7 @@ We use the follwing libraries with their corresponding version:
 Our website is hosted via the following link:
 - [Web Site Le-KFC Data Visualization Spring 2020 EPFL : International Football Data]()
 
-You can download our screen cast by clicking on the following link:
+You can watch or download our screen cast by clicking on the following link:
 - [Screencast Le-KFC Data Visualization Spring 2020 EPFL](https://drive.google.com/file/d/1g2SIYmflNMGMaUGoOa7PgznJqv9r7V4L/view?usp=sharing)
 
 The Process Book is available in our repo under the name:
