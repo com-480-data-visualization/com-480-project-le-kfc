@@ -225,11 +225,11 @@ $(function() {
 
 /* HISTORY */
 $(function() {
-    var scrollMagicController = new ScrollMagic;
+    let scrollMagicController = new ScrollMagic;
     $(window).load(function() {
 
         // build scene
-        var main = new ScrollScene({
+        let main = new ScrollScene({
             triggerElement: '#main_title',
         })
             .setTween(new TimelineMax().add([
@@ -243,7 +243,7 @@ $(function() {
         //main.addIndicators();
     });
 
-    var animated_text0 = new ScrollScene({
+    let animated_text0 = new ScrollScene({
         triggerElement: '#at0',
         triggerHook: "0",
         duration: "1200",
@@ -255,7 +255,34 @@ $(function() {
         .setPin('#at0');
     animated_text0.addTo(scrollMagicController);
 
-    var animated_text = new ScrollScene({
+    let animated_text_gif = new ScrollScene({
+        triggerElement: '#at_gif',
+        triggerHook: "0",
+        duration:'700',
+        offset:100
+    })
+        .setTween(new TimelineMax().add([
+            TweenMax.from("#heading_gif", 1, { y: 0, }),
+        ]))
+        .setPin('#at_gif');
+    animated_text_gif.addTo(scrollMagicController);
+
+    let animated_images_gif = new ScrollScene({
+        triggerElement: '#ai_gif',
+        triggerHook: "1",
+    })
+        .setTween(new TimelineMax().add([
+            TweenLite.from(".box07", 1, { y: 150, opacity: 0 }),
+            TweenLite.from(".box07 h2", 1, { x: -150, opacity: 0 }).delay(1),
+            TweenLite.from(".box07 p", 1, { x: -250, opacity: 0 }).delay(1),
+            TweenLite.from(".box08", 1, { opacity: 0 }),
+            TweenLite.from(".box08 h2", 1, { x: 150, opacity: 0 }).delay(1),
+            TweenLite.from(".box08 p", 1, { x: 250, opacity: 0 }).delay(1),
+        ]))
+    animated_images_gif.addTo(scrollMagicController)
+
+
+    let animated_text = new ScrollScene({
         triggerElement: '#at1',
         triggerHook: "0",
         duration: "2000",
@@ -270,7 +297,7 @@ $(function() {
         .setPin('#at1');
     animated_text.addTo(scrollMagicController);
 
-    var animated_images = new ScrollScene({
+    let animated_images = new ScrollScene({
         triggerElement: '#ai1',
         triggerHook: "0.9",
     })
@@ -281,7 +308,7 @@ $(function() {
         ]));
     animated_images.addTo(scrollMagicController)
 
-    var animated_text2 = new ScrollScene({
+    let animated_text2 = new ScrollScene({
         triggerElement: '#at2',
         triggerHook: "0",
         duration:'2000',
@@ -296,7 +323,7 @@ $(function() {
         .setPin('#at2');
     animated_text2.addTo(scrollMagicController);
 
-    var slideParallaxScene = new ScrollScene({
+    let slideParallaxScene = new ScrollScene({
         triggerElement: '#ap1',
         triggerHook: 0.5,
         duration: '500'
@@ -306,7 +333,7 @@ $(function() {
             .from('#apb1', 2, {y: '-50%', ease:Power0.easeNone}, 0));
     slideParallaxScene.addTo(scrollMagicController);
 
-    var animated_text3 = new ScrollScene({
+    let animated_text3 = new ScrollScene({
         triggerElement: '#at3',
         triggerHook: "0",
         duration:'2000',
@@ -319,7 +346,7 @@ $(function() {
         .setPin('#at3');
     animated_text3.addTo(scrollMagicController);
 
-    var slideParallaxScene2 = new ScrollScene({
+    let slideParallaxScene2 = new ScrollScene({
         triggerElement: '#ap2',
         triggerHook: 0.5,
         duration: '500'
@@ -329,7 +356,7 @@ $(function() {
             .from('#apb2', 2, {y: '-50%', ease:Power0.easeNone}, 0));
     slideParallaxScene2.addTo(scrollMagicController);
 
-    var animated_text4 = new ScrollScene({
+    let animated_text4 = new ScrollScene({
         triggerElement: '#at4',
         triggerHook: "0",
         duration:'1500',
@@ -344,7 +371,7 @@ $(function() {
         .setPin('#at4');
     animated_text4.addTo(scrollMagicController);
 
-    var animated_text5 = new ScrollScene({
+    let animated_text5 = new ScrollScene({
         triggerElement: '#at5',
         triggerHook: "0",
         duration:'700',
@@ -356,7 +383,7 @@ $(function() {
         .setPin('#at5');
     animated_text5.addTo(scrollMagicController);
 
-    var animated_images2 = new ScrollScene({
+    let animated_images2 = new ScrollScene({
         triggerElement: '#ai2',
         triggerHook: "1",
     })
@@ -383,7 +410,7 @@ $(function() {
         ]))
     animated_images2.addTo(scrollMagicController)
 
-    var animated_text6 = new ScrollScene({
+    let animated_text6 = new ScrollScene({
         triggerElement: '#at6',
         triggerHook: "0",
         duration:'2000',
@@ -398,7 +425,7 @@ $(function() {
         .setPin('#at6');
     animated_text6.addTo(scrollMagicController);
 
-    var slideParallaxScene3 = new ScrollScene({
+    let slideParallaxScene3 = new ScrollScene({
         triggerElement: '#ap3',
         triggerHook: 0.5,
         duration: '500'
@@ -408,7 +435,7 @@ $(function() {
             .from('#apb3', 2, {y: '-50%', ease:Power0.easeNone}, 0));
     slideParallaxScene3.addTo(scrollMagicController);
 
-    var animated_text7 = new ScrollScene({
+    let animated_text7 = new ScrollScene({
         triggerElement: '#at7',
         triggerHook: "0",
         duration:'700',
@@ -420,7 +447,7 @@ $(function() {
         .setPin('#at7');
     animated_text7.addTo(scrollMagicController);
 
-    var animated_images3 = new ScrollScene({
+    let animated_images3 = new ScrollScene({
         triggerElement: '#ai3',
         triggerHook: "1",
     })
