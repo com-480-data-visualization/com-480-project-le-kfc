@@ -113,7 +113,7 @@ function isFloat(n){
 //Tab change function
 const change_tab= function(name){
 	if (name==="HISTORY") {
-		window.open("../index.html",'_self');
+		window.open("../../index.html",'_self');
 	}
 	else if(name==="DETAILS") {
 		window.open("../details/index_details.html",'_self');
