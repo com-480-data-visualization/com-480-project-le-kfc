@@ -95,6 +95,8 @@ We use the follwing libraries with their corresponding version:
 - JQuery 1.12.4
 - JQuery-UI 1.12.1
 - D3.js 5.7.0
+- Scrollmagic 1.3.0
+- TweenMax 1.14.2
 
 Our website is hosted via the following link:
 - [Web Site Le-KFC Data Visualization Spring 2020 EPFL : International Football Data]()
