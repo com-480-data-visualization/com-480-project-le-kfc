@@ -17,7 +17,7 @@ window.addEventListener('load', function() {
 // switch to an other tab of the website
 const change_tab = function(name) {
 	if (name === "HISTORY") {
-		window.open("../index.html", '_self');
+		window.open("../../index.html", '_self');
 	} else if (name === "MAP") {
 		window.open("../visualizations/index_visu.html", '_self');
 	}

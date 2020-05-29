@@ -180,16 +180,16 @@ const assign_stats= function(){
 const change_tab= function(name) {
     //Changing the backgrounds and titles depending on the tab
     if (name === 'VISUALIZATION from history') {
-        window.open("visualizations/index_visu.html",'_self');
+        window.open("Website/visualizations/index_visu.html",'_self');
     }
     else if (name === 'VISUALIZATION from other') {
         window.open("../visualizations/index_visu.html",'_self');
     }
     else if (name === 'HISTORY from image sources') {
-        window.open("../index.html",'_self');
+        window.open("../../index.html",'_self');
     }
     else if (name === 'IMAGE SOURCES from history') {
-        window.open("history/image_sources.html",'_self');
+        window.open("Website/history/image_sources.html",'_self');
     }
     else if (name === 'IMAGE SOURCES from team') {
         window.open("image_sources.html",'_self');
@@ -198,7 +198,7 @@ const change_tab= function(name) {
         window.open("team.html",'_self');
     }
     else if (name === 'TEAM from history') {
-        window.open("history/team.html",'_self');
+        window.open("Website/history/team.html",'_self');
     }
 }
 
