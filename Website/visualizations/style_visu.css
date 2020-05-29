@@ -87,6 +87,7 @@ hr {
 	display:inline-block;
 	text-decoration: none;
 	text-transform:uppercase;
+	cursor: cell;
 }
 .button-style:before{
 	content: '';
@@ -510,6 +511,7 @@ body label {
 .option-input:disabled {
 	background: rgba(108, 126, 147, 0.9);
 	opacity: 0.25;
+	cursor: default;
 }
 .option-input:checked {
 	background: rgba(40, 97, 125, 0.8);

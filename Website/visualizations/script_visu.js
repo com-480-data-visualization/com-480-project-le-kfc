@@ -17,15 +17,19 @@ function whenDocumentLoaded(action) {
 /////////////////////////////////////////////////////////////////////////
 
 //List of criterions
-measures=["Matches Played", "Wins", "Draws", "Losses", "Goals Scored", "Goals Conceded",
-	"Ratio Win Per Match", "Ratio Draw Per Match", "Ratio Loss Per Match", "Goals Scored Per Match",
-	"Goals Scored Per Year", "Goals Conceded Per Match", "Goals Conceded Per Year",
+let measures=["Matches Played", "Wins", "Draws", "Losses", "Goals Scored", "Goals Conceded",
+	"Ratio Win Per Match", "Ratio Draw Per Match", "Ratio Loss Per Match",
+	"Ratio Goal Scored Per Match", "Ratio Goal Scored Per Year", "Ratio Goal Conceded Per Match", "Ratio Goal Conceded Per Year",
 	"Home Wins", "Home Draws", "Home Losses", "Away Wins", "Away Draws", "Away Losses",
 	"Performance Factor Home Matches", "Performance Factor Away Matches",
 	"Friendly Home Matches Played", "Friendly Away Matches Played", "Friendly Neutral Matches Played",
 	"Tournament Matches Played", "Major Tournaments Played", "World Cup Tournaments Won"];
 
-competitions=['All', 'Friendly',
+const major_comp = ['FIFA World Cup', 'UEFA Euro', 'Copa América', 'African Cup of Nations', 'Gold Cup', 'AFC Asian Cup', 'Oceania Nations Cup'];
+const major_comp_btn = ['All button', 'FIFA World Cup button', 'UEFA Euro button', 'Copa América button', 'African Cup of Nations button', 'Gold Cup button', 'AFC Asian Cup button', 'Oceania Nations Cup button'];
+
+
+let competitions=['All', 'Friendly',
 	'FIFA World Cup', 'UEFA Euro', 'Copa América', 'African Cup of Nations', 'Gold Cup', 'AFC Asian Cup', 'Oceania Nations Cup',
 	'FIFA World Cup qualification', 'UEFA Euro qualification', 'Copa América qualification', 'African Cup of Nations qualification',
 	'Gold Cup qualification', 'AFC Asian Cup qualification',	'Oceania Nations Cup qualification',
@@ -69,7 +73,7 @@ let flag_number;
 let target_countries = new Set();
 let start_time = 1872;
 let end_time = 2020;
-let selected_measure=measures[0];
+let selected_measure=[];
 let selected_competitions = new Set();
 let db;
 let map;
@@ -127,7 +131,6 @@ const stats = function(){
 
 	//Computing the country statistic chosen by the user
 	max=0;
-	const major_comp = ['FIFA World Cup', 'UEFA Euro', 'Copa América', 'African Cup of Nations', 'Gold Cup', 'AFC Asian Cup', 'Oceania Nations Cup'];
 
 	Object.keys(stat_box).forEach((item,i) => {
 		let db_filtered_country=db_filtered.filter(entry => (entry.home_team===item) || (entry.away_team===item));
@@ -291,16 +294,16 @@ const stats = function(){
 				})
 				stat_box[item]= prop_real_away_lose===0?0:prop_real_away_win/prop_real_away_lose;
 				break;
-			case "Goals Scored Per Year":
+			case "Ratio Goal Scored Per Year":
 				stat_box[item]=nb_goal_scored()/(end_time-start_time+1)
 				break;
-			case "Goals Scored Per Match":
+			case "Ratio Goal Scored Per Match":
 				stat_box[item]= nb_played()===0?0:nb_goal_scored()/nb_played();
 				break;
-			case "Goals Conceded Per Year":
+			case "Ratio Goal Conceded Per Year":
 				stat_box[item]=nb_goal_conceded()/(end_time-start_time+1);
 				break;
-			case "Goals Conceded Per Match":
+			case "Ratio Goal Conceded Per Match":
 				stat_box[item]=nb_played()===0?0:nb_goal_conceded()/nb_played();
 				break;
 			default:
@@ -343,7 +346,7 @@ const load_map = function(){
 		flag=	document.getElementById(layer.feature.properties.name);
 
 		if (flag!=null) {
-			flag.style.opacity=0;
+			flag.style.opacity="0";
 			flag.style.background="none";
 			flag.style.border="none";
 
@@ -380,8 +383,6 @@ const load_map = function(){
 
 		if (flag!=null && !layer.feature.properties.clicked) {
 				flag.style="resetStyle";
-
-
 		}
 
 	}
@@ -431,10 +432,6 @@ const load_map = function(){
 				flag.addEventListener("mouseout", function(e){onHoverEnd(layer)});
 			}
 
-			function isFloat(n){
-				return Number(n) === n && n % 1 !== 0;
-			}
-
 			const update_button=document.getElementById("generate_container");
 			update_button.addEventListener("click", function(e){
 				feature.properties.val=stat_box[feature.properties.name];
@@ -442,21 +439,13 @@ const load_map = function(){
 				const max_display=document.getElementById("max_display");
 				const min_display=document.getElementById("min_display");
 				max_display.innerHTML= max===0 ? "" : max;
-				if(max<10000000) {
+				if(max>10000) {
 					min_display.style.fontSize = "8px";
 					max_display.style.fontSize = "8px";
 				}
-				if(max<1000000) {
-					min_display.style.fontSize = "9px";
-					max_display.style.fontSize = "9px";
-				}
-				if(max<100000 || isFloat(max)) {
-					min_display.style.fontSize = "11px";
-					max_display.style.fontSize = "11px";
-				}
-				if(max<10000) {
-					min_display.style.fontSize = "14px";
-					max_display.style.fontSize = "14px";
+				else {
+					min_display.style.fontSize = "10px";
+					max_display.style.fontSize = "10px";
 				}
 			});
 
@@ -618,7 +607,6 @@ const flag_loader= function(path){
 
 //Criterion loading function
 const criterion_loader= function(){
-
 	//Reference to the criterion containers
 	const measure_ref=document.getElementById("measure_container");
 	const competition_ref=document.getElementById("competition_container");
@@ -627,7 +615,7 @@ const criterion_loader= function(){
 	//Loading all measure criterions
 	content_meas.classList.add("content");
 	measures.forEach((item, i) => {
-		if(i===6||i===13){
+		if(i===6 || i===13 || i===19 || i === 21 || i === 24){
 			const small = document.createElement("small");
 			small.innerHTML = '<hr>';
 			content_meas.appendChild(small);
@@ -647,23 +635,25 @@ const criterion_loader= function(){
 			selected_measure=measure.parentNode.childNodes[1].innerHTML;
 			const buttons = document.getElementById("competition_container").elements;
 
-			//Making sure that:
-			//*'Friendly' can't be selected when using a competitive measure
-			//*Only 'Friendly' can't be selected when using a non-competitive measure
 			if (selected_measure.startsWith("Friendly")){
 				for (let i = 0, len = buttons.length; i < len; i++ ) {
 					buttons[i].disabled=true;
-					buttons[i].checked=(buttons[i].data=="Friendly button");
+					buttons[i].checked=(buttons[i].id==="Friendly button");
 				}
 				selected_competitions= new Set(["Friendly"]);
-			} else if ((selected_measure==="Tournament Matches Played") ||
-				(selected_measure==="Major Tournaments Played") ||
-				(selected_measure==="World Cup Tournaments Won")){
-					for (let i = 0, len = buttons.length; i < len; i++ ) {
-						buttons[i].disabled=(buttons[i].id=="Friendly button");
-						buttons[i].checked=false;
-					}
-					selected_competitions= new Set();
+			} else if (selected_measure==="Tournament Matches Played"){
+				for (let i = 0, len = buttons.length; i < len; i++ ) {
+					buttons[i].disabled = buttons[i].id === "Friendly button";
+				}
+			} else if (selected_measure==="Major Tournaments Played"){
+				for (let i = 0, len = buttons.length; i < len; i++ ) {
+					buttons[i].disabled = !major_comp_btn.includes(buttons[i].id);
+				}
+			}else if (selected_measure==="World Cup Tournaments Won"){
+				for (let i = 0, len = buttons.length; i < len; i++ ) {
+					buttons[i].disabled = true;
+					buttons[i].checked = buttons[i].id === "FIFA World Cup button";
+				}
 			} else {
 				for (let i = 0, len = buttons.length; i < len; i++ ) {
 					buttons[i].disabled=false;
@@ -691,7 +681,7 @@ const criterion_loader= function(){
 	content_comp.classList.add("content");
 	competitions.forEach((item, i) => {
 
-		if(i===16){
+		if(i===1 || i===2 || i===9 || i===16){
 			const small = document.createElement("small");
 			small.innerHTML = '<hr>';
 			content_comp.appendChild(small);
