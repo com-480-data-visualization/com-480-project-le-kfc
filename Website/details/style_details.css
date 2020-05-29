@@ -229,7 +229,7 @@ table.fixed td {
 table {
 	border-spacing: 1vw;
 	border-collapse: collapse;
-	background: white;
+	background: var(--background);
 	border-radius: 6px;
 	overflow: hidden;
 	max-width: 800px;
